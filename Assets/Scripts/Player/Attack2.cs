@@ -52,7 +52,7 @@ public class Attack2 : MonoBehaviour
             m.atacking = true;
             m.animator.SetTrigger("isAttacking");
             if (m.onGround) m.rb.velocity = Vector3.zero;
-            if(m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Crit") m.rb.AddForce(playerTransform.forward * attackMoveForce);
+            m.rb.AddForce(playerTransform.forward * attackMoveForce);
             
         }
     }
@@ -68,7 +68,7 @@ public class Attack2 : MonoBehaviour
     {
         if (!attacking)
         {
-            comboTimeCounter -= Time.deltaTime;
+            if(comboTimeCounter > 0) comboTimeCounter -= Time.deltaTime;
             m.animator.SetFloat("combo", comboTimeCounter);
         }
 
