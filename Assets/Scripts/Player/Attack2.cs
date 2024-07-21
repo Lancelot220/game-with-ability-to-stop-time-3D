@@ -74,6 +74,7 @@ public class Attack2 : MonoBehaviour
 
         if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Crit") 
         { attackPower = critPower; }
+        else attackPower = defaultPower;
     }
 
     void OnTriggerEnter(Collider col)
