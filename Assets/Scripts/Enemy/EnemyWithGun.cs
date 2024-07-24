@@ -51,6 +51,7 @@ public class EnemyWithGun : MonoBehaviour
     public bool timeStopped;
     public GameObject hpBoost;
     public int hpBoostDropChance = 2;
+    Animator animator;
 
     void Start()
     {
@@ -63,6 +64,7 @@ public class EnemyWithGun : MonoBehaviour
         m_WaitTime = startWaitTime;
         m_TimeToRotate = timeToRotate;
 
+        animator = GetComponentInChildren<Animator>();
         m_CurrentWayPointIndex = 0;
         navMeshAgent = GetComponent<NavMeshAgent>();
         ps = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
@@ -77,13 +79,11 @@ public class EnemyWithGun : MonoBehaviour
 
         //shufle waypoints (cuz i don't want to do it manually)
     void Shuffle<T>(T[] array)
-{
-    Array.Sort(array, (a, b) => UnityEngine.Random.Range(-1, 1));
-}
+    { Array.Sort(array, (a, b) => UnityEngine.Random.Range(-1, 1)); }
 
     void Update()
     {
-        if (!timeStopped && !attacked && !_CaughtPlayer)
+        if (!timeStopped && navMeshAgent.enabled && !_CaughtPlayer)
         {
             EnvironmentView();
 
@@ -109,7 +109,7 @@ public class EnemyWithGun : MonoBehaviour
 
         _CaughtPlayer = Vector3.Distance(transform.position, player.position) <= catchingRadius;  //
         if(_CaughtPlayer && !timeStopped) transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
-
+        /*
         if(attacked) 
         {
             rb.constraints = RigidbodyConstraints.FreezeRotation;
@@ -119,6 +119,33 @@ public class EnemyWithGun : MonoBehaviour
 
         if(rb.velocity == Vector3.zero)
         rb.constraints = RigidbodyConstraints.FreezeAll;
+        */
+
+         //Animations
+        if (!timeStopped && navMeshAgent.enabled)
+        {
+            if(navMeshAgent.speed > 0 && navMeshAgent.speed < speedRun)
+            {
+                animator.SetBool("IsMoving", true);
+                animator.SetBool("IsRunning", false);
+            }
+            else if (navMeshAgent.speed > speedWalk)
+            {
+                animator.SetBool("IsMoving", true);
+                animator.SetBool("IsRunning", true);
+            }
+            else if (navMeshAgent.speed == 0)
+            {
+                animator.SetBool("IsMoving", false);
+                animator.SetBool("IsRunning", false);
+            }
+        }
+
+        if(!navMeshAgent.enabled || timeStopped)
+        { 
+            animator.SetBool("IsMoving", false);
+            animator.SetBool("IsRunning", false);
+        }
     }
 
     IEnumerator DisableAttacked()

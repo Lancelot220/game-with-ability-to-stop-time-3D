@@ -77,14 +77,12 @@ public class Enemy : MonoBehaviour
     }
     //shufle waypoints (cuz i don't want to do it manually)
     void Shuffle<T>(T[] array)
-{
-    Array.Sort(array, (a, b) => UnityEngine.Random.Range(-1, 1));
-}
+    { Array.Sort(array, (a, b) => UnityEngine.Random.Range(-1, 1)); }
 
 
     void Update()
     {
-        if (!timeStopped && !attacked && !_CaughtPlayer)
+        if (!timeStopped && navMeshAgent.enabled && !_CaughtPlayer)
         {
             EnvironmentView();
 
@@ -99,7 +97,7 @@ public class Enemy : MonoBehaviour
         }
         
         _CaughtPlayer = Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) <= catchingRadius;  //
-
+        /*
         if(attacked) 
         {
             rb.constraints = RigidbodyConstraints.FreezeRotation;
@@ -109,6 +107,7 @@ public class Enemy : MonoBehaviour
 
         if(rb.velocity == Vector3.zero)
         rb.constraints = RigidbodyConstraints.FreezeAll;
+        */
 
         //Death
         if (health <= 0 && !deathMessageSent)
@@ -121,7 +120,7 @@ public class Enemy : MonoBehaviour
         }
 
         //Animations
-        if (!timeStopped)
+        if (!timeStopped && navMeshAgent.enabled)
         {
             if(navMeshAgent.speed > 0 && navMeshAgent.speed < speedRun)
             {
@@ -138,6 +137,12 @@ public class Enemy : MonoBehaviour
                 animator.SetBool("IsMoving", false);
                 animator.SetBool("IsRunning", false);
             }
+        }
+
+        if(!navMeshAgent.enabled || timeStopped)
+        { 
+            animator.SetBool("IsMoving", false);
+            animator.SetBool("IsRunning", false);
         }
     }
 

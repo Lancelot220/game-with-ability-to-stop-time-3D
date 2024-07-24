@@ -86,7 +86,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!195 &2454092904074477651
 NavMeshAgent:
@@ -391,9 +391,6 @@ MonoBehaviour:
   withoutHitEffect:
     serializedVersion: 2
     m_Bits: 136
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!1 &5676834840420015630
 GameObject:
   m_ObjectHideFlags: 0

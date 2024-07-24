@@ -25,6 +25,7 @@ public class Attack2 : MonoBehaviour
     public float knockback = 10;
     public float knockbackY = 5;
     public float stopThreshold = 0.01f;
+    public float knockbackTime = 5;
     
     
     //Others
@@ -87,11 +88,11 @@ public class Attack2 : MonoBehaviour
                 if(enemy.health > 0 && !enemy.timeStopped)
                 {
                     enemy.attacked = true;
-                    Vector3 knockbackDir = transform.forward * knockback;
+                    Vector3 knockbackDir = playerTransform.forward * knockback;
                     knockbackDir.y = knockbackY;
                     enemy.gameObject.GetComponent<NavMeshAgent>().enabled = false;
                     enemy.rb.AddForce(knockbackDir);
-                    StartCoroutine(EnableNavMesh(enemy.gameObject, enemy.rb));
+                    StartCoroutine(EnableNavMesh(enemy.gameObject /*, enemy.rb*/ ));
                     enemy.health -= attackPower;
                     print("Enemy's health left:" + enemy.health);
                 }
@@ -102,10 +103,11 @@ public class Attack2 : MonoBehaviour
                 if(enemyWithGun.health > 0 && !enemyWithGun.timeStopped)
                 {
                     enemyWithGun.attacked = true;
-                    Vector3 knockbackDir = transform.forward * knockback;
+                    Vector3 knockbackDir = playerTransform.forward * knockback;
                     knockbackDir.y = knockbackY;
+                    enemyWithGun.gameObject.GetComponent<NavMeshAgent>().enabled = false;
                     enemyWithGun.rb.AddForce(knockbackDir);
-                    StartCoroutine(EnableNavMesh(enemyWithGun.gameObject, enemyWithGun.rb));
+                    StartCoroutine(EnableNavMesh(enemyWithGun.gameObject /*, enemyWithGun.rb */));
                     enemyWithGun.health -= attackPower;
                     print("Enemy's health left:" + enemyWithGun.health);
                 }
@@ -113,14 +115,15 @@ public class Attack2 : MonoBehaviour
         }
     }
 
-    IEnumerator EnableNavMesh(GameObject hitEnemy, Rigidbody hitEnemyRb)
+    IEnumerator EnableNavMesh(GameObject hitEnemy /*,Rigidbody hitEnemyRb*/ )
     {
+        yield return new WaitForSeconds(knockbackTime);
         if(hitEnemy != null)
         {
-            yield return new WaitUntil(() => hitEnemyRb.velocity.magnitude <= stopThreshold);
+            //Until(() => hitEnemyRb.velocity.magnitude <= stopThreshold);
 
             hitEnemy.GetComponent<NavMeshAgent>().enabled = true;
         }
-        else yield return null;
+        //else yield return null;
     }
 }
