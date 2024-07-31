@@ -10,14 +10,21 @@ public class EnemyAttack : MonoBehaviour
     public int attackPower = 10;
     public float attackCD = 3;
     private bool playerInRange;
-    private PlayerStats player;
+    [HideInInspector] public PlayerStats player;
+    Sword sword;
     Animator playerAnimator;
+    Animator animator;
     
     Enemy enemy;
     //Stop time feature
     public bool timeStopped;
 
-    void Start() { enemy = GetComponentInParent<Enemy>(); }
+    void Start() 
+    {
+        enemy = GetComponentInParent<Enemy>();
+        sword = transform.parent.gameObject.GetComponentInChildren<Sword>();
+        animator = enemy.animator;
+    }
     void OnTriggerEnter(Collider col)
     {
         if(col.CompareTag("Player"))
@@ -31,14 +38,14 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
-    IEnumerator AttackCoolDown()
+    public IEnumerator AttackCoolDown()
     {
         yield return new WaitForSeconds(attackCD);
 
         if (playerInRange && 
         !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack1") && !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack2") &&
         !enemy.attacked) 
-            Attack();
+            sword.attacking = true; animator.SetTrigger("attack");
     }
 
     void Attack()

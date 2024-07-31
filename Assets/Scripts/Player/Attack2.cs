@@ -69,7 +69,7 @@ public class Attack2 : MonoBehaviour
     {
         if (!attacking)
         {
-            if(comboTimeCounter > 0) comboTimeCounter -= Time.deltaTime;
+            /*if(comboTimeCounter > 0) */comboTimeCounter -= Time.deltaTime;
             m.animator.SetFloat("combo", comboTimeCounter);
         }
 
