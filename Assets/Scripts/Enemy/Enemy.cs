@@ -140,10 +140,8 @@ public class Enemy : MonoBehaviour
         }
 
         if(!navMeshAgent.enabled || timeStopped)
-        { 
-            animator.SetBool("IsMoving", false);
-            animator.SetBool("IsRunning", false);
-        }
+        { animator.SetFloat("timeStopped", 0); }
+        else if (!timeStopped) { animator.SetFloat("timeStopped", 1); }
     }
 
     IEnumerator DisableAttacked()
