@@ -5,9 +5,9 @@ using UnityEngine;
 public class Sword : MonoBehaviour
 {
     [HideInInspector] public bool attacking;
-    EnemyAttack enemyAttack;
+    public EnemyAttack enemyAttack;
 
-    void Start() { enemyAttack = transform.parent.gameObject.GetComponentInChildren<EnemyAttack>(); }
+    //void Start() { enemyAttack = transform.parent.gameObject.GetComponentInChildren<EnemyAttack>(); } 
 
     void OnTriggerEnter(Collider col)
     {
