@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
     public bool timeStopped;
     public GameObject hpBoost;
     public int hpBoostDropChance = 2;
-    [HideInInspector] public Animator animator;
+    /*[HideInInspector]*/ public Animator animator;
 
     void Start()
     {

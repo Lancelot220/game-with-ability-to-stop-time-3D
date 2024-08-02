@@ -89,7 +89,7 @@ public class Attack2 : MonoBehaviour
                 {
                     enemy.attacked = true;
                     Vector3 knockbackDir = playerTransform.forward * knockback;
-                    knockbackDir.y = knockbackY;
+                    knockbackDir.y = Mathf.Abs(knockbackY);
                     enemy.gameObject.GetComponent<NavMeshAgent>().enabled = false;
                     enemy.rb.AddForce(knockbackDir);
                     StartCoroutine(EnableNavMesh(enemy.gameObject /*, enemy.rb*/ ));
@@ -106,7 +106,7 @@ public class Attack2 : MonoBehaviour
                     Vector3 knockbackDir = playerTransform.forward * knockback;
                     knockbackDir.y = knockbackY;
                     enemyWithGun.gameObject.GetComponent<NavMeshAgent>().enabled = false;
-                    enemyWithGun.rb.AddForce(knockbackDir);
+                    enemyWithGun.rb.AddForce(knockbackDir, ForceMode.Impulse);
                     StartCoroutine(EnableNavMesh(enemyWithGun.gameObject /*, enemyWithGun.rb */));
                     enemyWithGun.health -= attackPower;
                     print("Enemy's health left:" + enemyWithGun.health);
