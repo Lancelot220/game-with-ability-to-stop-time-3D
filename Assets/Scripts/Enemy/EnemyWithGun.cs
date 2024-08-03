@@ -51,7 +51,7 @@ public class EnemyWithGun : MonoBehaviour
     public bool timeStopped;
     public GameObject hpBoost;
     public int hpBoostDropChance = 2;
-    Animator animator;
+    public Animator animator;
 
     void Start()
     {
@@ -64,7 +64,7 @@ public class EnemyWithGun : MonoBehaviour
         m_WaitTime = startWaitTime;
         m_TimeToRotate = timeToRotate;
 
-        animator = GetComponentInChildren<Animator>();
+        //animator = GetComponentInChildren<Animator>();
         m_CurrentWayPointIndex = 0;
         navMeshAgent = GetComponent<NavMeshAgent>();
         ps = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();

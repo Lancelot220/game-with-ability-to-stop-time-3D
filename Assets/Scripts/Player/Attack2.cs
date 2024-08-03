@@ -91,7 +91,7 @@ public class Attack2 : MonoBehaviour
                     Vector3 knockbackDir = playerTransform.forward * knockback;
                     knockbackDir.y = Mathf.Abs(knockbackY);
                     enemy.gameObject.GetComponent<NavMeshAgent>().enabled = false;
-                    enemy.rb.AddForce(knockbackDir);
+                    enemy.rb.AddForce(knockbackDir, ForceMode.Impulse);
                     StartCoroutine(EnableNavMesh(enemy.gameObject /*, enemy.rb*/ ));
                     enemy.health -= attackPower;
                     print("Enemy's health left:" + enemy.health);

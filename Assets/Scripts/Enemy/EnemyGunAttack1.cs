@@ -16,12 +16,19 @@ public class EnemyGunAttack : MonoBehaviour
     Animator playerAnimator;
     private Shooting shooting;
     Transform player;
+    Animator animator;
     
     EnemyWithGun enemy;
     //Stop time feature
     public bool timeStopped;
 
-    void Start() { enemy = GetComponentInParent<EnemyWithGun>(); shooting = GetComponent<Shooting>(); player = GameObject.FindGameObjectWithTag("Player").transform;}
+    void Start() 
+    {
+        enemy = GetComponentInParent<EnemyWithGun>();
+        shooting = GetComponent<Shooting>(); 
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        animator = enemy.animator;
+    }
     //Recoil when needed
     void Update()
     {
@@ -29,6 +36,7 @@ public class EnemyGunAttack : MonoBehaviour
         {
             isRecoiling = true;
             StartCoroutine(Recoil());
+            animator.SetTrigger("recoil");
         }
 
         //aim
@@ -73,6 +81,7 @@ public class EnemyGunAttack : MonoBehaviour
         if (/*player.health > 0 &&*/ !timeStopped && !isRecoiling && !isSeeingObstacle)
         {
             shooting.Shoot();
+            animator.SetTrigger("attack");
             //Debug.LogWarning("*pulling the trigger*");
         }
 
