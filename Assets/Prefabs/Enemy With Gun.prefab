@@ -139,6 +139,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   catchingRadius: 30
+  stopThreshold: 3
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -147,7 +148,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _CaughtPlayer: 0
-  attacked: 0
   timeStopped: 0
   hpBoost: {fileID: 400436840714774565, guid: 57e64f2813570d44283c9f4a88a71dfb, type: 3}
   hpBoostDropChance: 2

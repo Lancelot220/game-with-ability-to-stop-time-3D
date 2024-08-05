@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
     public LayerMask playerMask;
     public LayerMask obstacleMask;
     public float catchingRadius = 2.5f;
+    public float stopThreshold = 0.1f;
 
     public Transform[] waypoints;
     int m_CurrentWayPointIndex;
@@ -45,7 +46,7 @@ public class Enemy : MonoBehaviour
     bool m_PlayerInRange, m_PlayerNear, m_IsPatrol;
     [HideInInspector] public bool _CaughtPlayer;
     //stop moving while being attacking
-    [HideInInspector] public bool attacked;
+    //[HideInInspector] public bool attacked;
     
     //Stop time feature
     [Header("Others")]
@@ -142,13 +143,17 @@ public class Enemy : MonoBehaviour
         if(!navMeshAgent.enabled || timeStopped)
         { animator.SetFloat("timeStopped", 0); }
         else if (!timeStopped) { animator.SetFloat("timeStopped", 1); }
-    }
 
+        if(rb.velocity.magnitude < stopThreshold)
+        { navMeshAgent.enabled = true; }
+    }
+/*
     IEnumerator DisableAttacked()
     {
         yield return new WaitForSeconds(1);
         attacked = false;
     }
+*/
 
     void Chasing()
     {

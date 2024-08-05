@@ -43,8 +43,8 @@ public class EnemyAttack : MonoBehaviour
         yield return new WaitForSeconds(attackCD);
 
         if (playerInRange && 
-        !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack1") && !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack2") &&
-        !enemy.attacked) 
+        !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack1") && !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack2") /*&&
+        !enemy.attacked*/) 
             sword.attacking = true; animator.SetTrigger("attack");
     }
 

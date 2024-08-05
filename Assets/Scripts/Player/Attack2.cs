@@ -32,6 +32,7 @@ public class Attack2 : MonoBehaviour
     public float attackTime  = 1f;
     Movement m;
     Transform playerTransform;
+    TrailRenderer[] trails;
 
     //Input
     Controls ctrls;
@@ -55,6 +56,13 @@ public class Attack2 : MonoBehaviour
             if (m.onGround) m.rb.velocity = Vector3.zero;
             m.rb.AddForce(playerTransform.forward * attackMoveForce);
             
+
+            //Trail
+            trails = GetComponentsInChildren<TrailRenderer>();
+            foreach( TrailRenderer trail in trails )
+            {
+                trail.enabled = true ;
+            }
         }
     }
 
@@ -63,6 +71,11 @@ public class Attack2 : MonoBehaviour
         comboTimeCounter = comboTime;
         attacking = false;
         m.atacking = false;
+
+        foreach( TrailRenderer trail in trails )
+        {
+            trail.enabled = false ;
+        }
     }
 
     void Update()
@@ -87,12 +100,12 @@ public class Attack2 : MonoBehaviour
             {
                 if(enemy.health > 0 && !enemy.timeStopped)
                 {
-                    enemy.attacked = true;
+                    //enemy.attacked = true;
                     Vector3 knockbackDir = playerTransform.forward * knockback;
                     knockbackDir.y = Mathf.Abs(knockbackY);
                     enemy.gameObject.GetComponent<NavMeshAgent>().enabled = false;
                     enemy.rb.AddForce(knockbackDir, ForceMode.Impulse);
-                    StartCoroutine(EnableNavMesh(enemy.gameObject /*, enemy.rb*/ ));
+                    //StartCoroutine(EnableNavMesh(enemy.gameObject /*, enemy.rb*/ ));
                     enemy.health -= attackPower;
                     print("Enemy's health left:" + enemy.health);
                 }
@@ -102,12 +115,12 @@ public class Attack2 : MonoBehaviour
                 EnemyWithGun enemyWithGun = col.gameObject.GetComponent<EnemyWithGun>();
                 if(enemyWithGun.health > 0 && !enemyWithGun.timeStopped)
                 {
-                    enemyWithGun.attacked = true;
+                    //enemyWithGun.attacked = true;
                     Vector3 knockbackDir = playerTransform.forward * knockback;
                     knockbackDir.y = Mathf.Abs(knockbackY);
                     enemyWithGun.gameObject.GetComponent<NavMeshAgent>().enabled = false;
                     enemyWithGun.rb.AddForce(knockbackDir, ForceMode.Impulse);
-                    StartCoroutine(EnableNavMesh(enemyWithGun.gameObject /*, enemyWithGun.rb */));
+                    //StartCoroutine(EnableNavMesh(enemyWithGun.gameObject /*, enemyWithGun.rb */));
                     enemyWithGun.health -= attackPower;
                     print("Enemy's health left:" + enemyWithGun.health);
                 }

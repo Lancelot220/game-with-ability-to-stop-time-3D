@@ -81,7 +81,7 @@ public class Attack1 : MonoBehaviour
             {
                 if(enemy.health > 0 && !enemy.timeStopped)
                 {
-                    enemy.attacked = true;
+                    //enemy.attacked = true;
                     Vector3 knockbackDir = transform.forward * knockback;
                     knockbackDir.y = knockbackY;
                     enemy.rb.AddForce(knockbackDir);
@@ -94,7 +94,7 @@ public class Attack1 : MonoBehaviour
                 EnemyWithGun enemyWithGun = col.gameObject.GetComponent<EnemyWithGun>();
                 if(enemyWithGun.health > 0 && !enemyWithGun.timeStopped)
                 {
-                    enemyWithGun.attacked = true;
+                    //enemyWithGun.attacked = true;
                     Vector3 knockbackDir = transform.forward * knockback;
                     knockbackDir.y = knockbackY;
                     enemyWithGun.rb.AddForce(knockbackDir);

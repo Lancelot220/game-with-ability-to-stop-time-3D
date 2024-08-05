@@ -71,7 +71,7 @@ public class EnemyGunAttack : MonoBehaviour
 
         if (playerInRange && 
         !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack1") && !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack2") &&
-        !enemy.attacked && !timeStopped) 
+        /*!enemy.attacked &&*/ !timeStopped) 
             Attack();
     }
 
