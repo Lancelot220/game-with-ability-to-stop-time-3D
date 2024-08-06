@@ -81,7 +81,7 @@ public class EnemyGunAttack : MonoBehaviour
         if (/*player.health > 0 &&*/ !timeStopped && !isRecoiling && !isSeeingObstacle)
         {
             shooting.Shoot();
-            animator.SetTrigger("attack");
+            animator.SetBool("attack", true);
             //Debug.LogWarning("*pulling the trigger*");
         }
 
@@ -91,6 +91,11 @@ public class EnemyGunAttack : MonoBehaviour
     //Shouldn't attack
     void OnTriggerExit(Collider col)
     {
-        if (col.CompareTag("Player")) { playerInRange = false; enemy._CaughtPlayer = false; }
+        if (col.CompareTag("Player")) 
+        {
+            playerInRange = false;
+            enemy._CaughtPlayer = false;
+            animator.SetBool("attack", false);
+        }
     }
 }
