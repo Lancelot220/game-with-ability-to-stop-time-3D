@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
+//using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -69,10 +69,16 @@ public class EnemyGunAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(attackCD);
 
-        if (playerInRange && 
-        !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack1") && !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack2") &&
-        /*!enemy.attacked &&*/ !timeStopped) 
-            Attack();
+        if (
+            playerInRange && 
+            /*!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack1") && 
+            !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack2") &&
+            !enemy.attacked &&*/ 
+            enemy.navMeshAgent.enabled && 
+            !timeStopped
+            ) 
+            Attack();//Debug.LogWarning("RATATATATATATATA");}
+        else animator.SetBool("attack", false);
     }
 
     void Attack()
@@ -81,7 +87,7 @@ public class EnemyGunAttack : MonoBehaviour
         if (/*player.health > 0 &&*/ !timeStopped && !isRecoiling && !isSeeingObstacle)
         {
             shooting.Shoot();
-            animator.SetBool("attack", true);
+            animator.SetBool("attack", true); 
             //Debug.LogWarning("*pulling the trigger*");
         }
 
@@ -95,7 +101,7 @@ public class EnemyGunAttack : MonoBehaviour
         {
             playerInRange = false;
             enemy._CaughtPlayer = false;
-            animator.SetBool("attack", false);
+            
         }
     }
 }
