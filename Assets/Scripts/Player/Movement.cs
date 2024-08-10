@@ -98,7 +98,9 @@ public class Movement : MonoBehaviour
         cameraMoving.Disable(); 
         jump.Disable();
         runStart.Disable();
+        runStop.Disable();
         crouchStart.Disable();
+        crouchStop.Disable();
     }
 
    //Jump
@@ -123,6 +125,8 @@ public class Movement : MonoBehaviour
         if(onGround)
         { coyoteTimeCounter = coyoteTime;} else { coyoteTimeCounter -= Time.deltaTime; } 
 
+        //animator destroyed fix
+        //if (animator == null) animator = GetComponentInChildren<Animator>();
     }
 
     //Run
