@@ -106,7 +106,7 @@ public class Movement : MonoBehaviour
    //Jump
    private void Jump(InputAction.CallbackContext context)
     {
-        if(coyoteTimeCounter > 0 && speed != crouchSpeed && animator.GetFloat("combo") < 0)
+        if(coyoteTimeCounter > 0 && speed != crouchSpeed && animator.GetFloat("combo") <= 0)
         {
             rb.AddForce(new Vector3(rb.velocity.x, jumpForce, rb.velocity.z));
             coyoteTimeCounter = 0;
@@ -118,7 +118,7 @@ public class Movement : MonoBehaviour
     {
         animator.SetBool("onGround", onGround);
 
-        if (!animator.GetBool("isRunning") && !animator.GetBool("isCrouching") && animator.GetFloat("combo") < 0 /*&& onGround*/)
+        if (!animator.GetBool("isRunning") && !animator.GetBool("isCrouching") && animator.GetFloat("combo") <= 0 /*&& onGround*/)
         speed = defaultSpeed;
 
         //Coyote time
@@ -132,7 +132,7 @@ public class Movement : MonoBehaviour
     //Run
     private void RunStart(InputAction.CallbackContext context)
     {
-        if(speed != crouchSpeed && animator.GetFloat("combo") < 0 && onGround)
+        if(speed != crouchSpeed && animator.GetFloat("combo") <= 0 && onGround)
         {
             speed = runSpeed;
             animator.SetBool("isRunning", true);
@@ -140,7 +140,7 @@ public class Movement : MonoBehaviour
     }
     private void RunStop(InputAction.CallbackContext context)
     { 
-        if (speed == runSpeed && animator.GetFloat("combo") < 0)
+        if (speed == runSpeed && animator.GetFloat("combo") <= 0)
         {
             speed = defaultSpeed;
             animator.SetBool("isRunning", false);
@@ -152,7 +152,7 @@ public class Movement : MonoBehaviour
     private void CrouchStart(InputAction.CallbackContext context)
     {
         holdingCrouchButton = true;
-        if(speed !=runSpeed && animator.GetFloat("combo") < 0)
+        if(speed !=runSpeed && animator.GetFloat("combo") <= 0)
         {
             speed = crouchSpeed;
             //cc.height = 1;

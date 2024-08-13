@@ -13,8 +13,7 @@ public class OnGroundCheck : MonoBehaviour
     {
         movement.onGround = true; print("bruh");
         ps.Landed();
-        if(movement.animator.GetBool("jumped")) 
-        { movement.animator.SetBool("jumped", false); }
+        movement.animator.SetBool("jumped", false);
     }
     /*
     void OnTriggerStay(Collider col)
