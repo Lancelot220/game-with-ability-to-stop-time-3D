@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8157702775459589725}
   - component: {fileID: 2222530106306581153}
   - component: {fileID: 1909348905356181283}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Falling Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,6 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9cf482be64dd7746914b36bd49b4709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tpZ: 15.9
-  tpY: 34.5
   minWorldHeightLimit: -100

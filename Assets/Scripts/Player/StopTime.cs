@@ -109,7 +109,7 @@ public class StopTime_ : MonoBehaviour
 
                 navMeshAgent.SetDestination(navMeshAgentDst);
             }
-            else { rb.constraints = RigidbodyConstraints.None; }
+            else { if(rb != null) rb.constraints = RigidbodyConstraints.None; }
         }
 
         objectsInRange = null;

@@ -673,7 +673,7 @@ MonoBehaviour:
   cd: 60
   stoppableObjects:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 1408
   canStopTime: 1
 --- !u!1 &6840024681727209825
 GameObject:
@@ -692,7 +692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8447268552260872064
 Transform:
   m_ObjectHideFlags: 0
@@ -1205,32 +1205,32 @@ PrefabInstance:
     - target: {fileID: 2296972614356608684, guid: 5c8c7cde0b08a234180e00152d6aac65,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.96920776
+      value: 1.405815
       objectReference: {fileID: 0}
     - target: {fileID: 2296972614356608684, guid: 5c8c7cde0b08a234180e00152d6aac65,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 15.507319
+      value: 22.493034
       objectReference: {fileID: 0}
     - target: {fileID: 2296972614356608684, guid: 5c8c7cde0b08a234180e00152d6aac65,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.02907623
+      value: 0.042174444
       objectReference: {fileID: 0}
     - target: {fileID: 2296972614356608684, guid: 5c8c7cde0b08a234180e00152d6aac65,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2296972614356608684, guid: 5c8c7cde0b08a234180e00152d6aac65,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0008796591
+      value: 0.00088
       objectReference: {fileID: 0}
     - target: {fileID: 2296972614356608684, guid: 5c8c7cde0b08a234180e00152d6aac65,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00465
+      value: 0.00638
       objectReference: {fileID: 0}
     - target: {fileID: 2296972614356608684, guid: 5c8c7cde0b08a234180e00152d6aac65,
         type: 3}

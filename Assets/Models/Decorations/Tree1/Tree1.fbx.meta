@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 59b51edd7254cf94db894858658b08ff
+guid: 080915ae99ee97e4f98c82bf4732a362
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Leaves.001
+      name: Leaves
     second: {fileID: 2100000, guid: d8e70f64015f7aa4489e5c9061a78f3e, type: 2}
   materials:
     materialImportMode: 2
@@ -39,7 +39,9 @@ ModelImporter:
     clipAnimations: []
     isReadable: 0
   meshes:
-    lODScreenPercentages: []
+    lODScreenPercentages:
+    - 0.25
+    - 0.01
     globalScale: 1
     meshCompression: 0
     addColliders: 0
