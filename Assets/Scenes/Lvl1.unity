@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.38810045, g: 0.7278148, b: 0.7324987, a: 1}
+  m_IndirectSpecularColor: {r: 0.38808668, g: 0.7278085, b: 0.7325042, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1409,7 +1409,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113908391}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.061691627, y: -0.70441043, z: 0.061691623, w: 0.7044106}
+  m_LocalRotation: {x: 0.06169163, y: -0.7044105, z: 0.061691623, w: 0.70441055}
   m_LocalPosition: {x: 6.9999995, y: 2.9, z: -0.0000004172325}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3886,7 +3886,7 @@ PrefabInstance:
     - target: {fileID: 7297553745326541352, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.07449428
+      value: 0.07449429
       objectReference: {fileID: 0}
     - target: {fileID: 7297553745326541352, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
@@ -4006,17 +4006,17 @@ PrefabInstance:
     - target: {fileID: 9127033055581702212, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.061691627
+      value: 0.06169163
       objectReference: {fileID: 0}
     - target: {fileID: 9127033055581702212, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.70441043
+      value: -0.7044105
       objectReference: {fileID: 0}
     - target: {fileID: 9127033055581702212, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.06169162
+      value: 0.061691612
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8126,7 +8126,7 @@ TerrainCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_TerrainData: {fileID: 15600000, guid: 6e255852d2665a544b674919b2cdd467, type: 2}
-  m_EnableTreeColliders: 1
+  m_EnableTreeColliders: 0
 --- !u!218 &1070790532
 Terrain:
   m_ObjectHideFlags: 0

@@ -1,0 +1,1 @@
+default light color: FFF4D6
