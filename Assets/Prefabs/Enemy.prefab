@@ -418,7 +418,7 @@ LODGroup:
     - renderer: {fileID: 972510265219935320}
     - renderer: {fileID: 6975188360655084429}
     - renderer: {fileID: 1673585371478510868}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!1001 &503340786513087011
 PrefabInstance:
   m_ObjectHideFlags: 0

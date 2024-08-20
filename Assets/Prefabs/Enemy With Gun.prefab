@@ -183,7 +183,7 @@ LODGroup:
     - renderer: {fileID: 2789792209250926889}
     - renderer: {fileID: 5405587354731558652}
     - renderer: {fileID: 4391463545994436709}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!1 &2798464007236419669
 GameObject:
   m_ObjectHideFlags: 0

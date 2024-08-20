@@ -13,7 +13,7 @@ public class OnGroundCheck : MonoBehaviour
     {
         if(!col.CompareTag("Player"))
         {
-            movement.onGround = true; print("bruh");
+            movement.onGround = true; //print("bruh");
             ps.Landed();
             movement.animator.SetBool("jumped", false);
         }
@@ -29,6 +29,6 @@ public class OnGroundCheck : MonoBehaviour
     void OnTriggerExit(Collider col)
     {
         if(!col.CompareTag("Player"))
-        { movement.onGround = false; Debug.LogWarning("huh?"); }
+        { movement.onGround = false; /*Debug.LogWarning("huh?");*/ }
         }
 }
