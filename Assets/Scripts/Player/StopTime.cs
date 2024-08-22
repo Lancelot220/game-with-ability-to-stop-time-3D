@@ -13,7 +13,7 @@ public class StopTime_ : MonoBehaviour
     public float duration = 30;
     public float cd = 60;
     private float durationTimer;
-    private float cdTimer;
+    public float cdTimer;
     public LayerMask stoppableObjects;
     public bool canStopTime = true;
     

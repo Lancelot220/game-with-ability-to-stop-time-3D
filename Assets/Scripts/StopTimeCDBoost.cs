@@ -4,9 +4,9 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-public class HPBoost : MonoBehaviour
+public class StopTimeCDBoost : MonoBehaviour
 {
-    public int hpboost = 15;
+    public int cdBoost = 5;
     public float rotationSpeed = 100;
 
     void Update()
@@ -18,10 +18,10 @@ public class HPBoost : MonoBehaviour
     {
         if(col.CompareTag("Player"))
         {
-            PlayerStats ps = col.gameObject.GetComponent<PlayerStats>();
-            ps.health += hpboost;
-            if(ps.health > 100) ps.health = 100;
-            print($"Now you have {ps.health} HP!");
+            StopTime_ st = col.gameObject.GetComponent<StopTime_>();
+            st.cdTimer += cdBoost;
+            if(st.cdTimer > st.cd) st.cdTimer = 100;
+            print($"Now you have to wait only {st.cd - st.cdTimer} second(s)!");
             Destroy(gameObject);
         }
     }
