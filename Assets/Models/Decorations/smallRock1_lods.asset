@@ -31,13 +31,13 @@ MonoBehaviour:
   lod5: []
   lod6: []
   lod7: []
---- !u!43 &4873069629844391480
+--- !u!43 &1746783485681510317
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "I\u043A\u043E\u0441\u0444\u0435\u0440\u0430 LOD1"
+  m_Name: "I\u043A\u043E\u0441\u0444\u0435\u0440\u0430 LOD2"
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -196,13 +196,13 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!43 &7654163593347518638
+--- !u!43 &8388451463928649621
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "I\u043A\u043E\u0441\u0444\u0435\u0440\u0430 LOD2"
+  m_Name: "I\u043A\u043E\u0441\u0444\u0435\u0440\u0430 LOD1"
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2

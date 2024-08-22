@@ -1,12 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!43 &-6531774381230745225
+--- !u!43 &-2214292525342806597
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "I\u043A\u043E\u0441\u0444\u0435\u0440\u0430 LOD2"
+  m_Name: "I\u043A\u043E\u0441\u0444\u0435\u0440\u0430 LOD1"
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -196,13 +196,13 @@ MonoBehaviour:
   lod5: []
   lod6: []
   lod7: []
---- !u!43 &5266305375534608816
+--- !u!43 &4246440046989565785
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "I\u043A\u043E\u0441\u0444\u0435\u0440\u0430 LOD1"
+  m_Name: "I\u043A\u043E\u0441\u0444\u0435\u0440\u0430 LOD2"
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
