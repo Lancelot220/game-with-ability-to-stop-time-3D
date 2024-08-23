@@ -12,14 +12,17 @@ public class StopTime_ : MonoBehaviour
     public float range = 50;
     public float duration = 30;
     public float cd = 60;
-    private float durationTimer;
-    public float cdTimer;
+    
+    
     public LayerMask stoppableObjects;
     public bool canStopTime = true;
     
     //stop time mechanic
+    [HideInInspector] public float durationTimer;
+    [HideInInspector] public float cdTimer;
     Collider[] objectsInRange;
     Vector3 navMeshAgentDst;
+    bool timeStopped;
 
     //references
     Controls ctrls;
@@ -31,9 +34,21 @@ public class StopTime_ : MonoBehaviour
     void Update()
     {
         if(durationTimer > 0 && !canStopTime)
-        {durationTimer -= Time.deltaTime; slider.maxValue = duration; slider.value = durationTimer;}
+        { slider.maxValue = duration; slider.value = durationTimer;}
         if(cdTimer < cd && !canStopTime && durationTimer <= 0)
-        {cdTimer += Time.deltaTime; slider.maxValue = cd; slider.value = cdTimer;}
+        { slider.maxValue = cd; slider.value = cdTimer;}
+        
+        //unfreeze
+        if(timeStopped && durationTimer > 0)
+        { durationTimer -= Time.deltaTime; }
+        else if (durationTimer <= 0 && timeStopped)
+        { timeStopped = false;  UnfreezeTime(); }
+
+        //cd
+        if(!canStopTime && cdTimer < cd)
+        { cdTimer += Time.deltaTime; }
+        else if (!canStopTime && cdTimer >= cd)
+        { canStopTime = true; print("You can stop time again!"); }
     }
 
     //stop time
@@ -43,7 +58,7 @@ public class StopTime_ : MonoBehaviour
         {
             canStopTime = false;
 
-            print("Time is stopped! (English or Spanish?)");
+            print("Time is stopped!"); timeStopped = true;
             
             objectsInRange = Physics.OverlapSphere(transform.position, range, stoppableObjects);
             
@@ -78,14 +93,14 @@ public class StopTime_ : MonoBehaviour
                 }
             }
 
-            StartCoroutine(UnfreezeTime());
+            //StartCoroutine(UnfreezeTime());
 
             durationTimer = duration;
         }
     }
-    IEnumerator UnfreezeTime()
+    void UnfreezeTime()
     {
-        yield return new WaitForSeconds(duration);
+        //yield return new WaitForSeconds(duration);
 
         foreach (Collider obj in objectsInRange)
         {
@@ -113,13 +128,13 @@ public class StopTime_ : MonoBehaviour
         }
 
         objectsInRange = null;
-        StartCoroutine(Cooldown());
+        //StartCoroutine(Cooldown());
         
         print("Time is unfreezed.");
 
         cdTimer = 0;
     }
-
+/*
     IEnumerator Cooldown()
-    { yield return new WaitForSeconds(cd); canStopTime = true; print("You can stop time again!");}
+    { yield return new WaitForSeconds(cd); }*/
 }

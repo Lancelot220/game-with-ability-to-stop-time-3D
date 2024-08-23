@@ -20,7 +20,7 @@ public class StopTimeCDBoost : MonoBehaviour
         {
             StopTime_ st = col.gameObject.GetComponent<StopTime_>();
             st.cdTimer += cdBoost;
-            if(st.cdTimer > st.cd) st.cdTimer = 100;
+            if(st.cdTimer > st.cd) st.cdTimer = st.cd;
             print($"Now you have to wait only {st.cd - st.cdTimer} second(s)!");
             Destroy(gameObject);
         }

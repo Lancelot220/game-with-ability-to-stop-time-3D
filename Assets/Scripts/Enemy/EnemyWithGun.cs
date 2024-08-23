@@ -50,8 +50,9 @@ public class EnemyWithGun : MonoBehaviour
     
     [Header("Others")]
     public bool timeStopped;
-    public GameObject hpBoost;
-    public int hpBoostDropChance = 2;
+    //drop
+    public GameObject[] items;
+    public int dropChance = 2;
     public Animator animator;
 
     void Start()
@@ -103,8 +104,10 @@ public class EnemyWithGun : MonoBehaviour
         {
             Debug.Log("The enemy was killed");
             deathMessageSent = true;
-            System.Random rnd = new();
-            if (rnd.Next(1, hpBoostDropChance) == 1) {Instantiate(hpBoost, transform.position, transform.rotation); print("HP Boost was dropped!");}
+            
+            int chance = UnityEngine.Random.Range(1, dropChance);
+            GameObject itemToDrop = items[UnityEngine.Random.Range(0, items.Length)];
+            if (chance == 1) {Instantiate(itemToDrop, transform.position, transform.rotation); print($"{itemToDrop.name} was dropped!");}
             Destroy(gameObject);
         }
 
