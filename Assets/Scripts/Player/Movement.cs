@@ -235,7 +235,7 @@ public class Movement : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.down, out hit, ground, 5))
         {
             slopeAngle = Vector3.Angle(hit.normal, Vector3.up);
-            Debug.Log("Slope angle: " + slopeAngle); // For debugging
+            //Debug.Log("Slope angle: " + slopeAngle); // For debugging
             
         }
 

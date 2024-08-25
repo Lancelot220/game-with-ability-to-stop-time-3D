@@ -19,7 +19,7 @@ public class StopTimeCDBoost : MonoBehaviour
         if(col.CompareTag("Player"))
         {
             StopTime_ st = col.gameObject.GetComponent<StopTime_>();
-            st.cdTimer += cdBoost;
+            if (!st.canStopTime) st.cdTimer += cdBoost;
             if(st.cdTimer > st.cd) st.cdTimer = st.cd;
             print($"Now you have to wait only {st.cd - st.cdTimer} second(s)!");
             Destroy(gameObject);

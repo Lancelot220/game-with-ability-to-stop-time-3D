@@ -637,6 +637,12 @@ MonoBehaviour:
     type: 3}
   crouchCollider: {fileID: -2587613122030603868, guid: c85db42dc77353b489c69dfbe0aa477b,
     type: 3}
+  maxSlopeAngle: 45
+  slideForce: 5
+  maxSlideSpeed: 10
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
   rb: {fileID: 0}
   animator: {fileID: 0}
 --- !u!114 &5166675014266170956
@@ -675,6 +681,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1408
   canStopTime: 1
+  durationTimer: 0
+  cdTimer: 0
 --- !u!1 &6840024681727209825
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,7 +769,7 @@ GameObject:
   - component: {fileID: 3897966085495632005}
   - component: {fileID: 5106359914823726695}
   - component: {fileID: 5074501210293229351}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ceiling Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -827,7 +835,7 @@ GameObject:
   - component: {fileID: 8560267031489702276}
   - component: {fileID: 629366460758038183}
   - component: {fileID: 3508462407337632291}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: OnGround Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -18,14 +18,14 @@ public class OnGroundCheck : MonoBehaviour
             movement.animator.SetBool("jumped", false);
         }
     }
-    /*
+
     void OnTriggerStay(Collider col)
     {
-        movement.onGround = true; print("bruh");
-        if(movement.animator.GetBool("jumped")) 
-        { movement.animator.SetBool("jumped", false); }
+        movement.onGround = true; //print("bruh");
+        //if(movement.animator.GetBool("jumped")) 
+        movement.animator.SetBool("jumped", false); 
     }
-    */
+
     void OnTriggerExit(Collider col)
     {
         if(!col.CompareTag("Player"))

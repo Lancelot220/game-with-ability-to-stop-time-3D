@@ -405,7 +405,7 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.05
+  - screenRelativeHeight: 0.0515782
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1667032766869080989}
@@ -420,7 +420,7 @@ LODGroup:
     - renderer: {fileID: 972510265219935320}
     - renderer: {fileID: 6975188360655084429}
     - renderer: {fileID: 1673585371478510868}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!1001 &503340786513087011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -694,6 +694,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: enemySword
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: c7fe97868e63a3d41b77862f30d6d331,
+        type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.10042399
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
