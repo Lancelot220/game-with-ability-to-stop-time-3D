@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StringTable>
+  <Creator>Mesh Terrain Creator</Creator>
+  <MeshSize>Mesh Size</MeshSize>
+  <SplatTexture>Splat Textures</SplatTexture>
+  <NormalMap>Normal Map</NormalMap>
+  <ShaderType>Shader Type</ShaderType>
+  <CreateMultipleCopies>Create Multiple Copies</CreateMultipleCopies>
+  <LegacyCreator_Header>Legacy mesh-terrain Creator</LegacyCreator_Header>
+  <LegacyCreator_Description>Create mesh-terrain(s) support 2/3/4/5 layer textures, based on a terrain shader using 2/3/4/5 separated textures.</LegacyCreator_Description>
+  <AsAPlane>as a plane</AsAPlane>
+  <FromAHeightMap>from a height-map</FromAHeightMap>
+  <FromACurve>from a curve</FromACurve>
+  <BaseHeight>Base Height</BaseHeight>
+  <TotalHeight>Total Height</TotalHeight>
+  <Warning_VertexCountTooBig_AssetPreferred>Vertex count is too big. It is recommended to use .asset file format to significantly reduce the time of saving and importing a mesh.</Warning_VertexCountTooBig_AssetPreferred>
+  <TextureArrayBasedCreator_Header>TextureArray mesh-terrain Creator</TextureArrayBasedCreator_Header>
+  <TextureArrayBasedCreator_Description>Create a mesh-terrain support 2 to 12 layers, based on a terrain shader using 2 texture arrays.</TextureArrayBasedCreator_Description>
+  <MTEConverter>MTE Converter</MTEConverter>
+  <MTEConverter_Header>Mesh Terrain Converter</MTEConverter_Header>
+  <UnityTerrainToMTEMesh_Header>Unity Terrain → Mesh-Terrain</UnityTerrainToMTEMesh_Header>
+  <UnityTerrainToMTEMesh_Description>Convert a terrain to a MTE-editable mesh.</UnityTerrainToMTEMesh_Description>
+  <MeshToMTEMesh_Header>Regular Mesh → Mesh-Terrain</MeshToMTEMesh_Header>
+  <MeshToMTEMesh_Description>Convert a regular mesh to a MTE-editable mesh.</MeshToMTEMesh_Description>
+  <Name>Name</Name>
+  <KeepMeshVertex>Keep mesh vertex</KeepMeshVertex>
+  <Info_KeepMeshVertex>Converted mesh will use the original vertices' position.</Info_KeepMeshVertex>
+  <Info_NotKeepMeshVertex>Converted mesh will use uniformly layout-ed vertex positions, whose height sampled from the mesh.</Info_NotKeepMeshVertex>
+  <KeepMeshUV>Keep mesh uv</KeepMeshUV>
+  <Info_KeepMeshUV>Converted mesh will use original uv.</Info_KeepMeshUV>
+  <Info_NotKeepMeshUV>Converted mesh will use uniformly layout-ed uv.</Info_NotKeepMeshUV>
+  <KeepMeshNormal>Keep mesh normal</KeepMeshNormal>
+  <Info_KeepMeshNormal>Converted mesh will use original normal.
+Note: please turn off *settings -&gt; Recalculate normals when saving mesh to* so as to keep original mesh normals when the mesh is saved later.</Info_KeepMeshNormal>
+  <Info_NotKeepMeshNormal>Converted mesh will use smoothed normal.</Info_NotKeepMeshNormal>
+  <CreatePrefab>Create prefab</CreatePrefab>
+  <SelectOutputDir>Output dir</SelectOutputDir>
+  <Warning_OutputDirContainsNameFolder>The Output directory already contains a folder of the same name. Use another name or choose another output directory instead.</Warning_OutputDirContainsNameFolder>
+  <Textures>Textures</Textures>
+  <Vertexes>Vertexes</Vertexes>
+  <SplatTextureCount>Layer Count</SplatTextureCount>
+  <WeightMapSize>Control texture size</WeightMapSize>
+  <MeshOnly>Mesh Only</MeshOnly>
+  <UseCustomShader>Use Custom Shader</UseCustomShader>
+  <Info_TerrainConverter_MeshOnly>Terrain will be converted to regular mesh with default material.
+Splat layers will Not be preserved after conversion.</Info_TerrainConverter_MeshOnly>
+  <Info_TerrainConverter_NotMeshOnly>Terrain will be converted to mesh-terrain with material using MTE's shader.
+Splat layers will be preserved after conversion.</Info_TerrainConverter_NotMeshOnly>
+  <KeepLightmapping>Keep lightmapping data</KeepLightmapping>
+  <Tooltip_KeepLightmapping>"Keep lightmapping data" is not compatible with "Split"</Tooltip_KeepLightmapping>
+  <ExportTrees>Export trees</ExportTrees>
+  <BeginCovert>Begin Converting</BeginCovert>
+  <Error_ControlTextureResolutionIsNotAMultipleOfNumberOfCopies>The control texture resolution is not a multiple of split number (number of copies). Please give a number that is divisible by control texture size.</Error_ControlTextureResolutionIsNotAMultipleOfNumberOfCopies>
+  <Error_Conversion_Failed>Conversion failed</Error_Conversion_Failed>
+  <Warning_GameObjectNotSelected>No GameObject selected.</Warning_GameObjectNotSelected>
+  <Warning_SelectedGameObjectNotActive>Selected GameObject isn't active.</Warning_SelectedGameObjectNotActive>
+  <Warning_SelectedGameObjectNoMeshFilter>Selected GameObject has no MeshFilter component.</Warning_SelectedGameObjectNoMeshFilter>
+  <Warning_SelectedGameObjectNoMesh>The MeshFilter on selected GameObject has no Mesh.</Warning_SelectedGameObjectNoMesh>
+  <Warning_SelectedGameObjectNoMeshCollider>Selected GameObject has no MeshCollider component.</Warning_SelectedGameObjectNoMeshCollider>
+  <MTEEditor>MTE Editor</MTEEditor>
+  <MTEEditor_Title>Mesh Terrain Editor</MTEEditor_Title>
+  <Info_DisabledMTEWhenCameraSelected>MTE editor is temporarily disabled because the camera is selected.</Info_DisabledMTEWhenCameraSelected>
+  <Warning_CannotFindMeshTerrain>Cannot find a mesh-terrain that matches current layer and tag. Please make sure the mesh-terrains you want to edit have the same layer and tag as MTE editor. Then click the refresh-filter button.</Warning_CannotFindMeshTerrain>
+  <Warning_TargetScaled>Target {0} is scaled: the actual painting region might be different from the region covered by the brush. Please reset its scale to (1,1,1).</Warning_TargetScaled>
+  <Error_NoEditorLoaded>No editor is loaded, which is likely caused by compile errors of your project's code. Please fix them first, otherwise MTE will not work normally.</Error_NoEditorLoaded>
+  <GameObjectsPassedTheFilterFormat>{0} GameObjects passed the filter:</GameObjectsPassedTheFilterFormat>
+  <Info_MakeSureOnlyMeshTerrainsPassedTheFilter>Please make sure only those mesh-terrains you want to edit passed the filter.</Info_MakeSureOnlyMeshTerrainsPassedTheFilter>
+  <RaiseLower_Header>Raise/Lower Terrain</RaiseLower_Header>
+  <RaiseLower_Description>Click to raise/lower.
+Press space to toggle up/down.</RaiseLower_Description>
+  <Falloff>Falloff</Falloff>
+  <PaintHeight_Header>Paint Height</PaintHeight_Header>
+  <PaintHeight_Description>Hold ctrl to sample height.</PaintHeight_Description>
+  <SmoothHeight_Header>Smooth height</SmoothHeight_Header>
+  <SmoothHeight_Description>Click to smooth.</SmoothHeight_Description>
+  <Wrapper_Header>Wrapper</Wrapper_Header>
+  <Wrapper_Description>Select a collider and click Wrap.</Wrapper_Description>
+  <SplatPainter_Header>Paint Texture</SplatPainter_Header>
+  <SplatPainter_Description>Select a texture below, then click/drag to paint.</SplatPainter_Description>
+  <SplatPainter_Mode_Selected>Selected</SplatPainter_Mode_Selected>
+  <SplatPainter_Mode_SelectedDescription>Paint on a selected mesh-terrain with custom UV, ignore the filter.</SplatPainter_Mode_SelectedDescription>
+  <SplatPainter_Mode_Filtered>Filtered</SplatPainter_Mode_Filtered>
+  <SplatPainter_Mode_FilteredDescription>Paint on all mesh-terrains that match the tag and layer of the filter</SplatPainter_Mode_FilteredDescription>
+  <Info_SplatPainter_NoSplatTextureFound>No splat textures found in targets.</Info_SplatPainter_NoSplatTextureFound>
+  <Info_SplatPainter_NoSplatTextureFoundOnSelectedObject>No splat textures found in selected GameObject</Info_SplatPainter_NoSplatTextureFoundOnSelectedObject>
+  <PaintVertexColor_Header>Paint Vertex Color</PaintVertexColor_Header>
+  <PaintVertexColor_Description>Select a color below, then click to paint.</PaintVertexColor_Description>
+  <ColorPresets>Color presets</ColorPresets>
+  <SingleChannel>Single Channel</SingleChannel>
+  <Info_ToolDescription_VertexColorFill>Fill all targets with the selected color.</Info_ToolDescription_VertexColorFill>
+  <Info_ToolDescription_VertexColorRandomize>Generate vertex colors randomly.</Info_ToolDescription_VertexColorRandomize>
+  <AttachVertexColor>Attach
+VertexColor</AttachVertexColor>
+  <Info_ToolDescription_AttachVertexColor>Attach vertex color component to selected GameObject.</Info_ToolDescription_AttachVertexColor>
+  <PaintGrass_Header>Grass Painter</PaintGrass_Header>
+  <PaintGrass_Description>Click and drag to paint. Hold Shift to erase.
+Press PageUp/Down to undo/redo.</PaintGrass_Description>
+  <Grasses>Grasses</Grasses>
+  <Warning_NoGrassLoader>Please create a grass loader object first. (Refer to the docs for details.)</Warning_NoGrassLoader>
+  <Info_NoGrassDetail>Please create Grass Detail asset and add grass prototypes, assign the asset to the grass loader, then click the refresh button. (Refer to the docs for details.)</Info_NoGrassDetail>
+  <LoadFromFile>Load from list file...</LoadFromFile>
+  <LoadFromGrassLoader>Load From GrassLoader...</LoadFromGrassLoader>
+  <Info_HowToRotate>Hold Ctrl and roll the scroll wheel to rotate.</Info_HowToRotate>
+  <Info_ToolDescription_SaveLightMapData>Save lightmap data to loaded grasses.asset.</Info_ToolDescription_SaveLightMapData>
+  <Random>Random</Random>
+  <CreateGrassLoader>Create
+GrassLoader</CreateGrassLoader>
+  <Info_ToolDescription_CreateGrassLoader>Create grass loader object in the scene. 
+One scene can have only one single GrassLoader object.</Info_ToolDescription_CreateGrassLoader>
+  <AttachGrassLoader>Attach
+GrassLoader</AttachGrassLoader>
+  <Info_ToolDescription_AttachGrassLoader>Attach GrassLoader component to selected GameObject. Or fix the GrassLoader on it.</Info_ToolDescription_AttachGrassLoader>
+  <BakePointCloudToMesh>Bake
+Point Cloud</BakePointCloudToMesh>
+  <Info_ToolDescription_BakePointCloudToMesh>Convert the painted grass point cloud to actual meshes. You will not be able to modify the point cloud after baking.</Info_ToolDescription_BakePointCloudToMesh>
+  <Warning_NoGrassLoader_CannotBakePointCloudToMesh>Cannot bake grass point cloud to mesh: no GrassLoader component found in scene.</Warning_NoGrassLoader_CannotBakePointCloudToMesh>
+  <Info_RemoveGrassLoader>Remove the GrassLoader component? The point cloud data will be retained in the asset file.</Info_RemoveGrassLoader>
+  <Warning_TooManyPoints>Too many points might be created, which might make the editor freeze for a while. Please decrease the brush size or increase the distance between points.</Warning_TooManyPoints>
+  <Info_GrassDistance>The minimum distance between two grasses.</Info_GrassDistance>
+  <Info_PaintOneGrass>When the brush is too small or the distance is too far, only one grass will be painted.</Info_PaintOneGrass>
+  <ChooseGrassPointCloudDataFilePath>Choose grass-point-cloud data file's path</ChooseGrassPointCloudDataFilePath>
+  <ReloadFromFile>1. Reload From File</ReloadFromFile>
+  <BakeLightmap>2. Bake Lightmap</BakeLightmap>
+  <SaveLightmapData>3. Save lightmap data</SaveLightmapData>
+  <ClearPreviewGrasssesAndSaveScene>4. Clear Preview Grassses &amp; Save Scene</ClearPreviewGrasssesAndSaveScene>
+  <Warning_HowToSaveASceneWithGrasses>Please use button No.4 to save your scene, otherwise the preview-only grasses will be saved into your scene.unity file!</Warning_HowToSaveASceneWithGrasses>
+  <ShowGrassObjects>Show Grass Objects</ShowGrassObjects>
+  <Info_ReloadedGrassesFromFile>Reloaded grasses from file.</Info_ReloadedGrassesFromFile>
+  <Info_LightmapDataSaved>Lightmap data saved.</Info_LightmapDataSaved>
+  <Info_GrassStatic>All grass instances are static and will be considered when baking lightmap.</Info_GrassStatic>
+  <ObjectPainter_Header>Object Painter</ObjectPainter_Header>
+  <ObjectPainter_Description>Click and drag to paint. Hold Shift to erase.
+Press PageUp/PageDown to undo/redo.</ObjectPainter_Description>
+  <Container>Container</Container>
+  <Warning_NoObjectDetail>Please create Object Detail asset and add object prototypes, assign the asset to the ObjectLoader, then click the refresh button. (Refer to the docs for details.)</Warning_NoObjectDetail>
+  <PaintFlow_Header>Flow Painter</PaintFlow_Header>
+  <PaintFlow_Description>Click to draw.
+Strength is shared between modes;
+Speed is the brush speed.</PaintFlow_Description>
+  <BrushMappingType_NormalizedInMeshBounds>Normalized</BrushMappingType_NormalizedInMeshBounds>
+  <Info_BrushMappingType_NormalizedInMeshBounds>Brush covered region is calculated by normalizing brush rectangle against the mesh's bounding box: recommended for square mesh-terrain with UV calculated by MTE creator/converter.</Info_BrushMappingType_NormalizedInMeshBounds>
+  <BrushMappingType_ExtendedFromHitPoint>Extended</BrushMappingType_ExtendedFromHitPoint>
+  <Info_BrushMappingType_ExtendedFromHitPoint>Brush covered region is calculated by extending brush size from mouse point: recommended for mesh with custom UV and non-square mesh.</Info_BrushMappingType_ExtendedFromHitPoint>
+  <CreateFlowMap>Create
+Flowmap</CreateFlowMap>
+  <Info_ModeDescription_Fixed>Hold ctrl and scroll to adjust direction.</Info_ModeDescription_Fixed>
+  <Info_ModeDescription_Movement>Normalized flow speed and direction is determined by mouse movement.</Info_ModeDescription_Movement>
+  <Info_ModeDescription_Pinch>Press Space to toggle between pinching and inflating.</Info_ModeDescription_Pinch>
+  <Info_ModeDescription_Vortex>Press Space to toggle direction of rotation.</Info_ModeDescription_Vortex>
+  <Info_ToolDescription_CreateFlowMap>Create a flow-map using current direction.</Info_ToolDescription_CreateFlowMap>
+  <MeshMisc_Header>Mesh Toolbox</MeshMisc_Header>
+  <MeshMisc_Description>Press Enter to begin moving.
+Hold shift to erase selection.
+Press Esc to reselect.</MeshMisc_Description>
+  <Info_ToolDescription_DeleteVertices>Delete selected vertices. Vertex-colored GameObjects will be ignored.</Info_ToolDescription_DeleteVertices>
+  <Warning_CannotCutHolesOnAVertexColoredMesh>You cannot cut holes on a vertex-colored mesh-terrain.</Warning_CannotCutHolesOnAVertexColoredMesh>
+  <Info_SwapQuadSplitDirection>Press S to modify the split direction of the highlighted quad under the mouse.</Info_SwapQuadSplitDirection>
+  <Info_MeshToolBox_Snap>Press button to snap height of selected vertices.</Info_MeshToolBox_Snap>
+  <TextureArrayPainter_Header>Paint Texture(Array)</TextureArrayPainter_Header>
+  <TextureArrayPainter_Description>Select a texture below, then click/drag to paint.</TextureArrayPainter_Description>
+  <Info_TextureArrayPainter_NoSplatTextureFoundOnSelectedObject>No splat texture-array found in selected GameObject.</Info_TextureArrayPainter_NoSplatTextureFoundOnSelectedObject>
+  <CreateTextureArraySettings>Create Array
+Settings</CreateTextureArraySettings>
+  <Info_ToolDescription_CreateTextureArraySettings>Create a TextureArray settings asset to create texture arrays.</Info_ToolDescription_CreateTextureArraySettings>
+  <GeneralSettings_Header>General</GeneralSettings_Header>
+  <GeneralSettings_Description>General settings.</GeneralSettings_Description>
+  <CompactGUI>Use compact GUI</CompactGUI>
+  <AutoRefreshFilter>Auto refresh filter</AutoRefreshFilter>
+  <ShowAffectedVertex>Show affected vertexes</ShowAffectedVertex>
+  <FlashAffectedVertex>Flash affected vertexes</FlashAffectedVertex>
+  <ShowBrushRange>Show brush range</ShowBrushRange>
+  <UseCircularBrush>Use circular brush</UseCircularBrush>
+  <ShowNormal>Show point normal</ShowNormal>
+  <BrushUnit>Brush unit</BrushUnit>
+  <UseTileSize>Use tile size</UseTileSize>
+  <RecalculateNormalsWhenSavingMesh>Recalculate normals when saving mesh</RecalculateNormalsWhenSavingMesh>
+  <MeshSmoothAngle>Mesh Smooth Angle</MeshSmoothAngle>
+  <Language>Language</Language>
+  <AutoSaveMesh>Auto Save Mesh</AutoSaveMesh>
+  <PackTextures>Pack Textures</PackTextures>
+  <AlbedoAndSmoothness>Albedo&amp;Smooth</AlbedoAndSmoothness>
+  <Info_AlbedoAndSmoothness>Albedo(RGB) &amp; Smoothness(A) texture, which is readonly and only this one is used for rendering.
+Click the refresh button to generate from Albedo and Smoothness texture.</Info_AlbedoAndSmoothness>
+  <AlbedoTexturePropertyName>Albedo(RGB)</AlbedoTexturePropertyName>
+  <Info_AlbedoTexturePropertyName>Albedo texture, only used to generate the Albedo(RGB) &amp; Smoothness(A) texture, not for rendering.</Info_AlbedoTexturePropertyName>
+  <SmoothnessTexturePropertyName>Smooth(A)</SmoothnessTexturePropertyName>
+  <Info_SmoothnessTexturePropertyName>Smoothness texture, only used to generate the Albedo(RGB) &amp; Smoothness(A) texture, not for rendering.</Info_SmoothnessTexturePropertyName>
+  <RefreshAlbedoAndSmoothnessTextures>refresh albedo&amp;smoothness textures</RefreshAlbedoAndSmoothnessTextures>
+  <AddOneLayer>add one layer</AddOneLayer>
+  <EnableNormalIntensity>Enable Normal Intensity</EnableNormalIntensity>
+  <EnableSmoothnessTexture>Enable Smoothness Texture</EnableSmoothnessTexture>
+  <EnableMetallic>Enable Metallic</EnableMetallic>
+  <EnableLayerUVScale>Enable Layer UV Scale</EnableLayerUVScale>
+  <Tooltip_CannotModifySmoothnessTextureText>Cannot modify smoothness texture state for a mesh-terrain block. Use the UI on tile container/root object instead.</Tooltip_CannotModifySmoothnessTextureText>
+  <ExtraProperties>Extra Properties</ExtraProperties>
+  <ShowDefaultShaderGUI>Show Default Shader GUI</ShowDefaultShaderGUI>
+  <TileCount>Tile Count</TileCount>
+  <HistoryViewer>MTE-History</HistoryViewer>
+  <MeshStatisticsViewer>Mesh Statistics Viewer</MeshStatisticsViewer>
+  <Snapshooter>Snapshooter</Snapshooter>
+  <Info_ToolDescription_Snapshooter>Capture a screenshot of a mesh-terrain from a top-down perspective.</Info_ToolDescription_Snapshooter>
+  <Info_Snapshooter_DisableLighting>Ignore all lighting in scene and use flat white ambient color. Lightmap applied to the mesh-terrain will also be disabled.</Info_Snapshooter_DisableLighting>
+  <BeginBake>Begin Baking</BeginBake>
+  <MeshTillingBaker>Mesh Tilling Baker</MeshTillingBaker>
+  <Info_ToolDescription_MeshTillingBaker>Bake unified tilling into mesh's uv0. Be sure to backup your mesh first!
+Specialized shader is required to properly render the baked mesh. If you don't know the detail, don't use this.</Info_ToolDescription_MeshTillingBaker>
+  <MeshToTerrainConverter>Mesh to Terrain Converter</MeshToTerrainConverter>
+  <MeshToTerrainConverter_Description>Convert a mesh-terrain to a Unity3D terrain.</MeshToTerrainConverter_Description>
+  <UVEditor>Mesh UV Adjuster</UVEditor>
+  <UVEditor_Description>Normalize uv of a mesh; Invert u or v of a mesh.</UVEditor_Description>
+  <PivotEditor>Mesh Pivot Adjuster</PivotEditor>
+  <PivotEditor_Description>Offset the pivot point of a mesh.</PivotEditor_Description>
+  <MeshZUpToYUpConverter>Mesh z-up to y-up Converter</MeshZUpToYUpConverter>
+  <MeshZUpToYUpConverter_Description>Convert a z-up mesh to y-up by rotating -90 degrees around z axis.</MeshZUpToYUpConverter_Description>
+  <MeshSaver>Mesh Saver</MeshSaver>
+  <MeshSaver_Description>Save a single mesh of any format as an obj, asset or fbx file.</MeshSaver_Description>
+  <ControlTextureCreator>Control Texture Creator</ControlTextureCreator>
+  <ControlTextureCreator_Description>Create control texture(s).
+Created texture(s) will be saved to Assets/.</ControlTextureCreator_Description>
+  <TextureAdjuster>Texture Resizer</TextureAdjuster>
+  <TextureAdjuster_Description>Create an adjusted copy of a texture.
+Adjusted texture will be saved to Assets/.
+Useful when you need to resize or flip a control texture (SplatAlpha).</TextureAdjuster_Description>
+  <TextureChannelPacker>Texture Channel Packer</TextureChannelPacker>
+  <TextureChannelPacker_Description>Pack texture channels into one single texture.</TextureChannelPacker_Description>
+  <TextureSize>Texture Size</TextureSize>
+  <LayerNumber>Layer Number</LayerNumber>
+  <WeightMapNormalizer>Weight Map Normalizer (beta)</WeightMapNormalizer>
+  <WeightMapNormalizer_Description>This tool normalize weight maps so each pixel on the same position has a total 255 color channel value.</WeightMapNormalizer_Description>
+  <PBRTextureArraySettings_Description_Color>All layers' color texture will be combined into one TextureArray.</PBRTextureArraySettings_Description_Color>
+  <PBRTextureArraySettings_Description_ColorAndNormal>All layers' color texture will be combined into one TextureArray;
+All layers' normal textures will be combined into another TextureArray.</PBRTextureArraySettings_Description_ColorAndNormal>
+  <PBRTextureArraySettings_Description_LegacyUnityStandard>***This mode hasn't been supported yet. Please choose another mode.***
+All layers' color and smoothness texture (Unity's old terrain shaders uses alpha channel of color texture as smoothness), will be combined into one TextureArray;
+All layers' normal textures will be combined into another TextureArray.</PBRTextureArraySettings_Description_LegacyUnityStandard>
+  <PBRTextureArraySettings_Description_PBR>Each layer's Albedo textures will be combined into 1st texture array.
+Each layer's roughness, normal and AO texture will be merged into one RoughnessNormalAO texture: R is roughness, GB is packed normal, and A is AO.
+Those RoughnessNormalAO textures will be combined into 2nd TextureArray.</PBRTextureArraySettings_Description_PBR>
+  <PBRTextureArraySettings_Description_PBRMetallic>Each layer's albedo and metallic textures will be combined into 1st texture array: RGB is Albedo, A is Metallic.
+Each layer's roughness, normal, AO texture will be merged into one RoughnessNormalAO texture: R is roughness, GB is packed normal, and A is AO.
+Those RoughnessNormalAO textures will be combined into 2nd TextureArray.</PBRTextureArraySettings_Description_PBRMetallic>
+  <Tooltip_TextureArrayMode>Texture Array Mode determines what kind of textures are packed in. Use one that matches the shader.</Tooltip_TextureArrayMode>
+  <Tooltip_TextureModeColor>Only use base-color (diffuse) map. </Tooltip_TextureModeColor>
+  <Tooltip_TextureModeColorAndNormal>Only use base-color (diffuse) and normal map.</Tooltip_TextureModeColorAndNormal>
+  <Tooltip_TextureModeLegacyUnityStandard>Use PBR maps used by legacy Unity Standard shaders.</Tooltip_TextureModeLegacyUnityStandard>
+  <Tooltip_TextureModePBR>Use PBR maps including albedo, normal, roughness and AO.</Tooltip_TextureModePBR>
+  <Tooltip_TextureModePBRMetallic>Use PBR maps including albedo, metallic, normal, roughness and AO.</Tooltip_TextureModePBRMetallic>
+  <Info>Info</Info>
+  <Warning>Warning</Warning>
+  <Error>Error</Error>
+  <Settings>Settings</Settings>
+  <Tools>Tools</Tools>
+  <Brushes>Brushes</Brushes>
+  <Size>Size</Size>
+  <Number>Number</Number>
+  <Speed>Speed</Speed>
+  <Height>Height</Height>
+  <Width>Width</Width>
+  <Strength>Strength</Strength>
+  <Color>Color</Color>
+  <Flow>Flow</Flow>
+  <Intensity>Intensity</Intensity>
+  <Density>Density</Density>
+  <Reduction>Reduction</Reduction>
+  <VertexCount>Vertex Count</VertexCount>
+  <TriangleCount>Triangle Count</TriangleCount>
+  <IndexCount>Index Count</IndexCount>
+  <CellSize>Cell/Tile Size</CellSize>
+  <TexelDensity>Texel Density</TexelDensity>
+  <LayerTextureTilling>Layer Texture Tilling</LayerTextureTilling>
+  <HeightMap>Height-Map</HeightMap>
+  <Curve>Curve</Curve>
+  <Rotation>Rotation</Rotation>
+  <RepeatCount>Repeat Count</RepeatCount>
+  <Mesh>Mesh</Mesh>
+  <FileFormat>File Format</FileFormat>
+  <Material>Material</Material>
+  <MinWidth>MinWidth</MinWidth>
+  <MaxWidth>MaxWidth</MaxWidth>
+  <MinHeight>MinHeight</MinHeight>
+  <MaxHeight>MaxHeight</MaxHeight>
+  <Direction>Direction</Direction>
+  <AngleInDegrees>Angle(°)</AngleInDegrees>
+  <Mode>Mode</Mode>
+  <Type>Type</Type>
+  <Object>Object</Object>
+  <Prefab>Prefab</Prefab>
+  <FreeVersion>Free</FreeVersion>
+  <ProVersion>Pro</ProVersion>
+  <Grass>Grass</Grass>
+  <On>ON</On>
+  <Off>OFF</Off>
+  <Texture>Texture</Texture>
+  <ControlTexture>Control Texture</ControlTexture>
+  <LabelWidth>Label Width</LabelWidth>
+  <Interval>Interval</Interval>
+  <Minutes>Minute(s)</Minutes>
+  <Hotkey>Hotkey</Hotkey>
+  <NumPad>NumPad</NumPad>
+  <OverallVertexCount>Overall Vertex Count</OverallVertexCount>
+  <PerTileStatistics>Per-tile Statistics</PerTileStatistics>
+  <Scale>Scale</Scale>
+  <UnifiedScale>Use Unified Scale</UnifiedScale>
+  <Albedo>Albedo</Albedo>
+  <Normal>Normal</Normal>
+  <Smoothness>Smoothness</Smoothness>
+  <Roughness>Roughness</Roughness>
+  <AmbientOcclusion>Ambient Occlusion</AmbientOcclusion>
+  <AO>AO</AO>
+  <Metallic>Metallic</Metallic>
+  <TextureArray>Texture Array</TextureArray>
+  <RoughnessNormalAO>RoughnessNormalAO</RoughnessNormalAO>
+  <NormalIntensity>Normal Intensity</NormalIntensity>
+  <UVScaleOffset>UV Scale Offset</UVScaleOffset>
+  <UVScale>UV Scale</UVScale>
+  <WeightMap>Weight Map</WeightMap>
+  <WeightMaps>Weight Maps</WeightMaps>
+  <Shader>Shader</Shader>
+  <TextureArrayMode>Texture Array Mode</TextureArrayMode>
+  <Vertex>Vertex</Vertex>
+  <Quad>Quad</Quad>
+  <Account>Account</Account>
+  <UserName>User Name</UserName>
+  <Password>Password</Password>
+  <MachineName>Machine Name</MachineName>
+  <MachineAccountName>Machine AccountName</MachineAccountName>
+  <RemoteDeactivation>Remote Deactivation</RemoteDeactivation>
+  <Distance>Distance</Distance>
+  <Shape>Shape</Shape>
+  <Tool>Tool</Tool>
+  <Action>Action</Action>
+  <Target>Target</Target>
+  <Format>Format</Format>
+  <WrapMode>Wrap Mode</WrapMode>
+  <FilterMode>Filter Mode</FilterMode>
+  <AnisoLevel>Aniso Level</AnisoLevel>
+  <ActualFormat>Actual Format</ActualFormat>
+  <Quality>Quality</Quality>
+  <MetallicTexture>Metallic Texture</MetallicTexture>
+  <LightModel>Light Model</LightModel>
+  <Statistics>Statistics</Statistics>
+  <Result>Result</Result>
+  <Component>Component</Component>
+  <Yes>Yes</Yes>
+  <No>No</No>
+  <OK>OK</OK>
+  <Cancel>Cancel</Cancel>
+  <Save>Save</Save>
+  <SaveAs>Save As</SaveAs>
+  <SaveLater>Save Later</SaveLater>
+  <Fill>Fill</Fill>
+  <Create>Create</Create>
+  <Delete>Delete</Delete>
+  <Randomize>Randomize</Randomize>
+  <Undo>Undo</Undo>
+  <Redo>Redo</Redo>
+  <SelectFile>Select a file</SelectFile>
+  <Reload>Reload</Reload>
+  <Add>Add</Add>
+  <Apply>Apply</Apply>
+  <Open>Open</Open>
+  <Download>Download</Download>
+  <Edit>Edit</Edit>
+  <Remove>Remove</Remove>
+  <CustomizeUI>Customize UI</CustomizeUI>
+  <Flip>Flip</Flip>
+  <Help>Help</Help>
+  <Adjust>Adjust</Adjust>
+  <Split>Split</Split>
+  <SwitchMode>Switch Mode</SwitchMode>
+  <AllowOverlap>Allow Overlap</AllowOverlap>
+  <DisableLighting>Disable Lighting</DisableLighting>
+  <Refresh>Refresh</Refresh>
+  <OpenInASE>Open shader in ASE</OpenInASE>
+  <OverrideMaterial>Override Material</OverrideMaterial>
+  <UseBuiltinFBXExporter>Use builtin FBX exporter</UseBuiltinFBXExporter>
+  <CreateShortcut>Create Shortcut
+On Desktop</CreateShortcut>
+  <Login>Login</Login>
+  <Logout>Logout</Logout>
+  <CreateAccount>Create Account</CreateAccount>
+  <Wrap>Wrap</Wrap>
+  <Compress>Compress</Compress>
+  <Snap>Snap</Snap>
+  <Horizontal>Horizontal (along x)</Horizontal>
+  <Vertical>Vertical (along z)</Vertical>
+  <Immediately>Immediately</Immediately>
+  <Customized>Customized</Customized>
+  <Cancelled>Cancelled</Cancelled>
+  <Used>Used</Used>
+  <Ignored>Ignored</Ignored>
+  <Min>Min</Min>
+  <Max>Max</Max>
+  <ReadTheDocs>read the documentation</ReadTheDocs>
+  <DelayUntil7DaysLater>delay until 7 days layer</DelayUntil7DaysLater>
+  <AutoCheckForUpdates>automatically check for updates</AutoCheckForUpdates>
+  <BrowseToAsset>Browse to the asset</BrowseToAsset>
+  <UseTextureArray>Use TextureArray</UseTextureArray>
+  <TextureArraySettings>TextureArray Settings</TextureArraySettings>
+  <UseSmoothness>Use Smoothness</UseSmoothness>
+  <BreakMaskMap>Break Mask-map</BreakMaskMap>
+  <ShowAdvancedOptions>Show Advanced Options</ShowAdvancedOptions>
+  <Tooltip_AdjustControlMap>Modify the size of this control map; flip it vertically or/and horizontally</Tooltip_AdjustControlMap>
+  <Info_UseSmoothness>When smoothness texture is supported by shader, use smoothness texture in result material if mask-map is assigned in terrain-layer's mask-map. Smoothness = 1.0 - Roughness.</Info_UseSmoothness>
+  <Info_UseRoughness>When roughness texture is supported by shader, use roughness texture in result material if mask-map is assigned in terrain-layer's mask-map. Roughness = 1.0 - Smoothness.</Info_UseRoughness>
+  <Info_BreakMaskMap>The mask-map of each terrain-layer will be extracted into separated textures, which can be use latter in a mesh-terrain's material.</Info_BreakMaskMap>
+  <Info_AutoSaveMeshImmediately>Modified mesh-terrain(s) will be automatically saved when mouse is released. If the editor becomes noticeably laggy, please disable *Auto Save Mesh*. Note undo/redo is disabled when auto-save is enabled.</Info_AutoSaveMeshImmediately>
+  <Info_AutoSaveMeshWithInterval>Modified mesh-terrain(s) will be automatically saved every (Interval) minutes. Note undo/redo will be unreliable when auto-save is enabled.</Info_AutoSaveMeshWithInterval>
+  <Info_UseTheSaveButtonToSaveMesh>You must save the mesh by clicking the Save button below! Ctrl+S WON'T work!</Info_UseTheSaveButtonToSaveMesh>
+  <Info_DirtyMeshSaved>Modified mesh-terrains has been saved.</Info_DirtyMeshSaved>
+  <Info_SelectAGameObjectWithValidMesh>Please select a GameObject with a valid mesh.</Info_SelectAGameObjectWithValidMesh>
+  <Info_PleaseSelectAGameObjectWithTerrain>Please select a GameObject with a valid Terrain.</Info_PleaseSelectAGameObjectWithTerrain>
+  <Info_LimitOfTexture5>When using MTE/XXX/5 Textures/XXXX/Fog, the layer5 shares Tilling and Offset with the layer4.</Info_LimitOfTexture5>
+  <Info_HotkeyTable>
+F1~F9     Select a tool
+
+[ ]       Adjust brush size.
+- +       Adjust brush speed/strength/flow.
+
+PageUp    Undo (Fn+Up on Mac)
+PageDown  Redo (Fn+Down on Mac)
+
+~         Toggle selection wireframe/outline.
+
+* Hotkey is only available when
+  1. The IME is off.
+  2. The editor or scene view has the focus.
+</Info_HotkeyTable>
+  <Info_PleaseSelectAMeshTerrain>Please select a mesh-terrain.</Info_PleaseSelectAMeshTerrain>
+  <Info_WillBeSavedInstantly>Your modification will be saved automatically.</Info_WillBeSavedInstantly>
+  <Info_SliderModeHint>Right click to switch slider mode: regular or logarithmic.</Info_SliderModeHint>
+  <Info_RefreshAlbedoAndSmoothnessTexturesOnTileContainer>Will re-generate albedo&amp;smoothness textures according to first block's material, and assign them to all blocks.</Info_RefreshAlbedoAndSmoothnessTexturesOnTileContainer>
+  <Info_CheckingForUpdate>Checking for update...</Info_CheckingForUpdate>
+  <Info_ActivationNotApplied>Mesh Terrain Editor Pro hasn't been activated on this machine.</Info_ActivationNotApplied>
+  <Info_ActivationApplied>Mesh Terrain Editor Pro has been activated on this machine.</Info_ActivationApplied>
+  <Info_HowToRemoteDeactivate>If you have a valid MTE Pro copy running on another machine, you can deactivate it and activate the copy on this machine instead.</Info_HowToRemoteDeactivate>
+  <Info_ReadyForRemoteDeactivation>This machine is ready for remote deactivation.</Info_ReadyForRemoteDeactivation>
+  <Info_AutoLoginIsPending>Auto login...</Info_AutoLoginIsPending>
+  <Info_SetPerLayerUVScalesFormat>Set UV scale in {0} inspector</Info_SetPerLayerUVScalesFormat>
+  <Info_ConversionSucceeded>Conversion succeeded</Info_ConversionSucceeded>
+  <Info_AutoName>Automatically set the name.</Info_AutoName>
+  <Info_CustomName>Specify a custom name.</Info_CustomName>
+  <Info_TextureFormatAvailability>Only texture formats available on current build platform are listed.</Info_TextureFormatAvailability>
+  <Info_FreeVersion_UsingSplatTexturesExcept4IsAProFeature>Only 4 different textures can be used in MTE Free.
+Please assign 4 different textures and uses a 4 Textures shader in the material.</Info_FreeVersion_UsingSplatTexturesExcept4IsAProFeature>
+  <Info_FreeVersion_UsingTextureArrayExcept4IsAProFeature>Only 4 layers can be used in MTE Free.
+Please use 4 layer texture arrays.</Info_FreeVersion_UsingTextureArrayExcept4IsAProFeature>
+  <Info_FreeVersion_UsingPrefabMoreThan2IsAProFeature>Only first 2 prefabs can be used in MTE Free.</Info_FreeVersion_UsingPrefabMoreThan2IsAProFeature>
+  <Info_FreeVersion_UsingGrassMoreThan1IsAProFeature>Only first grass can be used in MTE Free.</Info_FreeVersion_UsingGrassMoreThan1IsAProFeature>
+  <Info_FreeVersion_EditMoreThan2MeshTerrainsIsAProFeature>Only 2 mesh-terrains can be edited at the same time in MTE Free.</Info_FreeVersion_EditMoreThan2MeshTerrainsIsAProFeature>
+  <Warning_ProFeature>MTE Pro feature</Warning_ProFeature>
+  <About>About Mesh Terrain Editor</About>
+  <CheckForUpdates>Check for updates</CheckForUpdates>
+  <AlreadyLatestRelease>Mesh Terrain Editor is up to date.</AlreadyLatestRelease>
+  <NewReleaseAvailable>New release of Mesh Terrain Editor is available.</NewReleaseAvailable>
+  <AuthorWebsite>Author's website</AuthorWebsite>
+  <Buy>Buy</Buy>
+  <Forum>Forum</Forum>
+  <InstantMessagingGroup>Instant Messaging Group</InstantMessagingGroup>
+  <EmailAuthor>Email the author</EmailAuthor>
+  <CopyInfo>© 2016-2023 Zou Wei. All Rights Reserved.</CopyInfo>
+  <About_AuthorWebsiteLink>https://zwcloud.net</About_AuthorWebsiteLink>
+  <BuyLink>https://assetstore.unity.com/packages/tools/terrain/mesh-terrain-editor-pro-57515</BuyLink>
+  <ForumLink>http://forum.unity3d.com/threads/mte.396808/</ForumLink>
+  <EmailAddress>zwcloud@hotmail.com</EmailAddress>
+  <EmailLink>mailto:zwcloud@hotmail.com</EmailLink>
+  <WelcomeToMTE>Welcome to Mesh Terrain Editor</WelcomeToMTE>
+  <CreatorShortcut>Creator</CreatorShortcut>
+  <ConverterShortcut>Converter</ConverterShortcut>
+  <EditorShortcut>Editor</EditorShortcut>
+  <Documentation>Documentation</Documentation>
+  <DocumentationDescription>Describes how to use Mesh Terrain Editor.</DocumentationDescription>
+  <ForumDescription>Exchange ideas and views on Mesh Terrain Editor.</ForumDescription>
+  <InstantMessagingDescription>Chat on Discord for issues and ideas on Mesh Terrain Editor.</InstantMessagingDescription>
+  <Email>Email</Email>
+  <EmailDescription>Please read the docs first. If it didn't help, email us.</EmailDescription>
+  <FeatureRequestAndBugReport>Feature Request &amp; Bug Report</FeatureRequestAndBugReport>
+  <FeatureRequestAndBugReportDescription>Request new features or suggest modifications to existing features.</FeatureRequestAndBugReportDescription>
+  <Video>Video</Video>
+  <VideoDescription>Introduction video for Mesh Terrain Editor.</VideoDescription>
+  <Short_CopyInfo>© 2016-2023 Zou Wei</Short_CopyInfo>
+  <IssueTrackerLink>https://github.com/zwcloud/MeshTerrainEditor-issues/issues</IssueTrackerLink>
+  <VideoLink>https://www.youtube.com/playlist?list=PLAPDf1098vzj2E-vib7KAy5K9UcYjqloj</VideoLink>
+  <ShowWelcomeAtStartUp>Show welcome at start up.</ShowWelcomeAtStartUp>
+  <Warning_Confirm>Are you sure?</Warning_Confirm>
+  <Warning_Confirm_UnrecoverableOperation>Are you sure? This operation cannot be undone.</Warning_Confirm_UnrecoverableOperation>
+  <Warning_ConfirmReplaceControlTexture>Are you sure you want to replace the control texture?</Warning_ConfirmReplaceControlTexture>
+  <Warning_MeshIsNotSaved>Do you want to save the changes you made on the mesh-terrain?
+
+You can save it later but your changes will be lost if you close Unity without saving it.</Warning_MeshIsNotSaved>
+  <Warning_PleaseSelectAPathInsideAssets>Please select a path inside the "Assets" directory</Warning_PleaseSelectAPathInsideAssets>
+  <Warning_TextureCountNotSupported>Selected terrain layer number should be 2/3/4/5. Please remove or add terrain layers. If you want to use more than 5 layers, select Use TextureArray which supports 2 to 12 layers.</Warning_TextureCountNotSupported>
+  <Warning_TextureCountNotSupportedForTextureArray>Selected terrain layer number should be 2 to 12. Please remove or add layers.</Warning_TextureCountNotSupportedForTextureArray>
+  <Warning_SelectAGameObject>Please select a GameObject.</Warning_SelectAGameObject>
+  <Warning_GrassLoaderExists>Cannot create a new GrassLoader object: an existing GrassLoader has been added to GameObject {0}.</Warning_GrassLoaderExists>
+  <Warning_CannotAttachGrassLoaderToAGameObjectWithMeshFilter>Cannot attach GrassLoader to a GameObject with MeshFilter.</Warning_CannotAttachGrassLoaderToAGameObjectWithMeshFilter>
+  <Warning_AlreadyAttached>Already attached.</Warning_AlreadyAttached>
+  <Warning_FbxNotSupported>FBX is not supported. To enable FBX, enable the built in FBX exporter in settings or install FBX Exporter in the package manager.</Warning_FbxNotSupported>
+  <Warning_NoDetail>No Detail Defined</Warning_NoDetail>
+  <Warning_ShaderIsExperimental>This shader is experimental: rendering performance might be bad and tooling might be incomplete.</Warning_ShaderIsExperimental>
+  <Warning_ASENotFound>Cannot find Amplify Shader Editor, features based on ASE might be disabled.
+Please upgrade ASE to latest version and restart Unity.</Warning_ASENotFound>
+  <Warning_ShaderTypeNotMatchTheRenderPipeline>The shader type doesn't match current render pipeline. This will make the mesh terrain rendered incorrectly.</Warning_ShaderTypeNotMatchTheRenderPipeline>
+  <Warning_ParameterCannotBeEmptyFormat>Parameter {0} cannot be empty.</Warning_ParameterCannotBeEmptyFormat>
+  <Warning_ShaderNotProvided>This kind of shader hasn't been provided.</Warning_ShaderNotProvided>
+  <Warning_TextureArrayIsEmpty>Texture array is empty.</Warning_TextureArrayIsEmpty>
+  <Warning_OutputDirNotExist>Output directory doesn't exist.</Warning_OutputDirNotExist>
+  <Warning_InvalidObjectName>Object name is invalid. It should not be empty or all whitespace. It should not contain any of \ / : * ? " &lt; &gt; |</Warning_InvalidObjectName>
+  <Warning_CannotUseTextureArray>Cannot use texture array.</Warning_CannotUseTextureArray>
+  <Warning_InvalidShader>Shader is invalid.</Warning_InvalidShader>
+  <Warning_TextureTypeShouldBeNormalMap>Texture should be of Texture Type *Normal map*. Please make sure it is *Normal map* in the texture import settings inspector.</Warning_TextureTypeShouldBeNormalMap>
+  <Warning_PropertyIsNotAvailableFormat>Property &lt;{0}&gt; is not available.</Warning_PropertyIsNotAvailableFormat>
+  <Warning_NoPrototypes>Please add prototypes.</Warning_NoPrototypes>
+  <Error_NameIsInvalid>Name is invalid. It cannot be null or empty.</Error_NameIsInvalid>
+  <Error_OutputDirIsInvalid>OutPutDir is invalid. It cannot be null or empty.</Error_OutputDirIsInvalid>
+  <Error_OutputDirNotInAssetsFormat>OutPutDir&lt;{0}&gt; is not a path inside project /Assets.</Error_OutputDirNotInAssetsFormat>
+  <Error_VertexCountNotInSupportedRangeFormat>VertexCountAlongAnEdge should be a number within the range of {0}-{1}</Error_VertexCountNotInSupportedRangeFormat>
+  <Error_FailedToSaveFileFormat>Failed to save {0} {1} to {2}.</Error_FailedToSaveFileFormat>
+  <Error_TerrainTextureSizeFormat>Terrain&lt;{0}&gt; Layer[{1}]&lt;{2}&gt; {3} &lt;{4}&gt;'s size is not {5}.</Error_TerrainTextureSizeFormat>
+  <Error_TerrainTextureSourceFileImageSizeFormat>Terrain&lt;{0}&gt; Layer[{1}]&lt;{2}&gt; {3} &lt;{4}&gt;'s source image file is located at &lt;{5}&gt;. It's size is not {6}.</Error_TerrainTextureSourceFileImageSizeFormat>
+  <Warning_LegacyUnityStandardIsNotSupportedYet>Legacy Standard is not supported, please choose other texture array mode.</Warning_LegacyUnityStandardIsNotSupportedYet>
+  <Warning_CannotSplitAndUseTextureArrayAtOnce>Cannot split and use texture array at the same time. Not supported yet.</Warning_CannotSplitAndUseTextureArrayAtOnce>
+  <Error_RequiredFieldFormat>Field {0} is required</Error_RequiredFieldFormat>
+  <Error_ShaderNotSupported>This shader is not supported on target platform!</Error_ShaderNotSupported>
+  <Error_MTEFilesDuplicated>Some file of MTE is duplicated, which will cause undefined behavior or unexpected error.Please make sure only one Latest copy of Mesh Terrain Editor are imported in you project.Please delete duplicated files or files from old version first before importing MTE package.</Error_MTEFilesDuplicated>
+  <Error_CannotMergeTexturesOfDifferentSize>Cannot merge textures of different size</Error_CannotMergeTexturesOfDifferentSize>
+  <Error_MissingLayerTextures>Some texture is not assigned to texture layers</Error_MissingLayerTextures>
+  <Error_TerrainLayerTextureNotAssignedFormat>Terrain&lt;{0}&gt; Layer[{1}]&lt;{2}&gt; {3} is not assigned.</Error_TerrainLayerTextureNotAssignedFormat>
+  <Error_TerrainDataInvalid>TerrainData is invalid.</Error_TerrainDataInvalid>
+  <Error_CannotSplitAndKeepLightmappingAtOnce>Cannot split and keep lightmapping at the same time.</Error_CannotSplitAndKeepLightmappingAtOnce>
+  <MachineAndAccountName>Machine/User Name</MachineAndAccountName>
+  <SerialNumber>Serial Number</SerialNumber>
+  <Info_SerialNumberHint>Author of MeshTerrainEditor will send a serial number to you after purchase.</Info_SerialNumberHint>
+  <Activation>Activation</Activation>
+  <Activation_Header>Activate/Deactivate Mesh Terrain Editor Pro</Activation_Header>
+  <Activation_Description>Activate MTE Pro with serial number.</Activation_Description>
+  <ActivateProLicense>Activate MTE Pro</ActivateProLicense>
+  <Activating>Activating...</Activating>
+  <ActivateHint>Activate MTE Pro using the serial number. (require Internet access)</ActivateHint>
+  <DeactivateProLicense>Deactivate MTE Pro</DeactivateProLicense>
+  <Deactivating>Deactivating...</Deactivating>
+  <DeactivateHint>Deactivate MTE Pro on this machine, you can then reactivate it on another machine. MTE will revert to MTE Free on this machine. (require Internet access)</DeactivateHint>
+  <ManualActivate>Manual Activation</ManualActivate>
+  <ManualActivateHint>Activate MTE Pro manually for machines without direct access to the Internet.</ManualActivateHint>
+  <Error_GetErrorResponse>Get error response: {0}</Error_GetErrorResponse>
+  <Error_AccessServerFailed>Something went wrong when trying to access the server.
+ Please check your Internet access and try again later. Error:
+{0}</Error_AccessServerFailed>
+  <Warning_ActivationFailed>Activation failed: the serial number is not valid or doesn't match this computer. Please check your serial number and try again.</Warning_ActivationFailed>
+  <Info_ActivationSucceeded>Mesh Terrain Editor Pro Activated! Please restart Unity.</Info_ActivationSucceeded>
+  <Info_ActivationHelp>The activation/deactivation might take up to 2 minutes to finish.If you need help, please read the documentation by clicking the question mark on the top-right of this window.If it doesn't help, join Instant Messaging Group and send private message to the author.Or contact zwcloud@hotmail.com with your serial number, which is not recommended since it may be slow to respond.</Info_ActivationHelp>
+  <HowToRemoteDeactivateDocLink>How to deactivate remotely?</HowToRemoteDeactivateDocLink>
+  <ManualActivationHint1>Make sure your serial number is valid. Then open the link on a machine that has Internet access. You will get an activation code that only works for this machine.</ManualActivationHint1>
+  <ManualActivationHint2>Paste the activation code below.</ManualActivationHint2>
+</StringTable>
