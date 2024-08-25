@@ -34,6 +34,15 @@ public class Movement : MonoBehaviour
     public Mesh normalCollider;
     public Mesh crouchCollider;
 
+    [Header("Slope Physics")]
+    public float maxSlopeAngle = 45f;
+    public float slideForce = 5f;
+    public float maxSlideSpeed = 10f;
+    public LayerMask ground;
+
+    private RaycastHit hit;
+    private float slopeAngle;
+
     //references
     [HideInInspector] public Rigidbody rb;
     [HideInInspector] public Animator animator;
@@ -221,6 +230,23 @@ public class Movement : MonoBehaviour
         
         if (move.ReadValue<Vector2>() != Vector2.zero) animator.SetFloat("speed", Vector2.Distance(Vector2.zero, move.ReadValue<Vector2>()));
         
-        
+        //slope fix
+        // Check for ground and calculate slope angle
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, ground, 5))
+        {
+            slopeAngle = Vector3.Angle(hit.normal, Vector3.up);
+            Debug.Log("Slope angle: " + slopeAngle); // For debugging
+            
+        }
+
+        Debug.DrawLine(transform.position, transform.position + Vector3.down * 5, Color.red, 1);
+
+        // Prevent movement on steep slopes
+        if (slopeAngle > maxSlopeAngle)
+        {
+            // ... your existing code ...
+            Debug.Log("Slope too steep, preventing movement"); // For debugging
+        }
+
     }  //animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Attack1" && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Attack2" && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Crit"
 }
