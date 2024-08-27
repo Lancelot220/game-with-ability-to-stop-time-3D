@@ -25,6 +25,9 @@ public class Movement : MonoBehaviour
     public bool onGround;
     public float coyoteTime = 0.2f;
     float coyoteTimeCounter;
+    public float jumpDelay = 0.5f;
+    float jumpDelayCounter = 0;
+    //[HideInInspector] public bool hasJumped = false;
     
     [Header("Crouching")]
     public float crouchSpeed = 5f;
@@ -40,8 +43,8 @@ public class Movement : MonoBehaviour
     public float maxSlideSpeed = 10f;
     public LayerMask ground;
 
-    private RaycastHit hit;
-    private float slopeAngle;
+    //private RaycastHit hit;
+    //private float slopeAngle;
 
     //references
     [HideInInspector] public Rigidbody rb;
@@ -115,12 +118,14 @@ public class Movement : MonoBehaviour
    //Jump
    private void Jump(InputAction.CallbackContext context)
     {
-        if(coyoteTimeCounter > 0 && speed != crouchSpeed && animator.GetFloat("combo") <= 0)
+        if(coyoteTimeCounter > 0 && speed != crouchSpeed && animator.GetFloat("combo") <= 0 && jumpDelayCounter <= 0)
         {
             rb.AddForce(new Vector3(rb.velocity.x, jumpForce, rb.velocity.z));
             coyoteTimeCounter = 0;
             animator.SetBool("jumped", true);
-
+           
+            jumpDelayCounter = jumpDelay;
+            //hasJumped = true;
             //print("hop");
         }
     }
@@ -132,9 +137,7 @@ public class Movement : MonoBehaviour
         if (!animator.GetBool("isRunning") && !animator.GetBool("isCrouching") && animator.GetFloat("combo") <= 0 /*&& onGround*/)
         speed = defaultSpeed;
 
-        //Coyote time
-        if(onGround)
-        { coyoteTimeCounter = coyoteTime; } else { coyoteTimeCounter -= Time.deltaTime; } 
+        jumpDelayCounter -= Time.deltaTime;        
 
         //animator destroyed fix
         //if (animator == null) animator = GetComponentInChildren<Animator>();
@@ -231,6 +234,13 @@ public class Movement : MonoBehaviour
         else animator.SetBool("isMoving", false);
         
         if (move.ReadValue<Vector2>() != Vector2.zero) animator.SetFloat("speed", Vector2.Distance(Vector2.zero, move.ReadValue<Vector2>()));
+
+        //Coyote time
+        if(onGround)
+        { coyoteTimeCounter = coyoteTime; } else { coyoteTimeCounter -= Time.deltaTime; } 
+
+
+
         /*
         //slope fix   --- NOT WORKING
         // Check for ground and calculate slope angle
