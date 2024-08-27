@@ -120,6 +120,8 @@ public class Movement : MonoBehaviour
             rb.AddForce(new Vector3(rb.velocity.x, jumpForce, rb.velocity.z));
             coyoteTimeCounter = 0;
             animator.SetBool("jumped", true);
+
+            //print("hop");
         }
     }
     
@@ -132,7 +134,7 @@ public class Movement : MonoBehaviour
 
         //Coyote time
         if(onGround)
-        { coyoteTimeCounter = coyoteTime;} else { coyoteTimeCounter -= Time.deltaTime; } 
+        { coyoteTimeCounter = coyoteTime; } else { coyoteTimeCounter -= Time.deltaTime; } 
 
         //animator destroyed fix
         //if (animator == null) animator = GetComponentInChildren<Animator>();
@@ -229,8 +231,8 @@ public class Movement : MonoBehaviour
         else animator.SetBool("isMoving", false);
         
         if (move.ReadValue<Vector2>() != Vector2.zero) animator.SetFloat("speed", Vector2.Distance(Vector2.zero, move.ReadValue<Vector2>()));
-        
-        //slope fix
+        /*
+        //slope fix   --- NOT WORKING
         // Check for ground and calculate slope angle
         if (Physics.Raycast(transform.position, Vector3.down, out hit, ground, 5))
         {
@@ -244,9 +246,16 @@ public class Movement : MonoBehaviour
         // Prevent movement on steep slopes
         if (slopeAngle > maxSlopeAngle)
         {
-            // ... your existing code ...
+            // Apply friction to slow down
+            rb.AddForce(Vector3.down * slideForce, ForceMode.Acceleration);
+
+            // Limit sliding speed
+            if (rb.velocity.magnitude > maxSlideSpeed)
+            {
+                rb.velocity = rb.velocity.normalized * maxSlideSpeed;
+            }
             Debug.Log("Slope too steep, preventing movement"); // For debugging
         }
-
+        */
     }  //animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Attack1" && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Attack2" && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Crit"
 }

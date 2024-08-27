@@ -50,7 +50,7 @@ public class Water : MonoBehaviour
                 destination = pointsOnGround[0];
             }
         }
-
+        //make two arrays for points (one for !condition and second for condition == true)
 
         player.position = destination.position;
         playerObj.GetComponent<Movement>().enabled = true;

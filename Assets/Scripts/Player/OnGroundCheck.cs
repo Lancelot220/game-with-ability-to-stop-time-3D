@@ -11,9 +11,9 @@ public class OnGroundCheck : MonoBehaviour
     void Start() {movement = GetComponentInParent<Movement>(); ps = GetComponentInParent<PlayerStats>();} 
     void OnTriggerEnter(Collider col)
     {
-        if(!col.CompareTag("Player"))
+        if(!col.CompareTag("Player") && !col.CompareTag("Trigger"))
         {
-            movement.onGround = true; //print("bruh");
+            movement.onGround = true; print("bruh");
             ps.Landed();
             movement.animator.SetBool("jumped", false);
         }
@@ -21,14 +21,17 @@ public class OnGroundCheck : MonoBehaviour
 
     void OnTriggerStay(Collider col)
     {
-        movement.onGround = true; //print("bruh");
-        //if(movement.animator.GetBool("jumped")) 
-        movement.animator.SetBool("jumped", false); 
+        if(!col.CompareTag("Player") && !col.CompareTag("Trigger"))
+        {
+            movement.onGround = true; //print("bruh");
+            //if(movement.animator.GetBool("jumped")) 
+            movement.animator.SetBool("jumped", false); 
+        }
     }
 
     void OnTriggerExit(Collider col)
     {
-        if(!col.CompareTag("Player"))
-        { movement.onGround = false; /*Debug.LogWarning("huh?");*/ }
-        }
+        if(!col.CompareTag("Player") && !col.CompareTag("Trigger"))
+        { movement.onGround = false; Debug.LogWarning("huh?"); }
+    }
 }
