@@ -14,6 +14,8 @@ public class Movement : MonoBehaviour
     public float defaultSpeed = 10f;
     public float speed;
     public float runSpeed = 15f;
+    public float maxSpeed = 5f;
+    public float slideSpeed = 5f;
     
     //public float inAirSpeed = 1.1f;
     [SerializeField] private float rotationSpeed = 3f;
@@ -36,13 +38,13 @@ public class Movement : MonoBehaviour
     /*[HideInInspector]*/ public bool holdingCrouchButton;
     public Mesh normalCollider;
     public Mesh crouchCollider;
-
+/*
     [Header("Slope Physics")]
     public float maxSlopeAngle = 45f;
-    public float slideForce = 5f;
+    
     public float maxSlideSpeed = 10f;
     public LayerMask ground;
-
+*/
     //private RaycastHit hit;
     //private float slopeAngle;
 
@@ -239,33 +241,24 @@ public class Movement : MonoBehaviour
         if(onGround)
         { coyoteTimeCounter = coyoteTime; } else { coyoteTimeCounter -= Time.deltaTime; } 
 
-
-
-        /*
-        //slope fix   --- NOT WORKING
-        // Check for ground and calculate slope angle
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, ground, 5))
+        //limit vertical speed
+        // Отримуємо поточну швидкість
+        Vector3 velocity = rb.velocity;
+        // Обмеження по Y тільки для додатних значень
+        if (velocity.y > 0)
         {
-            slopeAngle = Vector3.Angle(hit.normal, Vector3.up);
-            //Debug.Log("Slope angle: " + slopeAngle); // For debugging
-            
+            velocity.y = Mathf.Min(velocity.y, maxSpeed);
         }
-
-        Debug.DrawLine(transform.position, transform.position + Vector3.down * 5, Color.red, 1);
-
-        // Prevent movement on steep slopes
-        if (slopeAngle > maxSlopeAngle)
-        {
-            // Apply friction to slow down
-            rb.AddForce(Vector3.down * slideForce, ForceMode.Acceleration);
-
-            // Limit sliding speed
-            if (rb.velocity.magnitude > maxSlideSpeed)
-            {
-                rb.velocity = rb.velocity.normalized * maxSlideSpeed;
-            }
-            Debug.Log("Slope too steep, preventing movement"); // For debugging
-        }
-        */
+        // Обмеження по X та Z незалежно від знаку
+        //velocity.x = Mathf.Clamp(velocity.x, -maxSpeed, maxSpeed);
+        //velocity.z = Mathf.Clamp(velocity.z, -maxSpeed, maxSpeed);
+        // Застосовуємо нову швидкість
+        rb.velocity = velocity;
     }  //animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Attack1" && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Attack2" && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Crit"
+
+    void OnTriggerStay(Collider col)
+    {
+        if(col.CompareTag("SlideDown"))
+        rb.velocity = new Vector3(rb.velocity.x, -slideSpeed, rb.velocity.z);
+    }
 }
