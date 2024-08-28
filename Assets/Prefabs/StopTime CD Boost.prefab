@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50637c442194e4348a5253dee39a75f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cdBoost: 15
+  cdBoost: 5
   rotationSpeed: 100
 --- !u!65 &5525192236573200737
 BoxCollider:

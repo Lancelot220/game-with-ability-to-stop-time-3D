@@ -22,7 +22,7 @@ public class StopTime_ : MonoBehaviour
     [HideInInspector] public float cdTimer;
     Collider[] objectsInRange;
     Vector3 navMeshAgentDst;
-    bool timeStopped;
+    [HideInInspector] public bool timeStopped;
 
     //references
     Controls ctrls;
@@ -48,7 +48,7 @@ public class StopTime_ : MonoBehaviour
         if(!canStopTime && cdTimer < cd)
         { cdTimer += Time.deltaTime; }
         else if (!canStopTime && cdTimer >= cd)
-        { canStopTime = true; print("You can stop time again!"); }
+        { canStopTime = true; cdTimer = 0; print("You can stop time again!"); }
     }
 
     //stop time
