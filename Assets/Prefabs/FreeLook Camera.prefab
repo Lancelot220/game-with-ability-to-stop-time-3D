@@ -464,12 +464,12 @@ MonoBehaviour:
   m_BindingMode: 4
   m_SplineCurvature: 0.2
   m_Orbits:
-  - m_Height: 7
+  - m_Height: 15
     m_Radius: 2
-  - m_Height: 1.5
-    m_Radius: 7
+  - m_Height: 5
+    m_Radius: 15
   - m_Height: -0.5
-    m_Radius: 7
+    m_Radius: 15
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
   - {fileID: 2508785399472688087}

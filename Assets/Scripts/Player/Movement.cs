@@ -216,9 +216,18 @@ public class Movement : MonoBehaviour
     //Move
     void FixedUpdate()
     {
-        Vector2 dir = move.ReadValue<Vector2>() * speed; 
+        Vector2 dir = move.ReadValue<Vector2>() * speed;
         Vector3 movement = new Vector3(dir.x, 0f, dir.y);
-        movement = cameraMainTransform.forward * movement.z + cameraMainTransform.right * movement.x;
+        //movement = cameraMainTransform.forward * movement.z + cameraMainTransform.right * movement.x;
+        
+        Vector3 cameraForward = cameraMainTransform.forward;
+        cameraForward.y = 0;  // Ігноруємо нахил камери по осі Y
+        cameraForward.Normalize();  // Нормалізуємо вектор, щоб зберегти його напрямок
+        Vector3 cameraRight = cameraMainTransform.right;
+        cameraRight.y = 0;  // Також ігноруємо можливі зміщення по осі Y у правого вектора
+        cameraRight.Normalize();
+        movement = cameraForward * movement.z + cameraRight * movement.x;
+        
         movement.y = 0f;
         if (animator.GetFloat("combo") < 0) 
         { rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z); movementStopped = false; }

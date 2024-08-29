@@ -624,12 +624,15 @@ MonoBehaviour:
   defaultSpeed: 5
   speed: 0
   runSpeed: 10
+  maxSpeed: 5
+  slideSpeed: 10
   rotationSpeed: 5
   movementStopped: 0
   atacking: 0
   jumpForce: 300
   onGround: 0
   coyoteTime: 0.2
+  jumpDelay: 0.5
   crouchSpeed: 3
   canStopCrouching: 0
   holdingCrouchButton: 0
@@ -637,12 +640,6 @@ MonoBehaviour:
     type: 3}
   crouchCollider: {fileID: -2587613122030603868, guid: c85db42dc77353b489c69dfbe0aa477b,
     type: 3}
-  maxSlopeAngle: 45
-  slideForce: 5
-  maxSlideSpeed: 10
-  ground:
-    serializedVersion: 2
-    m_Bits: 0
   rb: {fileID: 0}
   animator: {fileID: 0}
 --- !u!114 &5166675014266170956
@@ -683,6 +680,7 @@ MonoBehaviour:
   canStopTime: 1
   durationTimer: 0
   cdTimer: 0
+  timeStopped: 0
 --- !u!1 &6840024681727209825
 GameObject:
   m_ObjectHideFlags: 0
