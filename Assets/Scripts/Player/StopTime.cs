@@ -33,9 +33,9 @@ public class StopTime_ : MonoBehaviour
 
     void Update()
     {
-        if(durationTimer > 0 && !canStopTime)
+        if(durationTimer > 0 && !canStopTime && slider != null)
         { slider.maxValue = duration; slider.value = durationTimer;}
-        if(cdTimer < cd && !canStopTime && durationTimer <= 0)
+        if(cdTimer < cd && !canStopTime && durationTimer <= 0 && slider != null)
         { slider.maxValue = cd; slider.value = cdTimer;}
         
         //unfreeze
