@@ -30,6 +30,10 @@ MonoBehaviour:
     m_Localized: Exit
     m_Metadata:
       m_Items: []
+  - m_Id: 28144319741952
+    m_Localized: Level select
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
