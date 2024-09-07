@@ -3,24 +3,29 @@ using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
-public class ScreensChanging : MonoBehaviour
+public class Menu : MonoBehaviour
 {
     public GameObject currentScreen;
     public GameObject nextScreen;
-    public float animationDuration = 0.5f;
+    public float animationDuration = 0.25f;
     Animator animator;
     public void GoTo()
     {
-        animator = GetComponent<Animator>();
+        animator = currentScreen.GetComponent<Animator>();
         animator.SetTrigger("GoTo");
         StartCoroutine(ChangeScreen());
     }
 
     public void BackTo()
     {
-        animator = GetComponent<Animator>();
+        animator = currentScreen.GetComponent<Animator>();
         animator.SetTrigger("BackTo");
         StartCoroutine(ChangeScreen());
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 
     IEnumerator ChangeScreen()
