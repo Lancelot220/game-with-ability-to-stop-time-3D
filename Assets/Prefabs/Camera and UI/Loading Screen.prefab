@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 908586293478215268}
   - component: {fileID: 3587247148665765449}
   - component: {fileID: 17384413265988253}
-  - component: {fileID: 7785284212165602693}
   m_Layer: 5
   m_Name: Loading Animation
   m_TagString: Untagged
@@ -85,7 +84,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2382562426656277166}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 24c7bc5d26ff67241b13713930efb456, type: 2}
   m_CullingMode: 0
@@ -98,56 +97,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7785284212165602693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2382562426656277166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1240323586779a341a40f0a59def05a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 21300000, guid: 9dc62234699ef084a91c44d697851684, type: 3}
-  - {fileID: 21300000, guid: 73c848006da6a3047b46b3f641992bca, type: 3}
-  - {fileID: 21300000, guid: 9d90c9416d4eb074f9f7c1fcc3841328, type: 3}
-  - {fileID: 21300000, guid: d87380302f91ff1449f0e9661e188a36, type: 3}
-  - {fileID: 21300000, guid: 41d48c40a3544c442bb0bad18893b606, type: 3}
-  - {fileID: 21300000, guid: 4aac0eb3fd4c3c140bb6b365a5c7da90, type: 3}
-  - {fileID: 21300000, guid: 60b7c4eb7464acc4989d664f9b61bad8, type: 3}
-  - {fileID: 21300000, guid: 4e381451c1d2b0a40a402492852fca90, type: 3}
-  - {fileID: 21300000, guid: 24dc435ec14cd124fbc68ad464e067f6, type: 3}
-  - {fileID: 21300000, guid: e6fc47ec1ac5f0348a21457247e6e413, type: 3}
-  - {fileID: 21300000, guid: 56c44f859c061464bb558e8c7d5c3c21, type: 3}
-  - {fileID: 21300000, guid: 0599e677a96c8584aa34e8b4c7fa2335, type: 3}
-  - {fileID: 21300000, guid: 1a8fae7a8f0eedb4eb5b27b9fb73aa12, type: 3}
-  - {fileID: 21300000, guid: 76d88344bcd293a4d82ece9ec1af91d5, type: 3}
-  - {fileID: 21300000, guid: 7d420d050b288044f82e774a5f62a701, type: 3}
-  - {fileID: 21300000, guid: d746d66eccb6ba048a5ea71593caca5c, type: 3}
-  - {fileID: 21300000, guid: 602a68f3538c8384cb3539ba025bf8e3, type: 3}
-  - {fileID: 21300000, guid: 8880ae43d52f8654a8dbd9c40e19d0bc, type: 3}
-  - {fileID: 21300000, guid: 7f96b5c1f5b68c34d8ce3627339d6103, type: 3}
-  - {fileID: 21300000, guid: 0a1dff678ba0dc04f90da839562ae11c, type: 3}
-  - {fileID: 21300000, guid: 543ec4345d782b441a63791e44246425, type: 3}
-  - {fileID: 21300000, guid: bff1413fb881c7543b8621f8fe2bb77e, type: 3}
-  - {fileID: 21300000, guid: be31cee99f2e29f44ad557924bdd9ad1, type: 3}
-  - {fileID: 21300000, guid: eabdd4c38625b5e43824cec8c289ce8a, type: 3}
-  - {fileID: 21300000, guid: 23946478901452c4383ba2deecebc96e, type: 3}
-  - {fileID: 21300000, guid: 1b4566ba0f9768c4fa891703361fdafc, type: 3}
-  - {fileID: 21300000, guid: e8a8c166066b85f478c039a082d9fe13, type: 3}
-  - {fileID: 21300000, guid: 50394b4e0f90ba4409c488a32a6f0bf2, type: 3}
-  - {fileID: 21300000, guid: 346cf2a8650fa1b4eb2dfde0f2c47ab9, type: 3}
-  - {fileID: 21300000, guid: fcfff209f5e510d45a0db893fa62cf98, type: 3}
-  - {fileID: 21300000, guid: 0a093e5cf6d57bc4388b7946b6d26b21, type: 3}
-  - {fileID: 21300000, guid: 9dc1b5adc438aa04cb53fc9f1f94ccf7, type: 3}
-  - {fileID: 21300000, guid: 2e0364c73dc233f42a6b25f13e4d21f2, type: 3}
-  - {fileID: 21300000, guid: a95f15250664eeb42be24e54ddfea55a, type: 3}
-  framesPerSprite: 2
-  loop: 1
-  destroyOnEnd: 0
 --- !u!1 &4759710377411559611
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,10 +171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
