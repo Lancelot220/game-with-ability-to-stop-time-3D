@@ -38,6 +38,18 @@ MonoBehaviour:
     m_Localized: Level Completed!
     m_Metadata:
       m_Items: []
+  - m_Id: 1386015197544448
+    m_Localized: Next level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1386639775547392
+    m_Localized: Play again
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1386880901890048
+    m_Localized: Main Menu
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

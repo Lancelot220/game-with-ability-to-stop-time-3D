@@ -35,6 +35,18 @@ MonoBehaviour:
     m_Key: Level Completed
     m_Metadata:
       m_Items: []
+  - m_Id: 1386015197544448
+    m_Key: Next level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1386639775547392
+    m_Key: Play again
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1386880901890048
+    m_Key: Main Menu
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -56,7 +56,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Transition/white/Square
+    path: Transition/Square
   m_PositionCurves: []
   m_ScaleCurves:
   - curve:
@@ -101,7 +101,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Transition/white/Square
+    path: Transition/Square
   m_FloatCurves:
   - serializedVersion: 2
     curve:
@@ -216,7 +216,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_SortingOrder
-    path: Transition/white/Square
+    path: Transition/Square
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -246,7 +246,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Transition/white/Square
+    path: Transition/Square
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -447,7 +447,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_SortingOrder
-    path: Transition/white/Square
+    path: Transition/Square
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -495,7 +495,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Transition/white/Square
+    path: Transition/Square
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -543,7 +543,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Transition/white/Square
+    path: Transition/Square
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -591,7 +591,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Transition/white/Square
+    path: Transition/Square
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -639,7 +639,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Transition/white/Square
+    path: Transition/Square
     classID: 224
     script: {fileID: 0}
     flags: 16
@@ -687,7 +687,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Transition/white/Square
+    path: Transition/Square
     classID: 224
     script: {fileID: 0}
     flags: 16
@@ -735,7 +735,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Transition/white/Square
+    path: Transition/Square
     classID: 224
     script: {fileID: 0}
     flags: 16
@@ -765,7 +765,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Transition/white/Square
+    path: Transition/Square
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -778,7 +778,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Transition/white/Square
+    path: Transition/Square
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -790,7 +790,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Transition/white/Square
+    path: Transition/Square
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -802,7 +802,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Transition/white/Square
+    path: Transition/Square
     classID: 224
     script: {fileID: 0}
     flags: 0

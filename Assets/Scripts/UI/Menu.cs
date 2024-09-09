@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
@@ -16,11 +18,14 @@ public class Menu : MonoBehaviour
         StartCoroutine(ChangeScreen());
     }
 
-    public void BackTo()
+    public void BackTo(bool toMainMenu)
     {
         animator = currentScreen.GetComponent<Animator>();
         animator.SetTrigger("BackTo");
+        if (!toMainMenu)
         StartCoroutine(ChangeScreen());
+        else
+        StartCoroutine(BackToMainMenu());
     }
 
     public void Exit()
@@ -34,5 +39,12 @@ public class Menu : MonoBehaviour
 
         currentScreen.SetActive(false);
         nextScreen.SetActive(true);
+    }
+
+    IEnumerator BackToMainMenu()
+    {
+        yield return new WaitForSeconds(animationDuration);
+
+        SceneManager.LoadScene("Main Menu");
     }
 }

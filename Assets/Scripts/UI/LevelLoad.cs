@@ -11,13 +11,18 @@ public class LevelLoad: MonoBehaviour
     public GameObject loadingScreen;
     public float animationDuration = 0.75f;
     //ImageAnimation ia;
-
+    public bool nextLevel, playAgain;
     void OnTriggerEnter(Collider col)
     { if (col.CompareTag("Player")){ LoadLevel(scene); } }
 
     public void LoadLevel(int sceneIndex)
-    { 
+    {
         currentScreen.GetComponent<Animator>().SetTrigger("LevelLoad");
+        if(nextLevel)
+        StartCoroutine(LoadScene(PlayerPrefs.GetInt("lastLevel") + 1));
+        else if(playAgain)
+        StartCoroutine(LoadScene(PlayerPrefs.GetInt("lastLevel")));
+        else
         StartCoroutine(LoadScene(sceneIndex));
     }
 
