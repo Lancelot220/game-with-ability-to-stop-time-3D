@@ -975,9 +975,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8df6839f186d244a8705b321ef00f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 1
+  scene: 0
+  currentScreen: {fileID: 0}
   loadingScreen: {fileID: 3752241478032299456}
-  loadDelay: 3
+  animationDuration: 0.75
+  nextLevel: 0
+  playAgain: 0
 --- !u!1 &192088888
 GameObject:
   m_ObjectHideFlags: 0
@@ -2337,6 +2340,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8832cb15e56e41b408eb19b222616e35, type: 3}
+--- !u!1 &548423286 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 98465293034783408, guid: 6ccfd9f92746316449b1529fcca49fca,
+    type: 3}
+  m_PrefabInstance: {fileID: 7574683585549151720}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &560024268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2460,6 +2469,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3aa8be533ab72d84ea465d10620a8ded, type: 3}
+--- !u!114 &561798224 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8813685652298020770, guid: 67ccfa2ad163dfc4ab940a396333cdec,
+    type: 3}
+  m_PrefabInstance: {fileID: 3648315062153657971}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d70ea3e9b335d4e8721c5137cb3fc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &562753817
 GameObject:
   m_ObjectHideFlags: 0
@@ -8654,6 +8675,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8813685652298020770, guid: 67ccfa2ad163dfc4ab940a396333cdec,
+        type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 548423286}
     - target: {fileID: 9132394495569639887, guid: 67ccfa2ad163dfc4ab940a396333cdec,
         type: 3}
       propertyPath: m_Layer
@@ -8686,6 +8712,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Loading Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759710377411559611, guid: a1148af0d154ab043861b6cd2637dea9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084671914787083768, guid: a1148af0d154ab043861b6cd2637dea9,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7382812375279976993, guid: a1148af0d154ab043861b6cd2637dea9,
         type: 3}
@@ -8945,12 +8981,12 @@ PrefabInstance:
     - target: {fileID: 8974238430082489314, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000017073113
+      value: 0.00000001707311
       objectReference: {fileID: 0}
     - target: {fileID: 8974238430082489314, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000021373876
+      value: -0.0000000021373872
       objectReference: {fileID: 0}
     - target: {fileID: 9000425769874926936, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
@@ -9175,10 +9211,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2623033382309417129, guid: 6ccfd9f92746316449b1529fcca49fca,
+        type: 3}
+      propertyPath: m_Name
+      value: Text (TMP)
+      objectReference: {fileID: 0}
     - target: {fileID: 4188584790314388041, guid: 6ccfd9f92746316449b1529fcca49fca,
         type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5392076858222160152, guid: 6ccfd9f92746316449b1529fcca49fca,
+        type: 3}
+      propertyPath: m_Name
+      value: Main Menu
       objectReference: {fileID: 0}
     - target: {fileID: 6980513184856881820, guid: 6ccfd9f92746316449b1529fcca49fca,
         type: 3}
@@ -9195,6 +9241,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8506855994419812982, guid: 6ccfd9f92746316449b1529fcca49fca,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 561798224}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

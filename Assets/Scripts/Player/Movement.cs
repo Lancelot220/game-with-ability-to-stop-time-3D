@@ -38,15 +38,8 @@ public class Movement : MonoBehaviour
     /*[HideInInspector]*/ public bool holdingCrouchButton;
     public Mesh normalCollider;
     public Mesh crouchCollider;
-/*
-    [Header("Slope Physics")]
-    public float maxSlopeAngle = 45f;
-    
-    public float maxSlideSpeed = 10f;
-    public LayerMask ground;
-*/
-    //private RaycastHit hit;
-    //private float slopeAngle;
+    [Header("Pause")]
+    public GameObject pauseMenu;
 
     //references
     [HideInInspector] public Rigidbody rb;
@@ -63,6 +56,7 @@ public class Movement : MonoBehaviour
     InputAction runStop;
     InputAction crouchStart;
     InputAction crouchStop;
+    InputAction pause;
     /*
     [Header("Instead of anims")]
     public Transform capsule;
@@ -105,6 +99,10 @@ public class Movement : MonoBehaviour
         crouchStop = ctrls.Player.CrouchStop;
         crouchStop.Enable();
         crouchStop.performed += CrouchStop;
+
+        pause = ctrls.Player.Pause;
+        pause.Enable();
+        pause.performed += Pause;
     }
    void OnDisable() 
     {
@@ -115,6 +113,7 @@ public class Movement : MonoBehaviour
         runStop.Disable();
         crouchStart.Disable();
         crouchStop.Disable();
+        pause.Disable();
     }
 
    //Jump
@@ -269,5 +268,24 @@ public class Movement : MonoBehaviour
     {
         if(col.CompareTag("SlideDown"))
         rb.velocity = new Vector3(rb.velocity.x, -slideSpeed, rb.velocity.z);
+    }
+
+    void Pause(InputAction.CallbackContext context)
+    {
+        if(!pauseMenu.activeSelf)
+        {
+            Time.timeScale = 0;
+            pauseMenu.SetActive(true);
+        }
+        else
+        {
+            Unpause();
+        }
+    }
+
+    public void Unpause()
+    {
+        Time.timeScale = 1;
+            pauseMenu.SetActive(false);
     }
 }

@@ -47,6 +47,14 @@ MonoBehaviour:
     m_Key: Main Menu
     m_Metadata:
       m_Items: []
+  - m_Id: 1791047407550464
+    m_Key: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1809269385117696
+    m_Key: Pause Menu
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

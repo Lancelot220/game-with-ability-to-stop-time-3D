@@ -206,7 +206,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 936667669}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.81528836
+  m_Size: 0.8153787
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2558,6 +2558,7 @@ MonoBehaviour:
   currentScreen: {fileID: 380215882}
   nextScreen: {fileID: 0}
   animationDuration: 0.25
+  useTransition: 0
 --- !u!1 &815445410
 GameObject:
   m_ObjectHideFlags: 0
@@ -2793,7 +2794,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2112712547}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.18471164}
+  m_AnchorMin: {x: 0, y: 0.18462127}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -5500,6 +5501,7 @@ MonoBehaviour:
   currentScreen: {fileID: 380215882}
   nextScreen: {fileID: 641021372}
   animationDuration: 0.25
+  useTransition: 0
 --- !u!1 &2004870969 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4759710377411559611, guid: a1148af0d154ab043861b6cd2637dea9,
@@ -5655,6 +5657,7 @@ MonoBehaviour:
   currentScreen: {fileID: 380215882}
   nextScreen: {fileID: 641021372}
   animationDuration: 0.25
+  useTransition: 0
 --- !u!1 &2103771610
 GameObject:
   m_ObjectHideFlags: 0

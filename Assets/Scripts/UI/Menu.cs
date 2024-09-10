@@ -10,6 +10,7 @@ public class Menu : MonoBehaviour
     public GameObject currentScreen;
     public GameObject nextScreen;
     public float animationDuration = 0.25f;
+    public bool useTransition;
     Animator animator;
     public void GoTo()
     {
@@ -21,7 +22,7 @@ public class Menu : MonoBehaviour
     public void BackTo(bool toMainMenu)
     {
         animator = currentScreen.GetComponent<Animator>();
-        animator.SetTrigger("BackTo");
+        if(!useTransition) animator.SetTrigger("BackTo"); else animator.SetTrigger("LevelLoad");
         if (!toMainMenu)
         StartCoroutine(ChangeScreen());
         else
@@ -35,7 +36,7 @@ public class Menu : MonoBehaviour
 
     IEnumerator ChangeScreen()
     {
-        yield return new WaitForSeconds(animationDuration);
+        yield return new WaitForSecondsRealtime(animationDuration);
 
         currentScreen.SetActive(false);
         nextScreen.SetActive(true);
@@ -43,8 +44,9 @@ public class Menu : MonoBehaviour
 
     IEnumerator BackToMainMenu()
     {
-        yield return new WaitForSeconds(animationDuration);
+        yield return new WaitForSecondsRealtime(animationDuration);
 
         SceneManager.LoadScene("Main Menu");
+        Time.timeScale = 1;
     }
 }

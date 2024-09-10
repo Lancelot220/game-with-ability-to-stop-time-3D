@@ -50,6 +50,14 @@ MonoBehaviour:
     m_Localized: Main Menu
     m_Metadata:
       m_Items: []
+  - m_Id: 1791047407550464
+    m_Localized: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1809269385117696
+    m_Localized: Pause Menu
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
