@@ -228,7 +228,7 @@ public class Movement : MonoBehaviour
         movement = cameraForward * movement.z + cameraRight * movement.x;
         
         movement.y = 0f;
-        if (animator.GetFloat("combo") < 0) 
+        if (/*animator.GetFloat("combo") < 0*/ !atacking) 
         { rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z); movementStopped = false; }
         //else if (onGround && !movementStopped)
         //{rb.velocity = Vector3.zero; print("stop player"); movementStopped = true; }

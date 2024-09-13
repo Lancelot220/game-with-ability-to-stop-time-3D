@@ -53,9 +53,11 @@ public class Attack2 : MonoBehaviour
             attacking = true;
             m.atacking = true;
             m.animator.SetTrigger("isAttacking");
-            if (m.onGround) m.rb.velocity = Vector3.zero;
-            m.rb.AddForce(playerTransform.forward * attackMoveForce);
-            
+            if (m.onGround)
+            {
+                m.rb.velocity = Vector3.zero;
+                m.rb.AddForce(playerTransform.forward * attackMoveForce);
+            }
 
             //Trail
             trails = GetComponentsInChildren<TrailRenderer>();

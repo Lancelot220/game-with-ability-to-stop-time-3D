@@ -640,6 +640,7 @@ MonoBehaviour:
     type: 3}
   crouchCollider: {fileID: -2587613122030603868, guid: c85db42dc77353b489c69dfbe0aa477b,
     type: 3}
+  pauseMenu: {fileID: 0}
   rb: {fileID: 0}
   animator: {fileID: 0}
 --- !u!114 &5166675014266170956
@@ -1291,7 +1292,7 @@ PrefabInstance:
     - target: {fileID: 5428442631965624430, guid: 5c8c7cde0b08a234180e00152d6aac65,
         type: 3}
       propertyPath: attackMoveForce
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
