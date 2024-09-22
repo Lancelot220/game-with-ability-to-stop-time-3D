@@ -8,6 +8,7 @@ public class LevelLoad: MonoBehaviour
 {
     public int scene;
     public GameObject currentScreen;
+    public GameObject backScript;
     public GameObject loadingScreen;
     public float animationDuration = 0.75f;
     //ImageAnimation ia;
@@ -18,6 +19,7 @@ public class LevelLoad: MonoBehaviour
     public void LoadLevel(int sceneIndex)
     {
         currentScreen.GetComponent<Animator>().SetTrigger("LevelLoad");
+        backScript.GetComponent<Back>().enabled = false;
         if(nextLevel)
         StartCoroutine(LoadScene(PlayerPrefs.GetInt("lastLevel") + 1));
         else if(playAgain)

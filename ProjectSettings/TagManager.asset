@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Trigger
   - SlideDown
+  - Metal
+  - Grass
   layers:
   - Default
   - TransparentFX

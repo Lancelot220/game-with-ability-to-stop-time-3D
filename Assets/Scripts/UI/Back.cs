@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Back : MonoBehaviour
 {
@@ -10,8 +11,10 @@ public class Back : MonoBehaviour
     InputAction cancel;
     public GameObject currentScreen;
     public GameObject nextScreen;
+    public Button nextScreenFirstButton;
     private Animator animator;
     public float animationDuration = 0.25f;
+    public AudioSource sound;
 
     void Awake() { ctrls = new Controls(); }
     void OnEnable() { cancel = ctrls.UI.Cancel;
@@ -25,6 +28,7 @@ public class Back : MonoBehaviour
         animator = currentScreen.GetComponent<Animator>();
         animator.SetTrigger("BackTo");
         StartCoroutine(ChangeScreen());
+        sound.Play();
     }
     
     IEnumerator ChangeScreen()
@@ -33,5 +37,6 @@ public class Back : MonoBehaviour
 
         currentScreen.SetActive(false);
         nextScreen.SetActive(true);
+        nextScreenFirstButton.Select();
     }
 }

@@ -4,11 +4,13 @@ using Unity.PlasticSCM.Editor.WebApi;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
     public GameObject currentScreen;
     public GameObject nextScreen;
+    public Button nextScreenFirstButton;
     public float animationDuration = 0.25f;
     public bool useTransition;
     Animator animator;
@@ -26,7 +28,7 @@ public class Menu : MonoBehaviour
         if (!toMainMenu)
         StartCoroutine(ChangeScreen());
         else
-        StartCoroutine(BackToMainMenu());
+        { StartCoroutine(BackToMainMenu()); GameObject.Find("Player").GetComponent<Movement>().enabled = false;}
     }
 
     public void Exit()
@@ -40,6 +42,7 @@ public class Menu : MonoBehaviour
 
         currentScreen.SetActive(false);
         nextScreen.SetActive(true);
+        nextScreenFirstButton.Select();
     }
 
     IEnumerator BackToMainMenu()
