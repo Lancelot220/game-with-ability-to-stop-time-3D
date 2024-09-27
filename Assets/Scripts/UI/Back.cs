@@ -33,7 +33,7 @@ public class Back : MonoBehaviour
     
     IEnumerator ChangeScreen()
     {
-        yield return new WaitForSeconds(animationDuration);
+        yield return new WaitForSecondsRealtime(animationDuration);
 
         currentScreen.SetActive(false);
         nextScreen.SetActive(true);

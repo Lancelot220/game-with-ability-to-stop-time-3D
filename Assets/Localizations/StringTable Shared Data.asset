@@ -55,6 +55,38 @@ MonoBehaviour:
     m_Key: Pause Menu
     m_Metadata:
       m_Items: []
+  - m_Id: 8000807785594880
+    m_Key: Gameplay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8001011117064192
+    m_Key: Controls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8001359445622784
+    m_Key: Graphics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8001663687852032
+    m_Key: Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8002165901230080
+    m_Key: Master (volume)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8002704621830144
+    m_Key: SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8003001477890048
+    m_Key: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8012500196524032
+    m_Key: Language
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
