@@ -285,7 +285,10 @@ public class Movement : MonoBehaviour
 
     public void Unpause()
     {
-        Time.timeScale = 1;
+        if (pauseMenu.activeSelf)
+        {
+            Time.timeScale = 1;
             pauseMenu.SetActive(false);
+        }
     }
 }

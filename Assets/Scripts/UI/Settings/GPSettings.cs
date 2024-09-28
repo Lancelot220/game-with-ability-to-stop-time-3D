@@ -5,6 +5,7 @@ using UnityEngine.Localization.Settings;
 
 public class GPSettings : MonoBehaviour
 {
+    //LANGUAGE
     public void ChangeLang(int index)
     { StartCoroutine(ChangeLang_(index)); }
     IEnumerator ChangeLang_(int index)
