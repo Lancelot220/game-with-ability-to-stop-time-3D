@@ -10,6 +10,7 @@ TagManager:
   - SlideDown
   - Metal
   - Grass
+  - Popup
   layers:
   - Default
   - TransparentFX

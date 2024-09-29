@@ -52,4 +52,11 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
         Time.timeScale = 1;
     }
+
+    public void OpenPopup(GameObject popup)
+    {
+        popup.SetActive(true);
+        popup.GetComponentInChildren<Animator>().SetTrigger("Open");
+        popup.GetComponentInChildren<Button>().Select();
+    }
 }

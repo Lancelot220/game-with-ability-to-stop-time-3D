@@ -91,6 +91,26 @@ MonoBehaviour:
     m_Key: Loading Screen Text 0
     m_Metadata:
       m_Items: []
+  - m_Id: 8701600677396480
+    m_Key: Are you sure you want to exit?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8702314094952448
+    m_Key: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8702537705881600
+    m_Key: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8721936764534784
+    m_Key: Are you sure you want to restart the level?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8722299844460544
+    m_Key: Restart
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

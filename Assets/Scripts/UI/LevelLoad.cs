@@ -28,6 +28,13 @@ public class LevelLoad: MonoBehaviour
         StartCoroutine(LoadScene(sceneIndex));
     }
 
+    public void Restart()
+    {
+        currentScreen.GetComponent<Animator>().SetTrigger("LevelLoad");
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     IEnumerator LoadScene(int sceneIndex)
     {
         yield return new WaitForSeconds(animationDuration);

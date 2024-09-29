@@ -269,7 +269,7 @@ public class Movement : MonoBehaviour
         if(col.CompareTag("SlideDown"))
         rb.velocity = new Vector3(rb.velocity.x, -slideSpeed, rb.velocity.z);
     }
-
+    
     void Pause(InputAction.CallbackContext context)
     {
         if(!pauseMenu.activeSelf)
@@ -282,13 +282,14 @@ public class Movement : MonoBehaviour
             Unpause();
         }
     }
-
     public void Unpause()
     {
         if (pauseMenu.activeSelf)
         {
             Time.timeScale = 1;
             pauseMenu.SetActive(false);
+
+            foreach (GameObject popup in GameObject.FindGameObjectsWithTag("Popup")) { popup.SetActive(false); }
         }
     }
 }

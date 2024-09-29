@@ -94,6 +94,26 @@ MonoBehaviour:
     m_Localized: Some random text for loading screen to make it lees boring
     m_Metadata:
       m_Items: []
+  - m_Id: 8701600677396480
+    m_Localized: Are you sure you want to exit?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8702314094952448
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8702537705881600
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8721936764534784
+    m_Localized: Are you sure you want to restart the level?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8722299844460544
+    m_Localized: Restart
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
