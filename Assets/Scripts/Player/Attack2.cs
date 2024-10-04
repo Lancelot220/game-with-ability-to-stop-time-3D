@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -16,7 +17,7 @@ public class Attack2 : MonoBehaviour
     int critPower;
     public bool attacking;
     public float attackMoveForce = 50;
-
+     public float dashTime = 0.15f;
     //Combo
     public float comboTime = 0.2f;
     float comboTimeCounter;
@@ -29,7 +30,7 @@ public class Attack2 : MonoBehaviour
     
     
     //Others
-    public float attackTime  = 1f;
+    //public float attackTime  = 1f;
     Movement m;
     Transform playerTransform;
     TrailRenderer[] trails;
@@ -37,6 +38,7 @@ public class Attack2 : MonoBehaviour
     //Input
     Controls ctrls;
     InputAction attack;
+
     void Awake() { ctrls = new Controls(); m = GetComponentInParent<Movement>(); playerTransform = m.gameObject.transform; }
     void Start() { critPower = attackPower * critMultipier;}
     void OnEnable()
@@ -56,7 +58,9 @@ public class Attack2 : MonoBehaviour
             if (m.onGround)
             {
                 m.rb.velocity = Vector3.zero;
-                m.rb.AddForce(playerTransform.forward * attackMoveForce);
+                m.rb.velocity = playerTransform.forward * attackMoveForce;
+                StartCoroutine(StopDash());
+                //m.rb.AddForce(playerTransform.forward * attackMoveForce);
             }
 
             //Trail
@@ -74,14 +78,25 @@ public class Attack2 : MonoBehaviour
         attacking = false;
         m.atacking = false;
 
+        //if(m.onGround) m.rb.velocity = Vector3.zero;
+
         foreach( TrailRenderer trail in trails )
         {
             trail.enabled = false ;
         }
     }
 
+    IEnumerator StopDash()
+    {
+        yield return new WaitForSeconds( dashTime );
+
+        if(m.onGround) m.rb.velocity = Vector3.zero;
+    }
+
     void Update()
     {
+        //if (attacking && m.onGround) 
+
         if (!attacking)
         {
             /*if(comboTimeCounter > 0) */comboTimeCounter -= Time.deltaTime;

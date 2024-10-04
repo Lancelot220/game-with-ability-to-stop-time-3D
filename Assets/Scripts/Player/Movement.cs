@@ -235,13 +235,13 @@ public class Movement : MonoBehaviour
 
         if (dir != Vector2.zero)
         {
-            animator.SetBool("isMoving", true);
+            if (onGround) animator.SetBool("isMoving", true);
         
             float targetAngle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
             transform.rotation = Quaternion.Lerp(transform.rotation , rotation, Time.deltaTime * rotationSpeed);
         }
-        else animator.SetBool("isMoving", false);
+        else  animator.SetBool("isMoving", false);
         
         if (move.ReadValue<Vector2>() != Vector2.zero) animator.SetFloat("speed", Vector2.Distance(Vector2.zero, move.ReadValue<Vector2>()));
 

@@ -40,6 +40,7 @@ public class LevelLoad: MonoBehaviour
         yield return new WaitForSeconds(animationDuration);
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+        operation.priority = -1;
         //operation.allowSceneActivation = false;
         loadingScreen.SetActive(true);
         //StartCoroutine(LoadScene());
