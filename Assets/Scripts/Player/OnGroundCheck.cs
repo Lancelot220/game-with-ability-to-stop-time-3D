@@ -24,7 +24,7 @@ public class OnGroundCheck : MonoBehaviour
             ps.Landed();
             movement.animator.SetBool("jumped", false);
             //movement.hasJumped = false;
-            GetComponent<AudioSource>().Play();
+            footsteps.PlaySound();
         }
 
         if (col.CompareTag("Metal")) footsteps.currsentSurface = Footsteps.Surface.Metal;

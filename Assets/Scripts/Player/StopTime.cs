@@ -28,6 +28,11 @@ public class StopTime_ : MonoBehaviour
     Controls ctrls;
     InputAction stopTime;
     Slider slider;
+
+    //efects
+    public AudioSource stopTimeSound;
+    public AudioSource unfreezeTimeSound;
+
     void Awake() { ctrls = new Controls(); slider = GameObject.Find("Stop Time").GetComponent<Slider>();}
     void OnEnable() { stopTime = ctrls.Player.StopTime; stopTime.Enable(); stopTime.performed += StopTime; }
 
@@ -96,6 +101,9 @@ public class StopTime_ : MonoBehaviour
             //StartCoroutine(UnfreezeTime());
 
             durationTimer = duration;
+
+            //effects
+            stopTimeSound.Play();
         }
     }
     void UnfreezeTime()
@@ -133,6 +141,9 @@ public class StopTime_ : MonoBehaviour
         print("Time is unfreezed.");
 
         cdTimer = 0;
+
+        //effects
+        unfreezeTimeSound.Play();
     }
 /*
     IEnumerator Cooldown()
