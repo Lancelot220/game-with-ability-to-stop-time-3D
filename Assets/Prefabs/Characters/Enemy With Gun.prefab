@@ -152,7 +152,7 @@ MonoBehaviour:
   timeStopped: 0
   items:
   - {fileID: 400436840714774565, guid: 57e64f2813570d44283c9f4a88a71dfb, type: 3}
-  - {fileID: 2776441522763887494, guid: 2a20ac7fe3cf05843b07581cba62b9ef, type: 3}
+  - {fileID: 8103684264236544759, guid: 37bced4b61165d34d910a8776607f8af, type: 3}
   dropChance: 2
   animator: {fileID: 8961870487886207683}
 --- !u!205 &2362429906587173882

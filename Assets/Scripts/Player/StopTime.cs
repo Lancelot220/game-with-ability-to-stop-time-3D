@@ -32,6 +32,7 @@ public class StopTime_ : MonoBehaviour
     //efects
     public AudioSource stopTimeSound;
     public AudioSource unfreezeTimeSound;
+    public ParticleSystem effect;
 
     void Awake() { ctrls = new Controls(); slider = GameObject.Find("Stop Time").GetComponent<Slider>();}
     void OnEnable() { stopTime = ctrls.Player.StopTime; stopTime.Enable(); stopTime.performed += StopTime; }
@@ -53,7 +54,7 @@ public class StopTime_ : MonoBehaviour
         if(!canStopTime && cdTimer < cd)
         { cdTimer += Time.deltaTime; }
         else if (!canStopTime && cdTimer >= cd)
-        { canStopTime = true; cdTimer = 0; print("You can stop time again!"); }
+        { canStopTime = true; cdTimer = 0; print("You can stop time again!"); unfreezeTimeSound.Play(); }
     }
 
     //stop time
@@ -104,6 +105,7 @@ public class StopTime_ : MonoBehaviour
 
             //effects
             stopTimeSound.Play();
+            effect.Play();
         }
     }
     void UnfreezeTime()

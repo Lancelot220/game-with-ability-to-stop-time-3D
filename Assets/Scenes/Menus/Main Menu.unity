@@ -8314,6 +8314,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Confirmation Screen
       objectReference: {fileID: 0}
+    - target: {fileID: 6291142249106976465, guid: a7782df48415c754ea95a6ed83d0ebaf,
+        type: 3}
+      propertyPath: selectAfterClosing
+      value: 
+      objectReference: {fileID: 1987496128}
     - target: {fileID: 8108390811864575224, guid: a7782df48415c754ea95a6ed83d0ebaf,
         type: 3}
       propertyPath: nextScreen

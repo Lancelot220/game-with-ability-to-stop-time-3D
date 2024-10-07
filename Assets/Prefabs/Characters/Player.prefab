@@ -686,6 +686,7 @@ MonoBehaviour:
   timeStopped: 0
   stopTimeSound: {fileID: 8113200159893503451}
   unfreezeTimeSound: {fileID: 755582451175851380}
+  effect: {fileID: 4844544148319997898, guid: 7e1d0b952230e0b4f835d6e11b7b0dde, type: 3}
 --- !u!82 &8113200159893503451
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1438,7 +1439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc4c270dcc764154c82c00b830ca05e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 2925248454619287629, guid: f3c6c426f7a1aba428b7fd60179ea1bb, type: 3}
   sword: {fileID: 5817183190101044904}
   attackSounds:
   - {fileID: 8300000, guid: cadebfea8b8a85ff6a9db0f5d84195ad, type: 3}

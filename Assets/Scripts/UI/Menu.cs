@@ -49,7 +49,7 @@ public class Menu : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(animationDuration);
 
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene(0);
         Time.timeScale = 1;
     }
 

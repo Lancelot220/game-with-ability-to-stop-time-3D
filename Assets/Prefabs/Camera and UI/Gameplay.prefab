@@ -3822,8 +3822,13 @@ PrefabInstance:
     - target: {fileID: 5972304466141743759, guid: a7782df48415c754ea95a6ed83d0ebaf,
         type: 3}
       propertyPath: m_Name
-      value: Confirmation Screen (1)
+      value: Confirmation Screen (Restart)
       objectReference: {fileID: 0}
+    - target: {fileID: 6291142249106976465, guid: a7782df48415c754ea95a6ed83d0ebaf,
+        type: 3}
+      propertyPath: selectAfterClosing
+      value: 
+      objectReference: {fileID: 4538679578181972527}
     - target: {fileID: 7266160872346450234, guid: a7782df48415c754ea95a6ed83d0ebaf,
         type: 3}
       propertyPath: m_text
@@ -4007,8 +4012,13 @@ PrefabInstance:
     - target: {fileID: 5972304466141743759, guid: a7782df48415c754ea95a6ed83d0ebaf,
         type: 3}
       propertyPath: m_Name
-      value: Confirmation Screen
+      value: Confirmation Screen (Exit)
       objectReference: {fileID: 0}
+    - target: {fileID: 6291142249106976465, guid: a7782df48415c754ea95a6ed83d0ebaf,
+        type: 3}
+      propertyPath: selectAfterClosing
+      value: 
+      objectReference: {fileID: 8458505952699763399}
     - target: {fileID: 8108390811864575224, guid: a7782df48415c754ea95a6ed83d0ebaf,
         type: 3}
       propertyPath: currentScreen

@@ -13,7 +13,7 @@ public class Footsteps : MonoBehaviour
     [Header("Walk Sounds")]
     public AudioClip[] grass;
     public AudioClip[] metal;
-    void Start() {currsentSurface = Surface.Metal; }
+    void Start() {currsentSurface = Surface.Metal; sounds = metal; }
 
     void Update()
     {

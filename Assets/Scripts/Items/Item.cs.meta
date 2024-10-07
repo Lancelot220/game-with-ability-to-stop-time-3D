@@ -1,10 +1,12 @@
 fileFormatVersion: 2
-guid: 7e673a002a3239745aab25c8d07d6d5c
+guid: 0a729c0972ad7a24384f8a5434233dac
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
   - pickUpSound: {fileID: 8300000, guid: fc33fa9c5530e90428c43b00dee184f6, type: 3}
+  - prefab: {fileID: 2925248454619287629, guid: f3c6c426f7a1aba428b7fd60179ea1bb,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
