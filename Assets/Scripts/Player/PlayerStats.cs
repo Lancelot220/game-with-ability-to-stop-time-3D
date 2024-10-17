@@ -13,7 +13,7 @@ public class PlayerStats : MonoBehaviour
     Movement m;
     public float fallVelocity;
     public float fVThreshold = -10;
-    public float delayBfRestart = 5;
+    public float delayBeforeDeathScreen = 0.75f;
     bool hitGroundTooHard;
     //Health
     public int health = 100;
@@ -22,8 +22,11 @@ public class PlayerStats : MonoBehaviour
     public float minWorldHeightLimit = -100;
     //fall damage
     int fallDamage;
-    float fallDamageMultipier = 1;
-    void Start() {m = GetComponentInParent<Movement>();}
+    public float fallDamageMultipier = 1;
+    //deaths screen trabsition
+    public GameObject hud;
+    Animator screenAnim;
+    void Start() { m = GetComponentInParent<Movement>(); screenAnim = hud.GetComponent<Animator>();}
     
     void Update()
     {   //fall damage
@@ -31,7 +34,7 @@ public class PlayerStats : MonoBehaviour
         if(fallVelocity < fVThreshold)
         {
             m.animator.SetBool("isFalling", true);
-            fallDamage = Convert.ToInt32(fallVelocity * -fallDamageMultipier - fVThreshold);
+            fallDamage = Convert.ToInt32(fallVelocity * fallVelocity * fallDamageMultipier);
         }
 
         //Death
@@ -43,9 +46,11 @@ public class PlayerStats : MonoBehaviour
              
             m.speed = 0; m.defaultSpeed = 0;
             m.jumpForce = 0; m.runSpeed = 0; m.crouchSpeed = 0;
+            m.enabled = false;
             if (!hitGroundTooHard) m.animator.SetBool("died", true);
 
             StartCoroutine(Restart());
+            screenAnim.SetTrigger("LevelLoad");
         }
     }
 
@@ -69,9 +74,10 @@ public class PlayerStats : MonoBehaviour
 
     IEnumerator Restart()
     {
-        yield return new WaitForSeconds(delayBfRestart);
+        yield return new WaitForSecondsRealtime(delayBeforeDeathScreen);
 
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+        //Scene scene = SceneManager.GetActiveScene();
+        PlayerPrefs.SetInt("lastLevel",SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Death Screen");
     }
 }

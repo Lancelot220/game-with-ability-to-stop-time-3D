@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 935407b0b415f8547a2384609bf19d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPower: 7
+  attackPower: 20
   attackCD: 0.5
   player: {fileID: 0}
   timeStopped: 0

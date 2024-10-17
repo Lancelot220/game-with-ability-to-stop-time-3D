@@ -658,10 +658,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallVelocity: 0
-  fVThreshold: -20
-  delayBfRestart: 5
+  fVThreshold: -15
+  delayBeforeDeathScreen: 0.75
   health: 100
   minWorldHeightLimit: -100
+  fallDamageMultipier: 0.04
+  hud: {fileID: 0}
 --- !u!114 &6995575062159228627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1031,7 +1033,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8560267031489702276}
-  - component: {fileID: 629366460758038183}
+  - component: {fileID: 7976314789757586035}
   - component: {fileID: 3508462407337632291}
   m_Layer: 3
   m_Name: OnGround Check
@@ -1055,8 +1057,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4409401331170633045}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &629366460758038183
-BoxCollider:
+--- !u!64 &7976314789757586035
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1073,9 +1075,10 @@ BoxCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.05, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2587613122030603868, guid: ace3d5f293b60e947912e1e8e6c21838, type: 3}
 --- !u!114 &3508462407337632291
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -32,7 +32,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1070082855845888
-    m_Key: Level Completed
+    m_Key: Level Completed!
     m_Metadata:
       m_Items: []
   - m_Id: 1386015197544448
@@ -109,6 +109,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 8722299844460544
     m_Key: Restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13087175556526080
+    m_Key: You died
     m_Metadata:
       m_Items: []
   m_Metadata:
