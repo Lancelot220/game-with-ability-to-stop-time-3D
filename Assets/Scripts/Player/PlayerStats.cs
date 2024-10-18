@@ -1,6 +1,8 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEditor.Callbacks;
 //using UnityEditor.SearchService;
@@ -10,22 +12,27 @@ using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
-    Movement m;
+    [Header("Statistics")]
+    public int health = 100;
+    public int orbsCollected;
+    [ReadOnly] public float time;
+
+    [Header("Fall Damage")]
     public float fallVelocity;
     public float fVThreshold = -10;
     public float delayBeforeDeathScreen = 0.75f;
-    bool hitGroundTooHard;
-    //Health
-    public int health = 100;
-    private bool deathMessageSent = false;
-
-    public float minWorldHeightLimit = -100;
-    //fall damage
-    int fallDamage;
     public float fallDamageMultipier = 1;
-    //deaths screen trabsition
+
+    [Header("Others")]
+    public float minWorldHeightLimit = -100;
     public GameObject hud;
+    
     Animator screenAnim;
+    bool hitGroundTooHard;
+    private bool deathMessageSent = false;
+    int fallDamage;
+    Movement m;
+    
     void Start() { m = GetComponentInParent<Movement>(); screenAnim = hud.GetComponent<Animator>();}
     
     void Update()
@@ -52,6 +59,9 @@ public class PlayerStats : MonoBehaviour
             StartCoroutine(Restart());
             screenAnim.SetTrigger("LevelLoad");
         }
+
+        //time
+        time += Time.deltaTime;
     }
 
     public void Landed()

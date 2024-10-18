@@ -115,6 +115,14 @@ MonoBehaviour:
     m_Key: You died
     m_Metadata:
       m_Items: []
+  - m_Id: 15597926452408320
+    m_Key: Orbs Collected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15599995385131008
+    m_Key: Time
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -13,15 +13,17 @@ public class LevelComplete : MonoBehaviour
         if(col.CompareTag("Player"))
         {
             currentScreen.GetComponent<Animator>().SetTrigger("LevelLoad");
-            StartCoroutine(EndLevelScene());
+            StartCoroutine(EndLevelScene(col.gameObject));
         }
     }
 
-    IEnumerator EndLevelScene()
+    IEnumerator EndLevelScene(GameObject player)
     {
         yield return new WaitForSeconds(animationDuration);
 
         PlayerPrefs.SetInt("lastLevel",SceneManager.GetActiveScene().buildIndex);
+        PlayerPrefs.SetFloat("time", player.GetComponent<PlayerStats>().time);
+        PlayerPrefs.SetInt("orbsCollected", player.GetComponent<PlayerStats>().orbsCollected);
         SceneManager.LoadScene("End Level");
     }
 }

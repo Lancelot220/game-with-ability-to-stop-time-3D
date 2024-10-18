@@ -1,31 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Item : MonoBehaviour
 {
     public float rotationSpeed = 100;
-    [SerializeField] protected AudioClip pickUpSound;
-    [SerializeField] protected GameObject prefab;
-    void RotateItem() {transform.RotateAround(transform.position, Vector3.up, rotationSpeed * Time.deltaTime);}
+    public bool isRotating = true;
+    [SerializeField] AudioClip pickUpSound;
+    [SerializeField] GameObject prefab;
+    public UnityEvent<GameObject> onPickUp;
+    void Update() { if(isRotating) transform.RotateAround(transform.position, Vector3.up, rotationSpeed * Time.deltaTime); }
 
-    void Update() { RotateItem(); }
-
-    protected virtual void OnTriggerEnter(Collider col)
+    void OnCollisionEnter(Collision col)
     {
-        if (col.CompareTag("Player"))
+        if (col.collider.CompareTag("Player"))
         {
-            ApplyEffect(col.gameObject);
+            if(onPickUp != null) onPickUp.Invoke(col.gameObject);
             Destroy(gameObject);
 
-            GameObject sound = GameObject.Instantiate(prefab, transform.position, Quaternion.identity);
-            AudioSource audioSource = sound.GetComponent<AudioSource>();
-            audioSource.clip = pickUpSound;
-            audioSource.Play();
-            Destroy(sound, pickUpSound.length);
+            Rep.PlayOnce(pickUpSound, prefab, gameObject);
         }
     }
-
-    protected virtual void ApplyEffect(GameObject player)
-    {}
 }

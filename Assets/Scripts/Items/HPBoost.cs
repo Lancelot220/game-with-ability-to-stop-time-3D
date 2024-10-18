@@ -4,32 +4,15 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-public class HPBoost : Item
+public class HPBoost : MonoBehaviour
 {
     public int hpboost = 15;
     
-    protected override void ApplyEffect(GameObject player)
+    public void ApplyEffect(GameObject player)
     {
         PlayerStats ps = player.gameObject.GetComponent<PlayerStats>();
         ps.health += hpboost;
         if(ps.health > 100) ps.health = 100;
         print($"Now you have {ps.health} HP!");
     }
-
-
-    /*
-    public float rotationSpeed = 100;
-
-    void Update()
-    {
-        transform.RotateAround(transform.position, Vector3.up, rotationSpeed * Time.deltaTime);
-    }
-
-    void OnTriggerEnter(Collider col)
-    {
-        if(col.CompareTag("Player"))
-        {
-            Destroy(gameObject);
-        }
-    }*/
 }

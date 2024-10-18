@@ -143,6 +143,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: StopTime CD Boost
       objectReference: {fileID: 0}
+    - target: {fileID: 1561268994986099698, guid: 57e64f2813570d44283c9f4a88a71dfb,
+        type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561268994986099698, guid: 57e64f2813570d44283c9f4a88a71dfb,
+        type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: -8278671201447257873}
+    - target: {fileID: 1561268994986099698, guid: 57e64f2813570d44283c9f4a88a71dfb,
+        type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561268994986099698, guid: 57e64f2813570d44283c9f4a88a71dfb,
+        type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ApplyEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561268994986099698, guid: 57e64f2813570d44283c9f4a88a71dfb,
+        type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StopTimeCDBoost, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561268994986099698, guid: 57e64f2813570d44283c9f4a88a71dfb,
+        type: 3}
+      propertyPath: onPickUp.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4471815114410565981, guid: 57e64f2813570d44283c9f4a88a71dfb, type: 3}
     m_RemovedGameObjects:
@@ -176,9 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50637c442194e4348a5253dee39a75f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 100
-  pickUpSound: {fileID: 8300000, guid: fc33fa9c5530e90428c43b00dee184f6, type: 3}
-  prefab: {fileID: 2925248454619287629, guid: f3c6c426f7a1aba428b7fd60179ea1bb, type: 3}
   cdBoost: 5
 --- !u!4 &8386469911318108323 stripped
 Transform:

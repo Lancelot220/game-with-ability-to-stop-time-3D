@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: 02c39d5236b98c7478de296e38391463, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 7823976732278652930
   m_TableData:
   - m_Id: 166220316672
     m_Localized: Play
@@ -118,6 +119,20 @@ MonoBehaviour:
     m_Localized: You died
     m_Metadata:
       m_Items: []
+  - m_Id: 15597926452408320
+    m_Localized: 'Orbs Collected: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 7823976732278652930
+  - m_Id: 15599995385131008
+    m_Localized: 'Time: {0}:{1}:{2}.{3}'
+    m_Metadata:
+      m_Items:
+      - rid: 7823976732278652930
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7823976732278652930
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00b06d413b6a370000b06df71c6c3700

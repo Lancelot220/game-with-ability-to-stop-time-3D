@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 115417088615203441}
   - component: {fileID: 8614276099823442220}
+  - component: {fileID: 1561268994986099698}
   - component: {fileID: 4471815114410565981}
+  - component: {fileID: 928516810620572121}
   m_Layer: 0
   m_Name: HP Boost
   m_TagString: Untagged
@@ -41,7 +43,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400436840714774565}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: fd79862c265165541b51913865bcf882, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -49,12 +51,43 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1561268994986099698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400436840714774565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a729c0972ad7a24384f8a5434233dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100
+  isRotating: 1
+  pickUpSound: {fileID: 8300000, guid: fc33fa9c5530e90428c43b00dee184f6, type: 3}
+  prefab: {fileID: 2925248454619287629, guid: f3c6c426f7a1aba428b7fd60179ea1bb, type: 3}
+  onPickUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4471815114410565981}
+        m_TargetAssemblyTypeName: HPBoost, Assembly-CSharp
+        m_MethodName: ApplyEffect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4471815114410565981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,10 +100,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e673a002a3239745aab25c8d07d6d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 100
-  pickUpSound: {fileID: 8300000, guid: fc33fa9c5530e90428c43b00dee184f6, type: 3}
-  prefab: {fileID: 2925248454619287629, guid: f3c6c426f7a1aba428b7fd60179ea1bb, type: 3}
   hpboost: 15
+--- !u!54 &928516810620572121
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400436840714774565}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1001 &801780763034916427
 PrefabInstance:
   m_ObjectHideFlags: 0
