@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5225856759322315304}
   - component: {fileID: 2129939842387002692}
   - component: {fileID: 1533264258310036850}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Orb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,6 +145,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Orb
+      objectReference: {fileID: 0}
+    - target: {fileID: 400436840714774565, guid: 57e64f2813570d44283c9f4a88a71dfb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 928516810620572121, guid: 57e64f2813570d44283c9f4a88a71dfb,
+        type: 3}
+      propertyPath: m_Drag
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 928516810620572121, guid: 57e64f2813570d44283c9f4a88a71dfb,
         type: 3}

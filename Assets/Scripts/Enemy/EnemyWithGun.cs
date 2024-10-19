@@ -48,12 +48,18 @@ public class EnemyWithGun : MonoBehaviour
     //[HideInInspector] public bool attacked;
     Transform player;
     
+    [Header("Drop")]
+    public GameObject[] items;
+    public GameObject orb;
+    [Tooltip("Chance will be 1/?, 0 is never.")] public int itemDropChance = 2;
+    [Range(0,50)] public int minOrbsCount = 5;
+    [Range(0, 50)] public int maxOrbsCount = 25;
+
     [Header("Others")]
     public bool timeStopped;
-    //drop
-    public GameObject[] items;
-    public int dropChance = 2;
-    public Animator animator;
+    /*[HideInInspector]*/ public Animator animator;
+    
+
 
     void Start()
     {
@@ -105,9 +111,16 @@ public class EnemyWithGun : MonoBehaviour
             Debug.Log("The enemy was killed");
             deathMessageSent = true;
             
-            int chance = UnityEngine.Random.Range(1, dropChance);
+            bool shouldDropItem = UnityEngine.Random.Range(1, itemDropChance + 1) == 1;
+            int orbsDropCount = UnityEngine.Random.Range(minOrbsCount, maxOrbsCount + 1);
             GameObject itemToDrop = items[UnityEngine.Random.Range(0, items.Length)];
-            if (chance == 1) {Instantiate(itemToDrop, transform.position, transform.rotation); print($"{itemToDrop.name} was dropped!");}
+            if (shouldDropItem) {Instantiate(itemToDrop, transform.position, transform.rotation); print($"{itemToDrop.name} was dropped!");}
+            for (int i = 0; i < orbsDropCount; i++) 
+            {
+                GameObject goi = Instantiate(orb, transform.position, transform.rotation);
+                goi.GetComponent<Rigidbody>().AddForce(new Vector3(UnityEngine.Random.Range(-1f,1f), UnityEngine.Random.Range(0.01f,1f), UnityEngine.Random.Range(-1f,1f)));
+                print($"{orbsDropCount} orbs were dropped!");
+            }
             Destroy(gameObject);
         }
 

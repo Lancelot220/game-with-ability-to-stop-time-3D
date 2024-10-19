@@ -105,7 +105,9 @@ public class StopTime_ : MonoBehaviour
 
             //effects
             stopTimeSound.Play();
+            //ParticleSystem effectOnScene = Instantiate(effect, transform.position, Quaternion.identity);
             effect.Play();
+            //Destroy(effectOnScene, 3);
         }
     }
     void UnfreezeTime()

@@ -385,11 +385,14 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _CaughtPlayer: 0
-  timeStopped: 0
   items:
   - {fileID: 400436840714774565, guid: 57e64f2813570d44283c9f4a88a71dfb, type: 3}
   - {fileID: 8103684264236544759, guid: 37bced4b61165d34d910a8776607f8af, type: 3}
-  dropChance: 2
+  orb: {fileID: 1350269623159999276, guid: 4d7b328579167534fb44b53163876393, type: 3}
+  itemDropChance: 2
+  minOrbsCount: 3
+  maxOrbsCount: 7
+  timeStopped: 0
   animator: {fileID: 7032866619234470384}
 --- !u!205 &6038851265562492877
 LODGroup:

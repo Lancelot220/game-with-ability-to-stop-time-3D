@@ -15,7 +15,7 @@ public class EndScreen : MonoBehaviour
     void Start()
     {
         orbsLS.Arguments = new object[] { PlayerPrefs.GetInt("orbsCollected") };
-
+        orbsLS.StringChanged += UpdateOrbs;
 
 
         float totalSeconds = PlayerPrefs.GetInt("time");
@@ -38,5 +38,9 @@ public class EndScreen : MonoBehaviour
         int milliseconds = (int)((totalSeconds - seconds) * 1000);
 
         timeLS.Arguments = new object[] { hours, minutes, seconds, milliseconds };
+        timeLS.StringChanged += UpdateTime;
     }
+
+    void UpdateOrbs(string value) { orbsTMP.text = value; }
+    void UpdateTime(string value) { timeTMP.text = value; }
 }
