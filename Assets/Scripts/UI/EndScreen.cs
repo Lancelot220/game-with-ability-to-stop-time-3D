@@ -4,18 +4,19 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
 
 public class EndScreen : MonoBehaviour
 {
     [SerializeField] LocalizedString orbsLS;
     [SerializeField] TextMeshProUGUI orbsTMP;
-    [SerializeField] LocalizedString timeLS;
+    [SerializeField] LocalizeStringEvent timeLSE;
     [SerializeField] TextMeshProUGUI timeTMP;
 
     void Start()
     {
         orbsLS.Arguments = new object[] { PlayerPrefs.GetInt("orbsCollected") };
-        orbsLS.StringChanged += UpdateOrbs;
+        orbsLS.RefreshString(); //StringChanged += UpdateOrbs;
 
 
         float totalSeconds = PlayerPrefs.GetInt("time");
@@ -37,10 +38,10 @@ public class EndScreen : MonoBehaviour
         // Обчислюємо мілісекунди
         int milliseconds = (int)((totalSeconds - seconds) * 1000);
 
-        timeLS.Arguments = new object[] { hours, minutes, seconds, milliseconds };
-        timeLS.StringChanged += UpdateTime;
+        timeLSE.StringReference.Arguments = new object[] { hours, minutes, seconds, milliseconds };
+        timeLSE.RefreshString(); //StringChanged += UpdateTime;
     }
 
-    void UpdateOrbs(string value) { orbsTMP.text = value; }
-    void UpdateTime(string value) { timeTMP.text = value; }
+    //void UpdateOrbs(string value) { orbsTMP.text = value; }
+    //void UpdateTime(string value) { timeTMP.text = value; }
 }

@@ -1077,15 +1077,7 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   orbsTMP: {fileID: 1474279448}
-  timeLS:
-    m_TableReference:
-      m_TableCollectionName: GUID:02c39d5236b98c7478de296e38391463
-    m_TableEntryReference:
-      m_KeyId: 15599995385131008
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
+  timeLSE: {fileID: 1855986825}
   timeTMP: {fileID: 1855986826}
   references:
     version: 2

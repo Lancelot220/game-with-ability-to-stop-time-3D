@@ -657,12 +657,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc6fc05b16f3d44a8d73c97067840ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  orbsCollected: 0
+  time: 0
   fallVelocity: 0
   fVThreshold: -15
   delayBeforeDeathScreen: 0.75
-  health: 100
-  minWorldHeightLimit: -100
   fallDamageMultipier: 0.04
+  minWorldHeightLimit: -100
   hud: {fileID: 0}
 --- !u!114 &6995575062159228627
 MonoBehaviour:
@@ -689,6 +691,8 @@ MonoBehaviour:
   stopTimeSound: {fileID: 8113200159893503451}
   unfreezeTimeSound: {fileID: 755582451175851380}
   effect: {fileID: 4844544148319997898, guid: 7e1d0b952230e0b4f835d6e11b7b0dde, type: 3}
+  effectGO: {fileID: 4755102960248022660, guid: 7e1d0b952230e0b4f835d6e11b7b0dde,
+    type: 3}
 --- !u!82 &8113200159893503451
 AudioSource:
   m_ObjectHideFlags: 0

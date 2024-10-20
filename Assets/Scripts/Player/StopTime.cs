@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -33,6 +34,8 @@ public class StopTime_ : MonoBehaviour
     public AudioSource stopTimeSound;
     public AudioSource unfreezeTimeSound;
     public ParticleSystem effect;
+    public GameObject effectGO;
+    GameObject effectOnScene;
 
     void Awake() { ctrls = new Controls(); slider = GameObject.Find("Stop Time").GetComponent<Slider>();}
     void OnEnable() { stopTime = ctrls.Player.StopTime; stopTime.Enable(); stopTime.performed += StopTime; }
@@ -105,10 +108,18 @@ public class StopTime_ : MonoBehaviour
 
             //effects
             stopTimeSound.Play();
-            //ParticleSystem effectOnScene = Instantiate(effect, transform.position, Quaternion.identity);
-            effect.Play();
-            //Destroy(effectOnScene, 3);
+            effectOnScene = Instantiate(effectGO, transform.position, Quaternion.identity);
+            StartCoroutine(PauseEffect());
+            //effect.Play(true);
+            //effectOnScene.Stop();
+            //Destroy(effectOnScene, 2);
         }
+    }
+
+    IEnumerator PauseEffect()
+    {
+        yield return new WaitForSeconds(0.12f);
+        effectOnScene.GetComponent<ParticleSystem>().Pause(true);
     }
     void UnfreezeTime()
     {
@@ -148,6 +159,8 @@ public class StopTime_ : MonoBehaviour
 
         //effects
         unfreezeTimeSound.Play();
+        effectOnScene.GetComponent<ParticleSystem>().Play(true);
+        Destroy(effectOnScene, 1.88f);
     }
 /*
     IEnumerator Cooldown()
