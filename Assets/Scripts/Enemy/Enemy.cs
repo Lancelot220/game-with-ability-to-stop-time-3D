@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
     public float stopThreshold = 0.1f;
 
     public Transform[] waypoints;
+    public bool shuffleWaypoints = true;
     int m_CurrentWayPointIndex;
 
     Vector3 playerLastPosition = Vector3.zero;
@@ -63,7 +64,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        Shuffle(waypoints);
+        if(shuffleWaypoints) Shuffle(waypoints);
 
         m_PlayerPosition = Vector3.zero;
         m_IsPatrol = true;

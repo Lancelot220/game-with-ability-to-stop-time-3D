@@ -28,7 +28,10 @@ public class Menu : MonoBehaviour
         if (!toMainMenu)
         StartCoroutine(ChangeScreen());
         else
-        { StartCoroutine(BackToMainMenu()); GameObject.Find("Player").GetComponent<Movement>().enabled = false;}
+        {
+            StartCoroutine(BackToMainMenu()); 
+            GameObject.Find("Player").GetComponent<Movement>().enabled = false;
+        }
     }
 
     public void Exit()
