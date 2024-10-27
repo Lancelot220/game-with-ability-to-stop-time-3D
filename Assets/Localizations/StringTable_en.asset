@@ -108,7 +108,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 8721936764534784
-    m_Localized: Are you sure you want to restart the level?
+    m_Localized: Are you sure you want to restart the entire level or from the checkpoint?
     m_Metadata:
       m_Items: []
   - m_Id: 8722299844460544
@@ -129,6 +129,18 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 7823976732278652930
+  - m_Id: 18849031803420672
+    m_Localized: Restart from checkpoint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18849417595502592
+    m_Localized: Restart entire level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18849661842407424
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

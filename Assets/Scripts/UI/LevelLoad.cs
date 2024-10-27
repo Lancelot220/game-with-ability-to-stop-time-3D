@@ -28,10 +28,11 @@ public class LevelLoad: MonoBehaviour
         StartCoroutine(LoadScene(sceneIndex));
     }
 
-    public void Restart()
+    public void Restart(bool entireLevel)
     {
         currentScreen.GetComponent<Animator>().SetTrigger("LevelLoad");
         Time.timeScale = 1;
+        if(entireLevel) PlayerPrefs.SetInt("lastCheckpoint", 0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

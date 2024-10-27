@@ -33,7 +33,7 @@ public class PlayerStats : MonoBehaviour
     int fallDamage;
     Movement m;
     
-    void Start() { m = GetComponentInParent<Movement>(); screenAnim = hud.GetComponent<Animator>();}
+    void Start() { m = GetComponentInParent<Movement>(); screenAnim = hud.GetComponent<Animator>(); }
     
     void Update()
     {   //fall damage
@@ -87,7 +87,7 @@ public class PlayerStats : MonoBehaviour
         yield return new WaitForSecondsRealtime(delayBeforeDeathScreen);
 
         //Scene scene = SceneManager.GetActiveScene();
-        PlayerPrefs.SetInt("lastLevel",SceneManager.GetActiveScene().buildIndex);
+        //PlayerPrefs.SetInt("lastLevel",SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene("Death Screen");
     }
 }

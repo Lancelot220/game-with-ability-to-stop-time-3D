@@ -104,7 +104,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 8721936764534784
-    m_Key: Are you sure you want to restart the level?
+    m_Key: Are you sure you want to restart the entire level or from the checkpoint?
     m_Metadata:
       m_Items: []
   - m_Id: 8722299844460544
@@ -121,6 +121,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 15599995385131008
     m_Key: Time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18849031803420672
+    m_Key: Restart from checkpoint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18849417595502592
+    m_Key: Restart entire level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18849661842407424
+    m_Key: Cancel
     m_Metadata:
       m_Items: []
   m_Metadata:
