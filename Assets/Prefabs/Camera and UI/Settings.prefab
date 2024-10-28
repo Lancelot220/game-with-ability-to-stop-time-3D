@@ -491,6 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5343511c6aedd2249947db6f0975e4df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  langDropdown: {fileID: 4498503020486847730}
 --- !u!1 &1216342046365992616
 GameObject:
   m_ObjectHideFlags: 0
@@ -4314,6 +4315,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 05a8c75cf76532744a9b5a1d31fa6341, type: 2}
+  master: {fileID: 8164785272284636829}
+  sfx: {fileID: 7419322368851478120}
+  music: {fileID: 4055696753673641273}
 --- !u!1 &6488000780894444984
 GameObject:
   m_ObjectHideFlags: 0
