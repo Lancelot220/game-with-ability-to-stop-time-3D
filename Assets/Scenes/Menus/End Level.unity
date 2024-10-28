@@ -317,16 +317,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loading Screen
       objectReference: {fileID: 0}
-    - target: {fileID: 4759710377411559611, guid: a1148af0d154ab043861b6cd2637dea9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7084671914787083768, guid: a1148af0d154ab043861b6cd2637dea9,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 556989036}
     - target: {fileID: 7382812375279976993, guid: a1148af0d154ab043861b6cd2637dea9,
         type: 3}
       propertyPath: m_Pivot.x
@@ -425,11 +415,6 @@ PrefabInstance:
     - target: {fileID: 7382812375279976993, guid: a1148af0d154ab043861b6cd2637dea9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7785284212165602693, guid: a1148af0d154ab043861b6cd2637dea9,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

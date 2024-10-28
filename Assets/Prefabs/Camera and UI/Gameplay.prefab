@@ -3565,7 +3565,7 @@ GameObject:
   - component: {fileID: 7721650338817698784}
   - component: {fileID: 4436595762480531609}
   m_Layer: 5
-  m_Name: Restart from checkpoint
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3645,7 +3645,7 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 1873906926181336929}
-    m_SelectOnDown: {fileID: 1873906926181336929}
+    m_SelectOnDown: {fileID: 8825907007961325985}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -3676,14 +3676,14 @@ MonoBehaviour:
       - m_Target: {fileID: 4436595762480531609}
         m_TargetAssemblyTypeName: LevelLoad, Assembly-CSharp
         m_MethodName: Restart
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 7721650338817698784}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
@@ -4185,8 +4185,13 @@ PrefabInstance:
     - target: {fileID: 2845403527806315690, guid: a7782df48415c754ea95a6ed83d0ebaf,
         type: 3}
       propertyPath: m_Name
-      value: Cancel
+      value: Button 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3169405757009980398, guid: a7782df48415c754ea95a6ed83d0ebaf,
+        type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 1575046417924182750}
     - target: {fileID: 4596574156170927308, guid: a7782df48415c754ea95a6ed83d0ebaf,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -4294,8 +4299,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5440738113258048814, guid: a7782df48415c754ea95a6ed83d0ebaf,
         type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440738113258048814, guid: a7782df48415c754ea95a6ed83d0ebaf,
+        type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 1575046417924182750}
+    - target: {fileID: 5440738113258048814, guid: a7782df48415c754ea95a6ed83d0ebaf,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5440738113258048814, guid: a7782df48415c754ea95a6ed83d0ebaf,
         type: 3}
@@ -4365,7 +4380,7 @@ PrefabInstance:
     - target: {fileID: 6840642339754258872, guid: a7782df48415c754ea95a6ed83d0ebaf,
         type: 3}
       propertyPath: m_Name
-      value: Restart entire level
+      value: Button 1
       objectReference: {fileID: 0}
     - target: {fileID: 7266160872346450234, guid: a7782df48415c754ea95a6ed83d0ebaf,
         type: 3}
@@ -4457,6 +4472,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3601342402683907215}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8825907007961325985 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5440738113258048814, guid: a7782df48415c754ea95a6ed83d0ebaf,
+    type: 3}
+  m_PrefabInstance: {fileID: 3601342402683907215}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8004125943671692599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6807154410992111444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4465,6 +4492,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1298324039292924304}
     m_Modifications:
+    - target: {fileID: 2845403527806315690, guid: a7782df48415c754ea95a6ed83d0ebaf,
+        type: 3}
+      propertyPath: m_Name
+      value: Button 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4828110922591220075, guid: a7782df48415c754ea95a6ed83d0ebaf,
         type: 3}
       propertyPath: m_Pivot.x

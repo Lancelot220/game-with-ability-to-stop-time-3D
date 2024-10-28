@@ -14,6 +14,7 @@ public class LevelComplete : MonoBehaviour
         {
             currentScreen.GetComponent<Animator>().SetTrigger("LevelLoad");
             StartCoroutine(EndLevelScene(col.gameObject));
+            PlayerPrefs.SetInt("lastCheckpoint", 0);
         }
     }
 
