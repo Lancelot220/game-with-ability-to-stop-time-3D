@@ -8309,11 +8309,6 @@ PrefabInstance:
       propertyPath: selectAfterClosing
       value: 
       objectReference: {fileID: 1987496128}
-    - target: {fileID: 6840642339754258872, guid: a7782df48415c754ea95a6ed83d0ebaf,
-        type: 3}
-      propertyPath: m_Name
-      value: Button
-      objectReference: {fileID: 0}
     - target: {fileID: 8108390811864575224, guid: a7782df48415c754ea95a6ed83d0ebaf,
         type: 3}
       propertyPath: nextScreen

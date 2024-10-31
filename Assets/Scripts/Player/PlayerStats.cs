@@ -14,6 +14,13 @@ public class PlayerStats : MonoBehaviour
 {
     [Header("Statistics")]
     public int health = 100;
+    //public int lives = 5;
+    [SerializeField] int defaultLivesCount = 5;
+    public int Lives
+    {
+        get { return PlayerPrefs.GetInt("lives", defaultLivesCount); }
+        set { PlayerPrefs.SetInt("lives", value); } 
+    }
     public int orbsCollected;
     [ReadOnly] public float time;
 
@@ -29,7 +36,8 @@ public class PlayerStats : MonoBehaviour
     
     Animator screenAnim;
     bool hitGroundTooHard;
-    private bool deathMessageSent = false;
+    bool deathMessageSent = false;
+    bool lifeAdded;
     int fallDamage;
     Movement m;
     
@@ -62,6 +70,11 @@ public class PlayerStats : MonoBehaviour
 
         //time
         time += Time.deltaTime;
+        
+        //lives
+        if(orbsCollected % 5 == 0 && !lifeAdded)
+        { Lives++; lifeAdded = true; }
+        else lifeAdded = false;
     }
 
     public void Landed()

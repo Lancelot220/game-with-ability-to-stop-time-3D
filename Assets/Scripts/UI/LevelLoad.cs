@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 //using UnityEngine.UI;
@@ -12,7 +13,9 @@ public class LevelLoad: MonoBehaviour
     public GameObject loadingScreen;
     public float animationDuration = 0.75f;
     //ImageAnimation ia;
-    public bool nextLevel, playAgain;
+    [Tooltip("For Next level button on End level screen")] public bool nextLevel; 
+    [Tooltip("Restart From Checkpoint")] public bool deathScreenRFC;
+    [Tooltip("Restart Entire Level")] public bool deathScreenREL;
     void OnTriggerEnter(Collider col)
     { if (col.CompareTag("Player")){ LoadLevel(scene); } }
 
@@ -22,8 +25,13 @@ public class LevelLoad: MonoBehaviour
         if (backScript != null) backScript.GetComponent<Back>().enabled = false;
         if(nextLevel)
         StartCoroutine(LoadScene(PlayerPrefs.GetInt("lastLevel") + 1));
-        else if(playAgain)
+        else if(deathScreenRFC)
         StartCoroutine(LoadScene(PlayerPrefs.GetInt("lastLevel")));
+        else if(deathScreenREL)
+        {
+            StartCoroutine(LoadScene(PlayerPrefs.GetInt("lastLevel")));
+            PlayerPrefs.SetInt("lastCheckpoint", 0);
+        }
         else
         StartCoroutine(LoadScene(sceneIndex));
     }
