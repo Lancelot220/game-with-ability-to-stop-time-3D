@@ -30,6 +30,14 @@ public class Movement : MonoBehaviour
     public float jumpDelay = 0.5f;
     float jumpDelayCounter = 0;
     //[HideInInspector] public bool hasJumped = false;
+
+    [Header("Ledge Climb")]
+    public Transform emptySpaceRayOrigin;
+    public float emptySpaceCheckLength = 0.2f;
+    public Transform edgeCheckRayOrigin;
+    public float edgeCheckLength = 0.1f;
+    public LayerMask ledgeClimbLayers;
+
     
     [Header("Crouching")]
     public float crouchSpeed = 5f;
@@ -262,7 +270,23 @@ public class Movement : MonoBehaviour
         //velocity.z = Mathf.Clamp(velocity.z, -maxSpeed, maxSpeed);
         // Застосовуємо нову швидкість
         rb.velocity = velocity;
+
+        //Ledge climb
+        bool emptySpaceAboveEdge = !Physics.Raycast(emptySpaceRayOrigin.position, transform.forward, emptySpaceCheckLength, ledgeClimbLayers);
+        bool edge = Physics.Raycast(edgeCheckRayOrigin.position, transform.forward, edgeCheckLength, ledgeClimbLayers);
+        if(emptySpaceAboveEdge && edge)
+        {
+            animator.SetTrigger("ledgeClimb");
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            print("climb");
+        }
     }  //animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Attack1" && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Attack2" && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Crit"
+    public void EndClimbing(Transform model ,Vector3 defaultModelPos, Vector3 modelPos)
+    {
+        //idk
+
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
+    }
 
     void OnTriggerStay(Collider col)
     {

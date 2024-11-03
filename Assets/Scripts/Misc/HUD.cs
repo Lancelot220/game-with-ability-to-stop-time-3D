@@ -24,13 +24,13 @@ public class HUD : MonoBehaviour
         if(orbsCount.text != Convert.ToString(ps.orbsCollected))
         {
             orbsCount.text = Convert.ToString(ps.orbsCollected);
-            orbsCount.gameObject.GetComponent<Animator>().SetTrigger("showCountFromRight");
+            orbsCount.gameObject.GetComponent<Animator>().SetTrigger("showUp");
         }
-
-        if(lives.text == Convert.ToString(ps.Lives))
+/*
+        if(lives.text != Convert.ToString(ps.Lives))
         {
             lives.text = Convert.ToString(ps.Lives);    
-            lives.gameObject.GetComponent<Animator>().SetTrigger("showCountFromLeft");
-        }
+            lives.gameObject.GetComponent<Animator>().SetTrigger("showUp");
+        }*/
     }
 }

@@ -14,13 +14,13 @@ public class PlayerStats : MonoBehaviour
 {
     [Header("Statistics")]
     public int health = 100;
-    //public int lives = 5;
+    /*
     [SerializeField] int defaultLivesCount = 5;
-    public int Lives
+    public int Lives //= 5;
     {
         get { return PlayerPrefs.GetInt("lives", defaultLivesCount); }
         set { PlayerPrefs.SetInt("lives", value); } 
-    }
+    }*/
     public int orbsCollected;
     [ReadOnly] public float time;
 
@@ -32,16 +32,19 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Others")]
     public float minWorldHeightLimit = -100;
-    public GameObject hud;
     
     Animator screenAnim;
     bool hitGroundTooHard;
     bool deathMessageSent = false;
-    bool lifeAdded;
+    int previousOrbsCollected = 0;
     int fallDamage;
     Movement m;
     
-    void Start() { m = GetComponentInParent<Movement>(); screenAnim = hud.GetComponent<Animator>(); }
+    void Start() 
+    {
+        m = GetComponentInParent<Movement>();
+        //lives = PlayerPrefs.GetInt("lives", lives);
+    }
     
     void Update()
     {   //fall damage
@@ -71,10 +74,12 @@ public class PlayerStats : MonoBehaviour
         //time
         time += Time.deltaTime;
         
-        //lives
-        if(orbsCollected % 5 == 0 && !lifeAdded)
-        { Lives++; lifeAdded = true; }
-        else lifeAdded = false;
+        /*lives
+        if(orbsCollected % 50 == 0 && orbsCollected != 0 && orbsCollected != previousOrbsCollected)
+        { 
+            Lives++; //PlayerPrefs.SetInt("lives", lives); 
+            previousOrbsCollected = orbsCollected;
+        }*/
     }
 
     public void Landed()

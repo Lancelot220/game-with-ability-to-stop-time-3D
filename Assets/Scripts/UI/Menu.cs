@@ -30,7 +30,8 @@ public class Menu : MonoBehaviour
         else
         {
             StartCoroutine(BackToMainMenu()); 
-            GameObject.Find("Player").GetComponent<Movement>().enabled = false;
+            Movement m = GameObject.Find("Player").GetComponent<Movement>(); 
+            if(m != null) m.enabled = false;
         }
     }
 

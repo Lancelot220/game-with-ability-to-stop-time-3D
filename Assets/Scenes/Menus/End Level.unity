@@ -593,7 +593,8 @@ MonoBehaviour:
   loadingScreen: {fileID: 681767830}
   animationDuration: 0.75
   nextLevel: 0
-  playAgain: 1
+  RFC: 0
+  REL: 1
 --- !u!82 &912689422
 AudioSource:
   m_ObjectHideFlags: 0
@@ -856,7 +857,8 @@ MonoBehaviour:
   loadingScreen: {fileID: 681767830}
   animationDuration: 0.75
   nextLevel: 1
-  playAgain: 0
+  RFC: 0
+  REL: 0
 --- !u!82 &1181415351
 AudioSource:
   m_ObjectHideFlags: 0
@@ -989,10 +991,10 @@ RectTransform:
   - {fileID: 1181415346}
   - {fileID: 912689417}
   - {fileID: 2015427280}
-  - {fileID: 2019843334}
   - {fileID: 109777388}
   - {fileID: 1474279446}
   - {fileID: 1855986824}
+  - {fileID: 2019843334}
   m_Father: {fileID: 1789320949}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1018,7 +1020,8 @@ MonoBehaviour:
   loadingScreen: {fileID: 681767830}
   animationDuration: 0.75
   nextLevel: 0
-  playAgain: 0
+  RFC: 0
+  REL: 0
 --- !u!95 &1232717941
 Animator:
   serializedVersion: 5
@@ -1064,6 +1067,11 @@ MonoBehaviour:
   orbsTMP: {fileID: 1474279448}
   timeLSE: {fileID: 1855986825}
   timeTMP: {fileID: 1855986826}
+  orbsCollected: 0
+  hours: 0
+  minutes: 0
+  seconds: 0
+  milliseconds: 0
   references:
     version: 2
     RefIds: []
@@ -1218,7 +1226,10 @@ MonoBehaviour:
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
-    m_LocalVariables: []
+    m_LocalVariables:
+    - name: endScreen
+      variable:
+        rid: 5810652907768905735
   m_FormatArguments: []
   m_UpdateString:
     m_PersistentCalls:
@@ -1237,7 +1248,12 @@ MonoBehaviour:
         m_CallState: 2
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 5810652907768905735
+      type: {class: ObjectVariable, ns: UnityEngine.Localization.SmartFormat.PersistentVariables,
+        asm: Unity.Localization}
+      data:
+        m_Value: {fileID: 1232717942}
 --- !u!114 &1474279448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1923,7 +1939,10 @@ MonoBehaviour:
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
-    m_LocalVariables: []
+    m_LocalVariables:
+    - name: endScreen
+      variable:
+        rid: 5810652907768905736
   m_FormatArguments: []
   m_UpdateString:
     m_PersistentCalls:
@@ -1942,7 +1961,12 @@ MonoBehaviour:
         m_CallState: 2
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 5810652907768905736
+      type: {class: ObjectVariable, ns: UnityEngine.Localization.SmartFormat.PersistentVariables,
+        asm: Unity.Localization}
+      data:
+        m_Value: {fileID: 1232717942}
 --- !u!114 &1855986826
 MonoBehaviour:
   m_ObjectHideFlags: 0

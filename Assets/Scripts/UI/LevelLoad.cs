@@ -14,8 +14,8 @@ public class LevelLoad: MonoBehaviour
     public float animationDuration = 0.75f;
     //ImageAnimation ia;
     [Tooltip("For Next level button on End level screen")] public bool nextLevel; 
-    [Tooltip("Restart From Checkpoint")] public bool deathScreenRFC;
-    [Tooltip("Restart Entire Level")] public bool deathScreenREL;
+    [Tooltip("Restart From Checkpoint")] public bool RFC;
+    [Tooltip("Restart Entire Level")] public bool REL;
     void OnTriggerEnter(Collider col)
     { if (col.CompareTag("Player")){ LoadLevel(scene); } }
 
@@ -25,9 +25,9 @@ public class LevelLoad: MonoBehaviour
         if (backScript != null) backScript.GetComponent<Back>().enabled = false;
         if(nextLevel)
         StartCoroutine(LoadScene(PlayerPrefs.GetInt("lastLevel") + 1));
-        else if(deathScreenRFC)
+        else if(RFC)
         StartCoroutine(LoadScene(PlayerPrefs.GetInt("lastLevel")));
-        else if(deathScreenREL)
+        else if(REL)
         {
             StartCoroutine(LoadScene(PlayerPrefs.GetInt("lastLevel")));
             PlayerPrefs.SetInt("lastCheckpoint", 0);
