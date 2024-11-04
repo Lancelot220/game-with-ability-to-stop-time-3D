@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using System.Runtime.ConstrainedExecution;
 using Unity.VisualScripting;
@@ -37,7 +38,9 @@ public class Movement : MonoBehaviour
     public Transform edgeCheckRayOrigin;
     public float edgeCheckLength = 0.1f;
     public LayerMask ledgeClimbLayers;
-
+    public Transform spineBone;
+    public bool endClimbing;
+    public Vector3 spineDefaultOffset;
     
     [Header("Crouching")]
     public float crouchSpeed = 5f;
@@ -78,6 +81,8 @@ public class Movement : MonoBehaviour
         cameraMainTransform = Camera.main.transform;
         animator = GetComponentInChildren<Animator>();
         canStopCrouching = true;
+
+        spineDefaultOffset = transform.position - spineBone.position;
     }
     void Awake() {ctrls = new Controls();}
     void OnEnable()
@@ -258,17 +263,11 @@ public class Movement : MonoBehaviour
         { coyoteTimeCounter = coyoteTime; } else { coyoteTimeCounter -= Time.deltaTime; } 
 
         //limit vertical speed
-        // Отримуємо поточну швидкість
         Vector3 velocity = rb.velocity;
-        // Обмеження по Y тільки для додатних значень
         if (velocity.y > 0)
         {
             velocity.y = Mathf.Min(velocity.y, maxSpeed);
         }
-        // Обмеження по X та Z незалежно від знаку
-        //velocity.x = Mathf.Clamp(velocity.x, -maxSpeed, maxSpeed);
-        //velocity.z = Mathf.Clamp(velocity.z, -maxSpeed, maxSpeed);
-        // Застосовуємо нову швидкість
         rb.velocity = velocity;
 
         //Ledge climb
@@ -280,13 +279,21 @@ public class Movement : MonoBehaviour
             rb.constraints = RigidbodyConstraints.FreezeAll;
             print("climb");
         }
-    }  //animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Attack1" && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Attack2" && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Crit"
-    public void EndClimbing(Transform model ,Vector3 defaultModelPos, Vector3 modelPos)
-    {
-        //idk
+        if (endClimbing)
+        {
+            Vector3 destination = spineBone.position + spineDefaultOffset;
+            transform.position = destination;
 
-        rb.constraints = RigidbodyConstraints.FreezeRotation;
-    }
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+
+            endClimbing = false;
+            animator.ResetTrigger("ledgeClimb");
+        }
+    }  //animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Attack1" && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Attack2" && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Crit"
+    /*public void EndClimbing()
+    {
+        
+    }*/
 
     void OnTriggerStay(Collider col)
     {

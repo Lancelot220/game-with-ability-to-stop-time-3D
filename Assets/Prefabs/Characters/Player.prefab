@@ -228,6 +228,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4199769008946712759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1694742925446784531}
+  m_Layer: 3
+  m_Name: Empty Space Ray Origin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1694742925446784531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4199769008946712759}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4409401331170633045}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4491355230094927260
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,6 +549,37 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!1 &6266668150012308539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6806442091151138534}
+  m_Layer: 3
+  m_Name: Edge Check Ray Origin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6806442091151138534
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6266668150012308539}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4409401331170633045}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6541527069278340139
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,6 +622,8 @@ Transform:
   - {fileID: 3897966085495632005}
   - {fileID: 8447268552260872064}
   - {fileID: 6832563646765693182}
+  - {fileID: 1694742925446784531}
+  - {fileID: 6806442091151138534}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &809894692558266110
@@ -635,6 +699,16 @@ MonoBehaviour:
   onGround: 0
   coyoteTime: 0.2
   jumpDelay: 0.5
+  emptySpaceRayOrigin: {fileID: 1694742925446784531}
+  emptySpaceCheckLength: 0.2
+  edgeCheckRayOrigin: {fileID: 6806442091151138534}
+  edgeCheckLength: 0.1
+  ledgeClimbLayers:
+    serializedVersion: 2
+    m_Bits: 1345
+  spineBone: {fileID: 7130404605833252390}
+  endClimbing: 0
+  spineDefaultOffset: {x: 0, y: 0, z: 0}
   crouchSpeed: 3
   canStopCrouching: 0
   holdingCrouchButton: 0
@@ -665,7 +739,6 @@ MonoBehaviour:
   delayBeforeDeathScreen: 0.75
   fallDamageMultipier: 0.04
   minWorldHeightLimit: -100
-  hud: {fileID: 0}
 --- !u!114 &6995575062159228627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1455,6 +1528,12 @@ MonoBehaviour:
 --- !u!4 &6832563646765693182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2386fc39103c09b4f9b1477aba974fb9,
+    type: 3}
+  m_PrefabInstance: {fileID: 6438068371451420437}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7130404605833252390 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4300045009065480499, guid: 2386fc39103c09b4f9b1477aba974fb9,
     type: 3}
   m_PrefabInstance: {fileID: 6438068371451420437}
   m_PrefabAsset: {fileID: 0}

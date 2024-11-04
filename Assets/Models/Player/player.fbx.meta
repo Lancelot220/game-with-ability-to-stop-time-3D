@@ -637,7 +637,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 1
+      - time: 0.9930876
         functionName: LedgeClimbEnd
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 45c81d01f23b64f49997da91dd2e898a,
