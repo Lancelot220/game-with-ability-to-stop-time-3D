@@ -6,6 +6,7 @@ public class Water : MonoBehaviour
 {
     public bool useCondition;
     public Transform[] pointsOnGround;
+    public int damage = 8;
     private float waitTime = 3;
     public bool condition;
     Transform player;
@@ -20,6 +21,7 @@ public class Water : MonoBehaviour
             playerObj = col.gameObject;
             playerObj.GetComponent<Movement>().enabled = false;
             playerObj.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            playerObj.GetComponent<PlayerStats>().health -= damage;
         }
     }
 

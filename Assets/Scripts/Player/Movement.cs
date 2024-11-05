@@ -20,7 +20,6 @@ public class Movement : MonoBehaviour
     
     //public float inAirSpeed = 1.1f;
     [SerializeField] private float rotationSpeed = 3f;
-    [HideInInspector] public bool movementStopped;
     [HideInInspector] public bool atacking;
     
     [Header("Jumping")]
@@ -41,6 +40,7 @@ public class Movement : MonoBehaviour
     public Transform spineBone;
     public bool endClimbing;
     public Vector3 spineDefaultOffset;
+    bool isClimbing;
     
     [Header("Crouching")]
     public float crouchSpeed = 5f;
@@ -241,12 +241,12 @@ public class Movement : MonoBehaviour
         movement = cameraForward * movement.z + cameraRight * movement.x;
         
         movement.y = 0f;
-        if (/*animator.GetFloat("combo") < 0*/ !atacking) 
-        { rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z); movementStopped = false; }
-        //else if (onGround && !movementStopped)
-        //{rb.velocity = Vector3.zero; print("stop player"); movementStopped = true; }
+        if (!atacking && onGround) 
+        { rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z); }
+        else if (!onGround && !atacking && dir != Vector2.zero)
+        { rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z); }
 
-        if (dir != Vector2.zero)
+        if (dir != Vector2.zero && !isClimbing)
         {
             if (onGround) animator.SetBool("isMoving", true);
         
@@ -273,20 +273,23 @@ public class Movement : MonoBehaviour
         //Ledge climb
         bool emptySpaceAboveEdge = !Physics.Raycast(emptySpaceRayOrigin.position, transform.forward, emptySpaceCheckLength, ledgeClimbLayers);
         bool edge = Physics.Raycast(edgeCheckRayOrigin.position, transform.forward, edgeCheckLength, ledgeClimbLayers);
-        if(emptySpaceAboveEdge && edge)
+        if(emptySpaceAboveEdge && edge && !onGround)
         {
             animator.SetTrigger("ledgeClimb");
             rb.constraints = RigidbodyConstraints.FreezeAll;
-            print("climb");
+            isClimbing = true;
+            //print("climb");
         }
         if (endClimbing)
         {
             Vector3 destination = spineBone.position + spineDefaultOffset;
             transform.position = destination;
-
+            
+            rb.constraints = RigidbodyConstraints.None;
             rb.constraints = RigidbodyConstraints.FreezeRotation;
 
             endClimbing = false;
+            isClimbing = false;
             animator.ResetTrigger("ledgeClimb");
         }
     }  //animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Attack1" && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Attack2" && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Crit"

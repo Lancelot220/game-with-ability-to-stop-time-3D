@@ -77,6 +77,7 @@ public class Attack2 : MonoBehaviour
         comboTimeCounter = comboTime;
         attacking = false;
         m.atacking = false;
+        m.animator.ResetTrigger("isAttacking");
 
         //if(m.onGround) m.rb.velocity = Vector3.zero;
 
@@ -102,9 +103,11 @@ public class Attack2 : MonoBehaviour
             /*if(comboTimeCounter > 0) */comboTimeCounter -= Time.deltaTime;
             m.animator.SetFloat("combo", comboTimeCounter);
         }
-
-        if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Crit") 
-        { attackPower = critPower; }
+        if(m.animator.GetCurrentAnimatorClipInfo(0)[0].clip != null)
+        {
+            if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Crit") 
+            { attackPower = critPower; }
+        }
         else attackPower = defaultPower;
     }
 
