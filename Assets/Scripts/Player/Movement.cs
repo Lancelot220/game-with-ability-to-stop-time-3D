@@ -20,7 +20,6 @@ public class Movement : MonoBehaviour
     
     //public float inAirSpeed = 1.1f;
     [SerializeField] private float rotationSpeed = 3f;
-    [HideInInspector] public bool atacking;
     
     [Header("Jumping")]
     public float jumpForce = 300f;
@@ -68,6 +67,9 @@ public class Movement : MonoBehaviour
     InputAction crouchStart;
     InputAction crouchStop;
     InputAction pause;
+
+    [Header("")]
+    public bool debug = true;
     /*
     [Header("Instead of anims")]
     public Transform capsule;
@@ -132,7 +134,10 @@ public class Movement : MonoBehaviour
    //Jump
    private void Jump(InputAction.CallbackContext context)
     {
-        if(coyoteTimeCounter > 0 && speed != crouchSpeed && animator.GetFloat("combo") <= 0 && jumpDelayCounter <= 0)
+        if( coyoteTimeCounter > 0 &&
+            speed != crouchSpeed && animator.GetFloat("combo") <= 0 && 
+            jumpDelayCounter <= 0 &&
+            !pauseMenu.activeSelf )
         {
             rb.AddForce(new Vector3(rb.velocity.x, jumpForce, rb.velocity.z));
             coyoteTimeCounter = 0;
@@ -160,7 +165,10 @@ public class Movement : MonoBehaviour
     //Run
     private void RunStart(InputAction.CallbackContext context)
     {
-        if(speed != crouchSpeed && animator.GetFloat("combo") <= 0 && onGround)
+        if( speed != crouchSpeed && 
+            animator.GetFloat("combo") <= 0 && 
+            onGround &&
+            !pauseMenu.activeSelf )
         {
             speed = runSpeed;
             animator.SetBool("isRunning", true);
@@ -168,7 +176,9 @@ public class Movement : MonoBehaviour
     }
     private void RunStop(InputAction.CallbackContext context)
     { 
-        if (speed == runSpeed && animator.GetFloat("combo") <= 0)
+        if( speed == runSpeed && 
+            animator.GetFloat("combo") <= 0 &&
+            !pauseMenu.activeSelf )
         {
             speed = defaultSpeed;
             animator.SetBool("isRunning", false);
@@ -180,7 +190,9 @@ public class Movement : MonoBehaviour
     private void CrouchStart(InputAction.CallbackContext context)
     {
         holdingCrouchButton = true;
-        if(speed !=runSpeed && animator.GetFloat("combo") <= 0)
+        if( speed !=runSpeed &&
+            animator.GetFloat("combo") <= 0 &&
+            !pauseMenu.activeSelf )
         {
             speed = crouchSpeed;
             //cc.height = 1;
@@ -200,7 +212,9 @@ public class Movement : MonoBehaviour
     private void CrouchStop(InputAction.CallbackContext context)
     {
         holdingCrouchButton = false;
-        if (speed == crouchSpeed && canStopCrouching) 
+        if( speed == crouchSpeed &&
+            canStopCrouching &&
+            !pauseMenu.activeSelf ) 
         {
             CrouchStop_();
         } 
@@ -241,9 +255,9 @@ public class Movement : MonoBehaviour
         movement = cameraForward * movement.z + cameraRight * movement.x;
         
         movement.y = 0f;
-        if (!atacking && onGround) 
+        if (animator.GetFloat("combo") <= 0 && onGround) 
         { rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z); }
-        else if (!onGround && !atacking && dir != Vector2.zero)
+        else if (!onGround && animator.GetFloat("combo") <= 0 && dir != Vector2.zero)
         { rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z); }
 
         if (dir != Vector2.zero && !isClimbing)
@@ -272,13 +286,15 @@ public class Movement : MonoBehaviour
 
         //Ledge climb
         bool emptySpaceAboveEdge = !Physics.Raycast(emptySpaceRayOrigin.position, transform.forward, emptySpaceCheckLength, ledgeClimbLayers);
+        if(debug) Debug.DrawLine(emptySpaceRayOrigin.position, emptySpaceRayOrigin.position + (transform.forward * emptySpaceCheckLength), Color.red);
         bool edge = Physics.Raycast(edgeCheckRayOrigin.position, transform.forward, edgeCheckLength, ledgeClimbLayers);
+        if(debug) Debug.DrawLine(edgeCheckRayOrigin.position, edgeCheckRayOrigin.position + (transform.forward * edgeCheckLength), Color.red);
         if(emptySpaceAboveEdge && edge && !onGround)
         {
             animator.SetTrigger("ledgeClimb");
             rb.constraints = RigidbodyConstraints.FreezeAll;
             isClimbing = true;
-            //print("climb");
+            if(debug) print("climb");
         }
         if (endClimbing)
         {

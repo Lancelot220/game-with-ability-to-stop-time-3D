@@ -760,8 +760,8 @@ MonoBehaviour:
   loadingScreen: {fileID: 681767830}
   animationDuration: 0.75
   nextLevel: 0
-  deathScreenRFC: 0
-  deathScreenREL: 1
+  RFC: 0
+  REL: 1
 --- !u!114 &801272246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1033,8 +1033,8 @@ MonoBehaviour:
   loadingScreen: {fileID: 681767830}
   animationDuration: 0.75
   nextLevel: 0
-  deathScreenRFC: 1
-  deathScreenREL: 0
+  RFC: 1
+  REL: 0
 --- !u!82 &912689422
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1193,8 +1193,8 @@ MonoBehaviour:
   loadingScreen: {fileID: 681767830}
   animationDuration: 0.75
   nextLevel: 0
-  deathScreenRFC: 0
-  deathScreenREL: 0
+  RFC: 0
+  REL: 0
 --- !u!95 &1232717941
 Animator:
   serializedVersion: 5

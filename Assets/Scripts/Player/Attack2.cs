@@ -50,10 +50,9 @@ public class Attack2 : MonoBehaviour
     void OnDisable() { attack.Disable(); }
     void Attack(InputAction.CallbackContext context)
     {
-        if (!attacking && GetComponentInParent<PlayerStats>().health > 0)
+        if (!attacking && GetComponentInParent<PlayerStats>().health > 0 && !m.pauseMenu.activeSelf)
         {
             attacking = true;
-            m.atacking = true;
             m.animator.SetTrigger("isAttacking");
             if (m.onGround)
             {
@@ -76,7 +75,6 @@ public class Attack2 : MonoBehaviour
     {
         comboTimeCounter = comboTime;
         attacking = false;
-        m.atacking = false;
         m.animator.ResetTrigger("isAttacking");
 
         //if(m.onGround) m.rb.velocity = Vector3.zero;
@@ -103,7 +101,7 @@ public class Attack2 : MonoBehaviour
             /*if(comboTimeCounter > 0) */comboTimeCounter -= Time.deltaTime;
             m.animator.SetFloat("combo", comboTimeCounter);
         }
-        if(m.animator.GetCurrentAnimatorClipInfo(0)[0].clip != null)
+        if(m.animator.GetCurrentAnimatorClipInfo(0).Length > 0)
         {
             if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Crit") 
             { attackPower = critPower; }

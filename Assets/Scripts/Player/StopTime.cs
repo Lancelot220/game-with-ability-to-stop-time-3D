@@ -39,6 +39,7 @@ public class StopTime_ : MonoBehaviour
 
     void Awake() { ctrls = new Controls(); slider = GameObject.Find("Stop Time").GetComponent<Slider>();}
     void OnEnable() { stopTime = ctrls.Player.StopTime; stopTime.Enable(); stopTime.performed += StopTime; }
+    void OnDisable() { stopTime.Disable(); }
 
     void Update()
     {
@@ -63,7 +64,7 @@ public class StopTime_ : MonoBehaviour
     //stop time
     void StopTime(InputAction.CallbackContext context)
     {
-        if(canStopTime)
+        if(canStopTime && !GetComponent<Movement>().pauseMenu.activeSelf)
         {
             canStopTime = false;
 

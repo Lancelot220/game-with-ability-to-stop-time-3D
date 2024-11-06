@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class Water : MonoBehaviour
 {
-    public bool useCondition;
     public Transform[] pointsOnGround;
     public int damage = 8;
     private float waitTime = 3;
+    [Header("Condition")]
+    public bool useCondition;
+    public Transform[] pointsToReach;
     public bool condition;
     Transform player;
     GameObject playerObj;
@@ -45,14 +48,25 @@ public class Water : MonoBehaviour
         {
             if (condition)
             {
-                destination = pointsOnGround[1];
+                float distance = Mathf.Infinity;
+                foreach (Transform point in pointsToReach)
+                {
+                    if(Vector3.Distance(player.position, point.position) < distance)
+                    destination = point;
+                    distance = Vector3.Distance(player.position, point.position);
+                }
             }
             else
             {
-                destination = pointsOnGround[0];
+                float distance = Mathf.Infinity;
+                foreach (Transform point in pointsOnGround)
+                {
+                    if(Vector3.Distance(player.position, point.position) < distance)
+                    destination = point;
+                    distance = Vector3.Distance(player.position, point.position);
+                }
             }
         }
-        //make two arrays for points (one for !condition and second for condition == true)
 
         player.position = destination.position;
         playerObj.GetComponent<Movement>().enabled = true;
