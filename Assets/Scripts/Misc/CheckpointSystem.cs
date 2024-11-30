@@ -15,6 +15,7 @@ public class CheckpointSystem : MonoBehaviour
         checkpoints = GetComponentsInChildren<Checkpoint>();
         for (int i = 0; i < checkpoints.Length; i++) checkpoints[i].index = i;
         int cpIndex = PlayerPrefs.GetInt("lastCheckpoint");
+        if(cpIndex > checkpoints.Length - 1 || cpIndex < 0)  cpIndex = 0;
         Transform lastCheckpoint = checkpoints[cpIndex].gameObject.transform;
         if(cpIndex != 0 && PlayerPrefs.GetInt("lastLevel") == SceneManager.GetActiveScene().buildIndex /*&& ps.Lives > 0*/)
         {

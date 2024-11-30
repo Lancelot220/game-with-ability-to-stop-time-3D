@@ -58,7 +58,7 @@ public class StopTime_ : MonoBehaviour
         if(!canStopTime && cdTimer < cd)
         { cdTimer += Time.deltaTime; }
         else if (!canStopTime && cdTimer >= cd)
-        { canStopTime = true; cdTimer = 0; print("You can stop time again!"); unfreezeTimeSound.Play(); }
+        { canStopTime = true; cdTimer = 0; print("You can stop time again!"); unfreezeTimeSound.Play(); slider.value = cd; }
     }
 
     //stop time
@@ -122,8 +122,10 @@ public class StopTime_ : MonoBehaviour
         yield return new WaitForSeconds(0.12f);
         effectOnScene.GetComponent<ParticleSystem>().Pause(true);
     }
-    void UnfreezeTime()
+    public void UnfreezeTime()
     {
+        slider.value = 0;
+        durationTimer = duration;
         //yield return new WaitForSeconds(duration);
 
         foreach (Collider obj in objectsInRange)

@@ -308,7 +308,13 @@ public class Movement : MonoBehaviour
             isClimbing = false;
             animator.ResetTrigger("ledgeClimb");
         }
-    }  //animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Attack1" && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Attack2" && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Crit"
+
+        if (rb.constraints == RigidbodyConstraints.FreezeAll)
+        {
+            if(animator.GetCurrentAnimatorClipInfo(0).Length > 0)  { if (animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Ledge climb") { endClimbing = true; } }
+            else { endClimbing = true; }
+        }
+    }  //.clip.name != "Attack1" &&  != "Attack2" && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Crit"
     /*public void EndClimbing()
     {
         

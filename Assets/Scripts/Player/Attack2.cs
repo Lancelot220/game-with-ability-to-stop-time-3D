@@ -144,6 +144,10 @@ public class Attack2 : MonoBehaviour
                 }
             }
         }
+        else if(col.CompareTag("Breakable") & attacking)
+        {
+            col.gameObject.GetComponent<Breakables>().Break();
+        }
     }
 
     IEnumerator EnableNavMesh(GameObject hitEnemy /*,Rigidbody hitEnemyRb*/ )
