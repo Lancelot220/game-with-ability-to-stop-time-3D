@@ -692,7 +692,9 @@ MonoBehaviour:
   runSpeed: 10
   maxSpeed: 5
   slideSpeed: 10
+  inAirSpeed: 5
   rotationSpeed: 5
+  inAirRotationSpeed: 0.5
   jumpForce: 300
   onGround: 0
   coyoteTime: 0.2

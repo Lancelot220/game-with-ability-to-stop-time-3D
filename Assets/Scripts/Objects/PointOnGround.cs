@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class PointOnGround : MonoBehaviour
 {
-    public Water Water;
+    public Water water;
 
     void OnTriggerEnter(Collider col)
     {
         if (col.CompareTag("Player"))
         {
-            Water.condition = true;
+            if (water != null)
+            water.condition = true;
+            else 
+            {
+                if(transform.parent.TryGetComponent<Water>(out Water water1))
+                water1.condition = true;
+                else Debug.LogError("HEY, WHERE'S THE WATER COMPONENT?! ADD IT. IMMEDIATELY");
+            }
         }
     }
 }

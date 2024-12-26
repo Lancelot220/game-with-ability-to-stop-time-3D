@@ -17,9 +17,10 @@ public class Movement : MonoBehaviour
     public float runSpeed = 15f;
     public float maxSpeed = 5f;
     public float slideSpeed = 5f;
-    
-    //public float inAirSpeed = 1.1f;
+    public float inAirSpeed = 2.5f;
     [SerializeField] private float rotationSpeed = 3f;
+    [SerializeField] private float inAirRotationSpeed = 0.1f;
+    private float defaultRotationSpeed;
     
     [Header("Jumping")]
     public float jumpForce = 300f;
@@ -85,6 +86,7 @@ public class Movement : MonoBehaviour
         canStopCrouching = true;
 
         spineDefaultOffset = transform.position - spineBone.position;
+        defaultRotationSpeed = rotationSpeed;
     }
     void Awake() {ctrls = new Controls();}
     void OnEnable()
@@ -256,9 +258,15 @@ public class Movement : MonoBehaviour
         
         movement.y = 0f;
         if (animator.GetFloat("combo") <= 0 && onGround) 
-        { rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z); }
-        else if (!onGround && animator.GetFloat("combo") <= 0 && dir != Vector2.zero)
-        { rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z); }
+        {
+            rotationSpeed = defaultRotationSpeed; 
+            rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
+        }
+        else if (!onGround && animator.GetFloat("combo") <= 0 && dir != Vector2.zero) //air physics
+        { 
+            rotationSpeed = inAirRotationSpeed;
+            rb.AddForce(movement.normalized * inAirSpeed, ForceMode.Acceleration);
+        }
 
         if (dir != Vector2.zero && !isClimbing)
         {
