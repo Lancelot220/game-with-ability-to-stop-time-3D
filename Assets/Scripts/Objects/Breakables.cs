@@ -21,7 +21,11 @@ public class Breakables : MonoBehaviour
                 for (int i = 0; i < Random.Range(minOrbCount, maxOrbCount + 1); i++)
                 {
                     GameObject orb = Instantiate(drop[0], transform.position, Quaternion.identity);
-                    orb.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-1f,1f), Random.Range(0.01f,1f), Random.Range(-1f,1f)));
+                    
+                    //orb.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-1f,1f), Random.Range(0.01f,1f), Random.Range(-1f,1f)));
+                    Vector3 randomDirection = Random.insideUnitSphere; // Генерує вектор у межах сфери радіусом 1.
+                    randomDirection.y = Mathf.Abs(randomDirection.y); // Гарантує, що вектор буде "вгору".
+                    orb.GetComponent<Rigidbody>().AddForce(randomDirection * 10f, ForceMode.Impulse);
                 }
             }
             else

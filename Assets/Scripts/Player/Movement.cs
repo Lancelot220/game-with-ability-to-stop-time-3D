@@ -257,7 +257,9 @@ public class Movement : MonoBehaviour
         movement = cameraForward * movement.z + cameraRight * movement.x;
         
         movement.y = 0f;
-        if (animator.GetFloat("combo") <= 0 && onGround) 
+        if (animator.GetFloat("combo") <= 0 && 
+        onGround && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "LandingHard" && 
+        animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "GetUp") 
         {
             rotationSpeed = defaultRotationSpeed; 
             rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
@@ -268,7 +270,10 @@ public class Movement : MonoBehaviour
             rb.AddForce(movement.normalized * inAirSpeed, ForceMode.Acceleration);
         }
 
-        if (dir != Vector2.zero && !isClimbing)
+        if (dir != Vector2.zero && 
+        !isClimbing && 
+        animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "LandingHard" && 
+        animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "GetUp")
         {
             if (onGround) animator.SetBool("isMoving", true);
         

@@ -154,7 +154,7 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Jump
-      takeName: JumpBetter
+      takeName: Armature|Jump
       internalID: 5539831331247536789
       firstFrame: 0
       lastFrame: 20

@@ -68,7 +68,7 @@ public class StopTime_ : MonoBehaviour
         {
             canStopTime = false;
 
-            print("Time is stopped!"); timeStopped = true;
+            print("Time has been stopped!"); timeStopped = true;
             
             objectsInRange = Physics.OverlapSphere(transform.position, range, stoppableObjects);
             
@@ -122,41 +122,44 @@ public class StopTime_ : MonoBehaviour
         yield return new WaitForSeconds(0.12f);
         effectOnScene.GetComponent<ParticleSystem>().Pause(true);
     }
-    public void UnfreezeTime()
+    void UnfreezeTime()
     {
         slider.value = 0;
         durationTimer = duration;
         //yield return new WaitForSeconds(duration);
 
-        foreach (Collider obj in objectsInRange)
+        if(objectsInRange.Length > 0)
         {
-            Rigidbody rb = obj.gameObject.GetComponent<Rigidbody>();
-            Enemy enemy = obj.gameObject.GetComponent<Enemy>();
-            EnemyWithGun enemyWithGun = obj.gameObject.GetComponent<EnemyWithGun>();
-            NavMeshAgent navMeshAgent = obj.gameObject.GetComponent<NavMeshAgent>();
-
-            if(rb != null) rb.useGravity = true;
-            if (enemy != null)
+            foreach (Collider obj in objectsInRange)
             {
-                enemy.timeStopped = false;
-                obj.gameObject.GetComponentInChildren<EnemyAttack>().timeStopped = false;
+                Rigidbody rb = obj.gameObject.GetComponent<Rigidbody>();
+                Enemy enemy = obj.gameObject.GetComponent<Enemy>();
+                EnemyWithGun enemyWithGun = obj.gameObject.GetComponent<EnemyWithGun>();
+                NavMeshAgent navMeshAgent = obj.gameObject.GetComponent<NavMeshAgent>();
 
-                navMeshAgent.SetDestination(navMeshAgentDst);
-            }
-            else if (enemyWithGun != null)
-            {
-                enemyWithGun.timeStopped = false;
-                obj.gameObject.GetComponentInChildren<EnemyGunAttack>().timeStopped = false;
+                if(rb != null) rb.useGravity = true;
+                if (enemy != null)
+                {
+                    enemy.timeStopped = false;
+                    obj.gameObject.GetComponentInChildren<EnemyAttack>().timeStopped = false;
 
-                navMeshAgent.SetDestination(navMeshAgentDst);
+                    navMeshAgent.SetDestination(navMeshAgentDst);
+                }
+                else if (enemyWithGun != null)
+                {
+                    enemyWithGun.timeStopped = false;
+                    obj.gameObject.GetComponentInChildren<EnemyGunAttack>().timeStopped = false;
+
+                    navMeshAgent.SetDestination(navMeshAgentDst);
+                }
+                else { if(rb != null) rb.constraints = RigidbodyConstraints.None; }
             }
-            else { if(rb != null) rb.constraints = RigidbodyConstraints.None; }
         }
 
         objectsInRange = null;
         //StartCoroutine(Cooldown());
         
-        print("Time is unfreezed.");
+        print("Time has been unfreezed.");
 
         cdTimer = 0;
 
@@ -165,7 +168,51 @@ public class StopTime_ : MonoBehaviour
         effectOnScene.GetComponent<ParticleSystem>().Play(true);
         Destroy(effectOnScene, 1.88f);
     }
-/*
-    IEnumerator Cooldown()
-    { yield return new WaitForSeconds(cd); }*/
+
+    public void ForceUnfreezeTime()
+    {
+        if(objectsInRange.Length > 0)
+        {
+            foreach (Collider obj in objectsInRange)
+            {
+                Rigidbody rb = obj.gameObject.GetComponent<Rigidbody>();
+                Enemy enemy = obj.gameObject.GetComponent<Enemy>();
+                EnemyWithGun enemyWithGun = obj.gameObject.GetComponent<EnemyWithGun>();
+                NavMeshAgent navMeshAgent = obj.gameObject.GetComponent<NavMeshAgent>();
+
+                if(rb != null) rb.useGravity = true;
+                if (enemy != null)
+                {
+                    enemy.timeStopped = false;
+                    obj.gameObject.GetComponentInChildren<EnemyAttack>().timeStopped = false;
+
+                    navMeshAgent.SetDestination(navMeshAgentDst);
+                }
+                else if (enemyWithGun != null)
+                {
+                    enemyWithGun.timeStopped = false;
+                    obj.gameObject.GetComponentInChildren<EnemyGunAttack>().timeStopped = false;
+
+                    navMeshAgent.SetDestination(navMeshAgentDst);
+                }
+                else { if(rb != null) rb.constraints = RigidbodyConstraints.None; }
+            }
+        }
+
+        objectsInRange = null;
+        //StartCoroutine(Cooldown());
+        
+        print("Time has been force unfreezed.");
+        canStopTime = true; 
+        cdTimer = 0; 
+        print("You can stop time again!"); 
+        slider.value = cd;
+        timeStopped = false;
+        durationTimer = 0;
+
+        //effects
+        unfreezeTimeSound.Play();
+        effectOnScene.GetComponent<ParticleSystem>().Play(true);
+        Destroy(effectOnScene, 1.88f);
+    }
 }

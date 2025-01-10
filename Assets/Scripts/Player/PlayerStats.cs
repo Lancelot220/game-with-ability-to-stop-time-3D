@@ -88,6 +88,7 @@ public class PlayerStats : MonoBehaviour
         {
             m.animator.SetTrigger("landedHard");
             m.animator.SetBool("isFalling", false);
+            m.rb.velocity = Vector3.zero;
             health -= fallDamage;
             Debug.LogWarning($"You've lost {fallDamage} hp by falling!");
             fallDamage = 0;

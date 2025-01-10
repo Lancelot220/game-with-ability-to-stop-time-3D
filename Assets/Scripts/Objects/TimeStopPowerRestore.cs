@@ -8,7 +8,7 @@ public class TimeStopPowerRestore : MonoBehaviour
     {
         GameObject player = GameObject.Find("Player");
         StopTime_ st = player.GetComponent<StopTime_>();
-        st.UnfreezeTime();
-        st.cdTimer = st.cd;
+        if(st.timeStopped)
+        st.ForceUnfreezeTime();
     }
 }

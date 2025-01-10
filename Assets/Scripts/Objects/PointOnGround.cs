@@ -16,7 +16,7 @@ public class PointOnGround : MonoBehaviour
             {
                 if(transform.parent.TryGetComponent<Water>(out Water water1))
                 water1.condition = true;
-                else Debug.LogError("HEY, WHERE'S THE WATER COMPONENT?! ADD IT. IMMEDIATELY");
+                else Debug.LogError("HEY, WHERE'S THE WATER COMPONENT?! ADD IT IMMEDIATELY OR REMOVE THIS COMPONENT.");
             }
         }
     }
