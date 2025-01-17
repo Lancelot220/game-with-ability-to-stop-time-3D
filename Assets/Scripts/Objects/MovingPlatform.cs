@@ -16,12 +16,17 @@ public class MovingPlatform : MonoBehaviour
 
     Vector3 currentDest;
     int currentDestIndex;
-    bool movingTowardsPoint1;
     bool reversed;
+    bool pointReached;
 
     void Start()
     {
-        if(startPointAsPoint1) points[0] = transform;
+        if(startPointAsPoint1)
+        {   
+            GameObject firstPoint = new GameObject("First Point");
+            firstPoint.transform.position = transform.position;
+            points[0] = firstPoint.transform;
+        }
         currentDest = points[1].position;
         currentDestIndex = 1;
     }
@@ -29,10 +34,12 @@ public class MovingPlatform : MonoBehaviour
     {
         if (Vector3.Distance(currentDest, transform.position) > 0.1f) //moving towards point
         {
-            transform.position = Vector3.MoveTowards(transform.position, currentDest, speed);
+            transform.position = Vector3.MoveTowards(transform.position, currentDest, speed * Time.deltaTime);
+            pointReached = false;
         }
-        else //switch to next point
+        else if(!pointReached)//switch to next point
         {
+            pointReached = true;
             if(!reversed)
             {
                 currentDestIndex++;
@@ -41,8 +48,9 @@ public class MovingPlatform : MonoBehaviour
                     if(loop)
                     {
                         if(lap) currentDestIndex = 0; 
-                        else { reversed = true; currentDestIndex--; }
+                        else { reversed = true; currentDestIndex -= 2; }
                     }
+                    else currentDestIndex--;
                 }
             }
             else
@@ -50,12 +58,25 @@ public class MovingPlatform : MonoBehaviour
                 currentDestIndex--;
                 if(currentDestIndex < 0) //what to do if reached first point
                 {
-                    currentDestIndex = 1;
-                    reversed = false;
+                    if(loop)
+                    {
+                        currentDestIndex = 1;
+                        reversed = false;
+                    }
+                    else
+                    {
+                        currentDestIndex = 0;
+                    }
                 }
             }
             //and finaly...
             currentDest = points[currentDestIndex].position;
+        }
+
+        if(currentDestIndex == 0 && instantReturning) //fast returning to first point
+        {
+            transform.position = points[0].position;
+            pointReached = false;
         }
     }
 }

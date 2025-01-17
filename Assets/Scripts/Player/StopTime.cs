@@ -125,7 +125,6 @@ public class StopTime_ : MonoBehaviour
     void UnfreezeTime()
     {
         slider.value = 0;
-        durationTimer = duration;
         //yield return new WaitForSeconds(duration);
 
         if(objectsInRange.Length > 0)

@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -258,7 +259,8 @@ public class Movement : MonoBehaviour
         
         movement.y = 0f;
         if (animator.GetFloat("combo") <= 0 && 
-        onGround && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "LandingHard" && 
+        onGround && animator.GetCurrentAnimatorClipInfo(0).Length > 0 &&
+        animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "LandingHard" && 
         animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "GetUp") 
         {
             rotationSpeed = defaultRotationSpeed; 
@@ -271,7 +273,8 @@ public class Movement : MonoBehaviour
         }
 
         if (dir != Vector2.zero && 
-        !isClimbing && 
+        !isClimbing &&
+        animator.GetCurrentAnimatorClipInfo(0).Length > 0 &&
         animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "LandingHard" && 
         animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "GetUp")
         {
