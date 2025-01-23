@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
     public float maxSpeed = 5f;
     public float slideSpeed = 5f;
     public float inAirSpeed = 2.5f;
+    public float animSpeedMidAir = 0.1f;
     [SerializeField] private float rotationSpeed = 3f;
     [SerializeField] private float inAirRotationSpeed = 0.1f;
     private float defaultRotationSpeed;
@@ -287,6 +288,7 @@ public class Movement : MonoBehaviour
         else  animator.SetBool("isMoving", false);
         
         if (move.ReadValue<Vector2>() != Vector2.zero) animator.SetFloat("speed", Vector2.Distance(Vector2.zero, move.ReadValue<Vector2>()));
+        if(!onGround) animator.SetFloat("speed", animSpeedMidAir);
 
         //Coyote time
         if(onGround)
