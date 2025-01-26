@@ -15,6 +15,8 @@ public class Sword : MonoBehaviour
         {
             enemyAttack.player.health -=enemyAttack.attackPower;
             Debug.LogWarning("Your health left:" + enemyAttack.player.health);
+
+            StartCoroutine(Rumble.RumblePulse(0.25f, 1f, 0.5f));
         }
 
         StartCoroutine(EndAttack());

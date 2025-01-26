@@ -141,6 +141,10 @@ MonoBehaviour:
     m_Localized: Cancel
     m_Metadata:
       m_Items: []
+  - m_Id: 51779603743686656
+    m_Localized: Gamepad rumble
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

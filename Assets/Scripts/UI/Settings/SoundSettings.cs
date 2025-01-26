@@ -12,7 +12,7 @@ public class SoundSettings : MonoBehaviour
     public Slider sfx;
     public Slider music;
 
-    void Awake()
+    public void SetSavedSettings()
     {
         master.value = PlayerPrefs.GetFloat("masterVolume", 1);
         sfx.value = PlayerPrefs.GetFloat("sfxVolume", 1);
@@ -21,6 +21,8 @@ public class SoundSettings : MonoBehaviour
         ChangeMaster(master.value);
         ChangeSFX(sfx.value);
         ChangeMusic(music.value);
+
+        print("Sound was set according to the saved values");
     }
     public void ChangeMaster(float level)
     {

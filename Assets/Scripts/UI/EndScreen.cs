@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
+using UnityEngine.InputSystem;
 
 public class EndScreen : MonoBehaviour
 {
@@ -43,6 +44,11 @@ public class EndScreen : MonoBehaviour
 
         //timeLSE.StringReference.Arguments = new object[] { hours, minutes, seconds, milliseconds };
         //timeLSE.RefreshString(); //StringChanged += UpdateTime;
+
+        foreach (Gamepad pad in Gamepad.all)
+        {
+            pad.SetMotorSpeeds(0, 0);
+        }
     }
 
     //void UpdateOrbs(string value) { orbsTMP.text = value; }

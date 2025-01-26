@@ -68,6 +68,8 @@ public class Attack2 : MonoBehaviour
             {
                 trail.enabled = true ;
             }
+
+            StartCoroutine(Rumble.RumblePulse(0.25f, 1f, 0.25f));
         }
     }
 

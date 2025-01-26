@@ -100,6 +100,8 @@ public class Shooting : MonoBehaviour
             {
                 player.health -=attackPower;
                 Debug.LogWarning("Your health left:" + player.health);
+
+                StartCoroutine(Rumble.RumblePulse(0.25f, 1f, 0.5f));
             }
         }
 

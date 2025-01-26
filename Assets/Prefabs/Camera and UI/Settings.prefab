@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 6142711757335261935}
   - component: {fileID: 2840479988647938755}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: Gamepad rumble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -576,7 +576,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 612263401330410818}
+        m_TargetAssemblyTypeName: ControlsSettings, Assembly-CSharp
+        m_MethodName: GamepadRumble
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1236586103270911661
 GameObject:
@@ -845,6 +857,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 813521477072148853}
+  - component: {fileID: 612263401330410818}
   m_Layer: 5
   m_Name: Controls
   m_TagString: Untagged
@@ -872,6 +885,19 @@ RectTransform:
   m_AnchoredPosition: {x: 258.4995, y: -52.4964}
   m_SizeDelta: {x: 1403.0007, y: 975.0073}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &612263401330410818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253240698359875311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b7428be0e22d3448575a80c9673669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamepadRumble: {fileID: 2840479988647938755}
 --- !u!1 &1399385478548472226
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,6 +909,7 @@ GameObject:
   - component: {fileID: 5284780777166491496}
   - component: {fileID: 2673767546478940602}
   - component: {fileID: 2340785921876399628}
+  - component: {fileID: 1167935618780253503}
   m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
@@ -937,7 +964,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: idk
+  m_text: 'Gamepad rumble
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b86a8823ca4dca048bda171910940689, type: 2}
   m_sharedMaterial: {fileID: 3846642263217720798, guid: b86a8823ca4dca048bda171910940689,
@@ -1007,6 +1036,46 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1167935618780253503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399385478548472226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:02c39d5236b98c7478de296e38391463
+    m_TableEntryReference:
+      m_KeyId: 51779603743686656
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2340785921876399628}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1795372838427125186
 GameObject:
   m_ObjectHideFlags: 0

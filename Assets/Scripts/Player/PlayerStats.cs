@@ -67,6 +67,8 @@ public class PlayerStats : MonoBehaviour
             m.enabled = false;
             if (!hitGroundTooHard) m.animator.SetBool("died", true);
 
+            StartCoroutine(Rumble.RumblePulse(0.25f, 1f, 3f));
+
             StartCoroutine(Restart());
             screenAnim.SetTrigger("LevelLoad");
         }
@@ -97,8 +99,14 @@ public class PlayerStats : MonoBehaviour
                 m.animator.SetTrigger("survived");
             else 
                 hitGroundTooHard = true;
+
+            StartCoroutine(Rumble.RumblePulse(0.25f, 1f, 1f));
         }
-        else {m.animator.SetTrigger("landedSucces");}
+        else 
+        {
+            m.animator.SetTrigger("landedSucces");
+            StartCoroutine(Rumble.RumblePulse(0.25f, 0.25f, 0.25f));
+        }
     }
 
     IEnumerator Restart()

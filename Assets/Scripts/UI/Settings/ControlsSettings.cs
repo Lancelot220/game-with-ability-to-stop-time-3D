@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ControlsSettings : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Toggle gamepadRumble;
+
     void Start()
     {
-        
+        //GAMEPAD RUMBLE
+        gamepadRumble.isOn = PlayerPrefs.GetInt("gamepadRumble", 1) == 1 ? true : false;
     }
 
-    // Update is called once per frame
-    void Update()
+    //GAMEPAD RUMBLE
+    public void GamepadRumble(bool value)
     {
-        
+        PlayerPrefs.SetInt("gamepadRumble", value ? 1 : 0);
     }
 }
