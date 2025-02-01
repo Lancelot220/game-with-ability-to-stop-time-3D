@@ -1475,7 +1475,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 5000
+  far clip plane: 1000
   field of view: 40
   orthographic: 0
   orthographic size: 10
@@ -1502,7 +1502,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113908391}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.10055139, y: -0.69992095, z: 0.100551374, w: 0.6999211}
+  m_LocalRotation: {x: 0.068077505, y: -0.703822, z: 0.068077505, w: 0.7038221}
   m_LocalPosition: {x: 14.999999, y: 6.4, z: -0.0000008940697}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4127,22 +4127,22 @@ PrefabInstance:
     - target: {fileID: 8974238430082489314, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70163
+      value: 0.70494133
       objectReference: {fileID: 0}
     - target: {fileID: 8974238430082489314, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.087837264
+      value: 0.055297937
       objectReference: {fileID: 0}
     - target: {fileID: 8974238430082489314, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.70162994
+      value: -0.7049412
       objectReference: {fileID: 0}
     - target: {fileID: 8974238430082489314, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.08783725
+      value: 0.055297937
       objectReference: {fileID: 0}
     - target: {fileID: 9000425769874926936, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
@@ -4212,22 +4212,22 @@ PrefabInstance:
     - target: {fileID: 9127033055581702212, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.699921
+      value: 0.7038221
       objectReference: {fileID: 0}
     - target: {fileID: 9127033055581702212, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.10055138
+      value: 0.068077505
       objectReference: {fileID: 0}
     - target: {fileID: 9127033055581702212, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.699921
+      value: -0.703822
       objectReference: {fileID: 0}
     - target: {fileID: 9127033055581702212, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.10055138
+      value: 0.06807749
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5171,7 +5171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379853d8755d0214ab5614244f7e4a0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Water: {fileID: 1167775743}
+  water: {fileID: 0}
 --- !u!65 &493800799
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10263,9 +10263,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a79f8e07f38ba49a31197a72fe381d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useCondition: 1
   pointsOnGround:
   - {fileID: 486676045}
+  damage: 8
+  useCondition: 1
+  pointsToReach:
   - {fileID: 493800797}
   condition: 0
 --- !u!65 &1167775744
