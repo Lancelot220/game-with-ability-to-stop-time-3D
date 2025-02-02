@@ -78,6 +78,7 @@ public class StopTime_ : MonoBehaviour
                 Enemy enemy = obj.gameObject.GetComponent<Enemy>();
                 EnemyWithGun enemyWithGun = obj.gameObject.GetComponent<EnemyWithGun>();
                 NavMeshAgent navMeshAgent = obj.gameObject.GetComponent<NavMeshAgent>();
+                StoppableObject so = obj.gameObject.GetComponent<StoppableObject>();
                 if(rb != null)
                 {
                     rb.constraints = RigidbodyConstraints.FreezeAll;
@@ -101,6 +102,8 @@ public class StopTime_ : MonoBehaviour
 
                     navMeshAgent.SetDestination(obj.transform.position);
                 }
+
+                if(so != null) so.TimeStopped();
             }
 
             //StartCoroutine(UnfreezeTime());
@@ -135,6 +138,7 @@ public class StopTime_ : MonoBehaviour
                 Enemy enemy = obj.gameObject.GetComponent<Enemy>();
                 EnemyWithGun enemyWithGun = obj.gameObject.GetComponent<EnemyWithGun>();
                 NavMeshAgent navMeshAgent = obj.gameObject.GetComponent<NavMeshAgent>();
+                StoppableObject so = obj.gameObject.GetComponent<StoppableObject>();
 
                 if(rb != null) rb.useGravity = true;
                 if (enemy != null)
@@ -152,6 +156,8 @@ public class StopTime_ : MonoBehaviour
                     navMeshAgent.SetDestination(navMeshAgentDst);
                 }
                 else { if(rb != null) rb.constraints = RigidbodyConstraints.None; }
+
+                if(so != null) so.TimeUnfreezed();
             }
         }
 
@@ -178,6 +184,7 @@ public class StopTime_ : MonoBehaviour
                 Enemy enemy = obj.gameObject.GetComponent<Enemy>();
                 EnemyWithGun enemyWithGun = obj.gameObject.GetComponent<EnemyWithGun>();
                 NavMeshAgent navMeshAgent = obj.gameObject.GetComponent<NavMeshAgent>();
+                StoppableObject so = obj.gameObject.GetComponent<StoppableObject>();
 
                 if(rb != null) rb.useGravity = true;
                 if (enemy != null)
@@ -195,6 +202,8 @@ public class StopTime_ : MonoBehaviour
                     navMeshAgent.SetDestination(navMeshAgentDst);
                 }
                 else { if(rb != null) rb.constraints = RigidbodyConstraints.None; }
+
+                if(so != null) so.TimeUnfreezed();
             }
         }
 

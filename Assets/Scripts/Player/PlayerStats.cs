@@ -43,6 +43,7 @@ public class PlayerStats : MonoBehaviour
     void Start() 
     {
         m = GetComponentInParent<Movement>();
+        screenAnim = GameObject.Find("HUD").GetComponent<Animator>();
         //lives = PlayerPrefs.GetInt("lives", lives);
     }
     

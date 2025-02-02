@@ -39,6 +39,6 @@ public class Breakables : MonoBehaviour
 
         onBreak.Invoke();
 
-        Destroy(gameObject);
+        gameObject.SetActive(false); //Destroy(gameObject);
     }
 }

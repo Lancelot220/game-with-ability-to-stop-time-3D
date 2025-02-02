@@ -14,6 +14,9 @@ public class Water : MonoBehaviour
     public bool condition;
     Transform player;
     GameObject playerObj;
+    public GameObject[] breakablesToReset;
+
+
 
     void OnTriggerEnter(Collider col)
     {
@@ -71,5 +74,13 @@ public class Water : MonoBehaviour
         player.position = destination.position;
         playerObj.GetComponent<Movement>().enabled = true;
         playerObj.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-    }
+
+        if(breakablesToReset.Length > 0)
+        {
+            foreach (GameObject breakable in breakablesToReset)
+            {
+                breakable.SetActive(true);
+            }
+        }
+    }    
 }
