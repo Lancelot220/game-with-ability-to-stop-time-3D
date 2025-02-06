@@ -38,6 +38,7 @@ public class Attack2 : MonoBehaviour
     //Input
     Controls ctrls;
     InputAction attack;
+    InputAction do360;
 
     void Awake() { ctrls = new Controls(); m = GetComponentInParent<Movement>(); playerTransform = m.gameObject.transform; }
     void Start() { critPower = attackPower * critMultipier;}
@@ -45,16 +46,19 @@ public class Attack2 : MonoBehaviour
     {
         attack = ctrls.Player.Attack;
         attack.Enable();
-        attack.performed += Attack;    
+        attack.performed += Attack;
+
+        do360 = ctrls.Player._360;
+        do360.Enable();
     }
-    void OnDisable() { attack.Disable(); }
+    void OnDisable() { attack.Disable();  do360.Disable(); }
     void Attack(InputAction.CallbackContext context)
     {
         if (!attacking && GetComponentInParent<PlayerStats>().health > 0 && !m.pauseMenu.activeSelf)
         {
             attacking = true;
             m.animator.SetTrigger("isAttacking");
-            if (m.onGround)
+            if (m.onGround && !m.animator.GetBool("360"))
             {
                 m.rb.velocity = Vector3.zero;
                 m.rb.velocity = playerTransform.forward * attackMoveForce;
@@ -105,10 +109,13 @@ public class Attack2 : MonoBehaviour
         }
         if(m.animator.GetCurrentAnimatorClipInfo(0).Length > 0)
         {
-            if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Crit") 
+            if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Jump Attack") 
             { attackPower = critPower; }
         }
         else attackPower = defaultPower;
+
+        //360 attack
+        m.animator.SetBool("360", do360.ReadValue<Vector2>().x > 0 && do360.ReadValue<Vector2>().y > 0);
     }
 
     void OnTriggerEnter(Collider col)

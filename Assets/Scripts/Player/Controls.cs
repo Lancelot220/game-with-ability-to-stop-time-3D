@@ -134,6 +134,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""360"",
+                    ""type"": ""Value"",
+                    ""id"": ""a15fa034-e025-4e2a-a748-7e2ee1ceb5e8"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -270,6 +279,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""d0095908-e2a0-4982-83c5-bc0892fa9707"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": """",
                     ""id"": ""dcadd48e-5945-4d5a-acc6-0f32c5bcfcc5"",
                     ""path"": ""<Keyboard>/leftCtrl"",
@@ -385,7 +405,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""StopTime"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -396,7 +416,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""StopTime"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -429,7 +449,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Action"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -440,7 +460,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Action"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -488,6 +508,94 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Map"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Kb&M"",
+                    ""id"": ""41d83259-df4c-4f99-acf3-d4f515367eb9"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""360"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""id"": ""f719ae4a-1e3e-48a4-a229-697f8bfa8d20"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""360"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""a6655df3-75fa-40ba-bed3-1ef0e98d7f1b"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""360"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""3cf415a3-7ec9-45cc-9dd9-7208f6532112"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""360"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Right"",
+                    ""id"": ""3f053ae8-18ae-4535-adaa-91b7e6233c48"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""360"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""GP"",
+                    ""id"": ""53e1dbad-863a-4f15-baab-583825a5b779"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""360"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""id"": ""8049cf70-448c-49fd-8d5e-ba7f00f14670"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""360"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""1342d629-4166-4268-8109-10230e9bc0bb"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""360"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -936,7 +1044,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             ""devices"": [
                 {
                     ""devicePath"": ""<Gamepad>"",
-                    ""isOptional"": false,
+                    ""isOptional"": true,
                     ""isOR"": false
                 }
             ]
@@ -947,7 +1055,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             ""devices"": [
                 {
                     ""devicePath"": ""<Touchscreen>"",
-                    ""isOptional"": false,
+                    ""isOptional"": true,
                     ""isOR"": false
                 }
             ]
@@ -968,6 +1076,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Action = m_Player.FindAction("Action", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_Map = m_Player.FindAction("Map", throwIfNotFound: true);
+        m_Player__360 = m_Player.FindAction("360", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1051,6 +1160,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Action;
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_Map;
+    private readonly InputAction m_Player__360;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -1067,6 +1177,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Action => m_Wrapper.m_Player_Action;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @Map => m_Wrapper.m_Player_Map;
+        public InputAction @_360 => m_Wrapper.m_Player__360;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1112,6 +1223,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Map.started += instance.OnMap;
             @Map.performed += instance.OnMap;
             @Map.canceled += instance.OnMap;
+            @_360.started += instance.On_360;
+            @_360.performed += instance.On_360;
+            @_360.canceled += instance.On_360;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1152,6 +1266,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Map.started -= instance.OnMap;
             @Map.performed -= instance.OnMap;
             @Map.canceled -= instance.OnMap;
+            @_360.started -= instance.On_360;
+            @_360.performed -= instance.On_360;
+            @_360.canceled -= instance.On_360;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1312,6 +1429,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnAction(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnMap(InputAction.CallbackContext context);
+        void On_360(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

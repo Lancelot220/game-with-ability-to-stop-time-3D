@@ -19,8 +19,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: Event AttackEnd has a time (0.416667) outside the clip's
-      valid range (0.000000..0.250000). It will never be fired
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -523,11 +522,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Crit
-      takeName: Crit
+      name: Jump Attack
+      takeName: Jump Attack
       internalID: -2522652287773549613
       firstFrame: 0
-      lastFrame: 10
+      lastFrame: 15
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -547,26 +546,10 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.27880183
+      - time: 0.75345623
         functionName: AttackSound
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: cc4c270dcc764154c82c00b830ca05e9,
-          type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.32243282
-        functionName: PlaySound
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 4c2e05513c481954195860631d4d875b,
-          type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.52570283
-        functionName: PlaySound
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 4c2e05513c481954195860631d4d875b,
           type: 3}
         floatParameter: 0
         intParameter: 0
@@ -639,6 +622,59 @@ ModelImporter:
       events:
       - time: 0.9930876
         functionName: LedgeClimbEnd
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 45c81d01f23b64f49997da91dd2e898a,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: 360
+      takeName: 360
+      internalID: 5761386531478540173
+      firstFrame: 0
+      lastFrame: 12
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.2637681
+        functionName: AttackSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: cc4c270dcc764154c82c00b830ca05e9,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.98847926
+        functionName: PlaySound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 4c2e05513c481954195860631d4d875b,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: AttackEnd
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 45c81d01f23b64f49997da91dd2e898a,
           type: 3}
