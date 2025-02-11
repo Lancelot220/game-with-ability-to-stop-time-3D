@@ -23,6 +23,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float rotationSpeed = 3f;
     [SerializeField] private float inAirRotationSpeed = 0.1f;
     private float defaultRotationSpeed;
+    bool isWalking;
     
     [Header("Jumping")]
     public float jumpForce = 300f;
@@ -174,7 +175,8 @@ public class Movement : MonoBehaviour
             onGround &&
             !pauseMenu.activeSelf )
         {
-            speed = runSpeed;
+            //speed = runSpeed;
+            isWalking = true;
             animator.SetBool("isRunning", true);
         }
     }
@@ -184,9 +186,9 @@ public class Movement : MonoBehaviour
             animator.GetFloat("combo") <= 0 &&
             !pauseMenu.activeSelf )
         {
-            speed = defaultSpeed;
+            //speed = defaultSpeed;
+            isWalking = false;
             animator.SetBool("isRunning", false);
-            //
         }
     }
     
@@ -246,8 +248,9 @@ public class Movement : MonoBehaviour
     //Move
     void FixedUpdate()
     {
-        Vector2 dir = move.ReadValue<Vector2>() * speed;
-        Vector3 movement = new Vector3(dir.x, 0f, dir.y);
+        Vector2 dir = move.ReadValue<Vector2>();
+        if(isWalking) dir *= 0.5f;
+        Vector3 movement = new Vector3(dir.x, 0f, dir.y) * speed;
         //movement = cameraMainTransform.forward * movement.z + cameraMainTransform.right * movement.x;
         
         Vector3 cameraForward = cameraMainTransform.forward;
@@ -287,8 +290,8 @@ public class Movement : MonoBehaviour
         }
         else  animator.SetBool("isMoving", false);
         
-        if (move.ReadValue<Vector2>() != Vector2.zero) animator.SetFloat("speed", Vector2.Distance(Vector2.zero, move.ReadValue<Vector2>()));
-        if(!onGround) animator.SetFloat("speed", animSpeedMidAir);
+        /*if (move.ReadValue<Vector2>() != Vector2.zero)*/ animator.SetFloat("speed", Vector2.Distance(Vector2.zero, dir));
+        //if(!onGround) animator.SetFloat("speed", animSpeedMidAir);
 
         //Coyote time
         if(onGround)
