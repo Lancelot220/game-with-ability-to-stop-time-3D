@@ -116,6 +116,8 @@ public class Attack2 : MonoBehaviour
 
         //360 attack
         m.animator.SetBool("360", do360.ReadValue<Vector2>().x > 0 && do360.ReadValue<Vector2>().y > 0);
+
+        if(!attacking) m.animator.gameObject.transform.localEulerAngles = Vector2.zero;
     }
 
     void OnTriggerEnter(Collider col)
