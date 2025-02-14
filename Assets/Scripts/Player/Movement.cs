@@ -196,7 +196,7 @@ public class Movement : MonoBehaviour
     private void CrouchStart(InputAction.CallbackContext context)
     {
         holdingCrouchButton = true;
-        if( speed !=runSpeed &&
+        if( /*speed !=runSpeed &&*/onGround &&
             animator.GetFloat("combo") <= 0 &&
             !pauseMenu.activeSelf )
         {

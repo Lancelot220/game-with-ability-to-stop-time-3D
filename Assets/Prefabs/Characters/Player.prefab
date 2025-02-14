@@ -688,13 +688,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d70ea3e9b335d4e8721c5137cb3fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSpeed: 5
+  defaultSpeed: 10
   speed: 0
   runSpeed: 10
   maxSpeed: 5
   slideSpeed: 10
   inAirSpeed: 5
-  animSpeedMidAir: 0.1
+  animSpeedMidAir: 0.05
   rotationSpeed: 5
   inAirRotationSpeed: 0.5
   jumpForce: 300
