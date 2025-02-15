@@ -4,15 +4,41 @@ using UnityEngine;
 
 public class Bush : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public bool hideModel = true;
+    bool hidePlayer;
+    Collider player;
+    void OnTriggerEnter(Collider col)
     {
-        
+        if(col.CompareTag("Player")) { player = col; hidePlayer = true; }
     }
 
-    // Update is called once per frame
+    void OnTriggerExit(Collider col)
+    {
+        if(col.CompareTag("Player")) { hidePlayer = false; }
+    }
+
     void Update()
     {
-        
+        if(player != null)
+        {
+            if(player.GetComponent<Movement>().animator.GetBool("isCrouching") && hidePlayer)
+            {
+                player.GetComponent<PlayerStats>().isHiding = true;
+                if(hideModel)
+                {
+                    player.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
+                    player.GetComponentInChildren<MeshRenderer>().enabled = false;
+                }
+            }
+            else
+            {
+                player.GetComponent<PlayerStats>().isHiding = false;
+                if(hideModel)
+                {
+                    player.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
+                    player.GetComponentInChildren<MeshRenderer>().enabled = true;
+                }
+            }
+        }
     }
 }

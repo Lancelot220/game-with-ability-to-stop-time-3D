@@ -141,6 +141,8 @@ public class EnemyWithGun : MonoBehaviour
          //Animations
         if (!timeStopped && navMeshAgent.enabled)
         {
+            animator.SetFloat("speed", Mathf.InverseLerp(0, speedRun, navMeshAgent.velocity.magnitude));
+            /*
             if(navMeshAgent.speed > 0 && navMeshAgent.speed < speedRun)
             {
                 animator.SetBool("IsMoving", true);
@@ -155,7 +157,7 @@ public class EnemyWithGun : MonoBehaviour
             {
                 animator.SetBool("IsMoving", false);
                 animator.SetBool("IsRunning", false);
-            }
+            }*/
         }
 
         if(!navMeshAgent.enabled || timeStopped)
@@ -286,11 +288,24 @@ public class EnemyWithGun : MonoBehaviour
         for(int i = 0; i < playerInRange.Length; i++)
         {
             Transform player = playerInRange[i].transform;
+            
+            bool isPlayerHidding = false;
+            if(player != null) 
+            {
+                var ps = player.GetComponent<PlayerStats>();
+                if(ps != null) { isPlayerHidding = ps.isHiding; }
+                else
+                {
+                    ps = player.GetComponentInParent<PlayerStats>();
+                    if(ps != null) { isPlayerHidding = ps.isHiding; }
+                }
+            }
+
             Vector3 dirToplayer = (player.position - transform.position).normalized;
             if(Vector3.Angle(transform.forward, dirToplayer) < viewAngle / 2)
             {
                 float dstToPlayer = Vector3.Distance(transform.position, player.position);
-                if(!Physics.Raycast(transform.position, dirToplayer, dstToPlayer, obstacleMask))
+                if(!Physics.Raycast(transform.position, dirToplayer, dstToPlayer, obstacleMask) && !isPlayerHidding)
                 {
                     m_PlayerInRange = true;
                     m_IsPatrol = false;

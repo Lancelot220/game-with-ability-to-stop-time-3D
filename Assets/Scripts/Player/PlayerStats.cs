@@ -32,7 +32,7 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Others")]
     public float minWorldHeightLimit = -100;
-    
+    public bool isHiding;
     Animator screenAnim;
     bool hitGroundTooHard;
     bool deathMessageSent = false;
