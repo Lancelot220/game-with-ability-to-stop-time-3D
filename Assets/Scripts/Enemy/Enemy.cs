@@ -40,6 +40,8 @@ public class Enemy : MonoBehaviour
     public bool shuffleWaypoints = true;
     int m_CurrentWayPointIndex;
 
+    public Enemy[] companions;
+
     Vector3 playerLastPosition = Vector3.zero;
     Vector3 m_PlayerPosition;
 
@@ -313,6 +315,15 @@ public class Enemy : MonoBehaviour
             if(m_PlayerInRange)
             {
                 m_PlayerPosition = player.transform.position;
+
+                if(companions.Length > 0)
+                {
+                    foreach(Enemy companion in companions)
+                    {
+                        companion.waypoints[0] = player;
+                        companion.m_CurrentWayPointIndex = 0;
+                    }
+                }
             }
         }
         

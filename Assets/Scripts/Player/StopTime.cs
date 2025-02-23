@@ -64,7 +64,7 @@ public class StopTime_ : MonoBehaviour
     //stop time
     void StopTime(InputAction.CallbackContext context)
     {
-        if(canStopTime && !GetComponent<Movement>().pauseMenu.activeSelf)
+        if(canStopTime && !GetComponent<PlayerStats>().pauseMenu.activeSelf)
         {
             canStopTime = false;
 

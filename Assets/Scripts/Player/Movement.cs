@@ -52,12 +52,11 @@ public class Movement : MonoBehaviour
     /*[HideInInspector]*/ public bool holdingCrouchButton;
     public Mesh normalCollider;
     public Mesh crouchCollider;
-    [Header("Pause")]
-    public GameObject pauseMenu;
 
     //references
     [HideInInspector] public Rigidbody rb;
     [HideInInspector] public Animator animator;
+    PlayerStats ps;
 
     Transform cameraMainTransform;
     
@@ -70,7 +69,6 @@ public class Movement : MonoBehaviour
     InputAction runStop;
     InputAction crouchStart;
     InputAction crouchStop;
-    InputAction pause;
 
     [Header("")]
     public bool debug = true;
@@ -86,6 +84,7 @@ public class Movement : MonoBehaviour
         meshCollider = GetComponent<MeshCollider>();
         cameraMainTransform = Camera.main.transform;
         animator = GetComponentInChildren<Animator>();
+        ps = GetComponent<PlayerStats>();
         canStopCrouching = true;
 
         spineDefaultOffset = transform.position - spineBone.position;
@@ -119,10 +118,6 @@ public class Movement : MonoBehaviour
         crouchStop = ctrls.Player.CrouchStop;
         crouchStop.Enable();
         crouchStop.performed += CrouchStop;
-
-        pause = ctrls.Player.Pause;
-        pause.Enable();
-        pause.performed += Pause;
     }
    void OnDisable() 
     {
@@ -133,7 +128,6 @@ public class Movement : MonoBehaviour
         runStop.Disable();
         crouchStart.Disable();
         crouchStop.Disable();
-        pause.Disable();
     }
 
    //Jump
@@ -142,7 +136,7 @@ public class Movement : MonoBehaviour
         if( coyoteTimeCounter > 0 &&
             speed != crouchSpeed && animator.GetFloat("combo") <= 0 && 
             jumpDelayCounter <= 0 &&
-            !pauseMenu.activeSelf )
+            !ps.pauseMenu.activeSelf )
         {
             rb.AddForce(new Vector3(rb.velocity.x, jumpForce, rb.velocity.z));
             coyoteTimeCounter = 0;
@@ -173,7 +167,7 @@ public class Movement : MonoBehaviour
         if( speed != crouchSpeed && 
             animator.GetFloat("combo") <= 0 && 
             onGround &&
-            !pauseMenu.activeSelf )
+            !ps.pauseMenu.activeSelf )
         {
             //speed = runSpeed;
             isWalking = true;
@@ -184,7 +178,7 @@ public class Movement : MonoBehaviour
     { 
         if( speed == runSpeed && 
             animator.GetFloat("combo") <= 0 &&
-            !pauseMenu.activeSelf )
+            !ps.pauseMenu.activeSelf )
         {
             //speed = defaultSpeed;
             isWalking = false;
@@ -198,7 +192,7 @@ public class Movement : MonoBehaviour
         holdingCrouchButton = true;
         if( /*speed !=runSpeed &&*/onGround &&
             animator.GetFloat("combo") <= 0 &&
-            !pauseMenu.activeSelf )
+            !ps.pauseMenu.activeSelf )
         {
             speed = crouchSpeed;
             //cc.height = 1;
@@ -220,7 +214,7 @@ public class Movement : MonoBehaviour
         holdingCrouchButton = false;
         if( speed == crouchSpeed &&
             canStopCrouching &&
-            !pauseMenu.activeSelf ) 
+            !ps.pauseMenu.activeSelf ) 
         {
             CrouchStop_();
         } 
@@ -345,28 +339,5 @@ public class Movement : MonoBehaviour
     {
         if(col.CompareTag("SlideDown"))
         rb.velocity = new Vector3(rb.velocity.x, -slideSpeed, rb.velocity.z);
-    }
-    
-    void Pause(InputAction.CallbackContext context)
-    {
-        if(!pauseMenu.activeSelf)
-        {
-            Time.timeScale = 0;
-            pauseMenu.SetActive(true);
-        }
-        else
-        {
-            Unpause();
-        }
-    }
-    public void Unpause()
-    {
-        if (pauseMenu.activeSelf)
-        {
-            Time.timeScale = 1;
-            pauseMenu.SetActive(false);
-
-            foreach (GameObject popup in GameObject.FindGameObjectsWithTag("Popup")) { popup.SetActive(false); }
-        }
     }
 }

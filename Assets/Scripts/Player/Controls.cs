@@ -109,7 +109,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Action"",
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""517c4202-e1fb-4d17-b21e-8135d02fef2b"",
                     ""expectedControlType"": ""Button"",
@@ -450,7 +450,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Action"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -461,7 +461,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Action"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1073,7 +1073,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_StopTime = m_Player.FindAction("StopTime", throwIfNotFound: true);
-        m_Player_Action = m_Player.FindAction("Action", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_Map = m_Player.FindAction("Map", throwIfNotFound: true);
         m_Player__360 = m_Player.FindAction("360", throwIfNotFound: true);
@@ -1157,7 +1157,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_StopTime;
-    private readonly InputAction m_Player_Action;
+    private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_Map;
     private readonly InputAction m_Player__360;
@@ -1174,7 +1174,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @StopTime => m_Wrapper.m_Player_StopTime;
-        public InputAction @Action => m_Wrapper.m_Player_Action;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @Map => m_Wrapper.m_Player_Map;
         public InputAction @_360 => m_Wrapper.m_Player__360;
@@ -1214,9 +1214,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @StopTime.started += instance.OnStopTime;
             @StopTime.performed += instance.OnStopTime;
             @StopTime.canceled += instance.OnStopTime;
-            @Action.started += instance.OnAction;
-            @Action.performed += instance.OnAction;
-            @Action.canceled += instance.OnAction;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
@@ -1257,9 +1257,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @StopTime.started -= instance.OnStopTime;
             @StopTime.performed -= instance.OnStopTime;
             @StopTime.canceled -= instance.OnStopTime;
-            @Action.started -= instance.OnAction;
-            @Action.performed -= instance.OnAction;
-            @Action.canceled -= instance.OnAction;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
@@ -1426,7 +1426,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnStopTime(InputAction.CallbackContext context);
-        void OnAction(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnMap(InputAction.CallbackContext context);
         void On_360(InputAction.CallbackContext context);

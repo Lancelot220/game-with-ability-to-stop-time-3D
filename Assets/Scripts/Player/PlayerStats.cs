@@ -33,20 +33,45 @@ public class PlayerStats : MonoBehaviour
     [Header("Others")]
     public float minWorldHeightLimit = -100;
     public bool isHiding;
+    
     Animator screenAnim;
     bool hitGroundTooHard;
     bool deathMessageSent = false;
     int previousOrbsCollected = 0;
     int fallDamage;
     Movement m;
+    [Header("Pause & Interaction")]
+    public GameObject pauseMenu;
+    InputAction pause;
+    InputAction interact;
+    Controls ctrls;
+    [HideInInspector] public bool isInteracting;
     
     void Start() 
     {
         m = GetComponentInParent<Movement>();
         screenAnim = GameObject.Find("HUD").GetComponent<Animator>();
         //lives = PlayerPrefs.GetInt("lives", lives);
+        ctrls = new Controls();
     }
-    
+
+    void Awake() { ctrls = new Controls(); }
+    void OnEnable()
+    {
+        pause = ctrls.Player.Pause;
+        pause.Enable();
+        pause.performed += Pause;
+
+        interact = ctrls.Player.Interact;
+        interact.Enable();
+        interact.performed += Interact;
+    }
+    void OnDisable()
+    {
+        pause.Disable();
+        interact.Disable();
+    }
+
     void Update()
     {   //fall damage
         if(!m.onGround) fallVelocity = m.rb.velocity.y;
@@ -118,4 +143,35 @@ public class PlayerStats : MonoBehaviour
         //PlayerPrefs.SetInt("lastLevel",SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene("Death Screen");
     }
+
+    void Pause(InputAction.CallbackContext context)
+    {
+        if(!pauseMenu.activeSelf)
+        {
+            Time.timeScale = 0;
+            pauseMenu.SetActive(true);
+        }
+        else
+        {
+            Unpause();
+        }
+    }
+    public void Unpause()
+    {
+        if (pauseMenu.activeSelf)
+        {
+            Time.timeScale = 1;
+            pauseMenu.SetActive(false);
+
+            foreach (GameObject popup in GameObject.FindGameObjectsWithTag("Popup")) { popup.SetActive(false); }
+        }
+    }
+
+    void Interact(InputAction.CallbackContext context)
+    {
+        isInteracting = true;
+        StartCoroutine(DisableInteraction());
+    }
+
+    IEnumerator DisableInteraction() {yield return new WaitForSeconds(0.5f); isInteracting = false;}
 }

@@ -18,7 +18,7 @@ public class OnGroundCheck : MonoBehaviour
     } 
     void OnTriggerEnter(Collider col)
     {
-        if(!col.CompareTag("Player") && !col.CompareTag("Trigger"))
+        if(!col.CompareTag("Player") && !col.CompareTag("Trigger") && !col.CompareTag("Enemy"))
         {
             movement.onGround = true; //print("bruh");
             ps.Landed();
@@ -33,7 +33,7 @@ public class OnGroundCheck : MonoBehaviour
     }
     void OnTriggerStay(Collider col)
     {
-        if(!col.CompareTag("Player") && !col.CompareTag("Trigger"))
+        if(!col.CompareTag("Player") && !col.CompareTag("Trigger") && !col.CompareTag("Enemy"))
         {
             movement.onGround = true; //print("bruh");
             //if(movement.animator.GetBool("jumped")) 
@@ -47,7 +47,7 @@ public class OnGroundCheck : MonoBehaviour
     
     void OnTriggerExit(Collider col)
     {
-        if(!col.CompareTag("Player") && !col.CompareTag("Trigger"))
+        if(!col.CompareTag("Player") && !col.CompareTag("Trigger") && !col.CompareTag("Enemy"))
         { movement.onGround = false; /*Debug.LogWarning("huh?"); movement.animator.SetBool("jumped", true);*/ }
     }
 }

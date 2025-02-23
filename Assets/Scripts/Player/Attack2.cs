@@ -54,7 +54,7 @@ public class Attack2 : MonoBehaviour
     void OnDisable() { attack.Disable();  do360.Disable(); }
     void Attack(InputAction.CallbackContext context)
     {
-        if (!attacking && GetComponentInParent<PlayerStats>().health > 0 && !m.pauseMenu.activeSelf)
+        if (!attacking && GetComponentInParent<PlayerStats>().health > 0 && !m.gameObject.GetComponent<PlayerStats>().pauseMenu.activeSelf)
         {
             attacking = true;
             m.animator.SetTrigger("isAttacking");

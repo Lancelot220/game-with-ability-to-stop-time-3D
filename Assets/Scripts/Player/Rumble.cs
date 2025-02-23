@@ -32,4 +32,12 @@ public class Rumble : MonoBehaviour
         var playerInput = GameObject.FindObjectOfType<PlayerInput>();
         return playerInput != null && playerInput.currentControlScheme == "Gamepad";
     }
+
+    void OnEnable()
+    {
+        foreach (Gamepad gamepad in Gamepad.all)
+        {
+            gamepad.SetMotorSpeeds(0, 0);
+        }
+    }
 }
