@@ -14,10 +14,10 @@ public class Door : MonoBehaviour
     bool playerHaveOpened;
     float closedPos;
     bool playerHavePassed;
-    bool cantOpen;
+    [SerializeField]bool cantOpen;
     //for opening with Interact button
-    bool playerInTrigger;
-    GameObject player;
+    [SerializeField]bool playerInTrigger;
+    [SerializeField]GameObject player;
 
     void Start()
     {
@@ -41,15 +41,17 @@ public class Door : MonoBehaviour
         {
             playerHaveOpened = true;
             player.GetComponent<PlayerStats>().isInteracting = false;
+            //print("Interacted");
+            if(canBeOpenedOnce) cantOpen = true;
         }
     }
 
-    void OnTriggerEnter(Collider col)
+    void OnTriggerStay(Collider col)
     {
         if(col.CompareTag("Player") && condition && !cantOpen)
         {
             if(auto) playerHaveOpened = true;
-            if(canBeOpenedOnce) cantOpen = true;
+            if(canBeOpenedOnce && auto) cantOpen = true;
             playerHavePassed = false;
 
             //for opening with Interact button
@@ -68,5 +70,10 @@ public class Door : MonoBehaviour
             //for opening with Interact button
             playerInTrigger = false;
         }
+    }
+
+    public void Unlock()
+    {
+        condition = true;
     }
 }

@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour
     int m_CurrentWayPointIndex;
 
     public Enemy[] companions;
+    [Tooltip("-1 - no one")] public int stealableItemIndex = -1;
 
     Vector3 playerLastPosition = Vector3.zero;
     Vector3 m_PlayerPosition;
@@ -328,20 +329,36 @@ public class Enemy : MonoBehaviour
         }
         
     }
-/*
-    void OnCollisionEnter(Collision col)
+    /*
+        void OnCollisionEnter(Collision col)
+        {
+            if(col.collider.CompareTag("Player"))
+            {
+                PlayerStats player = col.gameObject.GetComponent<PlayerStats>();
+
+                if (player.health > 0 && !timeStopped)
+                {
+                    EnemyAttack enemyAttack = GetComponentInChildren<EnemyAttack>();
+                    player.health -=enemyAttack.attackPower;
+                    Debug.LogWarning("Your health left:" + player.health);
+                }
+            }
+        }
+    */
+
+    void OnTriggerStay(Collider col)
     {
-        if(col.collider.CompareTag("Player"))
+        if(col.CompareTag("Player"))
         {
             PlayerStats player = col.gameObject.GetComponent<PlayerStats>();
 
-            if (player.health > 0 && !timeStopped)
+            if(player.isInteracting && timeStopped && stealableItemIndex != -1)
             {
-                EnemyAttack enemyAttack = GetComponentInChildren<EnemyAttack>();
-                player.health -=enemyAttack.attackPower;
-                Debug.LogWarning("Your health left:" + player.health);
+                Instantiate(items[stealableItemIndex], player.transform.position, transform.rotation);
+                items[stealableItemIndex] = null;
+                stealableItemIndex = -1;
+                player.isInteracting = false;
             }
         }
     }
-*/
 }

@@ -693,7 +693,7 @@ MonoBehaviour:
   runSpeed: 10
   maxSpeed: 5
   slideSpeed: 10
-  inAirSpeed: 5
+  inAirSpeed: 10
   animSpeedMidAir: 0.05
   rotationSpeed: 5
   inAirRotationSpeed: 0.5
@@ -718,7 +718,6 @@ MonoBehaviour:
     type: 3}
   crouchCollider: {fileID: -2587613122030603868, guid: c85db42dc77353b489c69dfbe0aa477b,
     type: 3}
-  pauseMenu: {fileID: 0}
   rb: {fileID: 0}
   animator: {fileID: 0}
   debug: 0
@@ -742,6 +741,9 @@ MonoBehaviour:
   delayBeforeDeathScreen: 0.75
   fallDamageMultipier: 0.04
   minWorldHeightLimit: -100
+  isHiding: 0
+  pauseMenu: {fileID: 0}
+  isInteracting: 0
 --- !u!114 &6995575062159228627
 MonoBehaviour:
   m_ObjectHideFlags: 0

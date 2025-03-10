@@ -7,6 +7,7 @@ public class Keycard : MonoBehaviour
     public GameObject doors;
     public void OpenDoors()
     {
-        doors.GetComponent<Door>().condition = true;
+        doors.GetComponent<Door>().Unlock();
+        Destroy(gameObject);
     }
 }

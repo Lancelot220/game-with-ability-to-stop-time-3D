@@ -171,6 +171,7 @@ public class PlayerStats : MonoBehaviour
     {
         isInteracting = true;
         StartCoroutine(DisableInteraction());
+        print("trying to interact");
     }
 
     IEnumerator DisableInteraction() {yield return new WaitForSeconds(0.5f); isInteracting = false;}
