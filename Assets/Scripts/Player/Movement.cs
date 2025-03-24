@@ -18,8 +18,9 @@ public class Movement : MonoBehaviour
     public float runSpeed = 15f;
     public float maxSpeed = 5f;
     public float slideSpeed = 5f;
-    public float inAirSpeed = 2.5f;
+    public float maxAirSpeed = 10f;
     public float animSpeedMidAir = 0.1f;
+    public float acceleration = 12f;
     [SerializeField] private float rotationSpeed = 3f;
     [SerializeField] private float inAirRotationSpeed = 0.1f;
     private float defaultRotationSpeed;
@@ -256,18 +257,36 @@ public class Movement : MonoBehaviour
         movement = cameraForward * movement.z + cameraRight * movement.x;
         
         movement.y = 0f;
+
+        
         if (animator.GetFloat("combo") <= 0 && 
         onGround && animator.GetCurrentAnimatorClipInfo(0).Length > 0 &&
         animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "LandingHard" && 
         animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "GetUp") 
         {
-            rotationSpeed = defaultRotationSpeed; 
-            rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
+            rotationSpeed = defaultRotationSpeed;
+            // Використовуємо Lerp для плавного руху
+            rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(movement.x, rb.velocity.y, movement.z), Time.deltaTime * 12/*acceleration*/);
+            //rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
         }
         else if (!onGround && animator.GetFloat("combo") <= 0 && dir != Vector2.zero) //air physics
         { 
             rotationSpeed = inAirRotationSpeed;
-            rb.AddForce(movement.normalized * inAirSpeed, ForceMode.Acceleration);
+            //rb.AddForce(movement.normalized * inAirSpeed, ForceMode.Acceleration);
+
+            // Зберігаємо горизонтальну швидкість, але з контролем
+            Vector3 airMovement = new Vector3(movement.x, rb.velocity.y, movement.z);
+
+            // Плавне наближення швидкості в повітрі до бажаного напрямку
+            airMovement.x = Mathf.Lerp(rb.velocity.x, movement.x, Time.deltaTime * acceleration * 0.1f);
+            airMovement.z = Mathf.Lerp(rb.velocity.z, movement.z, Time.deltaTime * acceleration * 0.1f);
+
+            // Обмежуємо максимальну швидкість (для уникнення "нескінченного прискорення")
+            airMovement.x = Mathf.Clamp(airMovement.x, -maxAirSpeed, maxAirSpeed);
+            airMovement.z = Mathf.Clamp(airMovement.z, -maxAirSpeed, maxAirSpeed);
+
+            // Застосовуємо змінене значення швидкості
+            rb.velocity = airMovement;
         }
 
         if (dir != Vector2.zero && 

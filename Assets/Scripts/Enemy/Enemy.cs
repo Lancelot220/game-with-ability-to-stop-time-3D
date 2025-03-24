@@ -18,6 +18,9 @@ public class Enemy : MonoBehaviour
 {
     public int health = 50;
     private bool deathMessageSent = false;
+    public bool respawnable;
+    Vector3 startPosition;
+    int maxHP;
     PlayerStats ps;
 
     [Header("Moving")]
@@ -39,9 +42,7 @@ public class Enemy : MonoBehaviour
     public Transform[] waypoints;
     public bool shuffleWaypoints = true;
     int m_CurrentWayPointIndex;
-
     public Enemy[] companions;
-    [Tooltip("-1 - no one")] public int stealableItemIndex = -1;
 
     Vector3 playerLastPosition = Vector3.zero;
     Vector3 m_PlayerPosition;
@@ -58,6 +59,7 @@ public class Enemy : MonoBehaviour
     [Tooltip("Chance will be 1/?, 0 is never.")] public int itemDropChance = 2;
     [Range(0,50)] public int minOrbsCount = 5;
     [Range(0, 50)] public int maxOrbsCount = 25;
+    [Tooltip("-1 - no one")] public int stealableItemIndex = -1;
 
     [Header("Others")]
     public bool timeStopped;
@@ -85,14 +87,21 @@ public class Enemy : MonoBehaviour
         navMeshAgent.isStopped = false;
         navMeshAgent.speed = speedWalk;
         navMeshAgent.SetDestination(waypoints[m_CurrentWayPointIndex].position); //animator.SetBool("IsMoving", true);
+        
+        //respawn
+        startPosition = transform.position; 
+        maxHP = health;
     }
-    //shufle waypoints (cuz i don't want to do it manually)
+    //shufle waypoints
     void Shuffle<T>(T[] array)
     { Array.Sort(array, (a, b) => UnityEngine.Random.Range(-1, 1)); }
 
 
     void Update()
     {
+        if (ps == null) { ps = GameObject.Find("Player").GetComponent<PlayerStats>(); }
+        if(rb == null) { rb = GetComponent<Rigidbody>(); }
+
         if (!timeStopped && navMeshAgent.enabled && !_CaughtPlayer)
         {
             EnvironmentView();
@@ -125,6 +134,13 @@ public class Enemy : MonoBehaviour
                 goi.GetComponent<Rigidbody>().AddForce(new Vector3(UnityEngine.Random.Range(-1f,1f), UnityEngine.Random.Range(0.01f,1f), UnityEngine.Random.Range(-1f,1f)));
                 print($"{orbsDropCount} orbs were dropped!");
             }
+            if(respawnable) 
+            {
+                transform.position = startPosition;
+                health = maxHP;
+                deathMessageSent = false;
+            }
+            else
             Destroy(gameObject);
         }
 

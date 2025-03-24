@@ -37,7 +37,6 @@ public class PlayerStats : MonoBehaviour
     Animator screenAnim;
     bool hitGroundTooHard;
     bool deathMessageSent = false;
-    int previousOrbsCollected = 0;
     int fallDamage;
     Movement m;
     [Header("Pause & Interaction")]

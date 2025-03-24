@@ -17,16 +17,17 @@ public class Sword : MonoBehaviour
             Debug.LogWarning("Your health left:" + enemyAttack.player.health);
 
             StartCoroutine(Rumble.RumblePulse(0.25f, 1f, 0.5f));
+            attacking = false;
+            StartCoroutine(enemyAttack.AttackCoolDown());
         }
 
-        StartCoroutine(EndAttack());
+        //StartCoroutine(EndAttack());
     }
 
-    IEnumerator EndAttack()
+    /*IEnumerator EndAttack()
     {
         yield return new WaitForSeconds(0.625f);
 
-        attacking = false;
-        StartCoroutine(enemyAttack.AttackCoolDown());
-    }
+        
+    }*/
 }

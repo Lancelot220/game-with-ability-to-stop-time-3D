@@ -16,14 +16,16 @@ public class EndScreen : MonoBehaviour
     public int orbsCollected;
     public int hours, minutes, seconds, milliseconds;
 
-    void Start()
+    void Awake()
     {
         //orbsLS.Arguments = new object[] {  };
         //orbsLS.RefreshString(); //StringChanged += UpdateOrbs;
 
         orbsCollected = PlayerPrefs.GetInt("orbsCollected");
+        PlayerPrefs.SetInt("totalOrbs", PlayerPrefs.GetInt("totalOrbs") + orbsCollected);
+        PlayerPrefs.SetInt("orbsCollected", 0);
 
-        float totalSeconds = PlayerPrefs.GetInt("time");
+        float totalSeconds = PlayerPrefs.GetFloat("time");
         // Обчислюємо години
         hours = (int)(totalSeconds / 3600);
     
@@ -42,8 +44,15 @@ public class EndScreen : MonoBehaviour
         // Обчислюємо мілісекунди
         milliseconds = (int)((totalSeconds - seconds) * 1000);
 
-        //timeLSE.StringReference.Arguments = new object[] { hours, minutes, seconds, milliseconds };
-        //timeLSE.RefreshString(); //StringChanged += UpdateTime;
+        /*
+        orbsLS.Arguments = new object[] { orbsCollected };
+        orbsLS.RefreshString();
+
+        timeLSE.StringReference.Arguments = new object[] { hours, minutes, seconds, milliseconds };
+        timeLSE.RefreshString(); //StringChanged += UpdateTime;
+        */
+
+        PlayerPrefs.SetFloat("time", 0);
     }
 
     //void UpdateOrbs(string value) { orbsTMP.text = value; }

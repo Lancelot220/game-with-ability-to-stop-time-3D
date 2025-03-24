@@ -120,12 +120,12 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 15597926452408320
-    m_Localized: 'Orbs Collected: {endScreen.orbsCollected}'
+    m_Localized: 'Orbs Collected: {s.orbsCollected}'
     m_Metadata:
       m_Items:
       - rid: 7823976732278652930
   - m_Id: 15599995385131008
-    m_Localized: 'Time: {endScreen.hours:D2}:{endScreen.minutes:D2}:{endScreen.seconds:D2}.{endScreen.milliseconds:D3}'
+    m_Localized: 'Time: {s.hours:D2}:{s.minutes:D2}:{s.seconds:D2}.{s.milliseconds:D3}'
     m_Metadata:
       m_Items:
       - rid: 7823976732278652930

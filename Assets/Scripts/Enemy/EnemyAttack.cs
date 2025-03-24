@@ -42,13 +42,11 @@ public class EnemyAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(attackCD);
 
-        if (playerInRange && 
-        !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack1") && !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack2") /*&&
-        !enemy.attacked*/) 
+        if (playerInRange)
             sword.attacking = true; animator.SetTrigger("attack");
     }
 
-    void Attack()
+    /*void Attack()
     {
         if (player.health > 0 && !timeStopped)
         {
@@ -59,7 +57,7 @@ public class EnemyAttack : MonoBehaviour
         }
 
         StartCoroutine(AttackCoolDown());
-    }
+    }*/
 
     void OnTriggerExit(Collider col)
     {

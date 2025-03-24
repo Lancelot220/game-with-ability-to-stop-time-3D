@@ -8,11 +8,13 @@ public class Checkpoint : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
         if (col.CompareTag("Player"))
-        { CheckpointAchieved(); }
+        { CheckpointAchieved(col.gameObject); }
     }
 
-    public void CheckpointAchieved()
+    public void CheckpointAchieved(GameObject player)
     {
         PlayerPrefs.SetInt("lastCheckpoint", index);
+        PlayerPrefs.SetFloat("time", player.GetComponent<PlayerStats>().time);
+        PlayerPrefs.SetInt("orbsCollected", player.GetComponent<PlayerStats>().orbsCollected);
     }
 }

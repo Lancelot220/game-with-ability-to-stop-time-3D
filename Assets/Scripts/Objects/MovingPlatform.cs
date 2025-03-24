@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    [Tooltip("At least two points.")]
+    [Tooltip("At least two points. If Start Point As Point 1 is set to true, leave the first element empty.")]
     public Transform[] points;
-    public bool startPointAsPoint1;
+    [Tooltip("1 means first point, which is actually the element 0.")]
+    public bool startPointAsPoint1; 
     public bool loop = true;
     [Tooltip("Set to true if after reaching the last point the object should go to first point. Set to false if after reaching the last point the obejct should go back to first point through all other points.")]
     public bool lap;

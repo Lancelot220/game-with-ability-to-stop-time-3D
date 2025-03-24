@@ -1240,9 +1240,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables:
-    - name: endScreen
+    - name: s
       variable:
-        rid: 5810652907768905735
+        rid: 3294690267219886090
   m_FormatArguments: []
   m_UpdateString:
     m_PersistentCalls:
@@ -1262,7 +1262,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 5810652907768905735
+    - rid: 3294690267219886090
       type: {class: ObjectVariable, ns: UnityEngine.Localization.SmartFormat.PersistentVariables,
         asm: Unity.Localization}
       data:
@@ -1953,9 +1953,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables:
-    - name: endScreen
+    - name: s
       variable:
-        rid: 5810652907768905736
+        rid: 3294690291423641600
   m_FormatArguments: []
   m_UpdateString:
     m_PersistentCalls:
@@ -1975,7 +1975,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 5810652907768905736
+    - rid: 3294690291423641600
       type: {class: ObjectVariable, ns: UnityEngine.Localization.SmartFormat.PersistentVariables,
         asm: Unity.Localization}
       data:

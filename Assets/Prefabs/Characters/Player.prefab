@@ -673,7 +673,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &8813685652298020770
@@ -693,8 +693,9 @@ MonoBehaviour:
   runSpeed: 10
   maxSpeed: 5
   slideSpeed: 10
-  inAirSpeed: 10
+  maxAirSpeed: 10
   animSpeedMidAir: 0.05
+  acceleration: 12
   rotationSpeed: 5
   inAirRotationSpeed: 0.5
   jumpForce: 300

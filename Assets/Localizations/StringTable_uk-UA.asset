@@ -128,12 +128,12 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 15597926452408320
     m_Localized: "\u041E\u0440\u0431\u0456\u0432 \u0437\u0456\u0431\u0440\u0430\u043D\u043E:
-      {endScreen.orbsCollected}"
+      {s.orbsCollected}"
     m_Metadata:
       m_Items:
       - rid: 7823976732278652932
   - m_Id: 15599995385131008
-    m_Localized: "\u0427\u0430\u0441: {endScreen.hours:D2}:{endScreen.minutes:D2}:{endScreen.seconds:D2}.{endScreen.milliseconds:D3}"
+    m_Localized: "\u0427\u0430\u0441: {s.hours:D2}:{s.minutes:D2}:{s.seconds:D2}.{s.milliseconds:D3}"
     m_Metadata:
       m_Items:
       - rid: 7823976732278652932

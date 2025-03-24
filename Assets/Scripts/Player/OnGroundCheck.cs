@@ -20,11 +20,22 @@ public class OnGroundCheck : MonoBehaviour
     {
         if(!col.CompareTag("Player") && !col.CompareTag("Trigger") && !col.CompareTag("Enemy"))
         {
-            movement.onGround = true; //print("bruh");
+            movement.onGround = true;
             ps.Landed();
             movement.animator.SetBool("jumped", false);
             //movement.hasJumped = false;
             footsteps.PlaySound();
+        }
+        if (col.CompareTag("Enemy"))
+        {
+            Enemy enemy = col.GetComponent<Enemy>();
+            if(enemy.timeStopped)
+            {
+                movement.onGround = true;
+                ps.Landed();
+                movement.animator.SetBool("jumped", false);
+                footsteps.PlaySound();
+            }
         }
 
         if (col.CompareTag("Metal")) footsteps.currsentSurface = Footsteps.Surface.Metal;
@@ -35,9 +46,17 @@ public class OnGroundCheck : MonoBehaviour
     {
         if(!col.CompareTag("Player") && !col.CompareTag("Trigger") && !col.CompareTag("Enemy"))
         {
-            movement.onGround = true; //print("bruh");
-            //if(movement.animator.GetBool("jumped")) 
+            movement.onGround = true;
             movement.animator.SetBool("jumped", false); 
+        }
+        if (col.CompareTag("Enemy"))
+        {
+            Enemy enemy = col.GetComponent<Enemy>();
+            if(enemy.timeStopped)
+            {
+                movement.onGround = true;
+                movement.animator.SetBool("jumped", false);
+            }
         }
 
         if (col.CompareTag("Metal")) footsteps.currsentSurface = Footsteps.Surface.Metal;
@@ -49,5 +68,13 @@ public class OnGroundCheck : MonoBehaviour
     {
         if(!col.CompareTag("Player") && !col.CompareTag("Trigger") && !col.CompareTag("Enemy"))
         { movement.onGround = false; /*Debug.LogWarning("huh?"); movement.animator.SetBool("jumped", true);*/ }
+        if (col.CompareTag("Enemy"))
+        {
+            Enemy enemy = col.GetComponent<Enemy>();
+            if(enemy.timeStopped)
+            {
+                movement.onGround = false;
+            }
+        }
     }
 }

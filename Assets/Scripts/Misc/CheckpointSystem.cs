@@ -21,6 +21,8 @@ public class CheckpointSystem : MonoBehaviour
         {
             player.transform.position = lastCheckpoint.position;
             player.transform.rotation = lastCheckpoint.rotation;
+            player.GetComponent<PlayerStats>().time = PlayerPrefs.GetFloat("time");
+            player.GetComponent<PlayerStats>().orbsCollected = PlayerPrefs.GetInt("orbsCollected");
             //ps.Lives--;
             //PlayerPrefs.SetInt("lives", ps.lives); 
         }
