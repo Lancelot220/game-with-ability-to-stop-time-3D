@@ -34,6 +34,7 @@ public class Attack2 : MonoBehaviour
     Movement m;
     Transform playerTransform;
     TrailRenderer[] trails;
+    [SerializeField] bool jumpedWith360;
 
     //Input
     Controls ctrls;
@@ -57,13 +58,22 @@ public class Attack2 : MonoBehaviour
         if (!attacking && GetComponentInParent<PlayerStats>().health > 0 && !m.gameObject.GetComponent<PlayerStats>().pauseMenu.activeSelf)
         {
             attacking = true;
-            m.animator.SetTrigger("isAttacking");
+            m.animator.SetTrigger("isAttacking"); Debug.Log($"onGround: {m.onGround}, 360: {m.animator.GetBool("360")}, jumpedWith360: {jumpedWith360}");
             if (m.onGround && !m.animator.GetBool("360"))
             {
                 m.rb.velocity = Vector3.zero;
-                m.rb.velocity = playerTransform.forward * attackMoveForce;
-                StartCoroutine(StopDash());
-                //m.rb.AddForce(playerTransform.forward * attackMoveForce);
+                //m.rb.velocity = playerTransform.forward * attackMoveForce;
+                //StartCoroutine(StopDash());
+                
+                m.rb.AddForce(playerTransform.forward * attackMoveForce * 0.5f, ForceMode.Impulse);
+            }
+            else if (!m.onGround && m.animator.GetBool("360") && !jumpedWith360)
+            {
+                //m.rb.velocity = new Vector3(m.rb.velocity.x, attackMoveForce, m.rb.velocity.z);
+
+                m.rb.AddForce(playerTransform.up * attackMoveForce, ForceMode.Impulse);
+                jumpedWith360 = true;
+                //StartCoroutine(StopDash());
             }
 
             //Trail
@@ -116,6 +126,7 @@ public class Attack2 : MonoBehaviour
 
         //360 attack
         m.animator.SetBool("360", do360.ReadValue<Vector2>().x > 0 && do360.ReadValue<Vector2>().y > 0);
+        if(m.onGround) jumpedWith360 = false;
 
         if(!attacking) m.animator.gameObject.transform.localEulerAngles = Vector2.zero;
     }

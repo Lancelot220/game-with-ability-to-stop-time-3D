@@ -8,7 +8,7 @@ public class Checkpoint : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
         if (col.CompareTag("Player"))
-        { CheckpointAchieved(col.gameObject); }
+        { CheckpointAchieved(col.gameObject); print($"Checkpoint {index} achieved!"); }
     }
 
     public void CheckpointAchieved(GameObject player)

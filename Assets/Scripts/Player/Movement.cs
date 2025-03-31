@@ -266,7 +266,7 @@ public class Movement : MonoBehaviour
         {
             rotationSpeed = defaultRotationSpeed;
             // Використовуємо Lerp для плавного руху
-            rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(movement.x, rb.velocity.y, movement.z), Time.deltaTime * 12/*acceleration*/);
+            rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(movement.x, rb.velocity.y, movement.z), Time.deltaTime * acceleration);
             //rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
         }
         else if (!onGround && animator.GetFloat("combo") <= 0 && dir != Vector2.zero) //air physics

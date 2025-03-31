@@ -1869,8 +1869,8 @@ MonoBehaviour:
   respawnable: 0
   startWaitTime: 0
   timeToRotate: 0
-  speedWalk: 2
-  speedRun: 7
+  speedWalk: 4
+  speedRun: 14
   rb: {fileID: 0}
   navMeshAgent: {fileID: 4689537427945446364}
   viewRadius: 15
