@@ -130,7 +130,7 @@ public class PlayerStats : MonoBehaviour
         else 
         {
             m.animator.SetTrigger("landedSucces");
-            StartCoroutine(Rumble.RumblePulse(0.25f, 0.25f, 0.25f));
+            //StartCoroutine(Rumble.RumblePulse(0.25f, 0.25f, 0.25f)); //it's kinda annoying
         }
     }
 
@@ -170,7 +170,7 @@ public class PlayerStats : MonoBehaviour
     {
         isInteracting = true;
         StartCoroutine(DisableInteraction());
-        print("trying to interact");
+        //print("trying to interact");
     }
 
     IEnumerator DisableInteraction() {yield return new WaitForSeconds(0.5f); isInteracting = false;}

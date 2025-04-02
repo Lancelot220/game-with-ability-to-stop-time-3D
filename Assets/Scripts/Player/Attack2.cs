@@ -34,7 +34,7 @@ public class Attack2 : MonoBehaviour
     Movement m;
     Transform playerTransform;
     TrailRenderer[] trails;
-    [SerializeField] bool jumpedWith360;
+   bool jumpedWith360;
 
     //Input
     Controls ctrls;
@@ -58,7 +58,7 @@ public class Attack2 : MonoBehaviour
         if (!attacking && GetComponentInParent<PlayerStats>().health > 0 && !m.gameObject.GetComponent<PlayerStats>().pauseMenu.activeSelf)
         {
             attacking = true;
-            m.animator.SetTrigger("isAttacking"); Debug.Log($"onGround: {m.onGround}, 360: {m.animator.GetBool("360")}, jumpedWith360: {jumpedWith360}");
+            m.animator.SetTrigger("isAttacking"); //Debug.Log($"onGround: {m.onGround}, 360: {m.animator.GetBool("360")}, jumpedWith360: {jumpedWith360}");
             if (m.onGround && !m.animator.GetBool("360"))
             {
                 m.rb.velocity = Vector3.zero;

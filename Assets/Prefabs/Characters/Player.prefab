@@ -1665,6 +1665,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5428442631965624430, guid: 5c8c7cde0b08a234180e00152d6aac65,
         type: 3}
+      propertyPath: comboTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428442631965624430, guid: 5c8c7cde0b08a234180e00152d6aac65,
+        type: 3}
       propertyPath: knockback
       value: 3
       objectReference: {fileID: 0}
