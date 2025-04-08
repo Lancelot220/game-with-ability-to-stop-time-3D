@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.EditorTools;
+//using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 //using UnityEngine.UI;
@@ -41,17 +41,21 @@ public class LevelLoad: MonoBehaviour
         currentScreen.GetComponent<Animator>().SetTrigger("LevelLoad");
         Time.timeScale = 1;
         if(entireLevel) PlayerPrefs.SetInt("lastCheckpoint", 0);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     IEnumerator LoadScene(int sceneIndex)
     {
-        yield return new WaitForSeconds(animationDuration);
+        yield return new WaitForSecondsRealtime(animationDuration);
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
         operation.priority = -1;
         //operation.allowSceneActivation = false;
         loadingScreen.SetActive(true);
         //StartCoroutine(LoadScene());
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

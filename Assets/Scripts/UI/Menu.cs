@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.WebApi;
-using UnityEditor.SearchService;
+//using Unity.PlasticSCM.Editor.WebApi;
+//using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,6 +14,11 @@ public class Menu : MonoBehaviour
     public float animationDuration = 0.25f;
     public bool useTransition;
     Animator animator;
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
     public void GoTo()
     {
         animator = currentScreen.GetComponent<Animator>();
@@ -29,14 +34,20 @@ public class Menu : MonoBehaviour
         StartCoroutine(ChangeScreen());
         else
         {
-            StartCoroutine(BackToMainMenu()); 
+            Time.timeScale = 1;
+            StartCoroutine(BackToMainMenu());
+            //GetComponent<LevelLoad>().LoadLevel(0); 
             Movement m = GameObject.Find("Player").GetComponent<Movement>(); 
             if(m != null) m.enabled = false;
+            PlayerStats ps = GameObject.Find("Player").GetComponent<PlayerStats>();
+            if(ps != null) ps.enabled = false;
+            print("TRYING TO EEEXXXIIITTT");
         }
     }
 
     public void Exit()
     {
+        print("GET OUT");
         Application.Quit();
     }
 
@@ -52,9 +63,9 @@ public class Menu : MonoBehaviour
     IEnumerator BackToMainMenu()
     {
         yield return new WaitForSecondsRealtime(animationDuration);
-
+        //Time.timeScale = 1;
+        print("EEEXXXIIITTT");
         SceneManager.LoadScene(0);
-        Time.timeScale = 1;
     }
 
     public void OpenPopup(GameObject popup)

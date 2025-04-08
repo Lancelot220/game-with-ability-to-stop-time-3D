@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
-using UnityEditor.Callbacks;
+//using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -35,6 +35,7 @@ public class Attack2 : MonoBehaviour
     Transform playerTransform;
     TrailRenderer[] trails;
    bool jumpedWith360;
+   bool attackEndedByFalling;
 
     //Input
     Controls ctrls;
@@ -84,6 +85,8 @@ public class Attack2 : MonoBehaviour
             }
 
             StartCoroutine(Rumble.RumblePulse(0.25f, 1f, 0.25f));
+
+            attackEndedByFalling = false;
         }
     }
 
@@ -95,9 +98,12 @@ public class Attack2 : MonoBehaviour
 
         //if(m.onGround) m.rb.velocity = Vector3.zero;
 
-        foreach( TrailRenderer trail in trails )
+        if(trails != null)
         {
-            trail.enabled = false ;
+            foreach( TrailRenderer trail in trails )
+            {
+                trail.enabled = false ;
+            }
         }
     }
 
@@ -120,7 +126,16 @@ public class Attack2 : MonoBehaviour
         if(m.animator.GetCurrentAnimatorClipInfo(0).Length > 0)
         {
             if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Jump Attack") 
-            { attackPower = critPower; }
+            {
+                attackPower = critPower;
+                if(m.onGround) AttackEnd();
+            }
+            else if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Falling" || 
+            m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "LandingHard" || 
+            m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "GetUp")
+            {
+                if(!attackEndedByFalling) { AttackEnd(); attackEndedByFalling = true; }
+            }
         }
         else attackPower = defaultPower;
 

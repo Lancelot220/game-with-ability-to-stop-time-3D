@@ -589,7 +589,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4409401331170633045}
-  - component: {fileID: 809894692558266110}
+  - component: {fileID: 3738069178834576476}
   - component: {fileID: 3662215394422450933}
   - component: {fileID: 8813685652298020770}
   - component: {fileID: 5166675014266170956}
@@ -627,8 +627,8 @@ Transform:
   - {fileID: 6806442091151138534}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &809894692558266110
-MeshCollider:
+--- !u!136 &3738069178834576476
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -645,10 +645,11 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2587613122030603868, guid: e50bd30519250d14d9e7bb6a2f5b33cb, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.28
+  m_Height: 1.9
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.03, z: 0}
 --- !u!54 &3662215394422450933
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -715,10 +716,6 @@ MonoBehaviour:
   crouchSpeed: 3
   canStopCrouching: 0
   holdingCrouchButton: 0
-  normalCollider: {fileID: -2587613122030603868, guid: e50bd30519250d14d9e7bb6a2f5b33cb,
-    type: 3}
-  crouchCollider: {fileID: -2587613122030603868, guid: c85db42dc77353b489c69dfbe0aa477b,
-    type: 3}
   rb: {fileID: 0}
   animator: {fileID: 0}
   debug: 0
@@ -1449,6 +1446,11 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2933139716659438605, guid: 2386fc39103c09b4f9b1477aba974fb9,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2386fc39103c09b4f9b1477aba974fb9,
         type: 3}
       propertyPath: m_Name
@@ -1588,6 +1590,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8729749735087268222}
     m_Modifications:
+    - target: {fileID: 1129084852417158595, guid: 5c8c7cde0b08a234180e00152d6aac65,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1489474046087592982, guid: 5c8c7cde0b08a234180e00152d6aac65,
         type: 3}
       propertyPath: m_Name

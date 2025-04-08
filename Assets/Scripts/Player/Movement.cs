@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Runtime.ConstrainedExecution;
+using System.Runtime.InteropServices;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -51,13 +52,14 @@ public class Movement : MonoBehaviour
     MeshCollider meshCollider;
     /*[HideInInspector]*/ public bool canStopCrouching = true;
     /*[HideInInspector]*/ public bool holdingCrouchButton;
-    public Mesh normalCollider;
-    public Mesh crouchCollider;
+    //public Mesh normalCollider;
+    //public Mesh crouchCollider;
 
     //references
     [HideInInspector] public Rigidbody rb;
     [HideInInspector] public Animator animator;
     PlayerStats ps;
+    CapsuleCollider cc;
 
     Transform cameraMainTransform;
     
@@ -86,6 +88,7 @@ public class Movement : MonoBehaviour
         cameraMainTransform = Camera.main.transform;
         animator = GetComponentInChildren<Animator>();
         ps = GetComponent<PlayerStats>();
+        cc = GetComponent<CapsuleCollider>();
         canStopCrouching = true;
 
         spineDefaultOffset = transform.position - spineBone.position;
@@ -196,9 +199,12 @@ public class Movement : MonoBehaviour
             !ps.pauseMenu.activeSelf )
         {
             speed = crouchSpeed;
-            //cc.height = 1;
-            //cc.center = new Vector3(0, -0.5f, 0);
-            meshCollider.sharedMesh = crouchCollider;
+            cc.height = 1.35f;
+            cc.center = new Vector3(0, -0.25f, 0);
+            //rb.isKinematic = true;
+            //transform.position = new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z);
+            //meshCollider.sharedMesh = crouchCollider;
+            //rb.isKinematic = false;
 
             animator.SetBool("isCrouching", true);
             /*
@@ -223,9 +229,11 @@ public class Movement : MonoBehaviour
     public void CrouchStop_()
     {
         
-        //cc.height = 2;
-        //cc.center = Vector3.zero;
-        meshCollider.sharedMesh = normalCollider;
+        cc.height = 1.9f;
+        cc.center = new Vector3(0, 0.03f, 0);
+        // rb.isKinematic = true;
+        // meshCollider.sharedMesh = normalCollider;
+        // rb.isKinematic = false;
 
         animator.SetBool("isCrouching", false);
 

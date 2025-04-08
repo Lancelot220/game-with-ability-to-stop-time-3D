@@ -12,7 +12,7 @@ public class GPSettings : MonoBehaviour
     public TMP_Dropdown langDropdown;
     public void ChangeLang(int index)
     { StartCoroutine(ChangeLang_(index)); }
-    IEnumerator ChangeLang_(int index)
+    public IEnumerator ChangeLang_(int index)
     {
         yield return LocalizationSettings.InitializationOperation;
         if(index != -1)

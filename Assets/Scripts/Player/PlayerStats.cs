@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
 using Unity.VisualScripting;
-using UnityEditor.Callbacks;
+//using UnityEditor.Callbacks;
 //using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -71,14 +71,20 @@ public class PlayerStats : MonoBehaviour
         interact.Disable();
     }
 
+    public void StartFallingWhenHit()
+    {
+        if (m.animator.GetCurrentAnimatorClipInfo(0).Length > 0 &&
+        m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Jump Attack") m.animator.SetBool("isFalling", true);
+    }
+
     void Update()
     {   //fall damage
         if(!m.onGround) fallVelocity = m.rb.velocity.y;
         if(fallVelocity < fVThreshold)
         {
-            m.animator.SetBool("isFalling", true);
-            fallDamage = Convert.ToInt32(fallVelocity * fallVelocity * fallDamageMultipier);
-        }
+            m.animator.SetBool("isFalling", true);}
+        fallDamage = Convert.ToInt32(fallVelocity * fallVelocity * fallDamageMultipier);
+        
 
         //Death
         if ((health <= 0 || transform.position.y < minWorldHeightLimit) && !deathMessageSent)
@@ -149,6 +155,9 @@ public class PlayerStats : MonoBehaviour
         {
             Time.timeScale = 0;
             pauseMenu.SetActive(true);
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         else
         {
@@ -163,6 +172,9 @@ public class PlayerStats : MonoBehaviour
             pauseMenu.SetActive(false);
 
             foreach (GameObject popup in GameObject.FindGameObjectsWithTag("Popup")) { popup.SetActive(false); }
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 

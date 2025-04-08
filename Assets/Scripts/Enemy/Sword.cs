@@ -14,6 +14,7 @@ public class Sword : MonoBehaviour
         if (col.CompareTag("Player") && attacking && enemyAttack.player.health > 0 && !enemyAttack.timeStopped)
         {
             enemyAttack.player.health -=enemyAttack.attackPower;
+            enemyAttack.player.StartFallingWhenHit();
             Debug.LogWarning("Your health left:" + enemyAttack.player.health);
 
             StartCoroutine(Rumble.RumblePulse(0.25f, 1f, 0.5f));
