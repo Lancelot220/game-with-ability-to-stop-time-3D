@@ -27778,7 +27778,7 @@ GameObject:
   - component: {fileID: 997304605}
   m_Layer: 0
   m_Name: Checkpoint (1)
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31848,7 +31848,7 @@ GameObject:
   - component: {fileID: 1388221186}
   m_Layer: 0
   m_Name: Checkpoint (2)
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36450,6 +36450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hideModel: 0
+  hidePlayer: 0
 --- !u!1 &1643129299 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7152030168508039892, guid: 6c08feaea948ea745a10a577464f66b4,

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 50129576333780414}
   m_Layer: 0
   m_Name: Bush
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hideModel: 1
+  hidePlayer: 0
 --- !u!1001 &2667005377239420470
 PrefabInstance:
   m_ObjectHideFlags: 0

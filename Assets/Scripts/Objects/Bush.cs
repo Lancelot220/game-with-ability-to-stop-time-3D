@@ -5,16 +5,16 @@ using UnityEngine;
 public class Bush : MonoBehaviour
 {
     public bool hideModel = true;
-    bool hidePlayer;
+    [SerializeField] bool hidePlayer;
     Collider player;
     void OnTriggerEnter(Collider col)
     {
-        if(col.CompareTag("Player")) { player = col; hidePlayer = true; }
+        if(col.CompareTag("Player")) { player = col; hidePlayer = true; Debug.LogWarning("Hiding the player"); }
     }
 
     void OnTriggerExit(Collider col)
     {
-        if(col.CompareTag("Player")) { hidePlayer = false; }
+        if(col.CompareTag("Player")) { hidePlayer = false; Debug.LogWarning("No longerhiding the player"); }
     }
 
     void Update()

@@ -25,6 +25,7 @@ public class OnGroundCheck : MonoBehaviour
             movement.animator.SetBool("jumped", false);
             //movement.hasJumped = false;
             footsteps.PlaySound();
+            Debug.LogWarning("onGroundEnter    Back to the ground");
         }
         if (col.CompareTag("Enemy"))
         {
@@ -48,6 +49,7 @@ public class OnGroundCheck : MonoBehaviour
         {
             movement.onGround = true;
             movement.animator.SetBool("jumped", false); 
+            print("onGroundStay    Everything is ok");
         }
         if (col.CompareTag("Enemy"))
         {
@@ -67,7 +69,7 @@ public class OnGroundCheck : MonoBehaviour
     void OnTriggerExit(Collider col)
     {
         if(!col.CompareTag("Player") && !col.CompareTag("Trigger") && !col.CompareTag("Enemy"))
-        { movement.onGround = false; /*Debug.LogWarning("huh?"); movement.animator.SetBool("jumped", true);*/ }
+        { movement.onGround = false; Debug.LogWarning("Leaving the ground"); /*movement.animator.SetBool("jumped", true);*/ }
         if (col.CompareTag("Enemy"))
         {
             Enemy enemy = col.GetComponent<Enemy>();
