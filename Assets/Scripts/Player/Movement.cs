@@ -180,7 +180,7 @@ public class Movement : MonoBehaviour
     }
     private void RunStop(InputAction.CallbackContext context)
     { 
-        if( speed == runSpeed && 
+        if( isWalking && 
             animator.GetFloat("combo") <= 0 &&
             !ps.pauseMenu.activeSelf )
         {

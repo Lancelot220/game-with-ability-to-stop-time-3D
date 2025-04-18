@@ -108,7 +108,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 8721936764534784
-    m_Localized: Are you sure you want to restart the entire level or from the checkpoint?
+    m_Localized: Are you sure you want to restart?
     m_Metadata:
       m_Items: []
   - m_Id: 8722299844460544
@@ -143,6 +143,95 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 51779603743686656
     m_Localized: Gamepad rumble
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79030235152039936
+    m_Localized: 'Move - WASD, jump - Spacebar. As usual.
+
+
+      Continue - E'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79033676289064960
+    m_Localized: 'Attack - LMB. If you jump and attack mid-air you will perform a
+      jump attack which is slightly stronger but if character get hit while jump
+      attack he will fall and get fall damage.
+
+
+      Continue - E'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79035981629538304
+    m_Localized: "Press F to stop time. Most of objects around you will not \nmove
+      for 30 secs, than cooldown - 60 secs. Kill enemies to get power ups and fill
+      the bar faster. Also you can get health.\nYou cannot damage stopped enemies.\n(If
+      you failed to stop time in time just restart the level.)\n\nContinue - E"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79046786248916992
+    m_Localized: 'You can do 360 to hit enemies around you. Hold two separate move
+      buttons and attack.
+
+
+      Continue - E'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79250931585171456
+    m_Localized: 'Enemies with black clothes are dangerous, they are stronger, faster
+      and if one of them notices you they will attack you together. Avoid them.
+
+
+      Continue
+      - E'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79251929959546880
+    m_Localized: 'Crouch - Ctrl. It allows you to go slower and also to hide in bushes.
+
+
+      Continue
+      - E'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79300654245396480
+    m_Localized: 'Reach the top of the mountain and jump into a hole to finish the
+      level.
+
+
+      Continue - E'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79340271233449984
+    m_Localized: 'There''s a door you have to open and pass through. To do so, get
+      a keycard from one of those enemies. It can be stolen by pressing E  only if
+      an enemy is stopped. Press E to open the door then
+
+      P.S. You can hide
+      in a box.
+
+
+      Continue - E'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79345075200507904
+    m_Localized: 'Some objects can be broken. For example boxes (for now just white
+      cubes) can drop any item. White cylinders can cancel a time stop and also fully
+      fill the bar but if a time stop finishes by itself the bar won''t be filled.
+
+
+      Continue
+      - E'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79347482911358976
+    m_Localized: 'You can jump mid-air with 360.
+
+
+      Continue- E.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79353656658411520
+    m_Localized: Disable Guide Alpha
     m_Metadata:
       m_Items: []
   references:

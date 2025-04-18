@@ -709,7 +709,7 @@ MonoBehaviour:
   edgeCheckLength: 0.1
   ledgeClimbLayers:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 4161
   spineBone: {fileID: 7130404605833252390}
   endClimbing: 0
   spineDefaultOffset: {x: 0, y: 0, z: 0}
@@ -759,7 +759,7 @@ MonoBehaviour:
   cd: 60
   stoppableObjects:
     serializedVersion: 2
-    m_Bits: 1408
+    m_Bits: 5504
   canStopTime: 1
   durationTimer: 0
   cdTimer: 0
@@ -1202,6 +1202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3c910be61bba074abe233df66939ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
 --- !u!1 &9022512908009104942
 GameObject:
   m_ObjectHideFlags: 0

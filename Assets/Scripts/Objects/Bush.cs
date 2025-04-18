@@ -7,14 +7,28 @@ public class Bush : MonoBehaviour
     public bool hideModel = true;
     [SerializeField] bool hidePlayer;
     Collider player;
+    public bool debug;
     void OnTriggerEnter(Collider col)
     {
-        if(col.CompareTag("Player")) { player = col; hidePlayer = true; Debug.LogWarning("Hiding the player"); }
+        if(col.CompareTag("Player")) { player = col; hidePlayer = true; if(debug) Debug.LogWarning("Hiding the player"); }
     }
 
     void OnTriggerExit(Collider col)
     {
-        if(col.CompareTag("Player")) { hidePlayer = false; Debug.LogWarning("No longerhiding the player"); }
+        if(col.CompareTag("Player"))
+        {
+            hidePlayer = false; 
+
+            player.GetComponent<PlayerStats>().isHiding = false;
+            if(hideModel)
+            {
+                player.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
+                player.GetComponentInChildren<MeshRenderer>().enabled = true;
+            }
+            player = null;
+
+            if(debug) Debug.LogWarning("No longerhiding the player");
+        }
     }
 
     void Update()

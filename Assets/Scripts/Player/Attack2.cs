@@ -10,25 +10,29 @@ using UnityEngine.InputSystem;
 
 public class Attack2 : MonoBehaviour
 {
-    //Attack
+    [Header("Attack")]
     public int attackPower;
     public int defaultPower = 10;
     public int critMultipier = 3;
     int critPower;
     public bool attacking;
     public float attackMoveForce = 50;
-     public float dashTime = 0.15f;
-    //Combo
+
+    [Header("Combo")]
     public float comboTime = 0.2f;
     float comboTimeCounter;
-    //int hitCounter;
-    //Knockback
+
+    [Header("Knockback")]
     public float knockback = 10;
     public float knockbackY = 5;
-    public float stopThreshold = 0.01f;
     public float knockbackTime = 5;
     
-    
+    [Header("Tricks")]
+    public bool allow360 = true;
+    public bool allowJumpWith360 = true;
+    public bool allowFrontflipattack = true;
+    public bool allowBackflip = true;
+
     //Others
     //public float attackTime  = 1f;
     Movement m;
@@ -60,7 +64,7 @@ public class Attack2 : MonoBehaviour
         {
             attacking = true;
             m.animator.SetTrigger("isAttacking"); //Debug.Log($"onGround: {m.onGround}, 360: {m.animator.GetBool("360")}, jumpedWith360: {jumpedWith360}");
-            if (m.onGround && !m.animator.GetBool("360"))
+            if (m.onGround && !m.animator.GetBool("360")) // DEFAULT SWING
             {
                 m.rb.velocity = Vector3.zero;
                 //m.rb.velocity = playerTransform.forward * attackMoveForce;
@@ -68,7 +72,7 @@ public class Attack2 : MonoBehaviour
                 
                 m.rb.AddForce(playerTransform.forward * attackMoveForce * 0.5f, ForceMode.Impulse);
             }
-            else if (!m.onGround && m.animator.GetBool("360") && !jumpedWith360)
+            else if (m.animator.GetBool("360") && allowJumpWith360 && !m.onGround && !jumpedWith360) //JUMP WITH 360
             {
                 //m.rb.velocity = new Vector3(m.rb.velocity.x, attackMoveForce, m.rb.velocity.z);
 
@@ -95,8 +99,8 @@ public class Attack2 : MonoBehaviour
         comboTimeCounter = comboTime;
         attacking = false;
         m.animator.ResetTrigger("isAttacking");
-
-        //if(m.onGround) m.rb.velocity = Vector3.zero;
+        
+        if(m.onGround && !m.animator.GetBool("360")) m.rb.velocity = Vector3.zero;
 
         if(trails != null)
         {
@@ -105,13 +109,6 @@ public class Attack2 : MonoBehaviour
                 trail.enabled = false ;
             }
         }
-    }
-
-    IEnumerator StopDash()
-    {
-        yield return new WaitForSeconds( dashTime );
-
-        if(m.onGround) m.rb.velocity = Vector3.zero;
     }
 
     void Update()
@@ -128,7 +125,7 @@ public class Attack2 : MonoBehaviour
             if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Jump Attack") 
             {
                 attackPower = critPower;
-                if(m.onGround) AttackEnd();
+                if(m.onGround) AttackEnd(); //increases attack power and ends attack through code because animation doesn't have AttackEnd event because it has to wait for player to land
             }
             else if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Falling" || 
             m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "LandingHard" || 
@@ -140,7 +137,7 @@ public class Attack2 : MonoBehaviour
         else attackPower = defaultPower;
 
         //360 attack
-        m.animator.SetBool("360", do360.ReadValue<Vector2>().x > 0 && do360.ReadValue<Vector2>().y > 0);
+        m.animator.SetBool("360", do360.ReadValue<Vector2>().x > 0 && do360.ReadValue<Vector2>().y > 0 && allow360);
         if(m.onGround) jumpedWith360 = false;
 
         if(!attacking) m.animator.gameObject.transform.localEulerAngles = Vector2.zero;

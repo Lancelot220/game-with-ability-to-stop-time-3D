@@ -139,6 +139,50 @@ MonoBehaviour:
     m_Key: Gamepad rumble
     m_Metadata:
       m_Items: []
+  - m_Id: 79030235152039936
+    m_Key: Guide Alpha Move
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79033676289064960
+    m_Key: Guide Alpha Attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79035981629538304
+    m_Key: Guide Alpha StopTime
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79046786248916992
+    m_Key: Guide Alpha 360
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79250931585171456
+    m_Key: Guide Alpha Dangerous Enemies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79251929959546880
+    m_Key: Guide Alpha Crouch+Bush
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79300654245396480
+    m_Key: Guide Alpha Finish Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79340271233449984
+    m_Key: Guide Alpha Door
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79345075200507904
+    m_Key: Guide Alpha Breakables
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79347482911358976
+    m_Key: Guide Alpha JumpWith360
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79353656658411520
+    m_Key: Disable Guide Alpha
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

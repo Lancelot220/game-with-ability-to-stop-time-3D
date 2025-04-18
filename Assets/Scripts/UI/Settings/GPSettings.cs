@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
+using UnityEngine.UI;
 
 public class GPSettings : MonoBehaviour
 {
@@ -21,6 +22,15 @@ public class GPSettings : MonoBehaviour
             PlayerPrefs.SetInt("selectedlanguageIndex", index);
         }
     }
+
+    //GUIDE ALPHA
+    public Toggle disableGuideToggle;
+
+    public void DisableGuide(bool isOn)
+    {
+        if(isOn) PlayerPrefs.SetInt("disableGuide", 1);
+        else PlayerPrefs.SetInt("disableGuide", 0);
+    }
     void Awake()
     {
         //LANGUAGE
@@ -31,5 +41,9 @@ public class GPSettings : MonoBehaviour
         for (int i = 0; i< locales.Count; i++) if (locales[i] == selectedLocale) localeIndex = i;
         langDropdown.value = localeIndex;
         StartCoroutine(ChangeLang_(PlayerPrefs.GetInt("selectedlanguageIndex", -1)));
+
+        //GUIDE ALPHA
+        if(PlayerPrefs.GetInt("disableGuide", 0) == 1) disableGuideToggle.isOn = true; 
+        else disableGuideToggle.isOn = false;
     }
 }
