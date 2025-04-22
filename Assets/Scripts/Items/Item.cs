@@ -12,9 +12,9 @@ public class Item : MonoBehaviour
     public UnityEvent<GameObject> onPickUp;
     void Update() { if(isRotating) transform.RotateAround(transform.position, Vector3.up, rotationSpeed * Time.deltaTime); }
 
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
-        if (col.collider.CompareTag("Player"))
+        if (col.CompareTag("Player"))
         {
             if(onPickUp != null) onPickUp.Invoke(col.gameObject);
             Destroy(gameObject);

@@ -33,13 +33,14 @@ public class StopTime_ : MonoBehaviour
     //efects
     public AudioSource stopTimeSound;
     public AudioSource unfreezeTimeSound;
-    public ParticleSystem effect;
+    //public ParticleSystem effect;
     public GameObject effectGO;
     GameObject effectOnScene;
 
     void Awake() { ctrls = new Controls(); slider = GameObject.Find("Stop Time").GetComponent<Slider>();}
     void OnEnable() { stopTime = ctrls.Player.StopTime; stopTime.Enable(); stopTime.performed += StopTime; }
     void OnDisable() { stopTime.Disable(); }
+    void Start() { effectGO.transform.SetParent(null); } 
 
     void Update()
     {
@@ -112,8 +113,11 @@ public class StopTime_ : MonoBehaviour
 
             //effects
             stopTimeSound.Play();
-            effectOnScene = Instantiate(effectGO, transform.position, Quaternion.identity);
-            StartCoroutine(PauseEffect());
+            //effectOnScene = Instantiate(effectGO, transform.position, Quaternion.identity);
+            effectGO.SetActive(true);
+            effectGO.transform.position = transform.position;
+            effectGO.GetComponent<Animator>().SetTrigger("stop");
+            //StartCoroutine(PauseEffect());
             //effect.Play(true);
             //effectOnScene.Stop();
             //Destroy(effectOnScene, 2);
@@ -122,8 +126,9 @@ public class StopTime_ : MonoBehaviour
 
     IEnumerator PauseEffect()
     {
-        yield return new WaitForSeconds(0.12f);
-        effectOnScene.GetComponent<ParticleSystem>().Pause(true);
+        yield return new WaitForSeconds(.5f); //0.12f
+        //effectOnScene.GetComponent<ParticleSystem>().Pause(true);
+        effectGO.SetActive(false);
     }
     void UnfreezeTime()
     {
@@ -170,8 +175,10 @@ public class StopTime_ : MonoBehaviour
 
         //effects
         unfreezeTimeSound.Play();
-        effectOnScene.GetComponent<ParticleSystem>().Play(true);
-        Destroy(effectOnScene, 1.88f);
+        effectGO.GetComponent<Animator>().SetTrigger("unfreeze");
+        StartCoroutine(PauseEffect());
+        //effectOnScene.GetComponent<ParticleSystem>().Play(true);
+        //Destroy(effectOnScene, 1.88f);
     }
 
     public void ForceUnfreezeTime()
@@ -220,7 +227,9 @@ public class StopTime_ : MonoBehaviour
 
         //effects
         unfreezeTimeSound.Play();
-        effectOnScene.GetComponent<ParticleSystem>().Play(true);
-        Destroy(effectOnScene, 1.88f);
+        effectGO.GetComponent<Animator>().SetTrigger("unfreeze");
+        StartCoroutine(PauseEffect());
+        //effectOnScene.GetComponent<ParticleSystem>().Play(true);
+        //Destroy(effectOnScene, 1.88f);
     }
 }

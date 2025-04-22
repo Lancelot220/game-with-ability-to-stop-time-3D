@@ -143,6 +143,24 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""FrontflipAttack"",
+                    ""type"": ""Value"",
+                    ""id"": ""b2d3b0fe-3af0-43cd-869a-1d88e91113b1"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""BackFlip"",
+                    ""type"": ""Value"",
+                    ""id"": ""7bd86423-b399-416c-9538-2df7936e6eac"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -346,33 +364,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f1898cae-ba15-4fb4-a2ba-2133b5a10216"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""RunStart"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""de51753c-3185-488f-bcf8-787f5864e5e1"",
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""RunStop"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b3dae142-2a60-482a-ba15-8256f8c485cb"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": ""Press(behavior=1)"",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
                     ""action"": ""RunStop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -600,11 +596,121 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""right"",
                     ""id"": ""1342d629-4166-4268-8109-10230e9bc0bb"",
-                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""360"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""991a3317-3cb4-4031-a52c-62feeee9cf8a"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FrontflipAttack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""04284d46-197f-4171-ac39-1ee37bc8b9c6"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""FrontflipAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""c0a083ed-0591-4edb-a868-e8eec747d8c7"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""FrontflipAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""5cdd77dc-9c07-4a8d-ac7c-e9e5a7b558b2"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""FrontflipAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""c37eb6fc-1b86-4fcc-b006-7cce0a5ce5ee"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""FrontflipAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""e1818206-a94e-464a-823b-d6025a151057"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BackFlip"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""d03c44b6-5390-4a12-99fd-456f93ec0c04"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""BackFlip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""7f609ade-dbc1-4054-a137-370d985c4e12"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""BackFlip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""a917d731-23df-4740-88ec-f3b6a4e580e4"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""BackFlip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""16a83b02-5584-4da3-8b31-3ab98234017c"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""BackFlip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -1088,6 +1194,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_Map = m_Player.FindAction("Map", throwIfNotFound: true);
         m_Player__360 = m_Player.FindAction("360", throwIfNotFound: true);
+        m_Player_FrontflipAttack = m_Player.FindAction("FrontflipAttack", throwIfNotFound: true);
+        m_Player_BackFlip = m_Player.FindAction("BackFlip", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1172,6 +1280,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_Map;
     private readonly InputAction m_Player__360;
+    private readonly InputAction m_Player_FrontflipAttack;
+    private readonly InputAction m_Player_BackFlip;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -1189,6 +1299,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @Map => m_Wrapper.m_Player_Map;
         public InputAction @_360 => m_Wrapper.m_Player__360;
+        public InputAction @FrontflipAttack => m_Wrapper.m_Player_FrontflipAttack;
+        public InputAction @BackFlip => m_Wrapper.m_Player_BackFlip;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1237,6 +1349,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @_360.started += instance.On_360;
             @_360.performed += instance.On_360;
             @_360.canceled += instance.On_360;
+            @FrontflipAttack.started += instance.OnFrontflipAttack;
+            @FrontflipAttack.performed += instance.OnFrontflipAttack;
+            @FrontflipAttack.canceled += instance.OnFrontflipAttack;
+            @BackFlip.started += instance.OnBackFlip;
+            @BackFlip.performed += instance.OnBackFlip;
+            @BackFlip.canceled += instance.OnBackFlip;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1280,6 +1398,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @_360.started -= instance.On_360;
             @_360.performed -= instance.On_360;
             @_360.canceled -= instance.On_360;
+            @FrontflipAttack.started -= instance.OnFrontflipAttack;
+            @FrontflipAttack.performed -= instance.OnFrontflipAttack;
+            @FrontflipAttack.canceled -= instance.OnFrontflipAttack;
+            @BackFlip.started -= instance.OnBackFlip;
+            @BackFlip.performed -= instance.OnBackFlip;
+            @BackFlip.canceled -= instance.OnBackFlip;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1441,6 +1565,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnMap(InputAction.CallbackContext context);
         void On_360(InputAction.CallbackContext context);
+        void OnFrontflipAttack(InputAction.CallbackContext context);
+        void OnBackFlip(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
