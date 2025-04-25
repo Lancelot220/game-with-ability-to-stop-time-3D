@@ -48,6 +48,7 @@ public class Attack2 : MonoBehaviour
     //Input
     Controls ctrls;
     InputAction attack;
+    InputAction block;
     InputAction do360;
     InputAction frontflipAttack;
     InputAction backflip;
@@ -59,6 +60,9 @@ public class Attack2 : MonoBehaviour
         attack = ctrls.Player.Attack;
         attack.Enable();
         attack.performed += Attack;
+
+        block = ctrls.Player.Block;
+        block.Enable();
 
         do360 = ctrls.Player._360;
         do360.Enable();
@@ -73,6 +77,7 @@ public class Attack2 : MonoBehaviour
     void OnDisable()
     { 
         attack.Disable();
+        block.Disable();
         do360.Disable();
         frontflipAttack.Disable();
         backflip.Disable();
@@ -188,6 +193,8 @@ public class Attack2 : MonoBehaviour
         }
         else attackPower = defaultPower;
 
+        //block
+        if(!attacking) m.animator.SetBool("block", block.ReadValue<float>() > 0);
         //360 attack
         m.animator.SetBool("360", do360.ReadValue<Vector2>().x > 0 && do360.ReadValue<Vector2>().y > 0 && allow360 && tricksCDTimer <= 0);
         if(m.onGround) jumpedWith360 = false;

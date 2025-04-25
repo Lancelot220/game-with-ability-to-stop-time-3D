@@ -42,22 +42,13 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "RunStart",
-                    "type": "Button",
-                    "id": "f7f5851e-a1d9-4f6b-9f49-e4b4d48d8a19",
-                    "expectedControlType": "Button",
+                    "name": "Walk",
+                    "type": "Value",
+                    "id": "5035fc90-1ed0-4ae9-aa44-78ae24220ab4",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "RunStop",
-                    "type": "Button",
-                    "id": "5e9a358f-cd40-4fa1-92ad-1aeb20f002c6",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Jump",
@@ -76,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Block",
+                    "type": "Value",
+                    "id": "990366f2-47d1-44b6-b78f-5494c7a886b1",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "StopTime",
@@ -136,6 +136,15 @@
                     "type": "Value",
                     "id": "7bd86423-b399-416c-9538-2df7936e6eac",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Trick",
+                    "type": "Value",
+                    "id": "1daa2f46-e874-4d9e-90af-166f65158d81",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -326,28 +335,6 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "CrouchStop",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3b827e7e-849d-4527-b3b8-d96cf7d88abe",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "RunStart",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "de51753c-3185-488f-bcf8-787f5864e5e1",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "Press(behavior=1)",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "RunStop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -673,7 +660,7 @@
                 {
                     "name": "up",
                     "id": "a917d731-23df-4740-88ec-f3b6a4e580e4",
-                    "path": "<Gamepad>/dpad/down",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -691,6 +678,61 @@
                     "action": "BackFlip",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "05f3dc30-0dd0-436a-8367-f452f32c1f44",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Walk",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e2cfd068-e6cf-4214-94d6-5fd5d76d86d3",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Block",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5d1ce224-c718-4aaa-9a55-f06f0a1e2499",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Block",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "209f8267-c0ea-4663-b724-56371c15c929",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Trick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "593eccb3-40de-47ad-8b52-c71804ce180f",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Trick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

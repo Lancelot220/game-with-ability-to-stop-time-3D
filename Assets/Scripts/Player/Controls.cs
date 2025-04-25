@@ -64,22 +64,13 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""RunStart"",
-                    ""type"": ""Button"",
-                    ""id"": ""f7f5851e-a1d9-4f6b-9f49-e4b4d48d8a19"",
-                    ""expectedControlType"": ""Button"",
+                    ""name"": ""Walk"",
+                    ""type"": ""Value"",
+                    ""id"": ""5035fc90-1ed0-4ae9-aa44-78ae24220ab4"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""RunStop"",
-                    ""type"": ""Button"",
-                    ""id"": ""5e9a358f-cd40-4fa1-92ad-1aeb20f002c6"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Jump"",
@@ -98,6 +89,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Block"",
+                    ""type"": ""Value"",
+                    ""id"": ""990366f2-47d1-44b6-b78f-5494c7a886b1"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""StopTime"",
@@ -158,6 +158,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""7bd86423-b399-416c-9538-2df7936e6eac"",
                     ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Trick"",
+                    ""type"": ""Value"",
+                    ""id"": ""1daa2f46-e874-4d9e-90af-166f65158d81"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -348,28 +357,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""CrouchStop"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3b827e7e-849d-4527-b3b8-d96cf7d88abe"",
-                    ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""RunStart"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""de51753c-3185-488f-bcf8-787f5864e5e1"",
-                    ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": ""Press(behavior=1)"",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""RunStop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -695,7 +682,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""a917d731-23df-4740-88ec-f3b6a4e580e4"",
-                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -713,6 +700,61 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""BackFlip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""05f3dc30-0dd0-436a-8367-f452f32c1f44"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e2cfd068-e6cf-4214-94d6-5fd5d76d86d3"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Block"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5d1ce224-c718-4aaa-9a55-f06f0a1e2499"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Block"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""209f8267-c0ea-4663-b724-56371c15c929"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Trick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""593eccb3-40de-47ad-8b52-c71804ce180f"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Trick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1185,10 +1227,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_CrouchStart = m_Player.FindAction("CrouchStart", throwIfNotFound: true);
         m_Player_CrouchStop = m_Player.FindAction("CrouchStop", throwIfNotFound: true);
-        m_Player_RunStart = m_Player.FindAction("RunStart", throwIfNotFound: true);
-        m_Player_RunStop = m_Player.FindAction("RunStop", throwIfNotFound: true);
+        m_Player_Walk = m_Player.FindAction("Walk", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_Block = m_Player.FindAction("Block", throwIfNotFound: true);
         m_Player_StopTime = m_Player.FindAction("StopTime", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
@@ -1196,6 +1238,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player__360 = m_Player.FindAction("360", throwIfNotFound: true);
         m_Player_FrontflipAttack = m_Player.FindAction("FrontflipAttack", throwIfNotFound: true);
         m_Player_BackFlip = m_Player.FindAction("BackFlip", throwIfNotFound: true);
+        m_Player_Trick = m_Player.FindAction("Trick", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1271,10 +1314,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_CrouchStart;
     private readonly InputAction m_Player_CrouchStop;
-    private readonly InputAction m_Player_RunStart;
-    private readonly InputAction m_Player_RunStop;
+    private readonly InputAction m_Player_Walk;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_Block;
     private readonly InputAction m_Player_StopTime;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Pause;
@@ -1282,6 +1325,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player__360;
     private readonly InputAction m_Player_FrontflipAttack;
     private readonly InputAction m_Player_BackFlip;
+    private readonly InputAction m_Player_Trick;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -1290,10 +1334,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @CrouchStart => m_Wrapper.m_Player_CrouchStart;
         public InputAction @CrouchStop => m_Wrapper.m_Player_CrouchStop;
-        public InputAction @RunStart => m_Wrapper.m_Player_RunStart;
-        public InputAction @RunStop => m_Wrapper.m_Player_RunStop;
+        public InputAction @Walk => m_Wrapper.m_Player_Walk;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @Block => m_Wrapper.m_Player_Block;
         public InputAction @StopTime => m_Wrapper.m_Player_StopTime;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
@@ -1301,6 +1345,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @_360 => m_Wrapper.m_Player__360;
         public InputAction @FrontflipAttack => m_Wrapper.m_Player_FrontflipAttack;
         public InputAction @BackFlip => m_Wrapper.m_Player_BackFlip;
+        public InputAction @Trick => m_Wrapper.m_Player_Trick;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1322,18 +1367,18 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @CrouchStop.started += instance.OnCrouchStop;
             @CrouchStop.performed += instance.OnCrouchStop;
             @CrouchStop.canceled += instance.OnCrouchStop;
-            @RunStart.started += instance.OnRunStart;
-            @RunStart.performed += instance.OnRunStart;
-            @RunStart.canceled += instance.OnRunStart;
-            @RunStop.started += instance.OnRunStop;
-            @RunStop.performed += instance.OnRunStop;
-            @RunStop.canceled += instance.OnRunStop;
+            @Walk.started += instance.OnWalk;
+            @Walk.performed += instance.OnWalk;
+            @Walk.canceled += instance.OnWalk;
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @Block.started += instance.OnBlock;
+            @Block.performed += instance.OnBlock;
+            @Block.canceled += instance.OnBlock;
             @StopTime.started += instance.OnStopTime;
             @StopTime.performed += instance.OnStopTime;
             @StopTime.canceled += instance.OnStopTime;
@@ -1355,6 +1400,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @BackFlip.started += instance.OnBackFlip;
             @BackFlip.performed += instance.OnBackFlip;
             @BackFlip.canceled += instance.OnBackFlip;
+            @Trick.started += instance.OnTrick;
+            @Trick.performed += instance.OnTrick;
+            @Trick.canceled += instance.OnTrick;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1371,18 +1419,18 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @CrouchStop.started -= instance.OnCrouchStop;
             @CrouchStop.performed -= instance.OnCrouchStop;
             @CrouchStop.canceled -= instance.OnCrouchStop;
-            @RunStart.started -= instance.OnRunStart;
-            @RunStart.performed -= instance.OnRunStart;
-            @RunStart.canceled -= instance.OnRunStart;
-            @RunStop.started -= instance.OnRunStop;
-            @RunStop.performed -= instance.OnRunStop;
-            @RunStop.canceled -= instance.OnRunStop;
+            @Walk.started -= instance.OnWalk;
+            @Walk.performed -= instance.OnWalk;
+            @Walk.canceled -= instance.OnWalk;
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @Block.started -= instance.OnBlock;
+            @Block.performed -= instance.OnBlock;
+            @Block.canceled -= instance.OnBlock;
             @StopTime.started -= instance.OnStopTime;
             @StopTime.performed -= instance.OnStopTime;
             @StopTime.canceled -= instance.OnStopTime;
@@ -1404,6 +1452,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @BackFlip.started -= instance.OnBackFlip;
             @BackFlip.performed -= instance.OnBackFlip;
             @BackFlip.canceled -= instance.OnBackFlip;
+            @Trick.started -= instance.OnTrick;
+            @Trick.performed -= instance.OnTrick;
+            @Trick.canceled -= instance.OnTrick;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1556,10 +1607,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnCrouchStart(InputAction.CallbackContext context);
         void OnCrouchStop(InputAction.CallbackContext context);
-        void OnRunStart(InputAction.CallbackContext context);
-        void OnRunStop(InputAction.CallbackContext context);
+        void OnWalk(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnBlock(InputAction.CallbackContext context);
         void OnStopTime(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
@@ -1567,6 +1618,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void On_360(InputAction.CallbackContext context);
         void OnFrontflipAttack(InputAction.CallbackContext context);
         void OnBackFlip(InputAction.CallbackContext context);
+        void OnTrick(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

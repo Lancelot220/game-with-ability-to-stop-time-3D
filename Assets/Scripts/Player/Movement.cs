@@ -68,8 +68,9 @@ public class Movement : MonoBehaviour
     InputAction move;
     InputAction jump;
     InputAction cameraMoving;
-    InputAction runStart;
-    InputAction runStop;
+    // InputAction runStart;
+    // InputAction runStop;
+    InputAction walk;
     InputAction crouchStart;
     InputAction crouchStop;
 
@@ -107,13 +108,16 @@ public class Movement : MonoBehaviour
         jump.Enable();
         jump.performed += Jump;
 
-        runStart = ctrls.Player.RunStart;
-        runStart.Enable();
-        runStart.performed += RunStart;
+        // runStart = ctrls.Player.RunStart;
+        // runStart.Enable();
+        // runStart.performed += RunStart;
 
-        runStop = ctrls.Player.RunStop;
-        runStop.Enable();
-        runStop.performed += RunStop;
+        // runStop = ctrls.Player.RunStop;
+        // runStop.Enable();
+        // runStop.performed += RunStop;
+
+        walk = ctrls.Player.Walk;
+        walk.Enable();
 
         crouchStart = ctrls.Player.CrouchStart;
         crouchStart.Enable();
@@ -128,8 +132,9 @@ public class Movement : MonoBehaviour
         move.Disable(); 
         cameraMoving.Disable(); 
         jump.Disable();
-        runStart.Disable();
-        runStop.Disable();
+        // runStart.Disable();
+        // runStop.Disable();
+        walk.Disable();
         crouchStart.Disable();
         crouchStop.Disable();
     }
@@ -158,6 +163,8 @@ public class Movement : MonoBehaviour
 
         if (!animator.GetBool("isRunning") && !animator.GetBool("isCrouching") && animator.GetFloat("combo") <= 0 /*&& onGround*/)
         speed = defaultSpeed;
+        if(animator.GetCurrentAnimatorClipInfo(0).Length > 0 && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Block")
+        speed = 0f;
 
         jumpDelayCounter -= Time.deltaTime;        
 
@@ -166,29 +173,29 @@ public class Movement : MonoBehaviour
     }
 
     //Run
-    private void RunStart(InputAction.CallbackContext context)
-    {
-        if( speed != crouchSpeed && 
-            animator.GetFloat("combo") <= 0 && 
-            onGround &&
-            !ps.pauseMenu.activeSelf )
-        {
-            //speed = runSpeed;
-            isWalking = true;
-            animator.SetBool("isRunning", true);
-        }
-    }
-    private void RunStop(InputAction.CallbackContext context)
-    { 
-        if( isWalking && 
-            animator.GetFloat("combo") <= 0 &&
-            !ps.pauseMenu.activeSelf )
-        {
-            //speed = defaultSpeed;
-            isWalking = false;
-            animator.SetBool("isRunning", false);
-        }
-    }
+    // private void RunStart(InputAction.CallbackContext context)
+    // {
+    //     if( speed != crouchSpeed && 
+    //         animator.GetFloat("combo") <= 0 && 
+    //         onGround &&
+    //         !ps.pauseMenu.activeSelf )
+    //     {
+    //         //speed = runSpeed;
+    //         isWalking = true;
+    //         animator.SetBool("isRunning", true);
+    //     }
+    // }
+    // private void RunStop(InputAction.CallbackContext context)
+    // { 
+    //     if( isWalking && 
+    //         animator.GetFloat("combo") <= 0 &&
+    //         !ps.pauseMenu.activeSelf )
+    //     {
+    //         //speed = defaultSpeed;
+    //         isWalking = false;
+    //         animator.SetBool("isRunning", false);
+    //     }
+    // }
     
     //Crouch
     private void CrouchStart(InputAction.CallbackContext context)
@@ -252,7 +259,7 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 dir = move.ReadValue<Vector2>();
-        if(isWalking) dir *= 0.5f;
+        if(walk.ReadValue<float>() > 0) dir *= 0.5f;
         Vector3 movement = new Vector3(dir.x, 0f, dir.y) * speed;
         //movement = cameraMainTransform.forward * movement.z + cameraMainTransform.right * movement.x;
         

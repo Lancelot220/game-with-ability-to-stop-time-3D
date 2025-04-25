@@ -63,6 +63,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Others")]
     public bool timeStopped;
+    public bool cantHurtPlayer;
     /*[HideInInspector]*/ public Animator animator;
     
 
