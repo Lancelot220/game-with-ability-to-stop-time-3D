@@ -25,7 +25,6 @@ public class Movement : MonoBehaviour
     [SerializeField] private float rotationSpeed = 3f;
     [SerializeField] private float inAirRotationSpeed = 0.1f;
     private float defaultRotationSpeed;
-    bool isWalking;
     
     [Header("Jumping")]
     public float jumpForce = 300f;
@@ -166,7 +165,9 @@ public class Movement : MonoBehaviour
         if(animator.GetCurrentAnimatorClipInfo(0).Length > 0 && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Block")
         speed = 0f;
 
-        jumpDelayCounter -= Time.deltaTime;        
+        jumpDelayCounter -= Time.deltaTime;
+
+        // GetComponentInChildren<Attack2>().Roll(move.ReadValue<Vector2>().x);
 
         //animator destroyed fix
         //if (animator == null) animator = GetComponentInChildren<Animator>();
@@ -277,7 +278,8 @@ public class Movement : MonoBehaviour
         if (animator.GetFloat("combo") <= 0 && 
         onGround && animator.GetCurrentAnimatorClipInfo(0).Length > 0 &&
         animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "LandingHard" && 
-        animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "GetUp") 
+        animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "GetUp"
+        && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Roll") 
         {
             rotationSpeed = defaultRotationSpeed;
             // Використовуємо Lerp для плавного руху
@@ -308,7 +310,9 @@ public class Movement : MonoBehaviour
         !isClimbing &&
         animator.GetCurrentAnimatorClipInfo(0).Length > 0 &&
         animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "LandingHard" && 
-        animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "GetUp")
+        animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "GetUp" &&
+        animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "RollLeft" &&
+        animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "RollRight")
         {
             if (onGround) animator.SetBool("isMoving", true);
         

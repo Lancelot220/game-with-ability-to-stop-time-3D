@@ -5789,7 +5789,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &941466475
 Transform:
   m_ObjectHideFlags: 0
@@ -11241,11 +11241,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 590544101125563012, guid: 67ccfa2ad163dfc4ab940a396333cdec,
-        type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 629366460758038183, guid: 67ccfa2ad163dfc4ab940a396333cdec,
         type: 3}
       propertyPath: m_Enabled
@@ -11662,11 +11657,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 32.560757
       objectReference: {fileID: 0}
-    - target: {fileID: 6168230283889287748, guid: 67ccfa2ad163dfc4ab940a396333cdec,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6266668150012308539, guid: 67ccfa2ad163dfc4ab940a396333cdec,
         type: 3}
       propertyPath: m_Icon
@@ -11727,26 +11717,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6832563646765693182, guid: 67ccfa2ad163dfc4ab940a396333cdec,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.10800004
-      objectReference: {fileID: 0}
-    - target: {fileID: 6832563646765693182, guid: 67ccfa2ad163dfc4ab940a396333cdec,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6832563646765693182, guid: 67ccfa2ad163dfc4ab940a396333cdec,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6832563646765693182, guid: 67ccfa2ad163dfc4ab940a396333cdec,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6840024681727209825, guid: 67ccfa2ad163dfc4ab940a396333cdec,
         type: 3}
@@ -12558,6 +12528,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Text (TMP)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804449041784229395, guid: 6ccfd9f92746316449b1529fcca49fca,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804449041784229395, guid: 6ccfd9f92746316449b1529fcca49fca,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4188584790314388041, guid: 6ccfd9f92746316449b1529fcca49fca,
         type: 3}
