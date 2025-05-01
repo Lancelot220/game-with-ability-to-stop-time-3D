@@ -43,6 +43,14 @@ public class Enemy : MonoBehaviour
     public bool shuffleWaypoints = true;
     int m_CurrentWayPointIndex;
     public Enemy[] companions;
+    public float minTimeBeforeBlock = 5f;
+    public float maxTimeBeforeBlock = 10f;
+    public float minBlockTime = 2f;
+    public float maxBlockTime = 5f;
+    public float lowHPTimeDifference = 2; //timeBeforeBlock will be redusced and blockTime will be increased by this value if health < lowHPThreshold
+    public int lowHPThreshold = 20;
+    float timeBeforeBlock;
+    float blockTime;
 
     Vector3 playerLastPosition = Vector3.zero;
     Vector3 m_PlayerPosition;
@@ -173,6 +181,11 @@ public class Enemy : MonoBehaviour
 
         if(rb.velocity.magnitude < stopThreshold)
         { navMeshAgent.enabled = true; }
+
+        if(timeBeforeBlock > 0) timeBeforeBlock -= Time.deltaTime;
+        if(blockTime > 0) blockTime -= Time.deltaTime;
+
+        // if(timeBeforeBlock <= 0) idk
     }
 /*
     IEnumerator DisableAttacked()

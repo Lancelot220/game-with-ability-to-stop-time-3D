@@ -314,8 +314,6 @@ public class Movement : MonoBehaviour
         animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "RollLeft" &&
         animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "RollRight")
         {
-            if (onGround) animator.SetBool("isMoving", true);
-        
             float targetAngle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
             transform.rotation = Quaternion.Lerp(transform.rotation , rotation, Time.deltaTime * rotationSpeed);
