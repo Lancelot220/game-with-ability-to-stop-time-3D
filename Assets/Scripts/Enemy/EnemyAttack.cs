@@ -42,9 +42,12 @@ public class EnemyAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(attackCD);
 
-        if (playerInRange)
+        if (playerInRange && !animator.GetBool("block"))
             sword.attacking = true; animator.SetTrigger("attack");
     }
+
+    // GetCurrentAnimatorClipInfo(0).Length > 0 &&
+    //     animator.GetComponentInChildren<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name != "Block"
 
     /*void Attack()
     {

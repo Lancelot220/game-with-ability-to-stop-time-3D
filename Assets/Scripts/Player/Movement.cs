@@ -160,7 +160,7 @@ public class Movement : MonoBehaviour
     {
         animator.SetBool("onGround", onGround);
 
-        if (!animator.GetBool("isRunning") && !animator.GetBool("isCrouching") && animator.GetFloat("combo") <= 0 /*&& onGround*/)
+        if (!animator.GetBool("isCrouching") && animator.GetFloat("combo") <= 0 /*&& onGround*/)
         speed = defaultSpeed;
         if(animator.GetCurrentAnimatorClipInfo(0).Length > 0 && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Block")
         speed = 0f;
@@ -318,7 +318,6 @@ public class Movement : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
             transform.rotation = Quaternion.Lerp(transform.rotation , rotation, Time.deltaTime * rotationSpeed);
         }
-        else  animator.SetBool("isMoving", false);
         
         /*if (move.ReadValue<Vector2>() != Vector2.zero)*/ animator.SetFloat("speed", Vector2.Distance(Vector2.zero, dir));
         //if(!onGround) animator.SetFloat("speed", animSpeedMidAir);

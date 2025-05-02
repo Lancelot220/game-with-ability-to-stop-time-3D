@@ -241,6 +241,14 @@ public class Attack2 : MonoBehaviour
             Enemy enemy = col.gameObject.GetComponent<Enemy>();
             if(enemy != null)
             {
+                if(col.GetComponentInChildren<Animator>().GetCurrentAnimatorClipInfo(0).Length > 0 &&                                 //check for blocking
+                col.GetComponentInChildren<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name == "Block" && 
+                Physics.Raycast(col.transform.position, col.transform.forward, out RaycastHit hit, 3f, 1 << 3) &&                     //check for facing to player
+                hit.collider.transform.parent.GetComponentInChildren<Attack2>() == this)                                                //check is the enemy the ray hits is this player (do i need this?)
+                {
+                    Debug.Log("Enemy block hit!");                                                                                          //if the enemy is blocking, do nothing
+                    return;
+                }
                 if(enemy.health > 0 && !enemy.timeStopped)
                 {
                     //enemy.attacked = true;
@@ -253,21 +261,21 @@ public class Attack2 : MonoBehaviour
                     print("Enemy's health left:" + enemy.health);
                 }
             }
-            else
-            {
-                EnemyWithGun enemyWithGun = col.gameObject.GetComponent<EnemyWithGun>();
-                if(enemyWithGun.health > 0 && !enemyWithGun.timeStopped)
-                {
-                    //enemyWithGun.attacked = true;
-                    Vector3 knockbackDir = playerTransform.forward * knockback;
-                    knockbackDir.y = Mathf.Abs(knockbackY);
-                    enemyWithGun.gameObject.GetComponent<NavMeshAgent>().enabled = false;
-                    enemyWithGun.rb.AddForce(knockbackDir, ForceMode.Impulse);
-                    //StartCoroutine(EnableNavMesh(enemyWithGun.gameObject /*, enemyWithGun.rb */));
-                    enemyWithGun.health -= attackPower;
-                    print("Enemy's health left:" + enemyWithGun.health);
-                }
-            }
+            // else
+            // {
+            //     EnemyWithGun enemyWithGun = col.gameObject.GetComponent<EnemyWithGun>();
+            //     if(enemyWithGun.health > 0 && !enemyWithGun.timeStopped)
+            //     {
+            //         //enemyWithGun.attacked = true;
+            //         Vector3 knockbackDir = playerTransform.forward * knockback;
+            //         knockbackDir.y = Mathf.Abs(knockbackY);
+            //         enemyWithGun.gameObject.GetComponent<NavMeshAgent>().enabled = false;
+            //         enemyWithGun.rb.AddForce(knockbackDir, ForceMode.Impulse);
+            //         //StartCoroutine(EnableNavMesh(enemyWithGun.gameObject /*, enemyWithGun.rb */));
+            //         enemyWithGun.health -= attackPower;
+            //         print("Enemy's health left:" + enemyWithGun.health);
+            //     }
+            // }
         }
         else if(col.CompareTag("Breakable") & attacking)
         {
@@ -275,15 +283,15 @@ public class Attack2 : MonoBehaviour
         }
     }
 
-    IEnumerator EnableNavMesh(GameObject hitEnemy /*,Rigidbody hitEnemyRb*/ )
-    {
-        yield return new WaitForSeconds(knockbackTime);
-        if(hitEnemy != null)
-        {
-            //Until(() => hitEnemyRb.velocity.magnitude <= stopThreshold);
+    // IEnumerator EnableNavMesh(GameObject hitEnemy /*,Rigidbody hitEnemyRb*/ )
+    // {
+    //     yield return new WaitForSeconds(knockbackTime);
+    //     if(hitEnemy != null)
+    //     {
+    //         //Until(() => hitEnemyRb.velocity.magnitude <= stopThreshold);
 
-            hitEnemy.GetComponent<NavMeshAgent>().enabled = true;
-        }
-        //else yield return null;
-    }
+    //         hitEnemy.GetComponent<NavMeshAgent>().enabled = true;
+    //     }
+    //     //else yield return null;
+    // }
 }

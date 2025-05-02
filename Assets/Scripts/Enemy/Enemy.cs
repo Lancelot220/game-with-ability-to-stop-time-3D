@@ -182,10 +182,30 @@ public class Enemy : MonoBehaviour
         if(rb.velocity.magnitude < stopThreshold)
         { navMeshAgent.enabled = true; }
 
+        //block
         if(timeBeforeBlock > 0) timeBeforeBlock -= Time.deltaTime;
         if(blockTime > 0) blockTime -= Time.deltaTime;
 
-        // if(timeBeforeBlock <= 0) idk
+        if(health < lowHPThreshold) 
+        {
+            blockTime += lowHPTimeDifference;
+            timeBeforeBlock -= lowHPTimeDifference;
+            if(timeBeforeBlock < 0) blockTime = 0;
+        }
+
+        if(timeBeforeBlock <= 0 && !animator.GetBool("block") && _CaughtPlayer) 
+        {
+            blockTime = UnityEngine.Random.Range(minBlockTime, maxBlockTime);
+            animator.SetBool("block", true);
+            //Stop();
+        }
+        if(blockTime <= 0 && (animator.GetBool("block") || !_CaughtPlayer) )
+        {
+            blockTime = 0;
+            timeBeforeBlock = UnityEngine.Random.Range(minTimeBeforeBlock, maxTimeBeforeBlock);
+            animator.SetBool("block", false);
+            //Move(speedWalk);
+        }
     }
 /*
     IEnumerator DisableAttacked()
