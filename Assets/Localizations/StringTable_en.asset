@@ -169,7 +169,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 79046786248916992
-    m_Localized: 'You can do 360 to hit enemies around you. Hold two separate move
+    m_Localized: 'You can do 360 to hit enemies around you. Hold two opposite move
       buttons and attack.
 
 
@@ -232,6 +232,56 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 79353656658411520
     m_Localized: Disable Guide Alpha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87287587068231680
+    m_Localized: Tricks Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87306182066225152
+    m_Localized: '360
+
+      Allows you to do a full turn with your sword. Use it
+      to punish everyone who doesn''t respect your personal space.
+
+
+      Hold two
+      opposite move buttons and attack to perform. On gamepad - hold LS, RB and attack.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87306750746738688
+    m_Localized: 'Jump with 360
+
+      Do the 360 mid-air to jump higher and get
+      to hard-to-reach places!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87312036865818624
+    m_Localized: 'Frontflip Attack
+
+      A pretty strong attack, it''s even more
+      stronger than normal jump attack. Dangerous for enemes and for you - remember,
+      you are more vulnerable when performing this trick.
+
+
+      Crouch, hold jump
+      button and attack to perform.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87317282216263680
+    m_Localized: 'Backflip
+
+      Sometimes it''s better to retreat. This trick is
+      a great way to do this. You can jump away from enemy without letting them forget
+      how your sword feels like.
+
+
+      Crouch, hold Z and attack to perfrom. On
+      gamepad hold B while crouching.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87353443164930048
+    m_Localized: Tricks
     m_Metadata:
       m_Items: []
   references:

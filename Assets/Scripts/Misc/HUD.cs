@@ -24,7 +24,7 @@ public class HUD : MonoBehaviour
         if(orbsCount.text != Convert.ToString(ps.orbsCollected))
         {
             orbsCount.text = Convert.ToString(ps.orbsCollected);
-            orbsCount.gameObject.GetComponent<Animator>().SetTrigger("showUp");
+            orbsCount.gameObject.GetComponent<Animator>().Play("ShowCountFromRight");
         }
 /*
         if(lives.text != Convert.ToString(ps.Lives))

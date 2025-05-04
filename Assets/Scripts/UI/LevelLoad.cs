@@ -21,7 +21,7 @@ public class LevelLoad: MonoBehaviour
 
     public void LoadLevel(int sceneIndex)
     {
-        currentScreen.GetComponent<Animator>().SetTrigger("LevelLoad");
+        currentScreen.GetComponent<Animator>().Play("LevelLoad");
         if (backScript != null) backScript.GetComponent<Back>().enabled = false;
         if(nextLevel)
         StartCoroutine(LoadScene(PlayerPrefs.GetInt("lastLevel") + 1));
@@ -38,7 +38,7 @@ public class LevelLoad: MonoBehaviour
 
     public void Restart(bool entireLevel)
     {
-        currentScreen.GetComponent<Animator>().SetTrigger("LevelLoad");
+        currentScreen.GetComponent<Animator>().Play("LevelLoad");
         Time.timeScale = 1;
         if(entireLevel) PlayerPrefs.SetInt("lastCheckpoint", 0);
         Cursor.lockState = CursorLockMode.Locked;

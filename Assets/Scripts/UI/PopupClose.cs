@@ -11,7 +11,7 @@ public class PopupClose : MonoBehaviour
 
     public void Close()
     {
-        animator.SetTrigger("Close");
+        animator.Play("Close");
         if(selectAfterClosing != null) selectAfterClosing.Select();
     }
 

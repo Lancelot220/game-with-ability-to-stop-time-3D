@@ -26,7 +26,7 @@ public class Back : MonoBehaviour
     public void BackTo()
     {
         animator = currentScreen.GetComponent<Animator>();
-        animator.SetTrigger("BackTo");
+        animator.Play("Back");
         StartCoroutine(ChangeScreen());
         sound.Play();
     }
@@ -37,6 +37,7 @@ public class Back : MonoBehaviour
 
         currentScreen.SetActive(false);
         nextScreen.SetActive(true);
+        nextScreen.GetComponent<Animator>().Play("Enter");
         nextScreenFirstButton.Select();
     }
 }

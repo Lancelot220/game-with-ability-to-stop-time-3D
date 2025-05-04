@@ -183,6 +183,30 @@ MonoBehaviour:
     m_Key: Disable Guide Alpha
     m_Metadata:
       m_Items: []
+  - m_Id: 87287587068231680
+    m_Key: Tricks menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87306182066225152
+    m_Key: 360 Trick description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87306750746738688
+    m_Key: Jump with 360 Trick Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87312036865818624
+    m_Key: Frontfilp Attack Trick Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87317282216263680
+    m_Key: Backflip Trick Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87353443164930048
+    m_Key: Tricks
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

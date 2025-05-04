@@ -101,7 +101,7 @@ public class PlayerStats : MonoBehaviour
             StartCoroutine(Rumble.RumblePulse(0.25f, 1f, 3f));
 
             StartCoroutine(Restart());
-            screenAnim.SetTrigger("LevelLoad");
+            screenAnim.Play("LevelLoad");
         }
 
         //time

@@ -13,23 +13,31 @@ public class Menu : MonoBehaviour
     public Button nextScreenFirstButton;
     public float animationDuration = 0.25f;
     public bool useTransition;
+    public bool isInMainMenu;
     Animator animator;
     void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        if(isInMainMenu && PlayerPrefs.GetInt("BackToMainMenu", 0) == 1)
+        {
+            PlayerPrefs.SetInt("BackToMainMenu", 0);
+            StartCoroutine(PlayOnNextFrame());
+        }
     }
+    IEnumerator PlayOnNextFrame() { yield return null; transform.parent.gameObject.GetComponent<Animator>().Play("Enter"); }
     public void GoTo()
     {
         animator = currentScreen.GetComponent<Animator>();
-        animator.SetTrigger("GoTo");
+        animator.Play("ScreenChange"); //SetTrigger("GoTo");
         StartCoroutine(ChangeScreen());
     }
 
     public void BackTo(bool toMainMenu)
     {
         animator = currentScreen.GetComponent<Animator>();
-        if(!useTransition) animator.SetTrigger("BackTo"); else animator.SetTrigger("LevelLoad");
+        if(!useTransition) animator.Play("Back"); else animator.Play("LevelLoad");
         if (!toMainMenu)
         StartCoroutine(ChangeScreen());
         else
@@ -57,7 +65,8 @@ public class Menu : MonoBehaviour
 
         currentScreen.SetActive(false);
         nextScreen.SetActive(true);
-        nextScreenFirstButton.Select();
+        nextScreen.GetComponent<Animator>().Play("Enter");
+        if(nextScreenFirstButton != null) nextScreenFirstButton.Select();
     }
 
     IEnumerator BackToMainMenu()
@@ -65,13 +74,14 @@ public class Menu : MonoBehaviour
         yield return new WaitForSecondsRealtime(animationDuration);
         //Time.timeScale = 1;
         print("EEEXXXIIITTT");
+        PlayerPrefs.SetInt("BackToMainMenu", 1);
         SceneManager.LoadScene(0);
     }
 
     public void OpenPopup(GameObject popup)
     {
         popup.SetActive(true);
-        popup.GetComponentInChildren<Animator>().SetTrigger("Open");
+        popup.GetComponentInChildren<Animator>().Play("Open");
         popup.GetComponentInChildren<Button>().Select();
     }
 }
