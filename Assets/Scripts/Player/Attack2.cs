@@ -92,7 +92,7 @@ public class Attack2 : MonoBehaviour
     }
     void Attack(InputAction.CallbackContext context)
     {
-        if (!attacking && GetComponentInParent<PlayerStats>().health > 0 && !m.gameObject.GetComponent<PlayerStats>().pauseMenu.activeSelf)
+        if (!attacking && GetComponentInParent<PlayerStats>().health > 0 && Time.timeScale != 0)
         {
             attacking = true;
             m.animator.SetTrigger("attacked");
@@ -200,7 +200,7 @@ public class Attack2 : MonoBehaviour
         
 
         //block
-        if(!attacking) m.animator.SetBool("block", block.ReadValue<float>() > 0);
+        if(!attacking && Time.timeScale != 0) m.animator.SetBool("block", block.ReadValue<float>() > 0);
         //360 attack
         m.animator.SetBool("360", do360.ReadValue<Vector2>().x > 0 && do360.ReadValue<Vector2>().y > 0 && allow360 && tricksCDTimer <= 0);
         if(m.onGround) jumpedWith360 = false;

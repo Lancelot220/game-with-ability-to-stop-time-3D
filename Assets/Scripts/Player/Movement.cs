@@ -144,7 +144,7 @@ public class Movement : MonoBehaviour
         if( coyoteTimeCounter > 0 &&
             speed != crouchSpeed && animator.GetFloat("combo") <= 0 && 
             jumpDelayCounter <= 0 &&
-            !ps.pauseMenu.activeSelf )
+            Time.timeScale != 0 )
         {
             rb.AddForce(new Vector3(rb.velocity.x, jumpForce, rb.velocity.z));
             coyoteTimeCounter = 0;
@@ -204,7 +204,7 @@ public class Movement : MonoBehaviour
         holdingCrouchButton = true;
         if( /*speed !=runSpeed &&*/onGround &&
             animator.GetFloat("combo") <= 0 &&
-            !ps.pauseMenu.activeSelf )
+            Time.timeScale != 0 )
         {
             speed = crouchSpeed;
             cc.height = 1.35f;
@@ -229,7 +229,7 @@ public class Movement : MonoBehaviour
         holdingCrouchButton = false;
         if( speed == crouchSpeed &&
             canStopCrouching &&
-            !ps.pauseMenu.activeSelf ) 
+            Time.timeScale != 0 ) 
         {
             CrouchStop_();
         } 

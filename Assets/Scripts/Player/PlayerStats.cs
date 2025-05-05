@@ -151,7 +151,7 @@ public class PlayerStats : MonoBehaviour
 
     void Pause(InputAction.CallbackContext context)
     {
-        if(!pauseMenu.activeSelf)
+        if(Time.timeScale != 0)
         {
             Time.timeScale = 0;
             pauseMenu.SetActive(true);

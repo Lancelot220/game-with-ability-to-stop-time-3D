@@ -10,7 +10,7 @@ public class Menu : MonoBehaviour
 {
     public GameObject currentScreen;
     public GameObject nextScreen;
-    public Button nextScreenFirstButton;
+    public Selectable nextScreenFirstButton;
     public float animationDuration = 0.25f;
     public bool useTransition;
     public bool isInMainMenu;
