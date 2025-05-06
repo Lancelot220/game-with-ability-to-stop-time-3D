@@ -66,7 +66,7 @@ public class Menu : MonoBehaviour
         currentScreen.SetActive(false);
         nextScreen.SetActive(true);
         nextScreen.GetComponent<Animator>().Play("Enter");
-        if(nextScreenFirstButton != null) nextScreenFirstButton.Select();
+        //if(nextScreenFirstButton != null) nextScreenFirstButton.Select();
     }
 
     IEnumerator BackToMainMenu()
