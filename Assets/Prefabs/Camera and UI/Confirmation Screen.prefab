@@ -748,7 +748,7 @@ PrefabInstance:
     - target: {fileID: 8309851795674106550, guid: 7288195e561dd2344a642142c134f6c5,
         type: 3}
       propertyPath: m_Name
-      value: Button (1)
+      value: Button 1
       objectReference: {fileID: 0}
     - target: {fileID: 8448601418799162921, guid: 7288195e561dd2344a642142c134f6c5,
         type: 3}

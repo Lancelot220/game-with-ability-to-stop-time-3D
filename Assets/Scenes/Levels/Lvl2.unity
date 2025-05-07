@@ -34765,6 +34765,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4030866569243658823, guid: 6ccfd9f92746316449b1529fcca49fca,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1730580279}
+    - target: {fileID: 4030866569243658823, guid: 6ccfd9f92746316449b1529fcca49fca,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Unpause
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030866569243658823, guid: 6ccfd9f92746316449b1529fcca49fca,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerStats, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7179567292017172423, guid: 6ccfd9f92746316449b1529fcca49fca,
         type: 3}
       propertyPath: m_AnchorMax.x
