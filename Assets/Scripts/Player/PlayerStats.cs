@@ -27,7 +27,7 @@ public class PlayerStats : MonoBehaviour
     [Header("Fall Damage")]
     public float fallVelocity;
     public float fVThreshold = -10;
-    public float delayBeforeDeathScreen = 0.75f;
+    public float delayBeforeDeathScreen = .5f;
     public float fallDamageMultipier = 1;
 
     [Header("Others")]
@@ -101,7 +101,6 @@ public class PlayerStats : MonoBehaviour
             StartCoroutine(Rumble.RumblePulse(0.25f, 1f, 3f));
 
             StartCoroutine(Restart());
-            screenAnim.Play("LevelLoad");
         }
 
         //time
@@ -143,6 +142,9 @@ public class PlayerStats : MonoBehaviour
     IEnumerator Restart()
     {
         yield return new WaitForSecondsRealtime(delayBeforeDeathScreen);
+        screenAnim.SetFloat("fadeSpeed", .5f);
+        screenAnim.Play("FadeIn");
+        yield return new WaitForSecondsRealtime(1f);
 
         //Scene scene = SceneManager.GetActiveScene();
         //PlayerPrefs.SetInt("lastLevel",SceneManager.GetActiveScene().buildIndex);

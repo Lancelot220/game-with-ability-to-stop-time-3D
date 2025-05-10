@@ -6084,6 +6084,11 @@ PrefabInstance:
       propertyPath: currentScreen
       value: 
       objectReference: {fileID: 380215882}
+    - target: {fileID: 1052122413358357504, guid: a7782df48415c754ea95a6ed83d0ebaf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4828110922591220075, guid: a7782df48415c754ea95a6ed83d0ebaf,
         type: 3}
       propertyPath: m_Pivot.x
@@ -6689,6 +6694,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Play
       objectReference: {fileID: 0}
+    - target: {fileID: 2218641288051268258, guid: 7288195e561dd2344a642142c134f6c5,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4281874488
+      objectReference: {fileID: 0}
     - target: {fileID: 3510381899473665262, guid: 7288195e561dd2344a642142c134f6c5,
         type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
@@ -6702,7 +6712,7 @@ PrefabInstance:
     - target: {fileID: 3510381899473665262, guid: 7288195e561dd2344a642142c134f6c5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3510381899473665262, guid: 7288195e561dd2344a642142c134f6c5,
         type: 3}

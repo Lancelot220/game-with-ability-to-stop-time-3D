@@ -245,7 +245,7 @@ public class Movement : MonoBehaviour
 
         animator.SetBool("isCrouching", false);
 
-        if (!animator.GetBool("isRunning") && !animator.GetBool("isCrouching"))
+        if (!animator.GetBool("isCrouching"))
         speed = defaultSpeed;
         /*
         //instead of anim

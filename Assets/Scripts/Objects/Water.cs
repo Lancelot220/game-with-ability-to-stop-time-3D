@@ -7,7 +7,7 @@ public class Water : MonoBehaviour
 {
     public Transform[] pointsOnGround;
     public int damage = 8;
-    private float waitTime = 3;
+    private float waitTime = 1;
     [Header("Condition")]
     public bool useCondition;
     public Transform[] pointsToReach;
@@ -15,8 +15,9 @@ public class Water : MonoBehaviour
     Transform player;
     GameObject playerObj;
     public GameObject[] breakablesToReset;
+    Animator screenAnimator;
 
-
+    void Start() { screenAnimator = GameObject.Find("HUD").GetComponent<Animator>(); }
 
     void OnTriggerEnter(Collider col)
     {
@@ -28,6 +29,8 @@ public class Water : MonoBehaviour
             playerObj.GetComponent<Movement>().enabled = false;
             playerObj.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             playerObj.GetComponent<PlayerStats>().health -= damage;
+            screenAnimator.SetFloat("fadeSpeed", 1.5f);
+            screenAnimator.Play("FadeIn");
         }
     }
 
@@ -74,6 +77,7 @@ public class Water : MonoBehaviour
         player.position = destination.position;
         playerObj.GetComponent<Movement>().enabled = true;
         playerObj.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+        screenAnimator.Play("FadeOut");
 
         if(breakablesToReset.Length > 0)
         {
