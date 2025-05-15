@@ -157,6 +157,8 @@ MonoBehaviour:
       jump attack which is slightly stronger but if character get hit while jump
       attack he will fall and get fall damage.
 
+      Also you and enemies can block
+      attacks with sword - RMB
 
       Continue - E'
     m_Metadata:
