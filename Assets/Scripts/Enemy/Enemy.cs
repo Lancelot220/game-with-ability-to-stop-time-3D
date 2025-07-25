@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
 
     Vector3 playerLastPosition = Vector3.zero;
     Vector3 m_PlayerPosition;
-
+    //private Transform playerTranform;
     float m_WaitTime, m_TimeToRotate;
     bool m_PlayerInRange, m_PlayerNear, m_IsPatrol;
     [HideInInspector] public bool _CaughtPlayer;
@@ -73,8 +73,7 @@ public class Enemy : MonoBehaviour
     public bool timeStopped;
     public bool cantHurtPlayer;
     /*[HideInInspector]*/ public Animator animator;
-    
-
+    public float predictionTime = .5f;
 
     void Start()
     {
@@ -223,7 +222,10 @@ public class Enemy : MonoBehaviour
         if(!_CaughtPlayer)
         {
             Move(speedRun); //animator.SetBool("IsRunning", true);
-            navMeshAgent.SetDestination(m_PlayerPosition);
+            // navMeshAgent.SetDestination(m_PlayerPosition);
+            Vector3 futurePosition = m_PlayerPosition + ps.transform.forward * ps.transform.gameObject.GetComponent<Rigidbody>().velocity.magnitude * predictionTime;
+            navMeshAgent.SetDestination(futurePosition);
+
         }
         if(navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
         {
@@ -367,9 +369,9 @@ public class Enemy : MonoBehaviour
             {
                 m_PlayerPosition = player.transform.position;
 
-                if(companions.Length > 0)
+                if (companions.Length > 0)
                 {
-                    foreach(Enemy companion in companions)
+                    foreach (Enemy companion in companions)
                     {
                         companion.waypoints[0] = player;
                         companion.m_CurrentWayPointIndex = 0;

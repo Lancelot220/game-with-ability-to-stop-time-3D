@@ -19,7 +19,7 @@ public class OnGroundCheck : MonoBehaviour
     } 
     void OnTriggerEnter(Collider col)
     {
-        if(!col.CompareTag("Player") && !col.CompareTag("Trigger") && !col.CompareTag("Enemy"))
+        if(!col.CompareTag("Player") && !col.CompareTag("Trigger") && !col.CompareTag("Enemy") && !col.CompareTag("SlideDown"))
         {
             movement.onGround = true;
             ps.Landed();
@@ -46,7 +46,7 @@ public class OnGroundCheck : MonoBehaviour
     }
     void OnTriggerStay(Collider col)
     {
-        if(!col.CompareTag("Player") && !col.CompareTag("Trigger") && !col.CompareTag("Enemy"))
+        if(!col.CompareTag("Player") && !col.CompareTag("Trigger") && !col.CompareTag("Enemy") && !col.CompareTag("SlideDown"))
         {
             movement.onGround = true;
             movement.animator.SetBool("jumped", false); 
@@ -69,7 +69,7 @@ public class OnGroundCheck : MonoBehaviour
     
     void OnTriggerExit(Collider col)
     {
-        if(!col.CompareTag("Player") && !col.CompareTag("Trigger") && !col.CompareTag("Enemy"))
+        if(!col.CompareTag("Player") && !col.CompareTag("Trigger") && !col.CompareTag("Enemy") && !col.CompareTag("SlideDown"))
         { movement.onGround = false; if(debug) Debug.LogWarning("Leaving the ground"); /*movement.animator.SetBool("jumped", true);*/ }
         if (col.CompareTag("Enemy"))
         {

@@ -40,6 +40,8 @@ public class Movement : MonoBehaviour
     public float emptySpaceCheckLength = 0.2f;
     public Transform edgeCheckRayOrigin;
     public float edgeCheckLength = 0.1f;
+    public Transform ceilingCheckRayOrigin;
+    public float ceilingCheckLength = 0.1f;
     public LayerMask ledgeClimbLayers;
     public Transform spineBone;
     public bool endClimbing;
@@ -72,6 +74,8 @@ public class Movement : MonoBehaviour
     InputAction walk;
     InputAction crouchStart;
     InputAction crouchStop;
+
+    InputAction slide;
 
     [Header("")]
     public bool debug = true;
@@ -125,17 +129,21 @@ public class Movement : MonoBehaviour
         crouchStop = ctrls.Player.CrouchStop;
         crouchStop.Enable();
         crouchStop.performed += CrouchStop;
+
+        slide = ctrls.Player.Slide;
+        slide.Enable();
     }
-   void OnDisable() 
+    void OnDisable()
     {
-        move.Disable(); 
-        cameraMoving.Disable(); 
+        move.Disable();
+        cameraMoving.Disable();
         jump.Disable();
         // runStart.Disable();
         // runStop.Disable();
         walk.Disable();
         crouchStart.Disable();
         crouchStop.Disable();
+        slide.Disable();
     }
 
    //Jump
@@ -339,12 +347,14 @@ public class Movement : MonoBehaviour
         if(debug) Debug.DrawLine(emptySpaceRayOrigin.position, emptySpaceRayOrigin.position + (transform.forward * emptySpaceCheckLength), Color.red);
         bool edge = Physics.Raycast(edgeCheckRayOrigin.position, transform.forward, edgeCheckLength, ledgeClimbLayers);
         if(debug) Debug.DrawLine(edgeCheckRayOrigin.position, edgeCheckRayOrigin.position + (transform.forward * edgeCheckLength), Color.red);
-        if(emptySpaceAboveEdge && edge && !onGround)
+        bool ceiling = !Physics.Raycast(ceilingCheckRayOrigin.position, Vector3.up, ceilingCheckLength, ledgeClimbLayers);
+        if(debug) Debug.DrawLine(ceilingCheckRayOrigin.position, ceilingCheckRayOrigin.position + (Vector3.up * ceilingCheckLength), Color.red);
+        if (edge && emptySpaceAboveEdge && ceiling && !onGround)
         {
             animator.SetTrigger("ledgeClimb");
             rb.constraints = RigidbodyConstraints.FreezeAll;
             isClimbing = true;
-            if(debug) print("climb");
+            if (debug) print("climb");
         }
         if (endClimbing)
         {
@@ -372,7 +382,28 @@ public class Movement : MonoBehaviour
 
     void OnTriggerStay(Collider col)
     {
-        if(col.CompareTag("SlideDown"))
-        rb.velocity = new Vector3(rb.velocity.x, -slideSpeed, rb.velocity.z);
+        if (col.CompareTag("SlideDown"))
+        {
+
+            Quaternion childRotation = col.gameObject.transform.GetChild(0).rotation;
+            if (childRotation != null)
+            {
+                if (col.gameObject.transform.GetChild(0).localScale.x == 1)
+                {
+                    transform.rotation = Quaternion.Lerp(transform.rotation, childRotation, Time.deltaTime * rotationSpeed);
+                    animator.SetBool("slide", true);
+                    rb.velocity = new Vector3(rb.velocity.x, -slideSpeed, rb.velocity.z);
+                }
+                else if (slide.ReadValue<Vector2>().x > 0 && slide.ReadValue<Vector2>().y > 0)
+                {
+                    transform.rotation = Quaternion.Lerp(transform.rotation, childRotation, Time.deltaTime * rotationSpeed);
+                    animator.SetBool("slide", true);
+                    rb.velocity = new Vector3(rb.velocity.x, -slideSpeed, rb.velocity.z);
+                }
+            }
+            else rb.velocity = Vector3.Lerp(new Vector3(rb.velocity.x, -slideSpeed, rb.velocity.z), new Vector3(rb.velocity.x, -slideSpeed * 3, rb.velocity.z), acceleration * Time.deltaTime);
+            
+        }
+        else animator.SetBool("slide", false);
     }
 }

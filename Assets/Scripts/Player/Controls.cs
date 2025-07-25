@@ -170,6 +170,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Slide"",
+                    ""type"": ""Value"",
+                    ""id"": ""1056fa07-1fe0-4ad7-87fb-0922490e8380"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -737,7 +746,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""209f8267-c0ea-4663-b724-56371c15c929"",
-                    ""path"": ""<Keyboard>/z"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -755,6 +764,61 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Trick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""974eb224-d984-4e29-96de-c3831488a75e"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slide"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""3d4ab7d9-8c57-4daa-b8cd-b1555205b204"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""40979f22-3f70-4ca5-95a4-1f3b2fbda05c"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""8c86d514-991d-416e-ab97-a5862e14c78c"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""ae305737-9f1e-4da6-9a1d-f2a57519a4ac"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -1239,6 +1303,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_FrontflipAttack = m_Player.FindAction("FrontflipAttack", throwIfNotFound: true);
         m_Player_BackFlip = m_Player.FindAction("BackFlip", throwIfNotFound: true);
         m_Player_Trick = m_Player.FindAction("Trick", throwIfNotFound: true);
+        m_Player_Slide = m_Player.FindAction("Slide", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1326,6 +1391,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_FrontflipAttack;
     private readonly InputAction m_Player_BackFlip;
     private readonly InputAction m_Player_Trick;
+    private readonly InputAction m_Player_Slide;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -1346,6 +1412,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @FrontflipAttack => m_Wrapper.m_Player_FrontflipAttack;
         public InputAction @BackFlip => m_Wrapper.m_Player_BackFlip;
         public InputAction @Trick => m_Wrapper.m_Player_Trick;
+        public InputAction @Slide => m_Wrapper.m_Player_Slide;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1403,6 +1470,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Trick.started += instance.OnTrick;
             @Trick.performed += instance.OnTrick;
             @Trick.canceled += instance.OnTrick;
+            @Slide.started += instance.OnSlide;
+            @Slide.performed += instance.OnSlide;
+            @Slide.canceled += instance.OnSlide;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1455,6 +1525,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Trick.started -= instance.OnTrick;
             @Trick.performed -= instance.OnTrick;
             @Trick.canceled -= instance.OnTrick;
+            @Slide.started -= instance.OnSlide;
+            @Slide.performed -= instance.OnSlide;
+            @Slide.canceled -= instance.OnSlide;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1619,6 +1692,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnFrontflipAttack(InputAction.CallbackContext context);
         void OnBackFlip(InputAction.CallbackContext context);
         void OnTrick(InputAction.CallbackContext context);
+        void OnSlide(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

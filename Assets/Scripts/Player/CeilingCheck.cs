@@ -10,12 +10,12 @@ public class CeilingCheck : MonoBehaviour
     Movement movement;
     void Start() { movement = GetComponentInParent<Movement>(); } 
     void OnTriggerEnter(Collider col)
-    { if(col.gameObject.layer == 0 || col.gameObject.layer == 6) movement.canStopCrouching = false; } //!col.CompareTag("Player") && !col.CompareTag("Bullet")
+    { if(col.gameObject.layer == 0 || col.gameObject.layer == 6 && !col.CompareTag("Trigger") && !col.CompareTag("Enemy") && !col.CompareTag("SlideDown")) movement.canStopCrouching = false; } //!col.CompareTag("Player") && !col.CompareTag("Bullet")
     void OnTriggerStay(Collider col)
-    { if(col.gameObject.layer == 0 || col.gameObject.layer == 6) movement.canStopCrouching = false; }
+    { if(col.gameObject.layer == 0 || col.gameObject.layer == 6 && !col.CompareTag("Trigger") && !col.CompareTag("Enemy") && !col.CompareTag("SlideDown")) movement.canStopCrouching = false; }
     void OnTriggerExit(Collider col)
     { 
-        if(col.gameObject.layer == 0 || col.gameObject.layer == 6)
+        if(col.gameObject.layer == 0 || col.gameObject.layer == 6 && !col.CompareTag("Trigger") && !col.CompareTag("Enemy") && !col.CompareTag("SlideDown"))
         {
             movement.canStopCrouching = true;
             if(!movement.holdingCrouchButton)

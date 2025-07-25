@@ -644,7 +644,7 @@ GameObject:
   - component: {fileID: 6192419440518237119}
   - component: {fileID: 2674875939926841217}
   m_Layer: 5
-  m_Name: Tricks Menu
+  m_Name: Skills Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1937,7 +1937,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tricks Menu
+  m_text: Skills Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1e3be944774383441aa43aff5adc444f, type: 2}
   m_sharedMaterial: {fileID: 8890743361803968252, guid: 1e3be944774383441aa43aff5adc444f,

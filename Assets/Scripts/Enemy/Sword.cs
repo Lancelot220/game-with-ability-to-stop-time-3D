@@ -24,7 +24,7 @@ public class Sword : MonoBehaviour
             }
             //Debug.DrawRay(col.transform.position, col.transform.forward * 3f, Color.red, 5f);                                    //debug ray to check if the player is facing the enemy
             enemyAttack.player.health -=enemyAttack.attackPower;
-            enemyAttack.player.StartFallingWhenHit();
+            enemyAttack.player.StartFalling(true);
             Debug.LogWarning("Your health left:" + enemyAttack.player.health);
 
             StartCoroutine(Rumble.RumblePulse(0.25f, 1f, 0.5f));

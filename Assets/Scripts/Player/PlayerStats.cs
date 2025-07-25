@@ -71,10 +71,12 @@ public class PlayerStats : MonoBehaviour
         interact.Disable();
     }
 
-    public void StartFallingWhenHit()
+    public void StartFalling(bool hitByEnemy)
     {
-        if (m.animator.GetCurrentAnimatorClipInfo(0).Length > 0 &&
-        m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Jump Attack") m.animator.SetBool("isFalling", true);
+        if (hitByEnemy) { if (GetComponentInChildren<Attack2>().attacking && !m.onGround) m.animator.SetBool("isFalling", true); }
+        else { m.animator.SetBool("isFalling", true); }
+        // m.animator.GetCurrentAnimatorClipInfo(0).Length > 0 &&
+        // m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Jump Attack"
     }
 
     void Update()
