@@ -286,10 +286,51 @@ MonoBehaviour:
     m_Localized: Skills
     m_Metadata:
       m_Items: []
+  - m_Id: 118794225742561280
+    m_Localized: Save File Select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118794723237347328
+    m_Localized: (Empty Save File)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118795371802574848
+    m_Localized: Create
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118795652250517504
+    m_Localized: Edit Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118795837764583424
+    m_Localized: Delete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118839724935790592
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118840125659594752
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118845156366532608
+    m_Localized: 'Levels completed: {s.levelsCompleted} '
+    m_Metadata:
+      m_Items:
+      - rid: 7823976732278652930
+  - m_Id: 119512124622946304
+    m_Localized: Enter file name...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 119556350031216640
+    m_Localized: 'Last save:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 7823976732278652930
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00b06d413b6a370000b06df71c6c3700
+        m_Entries: 00b06d413b6a370000b06df71c6c370000c080400a39a601

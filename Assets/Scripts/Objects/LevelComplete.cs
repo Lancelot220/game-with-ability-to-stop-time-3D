@@ -8,13 +8,14 @@ public class LevelComplete : MonoBehaviour
 {
     public GameObject currentScreen;
     public float animationDuration = 0.75f;
+    public List<string> unlockedLevels;
     void OnTriggerEnter(Collider col)
     {
         if(col.CompareTag("Player"))
         {
             currentScreen.GetComponent<Animator>().SetTrigger("LevelLoad");
             StartCoroutine(EndLevelScene(col.gameObject));
-            PlayerPrefs.SetInt("lastCheckpoint", 0);
+            // PlayerPrefs.SetInt("lastCheckpoint", 0);
         }
     }
 
@@ -22,9 +23,16 @@ public class LevelComplete : MonoBehaviour
     {
         yield return new WaitForSeconds(animationDuration);
 
-        PlayerPrefs.SetInt("lastLevel",SceneManager.GetActiveScene().buildIndex);
-        PlayerPrefs.SetFloat("time", player.GetComponent<PlayerStats>().time);
-        PlayerPrefs.SetInt("orbsCollected", player.GetComponent<PlayerStats>().orbsCollected);
-        SceneManager.LoadScene("End Level");
+        // PlayerPrefs.SetInt("lastLevel",SceneManager.GetActiveScene().buildIndex);
+        // PlayerPrefs.SetFloat("time", player.GetComponent<PlayerStats>().time);
+        // PlayerPrefs.SetInt("orbsCollected", player.GetComponent<PlayerStats>().orbsCollected);
+        // SceneManager.LoadScene("End Level");
+        SaveSystem.Save(
+            SceneManager.GetActiveScene().name,
+            unlockedLevels,
+            player.GetComponent<PlayerStats>().orbsCollected,
+            player.GetComponent<PlayerStats>().skillsUnlocked,
+            null
+        );
     }
 }

@@ -21,7 +21,7 @@ public class StopTime_ : MonoBehaviour
     //stop time mechanic
     [HideInInspector] public float durationTimer;
     [HideInInspector] public float cdTimer;
-    Collider[] objectsInRange;
+    public Collider[] objectsInRange;
     Vector3 navMeshAgentDst;
     [HideInInspector] public bool timeStopped;
 

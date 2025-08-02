@@ -2861,6 +2861,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &241223546
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3053,6 +3055,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &258293513
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6342,6 +6346,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &530582315
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23683,6 +23689,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &653380386
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25085,6 +25093,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &780464869
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27010,6 +27020,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &951878653
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30031,6 +30043,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1167963283
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32144,22 +32158,22 @@ PrefabInstance:
     - target: {fileID: 8974238430082489314, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70494133
+      value: 0.7049413
       objectReference: {fileID: 0}
     - target: {fileID: 8974238430082489314, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.05529794
+      value: 0.055297952
       objectReference: {fileID: 0}
     - target: {fileID: 8974238430082489314, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7049412
+      value: 0.7049413
       objectReference: {fileID: 0}
     - target: {fileID: 8974238430082489314, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.055297937
+      value: -0.055297956
       objectReference: {fileID: 0}
     - target: {fileID: 9000425769874926936, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
@@ -33001,6 +33015,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1407312930
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35322,6 +35338,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1526402627
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36519,6 +36537,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1624823950
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37013,6 +37033,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1647832436
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37876,6 +37898,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentScreen: {fileID: 503724151}
   animationDuration: 0.75
+  unlockedLevels:
+  - Lvl3
 --- !u!65 &1667653817
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42165,6 +42189,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 2814102029923467055, guid: 6c08feaea948ea745a10a577464f66b4,
+        type: 3}
+      propertyPath: m_Name
+      value: "\u0426\u0438\u043B\u0456\u043D\u0434\u0440.002_LOD0 (Level End)"
+      objectReference: {fileID: 0}
     - target: {fileID: 2949316685992565831, guid: 6c08feaea948ea745a10a577464f66b4,
         type: 3}
       propertyPath: m_Layer
@@ -44008,6 +44037,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &2018657785
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -46086,6 +46117,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &4550831831328131227
 BoxCollider:
   m_ObjectHideFlags: 0

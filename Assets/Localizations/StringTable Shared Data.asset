@@ -207,6 +207,50 @@ MonoBehaviour:
     m_Key: Skills
     m_Metadata:
       m_Items: []
+  - m_Id: 118794225742561280
+    m_Key: Save File Slect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118794723237347328
+    m_Key: (Empty Save File)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118795371802574848
+    m_Key: Create
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118795518305419264
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118795652250517504
+    m_Key: Edit Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118795837764583424
+    m_Key: Delete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118839724935790592
+    m_Key: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118840125659594752
+    m_Key: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118845156366532608
+    m_Key: Levels completed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 119512124622946304
+    m_Key: Enter file name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 119556350031216640
+    m_Key: Last save
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

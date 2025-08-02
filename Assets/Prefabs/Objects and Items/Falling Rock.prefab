@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8157702775459589725}
   - component: {fileID: 2222530106306581153}
   - component: {fileID: 1909348905356181283}
+  - component: {fileID: -2293248557657615260}
   m_Layer: 10
   m_Name: Falling Rock
   m_TagString: Untagged
@@ -147,3 +148,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minWorldHeightLimit: -100
+--- !u!114 &-2293248557657615260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8432294172011318756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1eae54b5b58bbd4891fe0f5ca12b810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: 

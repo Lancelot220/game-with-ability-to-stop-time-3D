@@ -250,6 +250,7 @@ GameObject:
   - component: {fileID: 159891721235181796}
   - component: {fileID: 1327857843184881441}
   - component: {fileID: 6038851265562492877}
+  - component: {fileID: 1206251242895295288}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -386,6 +387,12 @@ MonoBehaviour:
   - {fileID: 0}
   shuffleWaypoints: 1
   companions: []
+  minTimeBeforeBlock: 5
+  maxTimeBeforeBlock: 10
+  minBlockTime: 2
+  maxBlockTime: 5
+  lowHPTimeDifference: 2
+  lowHPThreshold: 20
   _CaughtPlayer: 0
   items:
   - {fileID: 400436840714774565, guid: 57e64f2813570d44283c9f4a88a71dfb, type: 3}
@@ -396,7 +403,9 @@ MonoBehaviour:
   maxOrbsCount: 7
   stealableItemIndex: -1
   timeStopped: 0
+  cantHurtPlayer: 0
   animator: {fileID: 7032866619234470384}
+  predictionTime: 0.5
 --- !u!205 &6038851265562492877
 LODGroup:
   m_ObjectHideFlags: 0
@@ -427,6 +436,19 @@ LODGroup:
     - renderer: {fileID: 6975188360655084429}
     - renderer: {fileID: 1673585371478510868}
   m_Enabled: 1
+--- !u!114 &1206251242895295288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8273088661010655025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1eae54b5b58bbd4891fe0f5ca12b810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: 
 --- !u!1001 &503340786513087011
 PrefabInstance:
   m_ObjectHideFlags: 0

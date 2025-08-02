@@ -164,6 +164,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &27339543
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -271,6 +273,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &55270883
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -310,6 +314,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &72790374
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -349,6 +355,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &84777645
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -388,6 +396,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &103127473
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -448,6 +458,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &113915275
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -487,6 +499,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &121816496
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -526,6 +540,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &140613004
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -586,6 +602,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &170370114
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -625,6 +643,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &194410183
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -664,6 +684,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &197480884
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -703,6 +725,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &233564995
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -742,6 +766,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &240032597
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -781,6 +807,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &240202593
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -820,6 +848,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &251421799
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -859,6 +889,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &281650189
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -898,6 +930,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &294657659
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -964,6 +998,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &303167886
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1003,6 +1039,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &320205069
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1042,6 +1080,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &336657739
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1108,6 +1148,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &349980585
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1147,6 +1189,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &363149334
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1240,6 +1284,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &397700886
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1414,6 +1460,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &402631188
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1453,6 +1501,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &414270306
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1546,6 +1596,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &440582905
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1585,6 +1637,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &442293830
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1624,6 +1678,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &453863908
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1817,6 +1873,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &474957750
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1856,6 +1914,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &476101372
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1989,6 +2049,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &489604135
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2217,6 +2279,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &543506917
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2283,6 +2347,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &554687263
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2322,6 +2388,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &565974154
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2361,6 +2429,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &575386359
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2400,6 +2470,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &595728780
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2466,6 +2538,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &613318783
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2505,6 +2579,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &617689442
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2544,6 +2620,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &631315038
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2628,6 +2706,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &667053515
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2695,12 +2775,12 @@ PrefabInstance:
     - target: {fileID: 7297553745326541352, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016978866
+      value: -0.000000016978941
       objectReference: {fileID: 0}
     - target: {fileID: 7297553745326541352, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000027884106
+      value: 0.0000000027884226
       objectReference: {fileID: 0}
     - target: {fileID: 8974238430082489314, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
@@ -2785,12 +2865,12 @@ PrefabInstance:
     - target: {fileID: 9127033055581702212, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000042810284
+      value: 0.000000004281028
       objectReference: {fileID: 0}
     - target: {fileID: 9127033055581702212, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -4.2014328e-10
+      value: -4.2014325e-10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2843,6 +2923,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &675444530
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2882,6 +2964,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &676480348
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2921,6 +3005,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &676531722
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2960,6 +3046,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &683142055
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2999,6 +3087,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &695812798
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3065,6 +3155,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &739983519
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3104,6 +3196,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &740365896
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3143,6 +3237,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &744863246
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3349,6 +3445,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &746042763
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3388,6 +3486,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &751352594
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3427,6 +3527,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &753549369
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3466,6 +3568,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &761173465
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3505,6 +3609,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &787492978
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3544,6 +3650,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &789590237
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3656,6 +3764,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &811557093
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3754,6 +3864,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &822906868
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3946,6 +4058,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &828045338
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4066,6 +4180,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &839784708
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4132,6 +4248,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &850578747
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8803,6 +8921,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &874141083
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8842,6 +8962,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &893685821
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9781,6 +9903,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &894673430
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9820,6 +9944,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &894673432
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9859,6 +9985,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &894673434
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9985,6 +10113,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &904948702
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10051,6 +10181,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &907613659
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10144,6 +10276,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &940524651
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10237,6 +10371,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &949057756
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10334,6 +10470,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &964789054
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10489,6 +10627,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &993445527
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10582,6 +10722,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1001628479
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10675,6 +10817,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1003587312
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10822,6 +10966,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1017092691
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10888,6 +11034,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1021374191
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10954,6 +11102,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1044533736
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11020,6 +11170,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1050299299
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11113,6 +11265,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1054476649
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11253,6 +11407,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1069629851
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11400,6 +11556,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1111241431
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11493,6 +11651,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1119933350
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11559,6 +11719,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1136446132
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11625,6 +11787,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1140022462
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11691,6 +11855,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1143479234
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11784,6 +11950,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1165756568
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11850,6 +12018,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1171258162
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11916,6 +12086,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1174722512
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11982,6 +12154,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1174927496
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12151,6 +12325,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1197771076
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12217,6 +12393,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1204155758
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12283,6 +12461,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1204539000
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12349,6 +12529,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1212857456
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12442,6 +12624,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1225135133
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12508,6 +12692,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1236221973
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12728,6 +12914,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1276738070
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13016,6 +13204,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1290065367
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13082,6 +13272,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1291336267
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13148,6 +13340,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1304334598
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13214,6 +13408,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1315273953
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13307,6 +13503,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1336082527
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13373,6 +13571,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1343720506
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13494,6 +13694,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1354168308
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13560,6 +13762,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1364626611
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13626,6 +13830,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1365818457
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14032,6 +14238,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1411187675
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14098,6 +14306,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1411794487
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14164,6 +14374,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1419118720
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14311,6 +14523,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1484042377
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14404,6 +14618,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1529658150
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14470,6 +14686,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1530613430
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14755,6 +14973,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1558040122
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14888,6 +15108,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1587647165
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14981,6 +15203,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1601560358
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15330,6 +15554,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1646921482
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15396,6 +15622,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1652958756
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15462,6 +15690,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1656433675
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15555,6 +15785,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1676444989
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15648,6 +15880,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1693997629
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15768,6 +16002,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1734349053
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15889,6 +16125,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1743676673
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15955,6 +16193,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1753808666
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16048,6 +16288,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1764254483
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16114,6 +16356,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1775810410
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16203,7 +16447,7 @@ GameObject:
   - component: {fileID: 1777450940}
   - component: {fileID: 1777450939}
   m_Layer: 0
-  m_Name: Level End (Temporary)
+  m_Name: Level End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16223,6 +16467,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentScreen: {fileID: 1543402084}
   animationDuration: 0.75
+  unlockedLevels:
+  - Lvl4
 --- !u!64 &1777450940
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16328,6 +16574,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1807469025
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16394,6 +16642,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1830673547
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16491,6 +16741,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1837803484
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16557,6 +16809,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1842716634
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16677,6 +16931,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1847169080
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16770,6 +17026,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1861864208
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16890,6 +17148,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1890738442
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16956,6 +17216,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1899390691
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17076,6 +17338,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1927279673
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17203,6 +17467,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1940516855
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17269,6 +17535,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1943329634
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17335,6 +17603,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1947669570
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17433,6 +17703,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1956653907
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17499,6 +17771,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1963135967
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17565,6 +17839,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1966228247
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17707,6 +17983,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1971575007
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17800,6 +18078,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1991825057
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17920,6 +18200,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &1996297408
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18013,6 +18295,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &2024176307
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18079,6 +18363,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &2029577368
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18145,6 +18431,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &2029829592
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18211,6 +18499,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &2032168076
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18344,6 +18634,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &2075021854
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18410,6 +18702,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &2082768226
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18476,6 +18770,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &2084961973
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18651,6 +18947,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &2120482190
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18765,6 +19063,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &2140102135
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18831,6 +19131,8 @@ MonoBehaviour:
   onBreak:
     m_PersistentCalls:
       m_Calls: []
+  collisionBreakable: 0
+  breakForce: 1
 --- !u!65 &2142329756
 BoxCollider:
   m_ObjectHideFlags: 0

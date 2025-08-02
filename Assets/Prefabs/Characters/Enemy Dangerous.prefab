@@ -1756,6 +1756,7 @@ GameObject:
   - component: {fileID: 4689537427945446364}
   - component: {fileID: 5819639629077747116}
   - component: {fileID: 5669366443756378124}
+  - component: {fileID: -5627467445049161354}
   m_Layer: 7
   m_Name: Enemy Dangerous
   m_TagString: Enemy
@@ -1941,6 +1942,19 @@ LODGroup:
     - renderer: {fileID: 0}
     - renderer: {fileID: 0}
   m_Enabled: 1
+--- !u!114 &-5627467445049161354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7121733970822576143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1eae54b5b58bbd4891fe0f5ca12b810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: 
 --- !u!1 &7122712070689462525
 GameObject:
   m_ObjectHideFlags: 0

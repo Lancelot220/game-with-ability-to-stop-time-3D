@@ -23,6 +23,7 @@ public class PlayerStats : MonoBehaviour
     }*/
     public int orbsCollected;
     [ReadOnly] public float time;
+    public List<string> skillsUnlocked = new List<string>();
 
     [Header("Fall Damage")]
     public float fallVelocity;
