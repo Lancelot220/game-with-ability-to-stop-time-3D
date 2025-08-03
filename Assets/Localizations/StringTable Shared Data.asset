@@ -251,6 +251,26 @@ MonoBehaviour:
     m_Key: Last save
     m_Metadata:
       m_Items: []
+  - m_Id: 119948205201866752
+    m_Key: File Removal Warning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 119999243745280000
+    m_Key: Checkpoint is achieved
+    m_Metadata:
+      m_Items: []
+  - m_Id: 120203333095964672
+    m_Key: Empty Name Message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 120203589946753024
+    m_Key: File Exists Message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 120277899495391232
+    m_Key: Invalid Name Message
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

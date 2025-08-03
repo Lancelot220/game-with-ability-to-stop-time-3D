@@ -23,7 +23,7 @@ public class LevelComplete : MonoBehaviour
     {
         yield return new WaitForSeconds(animationDuration);
 
-        // PlayerPrefs.SetInt("lastLevel",SceneManager.GetActiveScene().buildIndex);
+        PlayerPrefs.SetInt("lastLevel",SceneManager.GetActiveScene().buildIndex);
         // PlayerPrefs.SetFloat("time", player.GetComponent<PlayerStats>().time);
         // PlayerPrefs.SetInt("orbsCollected", player.GetComponent<PlayerStats>().orbsCollected);
         // SceneManager.LoadScene("End Level");

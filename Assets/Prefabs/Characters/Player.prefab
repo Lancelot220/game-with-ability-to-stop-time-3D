@@ -738,6 +738,7 @@ MonoBehaviour:
   health: 100
   orbsCollected: 0
   time: 0
+  skillsUnlocked: []
   fallVelocity: 0
   fVThreshold: -15
   delayBeforeDeathScreen: 0.75
@@ -767,6 +768,7 @@ MonoBehaviour:
   canStopTime: 1
   durationTimer: 0
   cdTimer: 0
+  objectsInRange: []
   timeStopped: 0
   stopTimeSound: {fileID: 8113200159893503451}
   unfreezeTimeSound: {fileID: 755582451175851380}
@@ -1493,6 +1495,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7429536531110614137}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c9a5afff2f86e514dbb6d1a582cf3973,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6791254845604146197}
   m_SourcePrefab: {fileID: 100100000, guid: c9a5afff2f86e514dbb6d1a582cf3973, type: 3}
 --- !u!4 &5911800703146833401 stripped
 Transform:
@@ -1527,6 +1533,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6791254845604146197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6431491863693815619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1eae54b5b58bbd4891fe0f5ca12b810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: TIMESTOP
 --- !u!1001 &6438068371451420437
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -124,6 +124,67 @@ public class StopTime_ : MonoBehaviour
         }
     }
 
+    public void ForceStopTime(float[] pos)
+    {
+        if (canStopTime && Time.timeScale != 0)
+        {
+            canStopTime = false;
+
+            print("Time has been stopped (by checkpoint)!"); timeStopped = true;
+
+            //objectsInRange = Physics.OverlapSphere(transform.position, range, stoppableObjects);
+
+            foreach (Collider obj in objectsInRange)
+            {
+                Rigidbody rb = obj.gameObject.GetComponent<Rigidbody>();
+                Enemy enemy = obj.gameObject.GetComponent<Enemy>();
+                EnemyWithGun enemyWithGun = obj.gameObject.GetComponent<EnemyWithGun>();
+                NavMeshAgent navMeshAgent = obj.gameObject.GetComponent<NavMeshAgent>();
+                StoppableObject so = obj.gameObject.GetComponent<StoppableObject>();
+                if (rb != null)
+                {
+                    rb.constraints = RigidbodyConstraints.FreezeAll;
+                    rb.useGravity = false;
+                }
+                if (enemy != null)
+                {
+                    navMeshAgentDst = navMeshAgent.destination;
+
+                    enemy.timeStopped = true;
+                    obj.gameObject.GetComponentInChildren<EnemyAttack>().timeStopped = true;
+
+                    navMeshAgent.SetDestination(obj.transform.position);
+                }
+                else if (enemyWithGun != null)
+                {
+                    navMeshAgentDst = navMeshAgent.destination;
+
+                    enemyWithGun.timeStopped = true;
+                    obj.gameObject.GetComponentInChildren<EnemyGunAttack>().timeStopped = true;
+
+                    navMeshAgent.SetDestination(obj.transform.position);
+                }
+
+                if (so != null) so.TimeStopped();
+            }
+
+            //StartCoroutine(UnfreezeTime());
+
+            //durationTimer = duration;
+
+            //effects
+            //stopTimeSound.Play();
+            //effectOnScene = Instantiate(effectGO, transform.position, Quaternion.identity);
+            effectGO.SetActive(true);
+            effectGO.transform.position = new Vector3(pos[0], pos[1], pos[2]);
+            effectGO.GetComponent<Animator>().SetTrigger("stop");
+            //StartCoroutine(PauseEffect());
+            //effect.Play(true);
+            //effectOnScene.Stop();
+            //Destroy(effectOnScene, 2);
+        }
+    }
+
     IEnumerator PauseEffect()
     {
         yield return new WaitForSeconds(.5f); //0.12f

@@ -327,6 +327,27 @@ MonoBehaviour:
     m_Localized: 'Last save:'
     m_Metadata:
       m_Items: []
+  - m_Id: 119948205201866752
+    m_Localized: Are you sure you want to delete this file? You will not be able
+      to restore it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 119999243745280000
+    m_Localized: Checkpoint is achieved!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 120203333095964672
+    m_Localized: File name cannot be empty.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 120203589946753024
+    m_Localized: Save files cannot have same name.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 120277899495391232
+    m_Localized: File name contained illegal characters.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

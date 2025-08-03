@@ -13,7 +13,7 @@ public class LevelLoad: MonoBehaviour
     public GameObject loadingScreen;
     public float animationDuration = 0.75f;
     //ImageAnimation ia;
-    [Tooltip("For Next level button on End level screen")] public bool nextLevel; 
+    [Tooltip("For Next level button on End level screen.")] public bool nextLevel; 
     [Tooltip("Restart From Checkpoint")] public bool RFC;
     [Tooltip("Restart Entire Level")] public bool REL;
     void OnTriggerEnter(Collider col)
@@ -24,13 +24,13 @@ public class LevelLoad: MonoBehaviour
         currentScreen.GetComponent<Animator>().Play("LevelLoad");
         if (backScript != null) backScript.GetComponent<Back>().enabled = false;
         if(nextLevel)
-        StartCoroutine(LoadScene(PlayerPrefs.GetInt("lastLevel") + 1));
+        StartCoroutine(LoadScene(FileOverview.FindNextLevel()/*PlayerPrefs.GetInt("lastLevel") + 1*/));
         else if(RFC)
         StartCoroutine(LoadScene(PlayerPrefs.GetInt("lastLevel")));
         else if(REL)
         {
             StartCoroutine(LoadScene(PlayerPrefs.GetInt("lastLevel")));
-            PlayerPrefs.SetInt("lastCheckpoint", 0);
+            SaveSystem.Save(null, new List<string>(), 0, new List<string>(), null); // PlayerPrefs.SetInt("lastCheckpoint", 0);
         }
         else
         StartCoroutine(LoadScene(sceneIndex));
@@ -40,7 +40,7 @@ public class LevelLoad: MonoBehaviour
     {
         currentScreen.GetComponent<Animator>().Play("LevelLoad");
         Time.timeScale = 1;
-        if(entireLevel) PlayerPrefs.SetInt("lastCheckpoint", 0);
+        if (entireLevel) SaveSystem.Save(null, new List<string>(), 0, new List<string>(), null); //PlayerPrefs.SetInt("lastCheckpoint", 0);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

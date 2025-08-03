@@ -384,10 +384,10 @@ public class Movement : MonoBehaviour
     {
         if (col.CompareTag("SlideDown"))
         {
-
-            Quaternion childRotation = col.gameObject.transform.GetChild(0).rotation;
-            if (childRotation != null)
+            //if (childRotation != null)
+            if (col.gameObject.transform.childCount > 0)
             {
+                Quaternion childRotation = col.gameObject.transform.GetChild(0).rotation;
                 if (col.gameObject.transform.GetChild(0).localScale.x == 1)
                 {
                     transform.rotation = Quaternion.Lerp(transform.rotation, childRotation, Time.deltaTime * rotationSpeed);

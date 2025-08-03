@@ -88,6 +88,7 @@ public class CheckpointSystem : MonoBehaviour
                     //     Debug.LogWarning($"Об'єкт з ID {id} не знайдено серед унікальних об'єктів.");
                     // }
                 }
+                stopTime.ForceStopTime(SaveSystem.currentSaveData.checkpoint.stopSpherePosition);
             }
 
 
@@ -95,6 +96,6 @@ public class CheckpointSystem : MonoBehaviour
             //ps.Lives--;
             //PlayerPrefs.SetInt("lives", ps.lives); 
         }
-        //PlayerPrefs.SetInt("lastLevel",SceneManager.GetActiveScene().buildIndex);
+        PlayerPrefs.SetInt("lastLevel",SceneManager.GetActiveScene().buildIndex);
     }
 }

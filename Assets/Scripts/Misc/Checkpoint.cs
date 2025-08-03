@@ -8,6 +8,7 @@ public class Checkpoint : MonoBehaviour
 {
     [HideInInspector] public int index;
     GameObject player;
+    bool achieved;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -29,7 +30,11 @@ public class Checkpoint : MonoBehaviour
             SceneManager.GetActiveScene().buildIndex,
             player.GetComponent<PlayerStats>().health,
             player.GetComponent<StopTime_>().cdTimer,
-            player.GetComponent<StopTime_>().objectsInRange.Select(obj => new SavedObject(obj.gameObject)).ToArray(),
+            //player.GetComponent<StopTime_>().objectsInRange.Select(obj => new SavedObject(obj.gameObject)).ToArray(),
+            player.GetComponent<StopTime_>().objectsInRange
+            .Where(obj => obj != null && obj.gameObject != null)
+            .Select(obj => new SavedObject(obj.gameObject))
+            .ToArray(),
 
             new float[] { player.GetComponent<StopTime_>().effectGO.transform.position.x,
                         player.GetComponent<StopTime_>().effectGO.transform.position.y,
@@ -38,6 +43,8 @@ public class Checkpoint : MonoBehaviour
             player.GetComponent<PlayerStats>().skillsUnlocked
         );
 
+        GameObject.Find("Message:Checkpoint").GetComponent<Animator>().Play("ShowUp");
         SaveSystem.Save(null, new List<string>(), 0, new List<string>(), checkpoint);
+        achieved = true;
     }
 }

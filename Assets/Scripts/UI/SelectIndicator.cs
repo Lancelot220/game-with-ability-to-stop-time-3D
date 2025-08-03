@@ -60,10 +60,14 @@ public class SelectIndicator : MonoBehaviour
             // Автоселект при навігації
             if (navigate.ReadValue<Vector2>() != Vector2.zero)
             {
-                if (defaultSelectable != null)
+                if (defaultSelectable != null && defaultSelectable.gameObject.activeInHierarchy)
                 {
                     EventSystem.current.SetSelectedGameObject(defaultSelectable.gameObject);
-                }   
+                }
+                else
+                {
+                    EventSystem.current.SetSelectedGameObject(FindObjectOfType<Selectable>().gameObject);
+                }
             }
 
             // Сховати індикатор

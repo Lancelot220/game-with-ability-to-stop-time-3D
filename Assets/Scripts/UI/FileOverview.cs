@@ -27,7 +27,7 @@ public class FileOverview : MonoBehaviour
             orbsCollected = 0;
         }
 
-        if (levelsCompleted == 0)
+        if (levelsCompleted == 0 && SaveSystem.currentSaveData.checkpoint == null)
         {
             startButton.SetActive(true);
             continueButton.SetActive(false);
@@ -37,14 +37,13 @@ public class FileOverview : MonoBehaviour
             startButton.SetActive(false);
             continueButton.SetActive(true);
 
-            FindNextLevel();
+            nextLevelIndex = FindNextLevel();
         }
     }
 
-    //make it find which level is next to play
-    void FindNextLevel()
+    public static int FindNextLevel()
     {
-        int levelIndex = 0;
+        int levelIndex = 0; //a number from scene name
         foreach (string level in SaveSystem.currentSaveData.unlockedLevels)
         {
             string levelNum = level.Substring(3);
@@ -61,19 +60,25 @@ public class FileOverview : MonoBehaviour
         string sceneName = "Lvl" + levelIndex;
         int sceneCount = SceneManager.sceneCountInBuildSettings;
 
+        int nextLevel = -1;
         for (int i = 0; i < sceneCount; i++)
         {
             string path = SceneUtility.GetScenePathByBuildIndex(i);
             string name = System.IO.Path.GetFileNameWithoutExtension(path);
             if (name == sceneName)
             {
-                nextLevelIndex = i;
-                return;
+                //nextLevelIndex = i;
+                nextLevel = i;
+                //return;
             }
         }
 
-        Debug.LogWarning("Scene with name " + sceneName + " not found in Build Settings.");
-        nextLevelIndex = -1; // або залиш як було, якщо сцени немає
+        if (nextLevel == -1)
+        {
+            Debug.LogWarning("Scene with name " + sceneName + " not found in Build Settings.");
+        }
+        return nextLevel;
+        //nextLevelIndex = -1; // або залиш як було, якщо сцени немає
     }
 
     public void LoadNextLevel()

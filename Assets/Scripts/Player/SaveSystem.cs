@@ -5,6 +5,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System;
 using System.Diagnostics;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 
 public static class SaveSystem
 {
@@ -42,7 +43,7 @@ public static class SaveSystem
 
     public static void Load()
     {
-        string path = Application.persistentDataPath + "/" + PlayerPrefs.GetString("SaveFileName", "player1.gwtst3d");
+        string path = Path.Combine(Application.persistentDataPath, PlayerPrefs.GetString("SaveFileName", "player1.gwtst3d") + fileExtention);
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -114,6 +115,11 @@ public class SavedObject
 
     public SavedObject(GameObject obj)
     {
+        if (obj.GetComponent<UniqueID>() == null)
+        {
+            UnityEngine.Debug.LogWarning(obj.name + " was ignored because it does not have a UniqueID component.");
+            return;
+        }
         id = obj.GetComponent<UniqueID>().uniqueID;
         position = new float[3] { obj.transform.position.x, obj.transform.position.y, obj.transform.position.z };
         rotation = new float[4] { obj.transform.rotation.x, obj.transform.rotation.y, obj.transform.rotation.z, obj.transform.rotation.w };
