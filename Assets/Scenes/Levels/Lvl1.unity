@@ -11166,6 +11166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 0
+  achieved: 1
 --- !u!1001 &866169657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11606,6 +11607,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495113234382845370, guid: 6ccfd9f92746316449b1529fcca49fca,
+        type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495113234382845370, guid: 6ccfd9f92746316449b1529fcca49fca,
+        type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791657251744943371, guid: 6ccfd9f92746316449b1529fcca49fca,
+        type: 3}
+      propertyPath: defaultSelectable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7072504202411160455, guid: 6ccfd9f92746316449b1529fcca49fca,
         type: 3}
@@ -17058,6 +17074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 0
+  achieved: 1
 --- !u!1001 &1381921159
 PrefabInstance:
   m_ObjectHideFlags: 0

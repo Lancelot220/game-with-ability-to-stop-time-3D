@@ -6,16 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class Checkpoint : MonoBehaviour
 {
-    [HideInInspector] public int index;
+    /*[HideInInspector]*/ public int index;
     GameObject player;
-    bool achieved;
+    public bool achieved = true;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
     }
     void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("Player"))
+        if (col.CompareTag("Player") && !achieved && player.GetComponent<PlayerStats>().health > 0)
         { CheckpointAchieved(col.gameObject); print($"Checkpoint {index} achieved!"); }
     }
 
@@ -30,6 +30,7 @@ public class Checkpoint : MonoBehaviour
             SceneManager.GetActiveScene().buildIndex,
             player.GetComponent<PlayerStats>().health,
             player.GetComponent<StopTime_>().cdTimer,
+            player.GetComponent<StopTime_>().durationTimer,
             //player.GetComponent<StopTime_>().objectsInRange.Select(obj => new SavedObject(obj.gameObject)).ToArray(),
             player.GetComponent<StopTime_>().objectsInRange
             .Where(obj => obj != null && obj.gameObject != null)

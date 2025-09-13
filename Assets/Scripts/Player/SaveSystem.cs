@@ -86,18 +86,20 @@ public class CheckpointData
     public int health;
     public float time;
     public float timeStopCD;
+    public float durationTimer;
     public SavedObject[] stoppedObjects;
     public float[] stopSpherePosition;
 
     public int orbsCollected;
     public List<string> skillsUnlocked;
 
-    public CheckpointData(int checkpointIndex, int level, int health, float timeStopCD, SavedObject[] stoppedObjects, float[] stopSpherePosition, int orbsCollected, List<string> skillsUnlocked)
+    public CheckpointData(int checkpointIndex, int level, int health, float timeStopCD, float durationTimer, SavedObject[] stoppedObjects, float[] stopSpherePosition, int orbsCollected, List<string> skillsUnlocked)
     {
         this.checkpointIndex = checkpointIndex;
         this.level = level;
         this.health = health;
         this.timeStopCD = timeStopCD;
+        this.durationTimer = durationTimer;
         this.stoppedObjects = stoppedObjects;
         this.stopSpherePosition = stopSpherePosition;
 

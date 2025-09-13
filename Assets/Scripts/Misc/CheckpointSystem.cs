@@ -4,11 +4,13 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CheckpointSystem : MonoBehaviour
 {
     Checkpoint[] checkpoints;
     GameObject player;
+    //public GameObject noSaveFileError;
     //PlayerStats ps;
     void Start()
     {
@@ -18,14 +20,32 @@ public class CheckpointSystem : MonoBehaviour
         for (int i = 0; i < checkpoints.Length; i++) checkpoints[i].index = i;
 
         SaveSystem.Load();
-        if (SaveSystem.currentSaveData.checkpoint != null && SaveSystem.currentSaveData.checkpoint.level != SceneManager.GetActiveScene().buildIndex)
+        if (SaveSystem.currentSaveData != null)
         {
-            SaveSystem.currentSaveData.checkpoint = null;
+            if (SaveSystem.currentSaveData.checkpoint != null && SaveSystem.currentSaveData.checkpoint.level != SceneManager.GetActiveScene().buildIndex)
+            {
+                SaveSystem.currentSaveData.checkpoint = null;
+            }
+        }
+        else
+        {
+            //Debug.LogError("Save file does not found. Going to the Main Menu.");
+            Menu.OpenPopup(GameObject.Find("No Save File Error").transform.GetChild(0).gameObject);
+            GameObject.Find("No Save File Error").GetComponent<Image>().enabled = true;
+            Time.timeScale = 0;
+            return;
         }
 
         int cpIndex = 0;
         if (SaveSystem.currentSaveData.checkpoint != null)
         cpIndex = SaveSystem.currentSaveData.checkpoint.checkpointIndex; //PlayerPrefs.GetInt("lastCheckpoint");
+        for (int i = cpIndex; i < checkpoints.Length; i++)
+        {
+            if (/*i < checkpoints.Length && */checkpoints[i] != null)
+            {
+                checkpoints[i].achieved = false;
+            }
+        }
         
 
         // if (cpIndex > checkpoints.Length - 1 || cpIndex < 0) cpIndex = 0;
@@ -40,6 +60,7 @@ public class CheckpointSystem : MonoBehaviour
             player.GetComponent<PlayerStats>().health = SaveSystem.currentSaveData.checkpoint.health;
             player.GetComponent<PlayerStats>().skillsUnlocked = SaveSystem.currentSaveData.checkpoint.skillsUnlocked;
             player.GetComponent<StopTime_>().cdTimer = SaveSystem.currentSaveData.checkpoint.timeStopCD;
+            player.GetComponent<StopTime_>().durationTimer = SaveSystem.currentSaveData.checkpoint.durationTimer;
 
             if (SaveSystem.currentSaveData.checkpoint.stoppedObjects.Length > 0)
             {

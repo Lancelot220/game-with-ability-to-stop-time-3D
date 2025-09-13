@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class FileOverview : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class FileOverview : MonoBehaviour
         {
             levelsCompleted = 0;
             orbsCollected = 0;
+            Menu.OpenPopup(GameObject.Find("No Save File Error").transform.GetChild(0).gameObject);
+            GameObject.Find("No Save File Error").GetComponent<Image>().enabled = true;
+            return;
         }
 
         if (levelsCompleted == 0 && SaveSystem.currentSaveData.checkpoint == null)
@@ -55,6 +59,10 @@ public class FileOverview : MonoBehaviour
                     levelIndex = index;
                 }
             }
+        }
+        if (levelIndex == 0)
+        {
+            levelIndex = 1; // if no levels unlocked, start from level 1
         }
 
         string sceneName = "Lvl" + levelIndex;

@@ -44,7 +44,7 @@ public class SaveFilesManager : MonoBehaviour
             lastSaveText.text = "--";
         else
             lastSaveText.text = lastSave;
-        //fileMananagementButtons.GetComponentInChildren<TMP_InputField>(true).text = fileName;
+        fileMananagementButtons.GetComponentInChildren<TMP_InputField>(true).text = fileName;
     }
 
     void FileDoesntExist()
@@ -85,6 +85,7 @@ public class SaveFilesManager : MonoBehaviour
             File.Delete(path);
             PlayerPrefs.SetString("SaveFile" + slotIndex, "");
             PlayerPrefs.SetString("SaveFileName", "");
+            SaveSystem.currentSaveData = null;
             FileDoesntExist();
         }
         else
@@ -129,7 +130,7 @@ public class SaveFilesManager : MonoBehaviour
         string path = Path.Combine(Application.persistentDataPath, baseName + extension);
         int counter = 1;
 
-        while (File.Exists(path))
+        while (File.Exists(path) && inputName != fileName)
         {
             baseName = $"{inputName} ({counter})";
             if (baseName.Length > 20)

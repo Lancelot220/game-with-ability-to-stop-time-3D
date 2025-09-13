@@ -132,42 +132,48 @@ public class StopTime_ : MonoBehaviour
 
             print("Time has been stopped (by checkpoint)!"); timeStopped = true;
 
+            objectsInRange = Physics.OverlapSphere(new Vector3(pos[0], pos[1], pos[2]), range, stoppableObjects); //saved objects dont stop for spme reason :(
             //objectsInRange = Physics.OverlapSphere(transform.position, range, stoppableObjects);
-
-            foreach (Collider obj in objectsInRange)
-            {
-                Rigidbody rb = obj.gameObject.GetComponent<Rigidbody>();
-                Enemy enemy = obj.gameObject.GetComponent<Enemy>();
-                EnemyWithGun enemyWithGun = obj.gameObject.GetComponent<EnemyWithGun>();
-                NavMeshAgent navMeshAgent = obj.gameObject.GetComponent<NavMeshAgent>();
-                StoppableObject so = obj.gameObject.GetComponent<StoppableObject>();
-                if (rb != null)
+            // try
+            // {
+                foreach (Collider obj in objectsInRange)
                 {
-                    rb.constraints = RigidbodyConstraints.FreezeAll;
-                    rb.useGravity = false;
+                    Rigidbody rb = obj.gameObject.GetComponent<Rigidbody>();
+                    Enemy enemy = obj.gameObject.GetComponent<Enemy>();
+                    EnemyWithGun enemyWithGun = obj.gameObject.GetComponent<EnemyWithGun>();
+                    NavMeshAgent navMeshAgent = obj.gameObject.GetComponent<NavMeshAgent>();
+                    StoppableObject so = obj.gameObject.GetComponent<StoppableObject>();
+                    if (rb != null)
+                    {
+                        rb.constraints = RigidbodyConstraints.FreezeAll;
+                        rb.useGravity = false;
+                    }
+                    if (enemy != null)
+                    {
+                        navMeshAgentDst = navMeshAgent.destination;
+
+                        enemy.timeStopped = true;
+                        obj.gameObject.GetComponentInChildren<EnemyAttack>().timeStopped = true;
+
+                        navMeshAgent.SetDestination(obj.transform.position);
+                    }
+                    else if (enemyWithGun != null)
+                    {
+                        navMeshAgentDst = navMeshAgent.destination;
+
+                        enemyWithGun.timeStopped = true;
+                        obj.gameObject.GetComponentInChildren<EnemyGunAttack>().timeStopped = true;
+
+                        navMeshAgent.SetDestination(obj.transform.position);
+                    }
+
+                    if (so != null) so.TimeStopped();
                 }
-                if (enemy != null)
-                {
-                    navMeshAgentDst = navMeshAgent.destination;
-
-                    enemy.timeStopped = true;
-                    obj.gameObject.GetComponentInChildren<EnemyAttack>().timeStopped = true;
-
-                    navMeshAgent.SetDestination(obj.transform.position);
-                }
-                else if (enemyWithGun != null)
-                {
-                    navMeshAgentDst = navMeshAgent.destination;
-
-                    enemyWithGun.timeStopped = true;
-                    obj.gameObject.GetComponentInChildren<EnemyGunAttack>().timeStopped = true;
-
-                    navMeshAgent.SetDestination(obj.transform.position);
-                }
-
-                if (so != null) so.TimeStopped();
-            }
-
+            // }
+            // catch (Exception x)
+            // {
+            //     Debug.LogError("шо йому стало поняття не маю, помилка осьо: " + x.Message);
+            // }
             //StartCoroutine(UnfreezeTime());
 
             //durationTimer = duration;

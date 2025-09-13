@@ -408,6 +408,16 @@ MonoBehaviour:
       \u0441\u0438\u043C\u0432\u043E\u043B\u0438."
     m_Metadata:
       m_Items: []
+  - m_Id: 126122466484469760
+    m_Localized: "\u0424\u0430\u0439\u043B \u0437\u0431\u0435\u0440\u0435\u0436\u0435\u043D\u043D\u044F
+      \u043D\u0435 \u0437\u043D\u0430\u0439\u0434\u0435\u043D\u043E \u0430\u0431\u043E
+      \u0432\u0456\u043D \u043F\u043E\u0448\u043A\u043E\u0434\u0436\u0435\u043D\u0438\u0439."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 126468350816600064
+    m_Localized: "\u041D\u0430\u0437\u0430\u0434"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

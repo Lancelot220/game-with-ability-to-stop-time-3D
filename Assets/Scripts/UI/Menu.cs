@@ -78,7 +78,7 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void OpenPopup(GameObject popup)
+    static public void OpenPopup(GameObject popup)
     {
         popup.SetActive(true);
         popup.GetComponentInChildren<Animator>().Play("Open");
