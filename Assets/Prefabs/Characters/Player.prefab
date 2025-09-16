@@ -660,7 +660,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6541527069278340139}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 70
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -701,7 +701,7 @@ MonoBehaviour:
   acceleration: 12
   rotationSpeed: 5
   inAirRotationSpeed: 0.5
-  jumpForce: 300
+  jumpForce: 21000
   onGround: 0
   coyoteTime: 0.2
   jumpDelay: 0.5
@@ -1861,12 +1861,12 @@ PrefabInstance:
     - target: {fileID: 5428442631965624430, guid: 5c8c7cde0b08a234180e00152d6aac65,
         type: 3}
       propertyPath: knockback
-      value: 3
+      value: 210
       objectReference: {fileID: 0}
     - target: {fileID: 5428442631965624430, guid: 5c8c7cde0b08a234180e00152d6aac65,
         type: 3}
       propertyPath: knockbackY
-      value: 3
+      value: 210
       objectReference: {fileID: 0}
     - target: {fileID: 5428442631965624430, guid: 5c8c7cde0b08a234180e00152d6aac65,
         type: 3}
@@ -1876,7 +1876,7 @@ PrefabInstance:
     - target: {fileID: 5428442631965624430, guid: 5c8c7cde0b08a234180e00152d6aac65,
         type: 3}
       propertyPath: attackMoveForce
-      value: 20
+      value: 1400
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6465589913244406237, guid: 5c8c7cde0b08a234180e00152d6aac65, type: 3}
