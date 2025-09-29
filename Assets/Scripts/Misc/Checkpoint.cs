@@ -24,24 +24,28 @@ public class Checkpoint : MonoBehaviour
         // PlayerPrefs.SetInt("lastCheckpoint", index);
         // PlayerPrefs.SetFloat("time", player.GetComponent<PlayerStats>().time);
         // PlayerPrefs.SetInt("orbsCollected", player.GetComponent<PlayerStats>().orbsCollected);
+        var objectsInRange = new SavedObject[1];
+        if (player.GetComponent<StopTime_>().objectsInRange != null)
+        objectsInRange =
+        player.GetComponent<StopTime_>().objectsInRange
+            .Where(obj => obj != null && obj.gameObject != null)
+            .Select(obj => new SavedObject(obj.gameObject))
+            .ToArray();
 
         CheckpointData checkpoint = new CheckpointData(
             index,
             SceneManager.GetActiveScene().buildIndex,
             player.GetComponent<PlayerStats>().health,
+            player.GetComponent<PlayerStats>().time,
             player.GetComponent<StopTime_>().cdTimer,
             player.GetComponent<StopTime_>().durationTimer,
+            objectsInRange,
             //player.GetComponent<StopTime_>().objectsInRange.Select(obj => new SavedObject(obj.gameObject)).ToArray(),
-            player.GetComponent<StopTime_>().objectsInRange
-            .Where(obj => obj != null && obj.gameObject != null)
-            .Select(obj => new SavedObject(obj.gameObject))
-            .ToArray(),
-
             new float[] { player.GetComponent<StopTime_>().effectGO.transform.position.x,
                         player.GetComponent<StopTime_>().effectGO.transform.position.y,
                         player.GetComponent<StopTime_>().effectGO.transform.position.z },
             player.GetComponent<PlayerStats>().orbsCollected,
-            player.GetComponent<PlayerStats>().skillsUnlocked
+            player.GetComponent<PlayerStats>().unlockedSkills
         );
 
         GameObject.Find("Message:Checkpoint").GetComponent<Animator>().Play("ShowUp");

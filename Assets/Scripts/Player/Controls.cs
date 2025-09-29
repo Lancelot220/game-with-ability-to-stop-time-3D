@@ -163,7 +163,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Trick"",
+                    ""name"": ""Skill"",
                     ""type"": ""Value"",
                     ""id"": ""1daa2f46-e874-4d9e-90af-166f65158d81"",
                     ""expectedControlType"": ""Axis"",
@@ -750,7 +750,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Trick"",
+                    ""action"": ""Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -761,7 +761,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Trick"",
+                    ""action"": ""Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1122,6 +1122,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""101605f6-ccaf-4c29-ab10-877d9ff52ed0"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""82627dcc-3b13-4ba9-841d-e4b746d6553e"",
                     ""path"": ""*/{Cancel}"",
                     ""interactions"": """",
@@ -1291,7 +1302,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player__360 = m_Player.FindAction("360", throwIfNotFound: true);
         m_Player_FrontflipAttack = m_Player.FindAction("FrontflipAttack", throwIfNotFound: true);
         m_Player_BackFlip = m_Player.FindAction("BackFlip", throwIfNotFound: true);
-        m_Player_Trick = m_Player.FindAction("Trick", throwIfNotFound: true);
+        m_Player_Skill = m_Player.FindAction("Skill", throwIfNotFound: true);
         m_Player_Slide = m_Player.FindAction("Slide", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -1379,7 +1390,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player__360;
     private readonly InputAction m_Player_FrontflipAttack;
     private readonly InputAction m_Player_BackFlip;
-    private readonly InputAction m_Player_Trick;
+    private readonly InputAction m_Player_Skill;
     private readonly InputAction m_Player_Slide;
     public struct PlayerActions
     {
@@ -1400,7 +1411,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @_360 => m_Wrapper.m_Player__360;
         public InputAction @FrontflipAttack => m_Wrapper.m_Player_FrontflipAttack;
         public InputAction @BackFlip => m_Wrapper.m_Player_BackFlip;
-        public InputAction @Trick => m_Wrapper.m_Player_Trick;
+        public InputAction @Skill => m_Wrapper.m_Player_Skill;
         public InputAction @Slide => m_Wrapper.m_Player_Slide;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -1456,9 +1467,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @BackFlip.started += instance.OnBackFlip;
             @BackFlip.performed += instance.OnBackFlip;
             @BackFlip.canceled += instance.OnBackFlip;
-            @Trick.started += instance.OnTrick;
-            @Trick.performed += instance.OnTrick;
-            @Trick.canceled += instance.OnTrick;
+            @Skill.started += instance.OnSkill;
+            @Skill.performed += instance.OnSkill;
+            @Skill.canceled += instance.OnSkill;
             @Slide.started += instance.OnSlide;
             @Slide.performed += instance.OnSlide;
             @Slide.canceled += instance.OnSlide;
@@ -1511,9 +1522,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @BackFlip.started -= instance.OnBackFlip;
             @BackFlip.performed -= instance.OnBackFlip;
             @BackFlip.canceled -= instance.OnBackFlip;
-            @Trick.started -= instance.OnTrick;
-            @Trick.performed -= instance.OnTrick;
-            @Trick.canceled -= instance.OnTrick;
+            @Skill.started -= instance.OnSkill;
+            @Skill.performed -= instance.OnSkill;
+            @Skill.canceled -= instance.OnSkill;
             @Slide.started -= instance.OnSlide;
             @Slide.performed -= instance.OnSlide;
             @Slide.canceled -= instance.OnSlide;
@@ -1680,7 +1691,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void On_360(InputAction.CallbackContext context);
         void OnFrontflipAttack(InputAction.CallbackContext context);
         void OnBackFlip(InputAction.CallbackContext context);
-        void OnTrick(InputAction.CallbackContext context);
+        void OnSkill(InputAction.CallbackContext context);
         void OnSlide(InputAction.CallbackContext context);
     }
     public interface IUIActions

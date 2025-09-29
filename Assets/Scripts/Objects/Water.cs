@@ -38,52 +38,56 @@ public class Water : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
 
-        
+
         Transform destination = null;
-        if(!useCondition)
+        if (pointsOnGround.Length != 0)
         {
-            float distance = Mathf.Infinity;
-            foreach (Transform point in pointsOnGround)
-            {
-                if(Vector3.Distance(player.position, point.position) < distance)
-                destination = point;
-                distance = Vector3.Distance(player.position, point.position);
-            }
-        }
-        else
-        {
-            if (condition)
+            if (!useCondition)
             {
                 float distance = Mathf.Infinity;
-                foreach (Transform point in pointsToReach)
+                foreach (Transform point in pointsOnGround)
                 {
-                    if(Vector3.Distance(player.position, point.position) < distance)
-                    destination = point;
+                    if (Vector3.Distance(player.position, point.position) < distance)
+                        destination = point;
                     distance = Vector3.Distance(player.position, point.position);
                 }
             }
             else
             {
-                float distance = Mathf.Infinity;
-                foreach (Transform point in pointsOnGround)
+                if (condition)
                 {
-                    if(Vector3.Distance(player.position, point.position) < distance)
-                    destination = point;
-                    distance = Vector3.Distance(player.position, point.position);
+                    float distance = Mathf.Infinity;
+                    foreach (Transform point in pointsToReach)
+                    {
+                        if (Vector3.Distance(player.position, point.position) < distance)
+                            destination = point;
+                        distance = Vector3.Distance(player.position, point.position);
+                    }
+                }
+                else
+                {
+                    float distance = Mathf.Infinity;
+                    foreach (Transform point in pointsOnGround)
+                    {
+                        if (Vector3.Distance(player.position, point.position) < distance)
+                            destination = point;
+                        distance = Vector3.Distance(player.position, point.position);
+                    }
                 }
             }
-        }
 
-        player.position = destination.position;
-        playerObj.GetComponent<Movement>().enabled = true;
-        playerObj.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-        screenAnimator.Play("FadeOut");
+            player.position = destination.position;
+            playerObj.GetComponent<Movement>().enabled = true;
+            playerObj.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+            screenAnimator.Play("FadeOut");
 
-        if(breakablesToReset.Length > 0)
-        {
-            foreach (GameObject breakable in breakablesToReset)
+
+            if (breakablesToReset.Length > 0)
             {
-                breakable.SetActive(true);
+                foreach (GameObject breakable in breakablesToReset)
+                {
+                    breakable.SetActive(true);
+                }
             }
         }
     }    

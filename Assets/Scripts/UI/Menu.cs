@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
+
 //using Unity.PlasticSCM.Editor.WebApi;
 //using UnityEditor.SearchService;
 using UnityEngine;
@@ -20,7 +23,7 @@ public class Menu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        if(isInMainMenu && PlayerPrefs.GetInt("BackToMainMenu", 0) == 1)
+        if (isInMainMenu && PlayerPrefs.GetInt("BackToMainMenu", 0) == 1)
         {
             PlayerPrefs.SetInt("BackToMainMenu", 0);
             StartCoroutine(PlayOnNextFrame());
@@ -37,18 +40,18 @@ public class Menu : MonoBehaviour
     public void BackTo(bool toMainMenu)
     {
         animator = currentScreen.GetComponent<Animator>();
-        if(!useTransition) animator.Play("Back"); else animator.Play("LevelLoad");
+        if (!useTransition) animator.Play("Back"); else animator.Play("LevelLoad");
         if (!toMainMenu)
-        StartCoroutine(ChangeScreen());
+            StartCoroutine(ChangeScreen());
         else
         {
             Time.timeScale = 1;
             StartCoroutine(BackToMainMenu());
             //GetComponent<LevelLoad>().LoadLevel(0); 
-            Movement m = GameObject.Find("Player").GetComponent<Movement>(); 
-            if(m != null) m.enabled = false;
+            Movement m = GameObject.Find("Player").GetComponent<Movement>();
+            if (m != null) m.enabled = false;
             PlayerStats ps = GameObject.Find("Player").GetComponent<PlayerStats>();
-            if(ps != null) ps.enabled = false;
+            if (ps != null) ps.enabled = false;
             print("TRYING TO EEEXXXIIITTT");
         }
     }
@@ -83,5 +86,14 @@ public class Menu : MonoBehaviour
         popup.SetActive(true);
         popup.GetComponentInChildren<Animator>().Play("Open");
         popup.GetComponentInChildren<Button>().Select();
+    }
+
+    public void Close()
+    {
+        GameObject screen = transform.parent.gameObject;
+        Destroy(screen);
+        Time.timeScale = 1f;
+        GameObject.Find("HUD").GetComponent<Animator>().enabled = false;
+        GameObject.Find("Black Screen").GetComponent<UnityEngine.UI.Image>().color = new Color(0, 0, 0, 0);
     }
 }

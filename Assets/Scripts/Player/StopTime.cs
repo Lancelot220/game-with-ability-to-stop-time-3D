@@ -82,7 +82,8 @@ public class StopTime_ : MonoBehaviour
                 StoppableObject so = obj.gameObject.GetComponent<StoppableObject>();
                 if(rb != null)
                 {
-                    rb.constraints = RigidbodyConstraints.FreezeAll;
+                    //rb.constraints = RigidbodyConstraints.FreezeAll;
+                    rb.isKinematic = true;
                     rb.useGravity = false;
                 }
                 if (enemy != null)
@@ -145,7 +146,8 @@ public class StopTime_ : MonoBehaviour
                     StoppableObject so = obj.gameObject.GetComponent<StoppableObject>();
                     if (rb != null)
                     {
-                        rb.constraints = RigidbodyConstraints.FreezeAll;
+                        //rb.constraints = RigidbodyConstraints.FreezeAll;
+                        rb.isKinematic = true;
                         rb.useGravity = false;
                     }
                     if (enemy != null)
@@ -227,7 +229,7 @@ public class StopTime_ : MonoBehaviour
 
                     navMeshAgent.SetDestination(navMeshAgentDst);
                 }
-                else { if(rb != null) rb.constraints = RigidbodyConstraints.None; }
+                else { if(rb != null) /*rb.constraints = RigidbodyConstraints.None;*/ rb.isKinematic = false; }
 
                 if(so != null) so.TimeUnfreezed();
             }
@@ -275,7 +277,7 @@ public class StopTime_ : MonoBehaviour
 
                     navMeshAgent.SetDestination(navMeshAgentDst);
                 }
-                else { if(rb != null) rb.constraints = RigidbodyConstraints.None; }
+                else { if(rb != null) /*rb.constraints = RigidbodyConstraints.None;*/  rb.isKinematic = false; }
 
                 if(so != null) so.TimeUnfreezed();
             }

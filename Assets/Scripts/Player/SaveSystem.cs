@@ -23,8 +23,17 @@ public static class SaveSystem
         }
         else
         {
-            currentSaveData.completedLevels.Add(level);
-            currentSaveData.unlockedLevels.AddRange(unlockedLevels);
+            if(!string.IsNullOrEmpty(level) && !currentSaveData.completedLevels.Contains(level)) currentSaveData.completedLevels.Add(level);
+            if (unlockedLevels != null && unlockedLevels.Count > 0)
+            {
+                foreach (var unlockedLevel in unlockedLevels)
+                {
+                    if (!currentSaveData.unlockedLevels.Contains(unlockedLevel))
+                    {
+                        currentSaveData.unlockedLevels.Add(unlockedLevel);
+                    }
+                }
+            }
             currentSaveData.totalOrbsCollected += orbs;
             foreach (string skill in skills)
             {
@@ -91,20 +100,21 @@ public class CheckpointData
     public float[] stopSpherePosition;
 
     public int orbsCollected;
-    public List<string> skillsUnlocked;
+    public List<string> unlockedSkills;
 
-    public CheckpointData(int checkpointIndex, int level, int health, float timeStopCD, float durationTimer, SavedObject[] stoppedObjects, float[] stopSpherePosition, int orbsCollected, List<string> skillsUnlocked)
+    public CheckpointData(int checkpointIndex, int level, int health, float time, float timeStopCD, float durationTimer, SavedObject[] stoppedObjects, float[] stopSpherePosition, int orbsCollected, List<string> skillsUnlocked)
     {
         this.checkpointIndex = checkpointIndex;
         this.level = level;
         this.health = health;
+        this.time = time;
         this.timeStopCD = timeStopCD;
         this.durationTimer = durationTimer;
         this.stoppedObjects = stoppedObjects;
         this.stopSpherePosition = stopSpherePosition;
 
         this.orbsCollected = orbsCollected;
-        this.skillsUnlocked = skillsUnlocked;
+        this.unlockedSkills = skillsUnlocked;
     }
 }
 

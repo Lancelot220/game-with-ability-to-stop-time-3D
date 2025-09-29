@@ -26,6 +26,8 @@ public class CheckpointSystem : MonoBehaviour
             {
                 SaveSystem.currentSaveData.checkpoint = null;
             }
+
+            player.GetComponent<PlayerStats>().unlockedSkills = SaveSystem.currentSaveData.unlockedSkills;
         }
         else
         {
@@ -58,7 +60,8 @@ public class CheckpointSystem : MonoBehaviour
             player.GetComponent<PlayerStats>().orbsCollected = SaveSystem.currentSaveData.totalOrbsCollected; //PlayerPrefs.GetInt("orbsCollected");
 
             player.GetComponent<PlayerStats>().health = SaveSystem.currentSaveData.checkpoint.health;
-            player.GetComponent<PlayerStats>().skillsUnlocked = SaveSystem.currentSaveData.checkpoint.skillsUnlocked;
+            player.GetComponent<PlayerStats>().time = SaveSystem.currentSaveData.checkpoint.time;
+            player.GetComponent<PlayerStats>().unlockedSkills = SaveSystem.currentSaveData.checkpoint.unlockedSkills;
             player.GetComponent<StopTime_>().cdTimer = SaveSystem.currentSaveData.checkpoint.timeStopCD;
             player.GetComponent<StopTime_>().durationTimer = SaveSystem.currentSaveData.checkpoint.durationTimer;
 

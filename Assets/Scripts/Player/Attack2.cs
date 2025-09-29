@@ -30,8 +30,8 @@ public class Attack2 : MonoBehaviour
     public float knockbackY = 5;
     public float knockbackTime = 5;
     
-    [Header("Tricks")]
-    public float tricksCooldown = 5;
+    [Header("Skills")]
+    public float skillsCooldown = 5;
     public bool allow360 = true;
     public bool allowJumpWith360 = true;
     public bool allowFrontflipattack = true;
@@ -45,9 +45,9 @@ public class Attack2 : MonoBehaviour
     TrailRenderer[] trails;
    bool jumpedWith360;
    bool attackEnded;
-   [SerializeField] float tricksCDTimer;
-   Slider tricksCD;
-   [SerializeField] bool trickPerformed;
+   [SerializeField] float skillsCDTimer;
+   Slider skillsCD;
+   [SerializeField] bool skillUsed;
 
     //Input
     Controls ctrls;
@@ -56,10 +56,10 @@ public class Attack2 : MonoBehaviour
     InputAction do360;
     InputAction frontflipAttack;
     InputAction backflip;
-    InputAction trick;
+    InputAction skill;
 
     void Awake() { ctrls = new Controls(); m = GetComponentInParent<Movement>(); playerTransform = m.gameObject.transform; }
-    void Start() { jaPower = attackPower * jaMultipier; tricksCD = GameObject.Find("TricksCD").GetComponent<Slider>(); tricksCD.gameObject.SetActive(false); }
+    void Start() { jaPower = attackPower * jaMultipier; skillsCD = GameObject.Find("TricksCD").GetComponent<Slider>(); skillsCD.gameObject.SetActive(false); }
     void OnEnable()
     {
         attack = ctrls.Player.Attack;
@@ -78,8 +78,8 @@ public class Attack2 : MonoBehaviour
         backflip = ctrls.Player.BackFlip;
         backflip.Enable();
 
-        trick = ctrls.Player.Trick;
-        trick.Enable();
+        skill = ctrls.Player.Skill;
+        skill.Enable();
     }
     void OnDisable()
     { 
@@ -88,7 +88,7 @@ public class Attack2 : MonoBehaviour
         do360.Disable();
         frontflipAttack.Disable();
         backflip.Disable();
-        trick.Disable();
+        skill.Disable();
     }
     void Attack(InputAction.CallbackContext context)
     {
@@ -153,21 +153,25 @@ public class Attack2 : MonoBehaviour
             }
         }
 
-        //reset tricks cooldown timer if player performed a trick
-        if (trickPerformed)
+        //reset skills cooldown timer if player used a skill
+        if (skillUsed)
         {
-            tricksCDTimer = tricksCooldown;
-            trickPerformed = false;
+            skillsCDTimer = skillsCooldown;
+            skillUsed = false;
         }
     }
 
     void Update()
     {
+        allow360 = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("360");
+        allowJumpWith360 = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("JumpWith360");
+        allowFrontflipattack = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("FrontflipAttack");
+        allowBackflip = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("Backflip");
         //if (attacking && m.onGround) 
 
         if (!attacking)
         {
-            if(comboTimeCounter > -1) comboTimeCounter -= Time.deltaTime;
+            if (comboTimeCounter > -1) comboTimeCounter -= Time.deltaTime;
             m.animator.SetFloat("combo", comboTimeCounter);
         }
 
@@ -193,7 +197,7 @@ public class Attack2 : MonoBehaviour
             }
             else if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Actual360" || 
             m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "FrontflipAttack" || 
-            m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Backflip") trickPerformed = true;
+            m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Backflip") skillUsed = true;
             else if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Attack1" || 
             m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Attack2") attackPower = defaultPower;
         }
@@ -202,35 +206,35 @@ public class Attack2 : MonoBehaviour
         //block
         if(!attacking && Time.timeScale != 0) m.animator.SetBool("block", block.ReadValue<float>() > 0);
         //360 attack
-        m.animator.SetBool("360", do360.ReadValue<Vector2>().x > 0 && do360.ReadValue<Vector2>().y > 0 && allow360 && tricksCDTimer <= 0);
+        m.animator.SetBool("360", do360.ReadValue<Vector2>().x > 0 && do360.ReadValue<Vector2>().y > 0 && allow360 && skillsCDTimer <= 0);
         if(m.onGround) jumpedWith360 = false;
         //Frontflip attack
-        m.animator.SetBool("frontflipAttack", frontflipAttack.ReadValue<Vector2>().x > 0 && frontflipAttack.ReadValue<Vector2>().y > 0 && allowFrontflipattack  && tricksCDTimer <= 0);
+        m.animator.SetBool("frontflipAttack", frontflipAttack.ReadValue<Vector2>().x > 0 && frontflipAttack.ReadValue<Vector2>().y > 0 && allowFrontflipattack  && skillsCDTimer <= 0);
         //Backflip
-        m.animator.SetBool("backflip", backflip.ReadValue<Vector2>().x > 0 && backflip.ReadValue<Vector2>().y > 0 && allowBackflip && tricksCDTimer <= 0);
+        m.animator.SetBool("backflip", backflip.ReadValue<Vector2>().x > 0 && backflip.ReadValue<Vector2>().y > 0 && allowBackflip && skillsCDTimer <= 0);
 
         if(!attacking) m.animator.gameObject.transform.localEulerAngles = Vector2.zero;
 
-        //tricks cooldown
-        if(tricksCDTimer > -1) tricksCDTimer -= Time.deltaTime;
-        if(tricksCD != null)
+        //skills cooldown
+        if(skillsCDTimer > -1) skillsCDTimer -= Time.deltaTime;
+        if(skillsCD != null)
         {
-            if(tricksCDTimer > 0) tricksCD.gameObject.SetActive(true);
-            else tricksCD.gameObject.SetActive(false);
-            tricksCD.value = tricksCooldown - tricksCDTimer;
+            if(skillsCDTimer > 0) skillsCD.gameObject.SetActive(true);
+            else skillsCD.gameObject.SetActive(false);
+            skillsCD.value = skillsCooldown - skillsCDTimer;
         }
     }
 
     // public void Roll(float x)
     // {
-    //     if(allowRoll && tricksCDTimer <= 0 && x != 0 && trick.ReadValue<float>() > 0 && m.onGround)
+    //     if(allowRoll && skillsCDTimer <= 0 && x != 0 && skill.ReadValue<float>() > 0 && m.onGround)
     //     {
     //         m.animator.SetTrigger("roll");
     //         //m.animator.SetBool("isCrouching", false);
     //         if(x > 0) { x = 1; m.animator.SetBool("rollDir", true); }
     //         else { x = -1; m.animator.SetBool("rollDir", false); }
     //         m.rb.AddForce(playerTransform.right * x * attackMoveForce, ForceMode.Impulse);
-    //         tricksCDTimer = 1f;
+    //         skillsCDTimer = 1f;
     //     }
     // }
 
