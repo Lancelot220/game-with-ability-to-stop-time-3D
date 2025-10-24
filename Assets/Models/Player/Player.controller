@@ -1959,10 +1959,10 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -8261761207807400017}
-  - {fileID: -5584490684987348532}
-  - {fileID: 1683527459866432094}
   - {fileID: 767511448622026827}
   - {fileID: 7818744273277333726}
+  - {fileID: -5584490684987348532}
+  - {fileID: 1683527459866432094}
   - {fileID: 4443239584843226724}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
