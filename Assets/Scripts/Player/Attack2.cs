@@ -206,9 +206,12 @@ public class Attack2 : MonoBehaviour
         if (m.onGround) jumpedWith360 = false;
         //Frontflip attack
         bool ffaPressed = frontflipAttack.ReadValue<Vector2>().x > 0 && frontflipAttack.ReadValue<Vector2>().y > 0 && allowFrontflipattack && skillsCDTimer <= 0;
-        m.animator.SetBool("frontflipAttack", ffaPressed);
-        if(ffaPressed) ShowTrajectory();
-        else line.enabled = false;
+        
+        //disabble for a build due to being unfinished
+        // m.animator.SetBool("frontflipAttack", ffaPressed);
+        // if(ffaPressed) ShowTrajectory();
+        // else line.enabled = false;
+
         //Backflip
         m.animator.SetBool("backflip", backflip.ReadValue<Vector2>().x > 0 && backflip.ReadValue<Vector2>().y > 0 && allowBackflip && skillsCDTimer <= 0);
 

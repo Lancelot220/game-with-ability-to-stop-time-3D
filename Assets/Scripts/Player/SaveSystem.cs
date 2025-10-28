@@ -4,8 +4,8 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System;
-using System.Diagnostics;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
+// using System.Diagnostics;
+// using UnityEditor.Localization.Plugins.XLIFF.V12;
 
 public static class SaveSystem
 {
