@@ -139,6 +139,7 @@ public class Attack2 : MonoBehaviour
             }
             else if (m.animator.GetBool("frontflipAttack") && allowFrontflipattack && m.onGround) //FRONTFLIP ATTACK
             {
+                m.CrouchStop_();
                 m.rb.velocity = playerTransform.forward * m.defaultSpeed;
                 m.rb.AddForce(new Vector3(m.rb.velocity.x, m.jumpForce, m.rb.velocity.z));
                 line.transform.SetParent(null);
@@ -264,12 +265,14 @@ public class Attack2 : MonoBehaviour
 
         //skills cooldown
         if(skillsCDTimer > -1) skillsCDTimer -= Time.deltaTime;
-        if(skillsCD != null)
+        if (skillsCD != null)
         {
-            if(skillsCDTimer > 0) skillsCD.gameObject.SetActive(true);
+            if (skillsCDTimer > 0) skillsCD.gameObject.SetActive(true);
             else skillsCD.gameObject.SetActive(false);
             skillsCD.value = skillsCooldown - skillsCDTimer;
         }
+
+        //if (m.animator.GetCurrentAnimatorClipInfo(0).Length > 0 && m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "FrontflipAttack") m.speed = m.defaultSpeed;
     }
 
     // public void Roll(float x)

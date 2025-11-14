@@ -21,23 +21,23 @@ MonoBehaviour:
     maxLODGenerated: 2
     initialLODMaxPolyCount: 500000
   lod0:
-  - {fileID: -7511558181221131132, guid: 443c43f19291a2c44a35d1fd0d3dc39a, type: 3}
+  - {fileID: 0}
   lod1:
-  - {fileID: -8782935803120314750, guid: 443c43f19291a2c44a35d1fd0d3dc39a, type: 3}
+  - {fileID: 0}
   lod2:
-  - {fileID: 4318205983861278266, guid: 443c43f19291a2c44a35d1fd0d3dc39a, type: 3}
+  - {fileID: 0}
   lod3: []
   lod4: []
   lod5: []
   lod6: []
   lod7: []
---- !u!43 &1069792013613224738
+--- !u!43 &328802553819025141
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "\u041F\u043B\u043E\u0449\u0438\u043D\u0430 LOD1"
+  m_Name: "\u041F\u043B\u043E\u0449\u0438\u043D\u0430 LOD2"
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -196,13 +196,13 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!43 &3757763062159894561
+--- !u!43 &5940402539077686274
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "\u041F\u043B\u043E\u0449\u0438\u043D\u0430 LOD2"
+  m_Name: "\u041F\u043B\u043E\u0449\u0438\u043D\u0430 LOD1"
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2

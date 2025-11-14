@@ -21,23 +21,23 @@ MonoBehaviour:
     maxLODGenerated: 2
     initialLODMaxPolyCount: 500000
   lod0:
-  - {fileID: 2300000, guid: 9446cfbf8049f8840a94568ebfd2ea85, type: 3}
+  - {fileID: 0}
   lod1:
-  - {fileID: -6565219183689232548, guid: 9446cfbf8049f8840a94568ebfd2ea85, type: 3}
+  - {fileID: 0}
   lod2:
-  - {fileID: 1032228653574758555, guid: 9446cfbf8049f8840a94568ebfd2ea85, type: 3}
+  - {fileID: 0}
   lod3: []
   lod4: []
   lod5: []
   lod6: []
   lod7: []
---- !u!43 &279148911424764941
+--- !u!43 &259500290205215205
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FloorTiny LOD2
+  m_Name: FloorTiny LOD1
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -196,13 +196,13 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!43 &1424469124912496871
+--- !u!43 &4048032409112439624
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FloorTiny LOD1
+  m_Name: FloorTiny LOD2
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
