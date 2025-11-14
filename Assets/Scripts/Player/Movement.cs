@@ -25,6 +25,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float rotationSpeed = 3f;
     [SerializeField] private float inAirRotationSpeed = 0.1f;
     private float defaultRotationSpeed;
+    public bool aimMode;
     
     [Header("Jumping")]
     public float jumpForce = 300f;
@@ -314,13 +315,16 @@ public class Movement : MonoBehaviour
             rb.velocity = airMovement;
         }
 
-        if (dir != Vector2.zero && 
+        if (dir != Vector2.zero &&
         !isClimbing &&
         animator.GetCurrentAnimatorClipInfo(0).Length > 0 &&
-        animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "LandingHard" && 
+        animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "LandingHard" &&
         animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "GetUp" &&
-        animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "RollLeft" &&
-        animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "RollRight")
+        animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "FrontflipAttack" &&
+        animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Backflip" &&
+        // animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "RollLeft" &&
+        // animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "RollRight"
+        !aimMode)
         {
             float targetAngle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);

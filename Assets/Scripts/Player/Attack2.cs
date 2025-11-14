@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Unity.VisualScripting;
 using UnityEditor;
 //using UnityEditor.Callbacks;
@@ -35,6 +36,8 @@ public class Attack2 : MonoBehaviour
     public bool allow360 = true;
     public bool allowJumpWith360 = true;
     public bool allowFrontflipattack = true;
+    public float ffaSwordThickness = 0.02f;
+    float defaultSwordThickness;
     public bool allowBackflip = true;
     //public bool allowRoll = true;
 
@@ -58,14 +61,10 @@ public class Attack2 : MonoBehaviour
     InputAction backflip;
     InputAction skill;
 
-    [Header("Trajectory")]
-    //public Rigidbody rb; // посилання на rigidbody гравця
-    //public Transform playerTransform; // напрямок гравця
-    public float defaultSpeed = 10f;
-    public float jumpForce = 7f;
-    public int resolution = 30; // кількість точок траєкторії
-    public float timeStep = 0.1f; // проміжок часу між точками
-    public LayerMask collisionMask; // для перевірки зіткнень
+    [Header("Aim mode")]
+    public CinemachineFreeLook mainCam;
+    public CinemachineFreeLook aimCam;
+
     LineRenderer line;
     Vector3 trLocalPos;
     void Awake() { ctrls = new Controls(); m = GetComponentInParent<Movement>(); playerTransform = m.gameObject.transform; }
@@ -79,6 +78,11 @@ public class Attack2 : MonoBehaviour
         line = m.GetComponentInChildren<LineRenderer>();
         line.enabled = false;
         trLocalPos = line.transform.localPosition;
+
+        mainCam = GameObject.Find("FreeLook Camera").GetComponent<CinemachineFreeLook>();
+        aimCam = GameObject.Find("Aim Camera").GetComponent<CinemachineFreeLook>();
+
+        defaultSwordThickness = GetComponent<BoxCollider>().size.z;
     }
     void OnEnable()
     {
@@ -138,6 +142,7 @@ public class Attack2 : MonoBehaviour
                 m.rb.velocity = playerTransform.forward * m.defaultSpeed;
                 m.rb.AddForce(new Vector3(m.rb.velocity.x, m.jumpForce, m.rb.velocity.z));
                 line.transform.SetParent(null);
+                GetComponent<BoxCollider>().size = new Vector3(GetComponent<BoxCollider>().size.x, GetComponent<BoxCollider>().size.y, ffaSwordThickness);
             }
             else if (m.animator.GetBool("backflip") && allowBackflip && m.onGround) //BACKFLIP
             {
@@ -155,6 +160,8 @@ public class Attack2 : MonoBehaviour
             StartCoroutine(Rumble.RumblePulse(0.25f, 1f, 0.25f));
 
             attackEnded = false;
+
+            if (recording) trajectoryPoints = new List<Vector3>();
         }
     }
 
@@ -183,8 +190,12 @@ public class Attack2 : MonoBehaviour
 
         line.transform.SetParent(m.transform);
         line.transform.localPosition = trLocalPos;
-    }
 
+        GetComponent<BoxCollider>().size = new Vector3(GetComponent<BoxCollider>().size.x, GetComponent<BoxCollider>().size.y, defaultSwordThickness);
+    }
+    Vector3? lastPlayerPos;
+    public List<Vector3> trajectoryPoints;
+    public bool recording;
     void Update()
     {
         allow360 = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("360");
@@ -197,6 +208,14 @@ public class Attack2 : MonoBehaviour
         {
             if (comboTimeCounter > -1) comboTimeCounter -= Time.deltaTime;
             m.animator.SetFloat("combo", comboTimeCounter);
+            lastPlayerPos = null;
+        }
+        else if(recording)
+        {
+            if (lastPlayerPos == null) lastPlayerPos = playerTransform.position;
+            Debug.DrawLine((Vector3)lastPlayerPos, playerTransform.position, Color.red, 60);
+            lastPlayerPos = playerTransform.position;
+            trajectoryPoints.Add(playerTransform.position - line.transform.position);
         }
 
         //block
@@ -206,11 +225,10 @@ public class Attack2 : MonoBehaviour
         if (m.onGround) jumpedWith360 = false;
         //Frontflip attack
         bool ffaPressed = frontflipAttack.ReadValue<Vector2>().x > 0 && frontflipAttack.ReadValue<Vector2>().y > 0 && allowFrontflipattack && skillsCDTimer <= 0;
-        
-        //disabble for a build due to being unfinished
-        // m.animator.SetBool("frontflipAttack", ffaPressed);
-        // if(ffaPressed) ShowTrajectory();
-        // else line.enabled = false;
+        m.animator.SetBool("frontflipAttack", ffaPressed);
+        if (ffaPressed) ShowTrajectory();
+        else line.enabled = false;
+        Aim(ffaPressed);
 
         //Backflip
         m.animator.SetBool("backflip", backflip.ReadValue<Vector2>().x > 0 && backflip.ReadValue<Vector2>().y > 0 && allowBackflip && skillsCDTimer <= 0);
@@ -327,35 +345,59 @@ public class Attack2 : MonoBehaviour
     //     }
     //     //else yield return null;
     // }
-    
+
     void ShowTrajectory()
     {
         line.enabled = true;
 
-        Vector3 startPos = line.transform.position; //transform.position;
-        Vector3 startVel = playerTransform.forward * m.defaultSpeed + Vector3.up * (m.jumpForce / m.rb.mass / 1000);
+        // Vector3 startPos = line.transform.position; //transform.position;
+        // Vector3 startVel = playerTransform.forward * m.defaultSpeed + Vector3.up * (m.jumpForce / m.rb.mass / 1000);
 
-        Vector3[] points = new Vector3[resolution];
-        points[0] = startPos;
+        // Vector3[] points = new Vector3[resolution];
+        // points[0] = startPos;
 
-        for (int i = 1; i < resolution; i++)
+        // for (int i = 1; i < resolution; i++)
+        // {
+        //     float t = i * timeStep;
+        //     Vector3 point = startPos + startVel * t + 0.5f * Physics.gravity * t * t;
+
+        //     // Перевірка на зіткнення
+        //     if (Physics.Raycast(points[i - 1], point - points[i - 1], out RaycastHit hit, (point - points[i - 1]).magnitude, collisionMask))
+        //     {
+        //         points[i] = hit.point;
+        //         line.positionCount = i + 1;
+        //         line.SetPositions(points);
+        //         return;
+        //     }
+
+        //     points[i] = point;
+        // }
+
+        // line.positionCount = resolution;
+        // line.SetPositions(points);
+
+        line.positionCount = trajectoryPoints.Count;
+        for (int i = 0; i < trajectoryPoints.Count; i++)
         {
-            float t = i * timeStep;
-            Vector3 point = startPos + startVel * t + 0.5f * Physics.gravity * t * t;
-
-            // Перевірка на зіткнення
-            if (Physics.Raycast(points[i - 1], point - points[i - 1], out RaycastHit hit, (point - points[i - 1]).magnitude, collisionMask))
-            {
-                points[i] = hit.point;
-                line.positionCount = i + 1;
-                line.SetPositions(points);
-                return;
-            }
-
-            points[i] = point;
+            Vector3 absPos = line.transform.TransformPoint(trajectoryPoints[i]); //trajectoryPoints[i] + line.transform.position;
+            line.SetPosition(i, absPos);
         }
+    }
+    
+    void Aim(bool aiming)
+    {
+        m.aimMode = aiming;
+        if (aiming)
+        {
+            mainCam.Priority = 0;
+            aimCam.Priority = 10;
 
-        line.positionCount = resolution;
-        line.SetPositions(points);
+            playerTransform.rotation = Quaternion.Euler(0, Camera.main.transform.rotation.eulerAngles.y, 0);
+        }
+        else
+        {
+            mainCam.Priority = 10;
+            aimCam.Priority = 0;
+        }
     }
 }
