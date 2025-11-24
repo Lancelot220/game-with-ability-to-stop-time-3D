@@ -74,10 +74,30 @@ public class Enemy : MonoBehaviour
     public bool cantHurtPlayer;
     /*[HideInInspector]*/ public Animator animator;
     public float predictionTime = .5f;
+    public float stunned;
 
     void Start()
     {
         if(shuffleWaypoints) Shuffle(waypoints);
+
+        bool emptyWPs = true;
+        if (waypoints != null && waypoints.Length > 0)
+        {
+            for (int i = 0; i < waypoints.Length; i++)
+            {
+                if (waypoints[i] != null) emptyWPs = false;
+                else waypoints[i] = transform;
+            }
+        }
+        else
+        {
+            emptyWPs = true;
+        }
+        if(emptyWPs)
+        {
+           waypoints = new Transform[1];
+           waypoints[0] = transform;
+        }
 
         m_PlayerPosition = Vector3.zero;
         m_IsPatrol = true;
@@ -110,7 +130,9 @@ public class Enemy : MonoBehaviour
         if (ps == null) { ps = GameObject.Find("Player").GetComponent<PlayerStats>(); }
         if(rb == null) { rb = GetComponent<Rigidbody>(); }
 
-        if (!timeStopped && navMeshAgent.enabled && !_CaughtPlayer)
+        if(stunned > 0) stunned -= Time.deltaTime;
+
+        if (!timeStopped && navMeshAgent.enabled && !_CaughtPlayer && stunned <= 0)
         {
             EnvironmentView();
 
@@ -412,5 +434,12 @@ public class Enemy : MonoBehaviour
                 player.isInteracting = false;
             }
         }
+    }
+
+    public void SetWaypoint(Transform wp)
+    {
+        waypoints = new Transform[1];
+        waypoints[0] = wp;
+        m_CurrentWayPointIndex = 0;
     }
 }

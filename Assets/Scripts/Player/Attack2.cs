@@ -16,7 +16,6 @@ public class Attack2 : MonoBehaviour
     public int attackPower;
     public int defaultPower = 10;
     public int jaMultipier = 3; //ja - Jump Attack
-    public int ffaMultipier = 5; //ffa - FrontFlip Attack
     int ffaPower;
     int jaPower;
     public bool attacking;
@@ -36,9 +35,11 @@ public class Attack2 : MonoBehaviour
     public bool allow360 = true;
     public bool allowJumpWith360 = true;
     public bool allowFrontflipattack = true;
+    public int ffaMultipier = 5; //ffa - FrontFlip Attack
     public float ffaSwordThickness = 0.02f;
     float defaultSwordThickness;
     public bool allowBackflip = true;
+    public float stunTime = 3;
     //public bool allowRoll = true;
 
     //Others
@@ -147,6 +148,7 @@ public class Attack2 : MonoBehaviour
             }
             else if (m.animator.GetBool("backflip") && allowBackflip && m.onGround) //BACKFLIP
             {
+                m.CrouchStop_();
                 m.rb.velocity = playerTransform.forward * -m.defaultSpeed;
                 m.rb.AddForce(new Vector3(m.rb.velocity.x, m.jumpForce, m.rb.velocity.z));
             }
@@ -190,6 +192,7 @@ public class Attack2 : MonoBehaviour
         }
 
         line.transform.SetParent(m.transform);
+        line.transform.localRotation = Quaternion.identity;
         line.transform.localPosition = trLocalPos;
 
         GetComponent<BoxCollider>().size = new Vector3(GetComponent<BoxCollider>().size.x, GetComponent<BoxCollider>().size.y, defaultSwordThickness);
@@ -239,7 +242,7 @@ public class Attack2 : MonoBehaviour
             if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Jump Attack")
             {
                 attackPower = jaPower;
-                skillUsed = true;
+                // skillUsed = true;
                 if (m.onGround) AttackEnd(); //increases attack power and ends attack through code because animation doesn't have AttackEnd event because it has to wait for player to land
             }
             else if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Falling" ||
@@ -256,7 +259,7 @@ public class Attack2 : MonoBehaviour
                 skillUsed = true;
                 if (m.onGround) AttackEnd();
             }
-            else if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Actual360") skillUsed = true;
+            else if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Actual360"|| m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Backflip") skillUsed = true;
             else if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Attack1" ||
             m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Attack2") attackPower = defaultPower;
         }
@@ -313,6 +316,11 @@ public class Attack2 : MonoBehaviour
                     //StartCoroutine(EnableNavMesh(enemy.gameObject /*, enemy.rb*/ ));
                     enemy.health -= attackPower;
                     print("Enemy's health left:" + enemy.health);
+                    if(m.animator.GetCurrentAnimatorClipInfo(0).Length > 0 && m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Backflip")
+                    {
+                        enemy.stunned = stunTime;
+                        print("Enemy stunned for " + stunTime + " seconds");
+                    }
                 }
             }
             // else
