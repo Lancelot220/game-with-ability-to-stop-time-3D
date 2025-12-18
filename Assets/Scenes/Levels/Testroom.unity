@@ -14440,16 +14440,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1327857843184881441, guid: 3aa8be533ab72d84ea465d10620a8ded,
         type: 3}
-      propertyPath: speedRun
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1327857843184881441, guid: 3aa8be533ab72d84ea465d10620a8ded,
-        type: 3}
-      propertyPath: speedWalk
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1327857843184881441, guid: 3aa8be533ab72d84ea465d10620a8ded,
-        type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 1306769983}

@@ -19,9 +19,11 @@ public class Enemy : MonoBehaviour
     public int health = 50;
     private bool deathMessageSent = false;
     public bool respawnable;
-    Vector3 startPosition;
-    int maxHP;
-    PlayerStats ps;
+    protected Vector3 startPosition;
+    protected int maxHP;
+    protected PlayerStats ps;
+    // public enum AITier { Normal, Dangerous, Boss, Trainer }
+    // public AITier aiTier;
 
     [Header("Moving")]
     public float startWaitTime = 4;
@@ -41,7 +43,7 @@ public class Enemy : MonoBehaviour
 
     public Transform[] waypoints;
     public bool shuffleWaypoints = true;
-    int m_CurrentWayPointIndex;
+    protected int m_CurrentWayPointIndex;
     public Enemy[] companions;
     public float minTimeBeforeBlock = 5f;
     public float maxTimeBeforeBlock = 10f;
@@ -49,14 +51,14 @@ public class Enemy : MonoBehaviour
     public float maxBlockTime = 5f;
     public float lowHPTimeDifference = 2; //timeBeforeBlock will be redusced and blockTime will be increased by this value if health < lowHPThreshold
     public int lowHPThreshold = 20;
-    float timeBeforeBlock;
-    float blockTime;
+    protected float timeBeforeBlock;
+    protected float blockTime;
 
-    Vector3 playerLastPosition = Vector3.zero;
-    Vector3 m_PlayerPosition;
+    protected Vector3 playerLastPosition = Vector3.zero;
+    protected Vector3 m_PlayerPosition;
     //private Transform playerTranform;
-    float m_WaitTime, m_TimeToRotate;
-    bool m_PlayerInRange, m_PlayerNear, m_IsPatrol;
+    protected float m_WaitTime, m_TimeToRotate;
+    protected bool m_PlayerInRange, m_PlayerNear, m_IsPatrol;
     [HideInInspector] public bool _CaughtPlayer;
     //stop moving while being attacking
     //[HideInInspector] public bool attacked;
@@ -132,19 +134,7 @@ public class Enemy : MonoBehaviour
 
         if(stunned > 0) stunned -= Time.deltaTime;
 
-        if (!timeStopped && navMeshAgent.enabled && !_CaughtPlayer && stunned <= 0)
-        {
-            EnvironmentView();
-
-            if(!m_IsPatrol && ps.health > 0)
-            {
-                Chasing();
-            }
-            else
-            {
-                Patroling();
-            }
-        }
+        EnemyLogic();
         
         _CaughtPlayer = Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) <= catchingRadius;  //
 
@@ -202,6 +192,23 @@ public class Enemy : MonoBehaviour
 
         if(rb.velocity.magnitude < stopThreshold)
         { navMeshAgent.enabled = true; }
+    }
+
+    protected virtual void EnemyLogic()
+    {
+        if (!timeStopped && navMeshAgent.enabled && !_CaughtPlayer && stunned <= 0)
+        {
+            EnvironmentView();
+
+            if(!m_IsPatrol && ps.health > 0)
+            {
+                Chasing();
+            }
+            else
+            {
+                Patroling();
+            }
+        }
 
         //block
         if(timeBeforeBlock > 0) timeBeforeBlock -= Time.deltaTime;

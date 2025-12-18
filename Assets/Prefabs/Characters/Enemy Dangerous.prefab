@@ -1868,6 +1868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   respawnable: 0
+  aiTier: 1
   startWaitTime: 0
   timeToRotate: 0
   speedWalk: 4
@@ -1912,6 +1913,7 @@ MonoBehaviour:
   cantHurtPlayer: 0
   animator: {fileID: 5155317901920169074}
   predictionTime: 0.5
+  stunned: 0
 --- !u!205 &5669366443756378124
 LODGroup:
   m_ObjectHideFlags: 0
