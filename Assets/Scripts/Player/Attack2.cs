@@ -44,8 +44,6 @@ public class Attack2 : MonoBehaviour
 
     //Others
     //public float attackTime  = 1f;
-    Movement m;
-    Transform playerTransform;
     TrailRenderer[] trails;
    bool jumpedWith360;
    bool attackEnded;
@@ -53,14 +51,10 @@ public class Attack2 : MonoBehaviour
    Slider skillsCD;
    [SerializeField] bool skillUsed;
 
-    //Input
-    Controls ctrls;
-    InputAction attack;
-    InputAction block;
-    InputAction do360;
-    InputAction frontflipAttack;
-    InputAction backflip;
-    InputAction skill;
+    public float block;
+    public Vector2 do360;
+    public Vector2 frontflipAttack;
+    public Vector2 backflip;
 
     [Header("Aim mode")]
     public CinemachineFreeLook mainCam;
@@ -68,7 +62,14 @@ public class Attack2 : MonoBehaviour
 
     LineRenderer line;
     Vector3 trLocalPos;
-    void Awake() { ctrls = new Controls(); m = GetComponentInParent<Movement>(); playerTransform = m.gameObject.transform; }
+    [HideInInspector] public Movement m;
+    [HideInInspector] public Rigidbody rb;
+    [HideInInspector] public Animator animator;
+    [HideInInspector] public bool onGround;
+    [HideInInspector] public float defaultSpeed;
+    [HideInInspector] public float jumpForce;
+    [HideInInspector] public Transform playerTransform;
+    
     void Start()
     {
         jaPower = defaultPower * jaMultipier;
@@ -76,7 +77,7 @@ public class Attack2 : MonoBehaviour
         skillsCD.gameObject.SetActive(false);
         ffaPower = defaultPower * ffaMultipier;
 
-        line = m.GetComponentInChildren<LineRenderer>();
+        if(m != null) line = m.GetComponentInChildren<LineRenderer>();
         line.enabled = false;
         trLocalPos = line.transform.localPosition;
 
@@ -85,72 +86,43 @@ public class Attack2 : MonoBehaviour
 
         defaultSwordThickness = GetComponent<BoxCollider>().size.z;
     }
-    void OnEnable()
-    {
-        attack = ctrls.Player.Attack;
-        attack.Enable();
-        attack.performed += Attack;
-
-        block = ctrls.Player.Block;
-        block.Enable();
-
-        do360 = ctrls.Player._360;
-        do360.Enable();
-
-        frontflipAttack = ctrls.Player.FrontflipAttack;
-        frontflipAttack.Enable();
-
-        backflip = ctrls.Player.BackFlip;
-        backflip.Enable();
-
-        skill = ctrls.Player.Skill;
-        skill.Enable();
-    }
-    void OnDisable()
-    { 
-        attack.Disable();
-        block.Disable();
-        do360.Disable();
-        frontflipAttack.Disable();
-        backflip.Disable();
-        skill.Disable();
-    }
-    void Attack(InputAction.CallbackContext context)
+    
+    public void Attack()
     {
         if (!attacking && GetComponentInParent<PlayerStats>().health > 0 && Time.timeScale != 0)
         {
             attacking = true;
-            m.animator.SetTrigger("attacked");
+            animator.SetTrigger("attacked");
             //MOVE PLAYER WHEN ATTACKING
-            if (m.onGround && !m.animator.GetBool("360") && !m.animator.GetBool("frontflipAttack") && !m.animator.GetBool("backflip")) // DEFAULT SWING
+            if (onGround && !animator.GetBool("360") && !animator.GetBool("frontflipAttack") && !animator.GetBool("backflip")) // DEFAULT SWING
             {
-                m.rb.velocity = Vector3.zero;
-                //m.rb.velocity = playerTransform.forward * attackMoveForce;
+                rb.velocity = Vector3.zero;
+                //rb.velocity = playerTransform.forward * attackMoveForce;
                 //StartCoroutine(StopDash());
                 
-                m.rb.AddForce(playerTransform.forward * attackMoveForce * 0.5f, ForceMode.Impulse);
+                rb.AddForce(playerTransform.forward * attackMoveForce * 0.5f, ForceMode.Impulse);
             }
-            else if (m.animator.GetBool("360") && allowJumpWith360 && !m.onGround && !jumpedWith360) //JUMP WITH 360
+            else if (animator.GetBool("360") && allowJumpWith360 && !onGround && !jumpedWith360) //JUMP WITH 360
             {
-                //m.rb.velocity = new Vector3(m.rb.velocity.x, attackMoveForce, m.rb.velocity.z);
+                //rb.velocity = new Vector3(rb.velocity.x, attackMoveForce, rb.velocity.z);
 
-                m.rb.AddForce(playerTransform.up * attackMoveForce, ForceMode.Impulse);
+                rb.AddForce(playerTransform.up * attackMoveForce, ForceMode.Impulse);
                 jumpedWith360 = true;
                 //StartCoroutine(StopDash());
             }
-            else if (m.animator.GetBool("frontflipAttack") && allowFrontflipattack && m.onGround) //FRONTFLIP ATTACK
+            else if (animator.GetBool("frontflipAttack") && allowFrontflipattack && onGround) //FRONTFLIP ATTACK
             {
-                m.CrouchStop_();
-                m.rb.velocity = playerTransform.forward * m.defaultSpeed;
-                m.rb.AddForce(new Vector3(m.rb.velocity.x, m.jumpForce, m.rb.velocity.z));
+                if(m != null) m.CrouchStop_();
+                rb.velocity = playerTransform.forward * defaultSpeed;
+                rb.AddForce(new Vector3(rb.velocity.x, jumpForce, rb.velocity.z));
                 line.transform.SetParent(null);
                 GetComponent<BoxCollider>().size = new Vector3(GetComponent<BoxCollider>().size.x, GetComponent<BoxCollider>().size.y, ffaSwordThickness);
             }
-            else if (m.animator.GetBool("backflip") && allowBackflip && m.onGround) //BACKFLIP
+            else if (animator.GetBool("backflip") && allowBackflip && onGround) //BACKFLIP
             {
-                m.CrouchStop_();
-                m.rb.velocity = playerTransform.forward * -m.defaultSpeed;
-                m.rb.AddForce(new Vector3(m.rb.velocity.x, m.jumpForce, m.rb.velocity.z));
+                if(m != null) m.CrouchStop_();
+                rb.velocity = playerTransform.forward * -defaultSpeed;
+                rb.AddForce(new Vector3(rb.velocity.x, jumpForce, rb.velocity.z));
             }
 
             //Trail
@@ -172,9 +144,9 @@ public class Attack2 : MonoBehaviour
     {
         comboTimeCounter = comboTime;
         attacking = false;
-        m.animator.ResetTrigger("attacked");
+        animator.ResetTrigger("attacked");
         
-        if(m.onGround && !m.animator.GetBool("360")) m.rb.velocity = Vector3.zero;
+        if(onGround && !animator.GetBool("360")) rb.velocity = Vector3.zero;
 
         if(trails != null)
         {
@@ -191,9 +163,12 @@ public class Attack2 : MonoBehaviour
             skillUsed = false;
         }
 
-        line.transform.SetParent(m.transform);
-        line.transform.localRotation = Quaternion.identity;
-        line.transform.localPosition = trLocalPos;
+        if(m != null) 
+        {
+            line.transform.SetParent(m.transform);
+            line.transform.localRotation = Quaternion.identity;
+            line.transform.localPosition = trLocalPos;
+        }
 
         GetComponent<BoxCollider>().size = new Vector3(GetComponent<BoxCollider>().size.x, GetComponent<BoxCollider>().size.y, defaultSwordThickness);
     }
@@ -206,12 +181,12 @@ public class Attack2 : MonoBehaviour
         allowJumpWith360 = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("JumpWith360");
         allowFrontflipattack = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("FrontflipAttack");
         allowBackflip = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("Backflip");
-        //if (attacking && m.onGround) 
+        //if (attacking && onGround) 
 
         if (!attacking)
         {
             if (comboTimeCounter > -1) comboTimeCounter -= Time.deltaTime;
-            m.animator.SetFloat("combo", comboTimeCounter);
+            animator.SetFloat("combo", comboTimeCounter);
             lastPlayerPos = null;
         }
         else if(recording)
@@ -223,48 +198,48 @@ public class Attack2 : MonoBehaviour
         }
 
         //block
-        if(!attacking && Time.timeScale != 0) m.animator.SetBool("block", block.ReadValue<float>() > 0);
+        if(!attacking && Time.timeScale != 0) animator.SetBool("block", block > 0);
         //360 attack
-        m.animator.SetBool("360", do360.ReadValue<Vector2>().x > 0 && do360.ReadValue<Vector2>().y > 0 && allow360 && skillsCDTimer <= 0);
-        if (m.onGround) jumpedWith360 = false;
+        animator.SetBool("360", do360.x > 0 && do360.y > 0 && allow360 && skillsCDTimer <= 0);
+        if (onGround) jumpedWith360 = false;
         //Frontflip attack
-        bool ffaPressed = frontflipAttack.ReadValue<Vector2>().x > 0 && frontflipAttack.ReadValue<Vector2>().y > 0 && allowFrontflipattack && skillsCDTimer <= 0;
-        m.animator.SetBool("frontflipAttack", ffaPressed);
-        if (ffaPressed) ShowTrajectory();
+        bool ffaPressed = frontflipAttack.x > 0 && frontflipAttack.y > 0 && allowFrontflipattack && skillsCDTimer <= 0;
+        animator.SetBool("frontflipAttack", ffaPressed);
+        if (ffaPressed && m != null) ShowTrajectory();
         else line.enabled = false;
         Aim(ffaPressed);
 
         //Backflip
-        m.animator.SetBool("backflip", backflip.ReadValue<Vector2>().x > 0 && backflip.ReadValue<Vector2>().y > 0 && allowBackflip && skillsCDTimer <= 0);
+        animator.SetBool("backflip", backflip.x > 0 && backflip.y > 0 && allowBackflip && skillsCDTimer <= 0);
 
-        if (m.animator.GetCurrentAnimatorClipInfo(0).Length > 0)
+        if (animator.GetCurrentAnimatorClipInfo(0).Length > 0)
         {
-            if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Jump Attack")
+            if (animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Jump Attack")
             {
                 attackPower = jaPower;
                 // skillUsed = true;
-                if (m.onGround) AttackEnd(); //increases attack power and ends attack through code because animation doesn't have AttackEnd event because it has to wait for player to land
+                if (onGround) AttackEnd(); //increases attack power and ends attack through code because animation doesn't have AttackEnd event because it has to wait for player to land
             }
-            else if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Falling" ||
-            m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "LandingHard" ||
-            m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "GetUp" ||
-            m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Ledge climb" ||
-            m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "InAir")
+            else if (animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Falling" ||
+            animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "LandingHard" ||
+            animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "GetUp" ||
+            animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Ledge climb" ||
+            animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "InAir")
             {
                 if (!attackEnded) { AttackEnd(); attackEnded = true; }
             }
-            else if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "FrontflipAttack")
+            else if (animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "FrontflipAttack")
             {
                 attackPower = ffaPower;
                 skillUsed = true;
-                if (m.onGround) AttackEnd();
+                if (onGround) AttackEnd();
             }
-            else if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Actual360"|| m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Backflip") skillUsed = true;
-            else if (m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Attack1" ||
-            m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Attack2") attackPower = defaultPower;
+            else if (animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Actual360"|| animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Backflip") skillUsed = true;
+            else if (animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Attack1" ||
+            animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Attack2") attackPower = defaultPower;
         }
 
-        if(!attacking) m.animator.gameObject.transform.localEulerAngles = Vector2.zero;
+        if(!attacking) animator.gameObject.transform.localEulerAngles = Vector2.zero;
 
         //skills cooldown
         if(skillsCDTimer > -1) skillsCDTimer -= Time.deltaTime;
@@ -275,18 +250,18 @@ public class Attack2 : MonoBehaviour
             skillsCD.value = skillsCooldown - skillsCDTimer;
         }
 
-        //if (m.animator.GetCurrentAnimatorClipInfo(0).Length > 0 && m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "FrontflipAttack") m.speed = m.defaultSpeed;
+        //if (animator.GetCurrentAnimatorClipInfo(0).Length > 0 && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "FrontflipAttack") m.speed = defaultSpeed;
     }
 
     // public void Roll(float x)
     // {
-    //     if(allowRoll && skillsCDTimer <= 0 && x != 0 && skill.ReadValue<float>() > 0 && m.onGround)
+    //     if(allowRoll && skillsCDTimer <= 0 && x != 0 && skill.ReadValue<float>() > 0 && onGround)
     //     {
-    //         m.animator.SetTrigger("roll");
-    //         //m.animator.SetBool("isCrouching", false);
-    //         if(x > 0) { x = 1; m.animator.SetBool("rollDir", true); }
-    //         else { x = -1; m.animator.SetBool("rollDir", false); }
-    //         m.rb.AddForce(playerTransform.right * x * attackMoveForce, ForceMode.Impulse);
+    //         animator.SetTrigger("roll");
+    //         //animator.SetBool("isCrouching", false);
+    //         if(x > 0) { x = 1; animator.SetBool("rollDir", true); }
+    //         else { x = -1; animator.SetBool("rollDir", false); }
+    //         rb.AddForce(playerTransform.right * x * attackMoveForce, ForceMode.Impulse);
     //         skillsCDTimer = 1f;
     //     }
     // }
@@ -316,7 +291,7 @@ public class Attack2 : MonoBehaviour
                     //StartCoroutine(EnableNavMesh(enemy.gameObject /*, enemy.rb*/ ));
                     enemy.health -= attackPower;
                     print("Enemy's health left:" + enemy.health);
-                    if(m.animator.GetCurrentAnimatorClipInfo(0).Length > 0 && m.animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Backflip")
+                    if(animator.GetCurrentAnimatorClipInfo(0).Length > 0 && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Backflip")
                     {
                         enemy.stunned = stunTime;
                         print("Enemy stunned for " + stunTime + " seconds");
@@ -362,7 +337,7 @@ public class Attack2 : MonoBehaviour
         line.enabled = true;
 
         // Vector3 startPos = line.transform.position; //transform.position;
-        // Vector3 startVel = playerTransform.forward * m.defaultSpeed + Vector3.up * (m.jumpForce / m.rb.mass / 1000);
+        // Vector3 startVel = playerTransform.forward * defaultSpeed + Vector3.up * (jumpForce / rb.mass / 1000);
 
         // Vector3[] points = new Vector3[resolution];
         // points[0] = startPos;

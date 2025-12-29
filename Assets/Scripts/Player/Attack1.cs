@@ -7,101 +7,70 @@ using UnityEngine.InputSystem;
 
 public class Attack1 : MonoBehaviour
 {
-    //Attack
-    public int attackPower = 10;
-    public bool attacking;
-    public float comboTime = 0.5f;
-    public float attackMoveForce = 50;
-    public float knockback = 300;
-    public float knockbackY = 100;
-    float comboTimeCounter;
-    Transform playerTransform;
-    int hitCounter;
-    
-    //Others
-    public float rotationSpeed = 10.0f; // Швидкість обертання
-    public float targetAngle = -90; // Кінцевий градус обертання
-
-    Movement m;
-
+    Attack2 attack2;
     //Input
     Controls ctrls;
     InputAction attack;
-    void Awake() { ctrls = new Controls(); m = GetComponentInParent<Movement>(); playerTransform = GetComponentInParent<Transform>();}
+    InputAction block;
+    InputAction do360;
+    InputAction frontflipAttack;
+    InputAction backflip;
+    InputAction skill;
+    void Awake() { ctrls = new Controls(); }
     void OnEnable()
     {
         attack = ctrls.Player.Attack;
         attack.Enable();
-        attack.performed += Attack;    
+        attack.performed += Attack;
+
+        block = ctrls.Player.Block;
+        block.Enable();
+
+        do360 = ctrls.Player._360;
+        do360.Enable();
+
+        frontflipAttack = ctrls.Player.FrontflipAttack;
+        frontflipAttack.Enable();
+
+        backflip = ctrls.Player.BackFlip;
+        backflip.Enable();
+
+        skill = ctrls.Player.Skill;
+        skill.Enable();
     }
-    void OnDisable() { attack.Disable(); }
-    void Attack(InputAction.CallbackContext context)
+    void OnDisable()
+    { 
+        attack.Disable();
+        block.Disable();
+        do360.Disable();
+        frontflipAttack.Disable();
+        backflip.Disable();
+        skill.Disable();
+    }
+
+    void Start()
     {
-        if (!attacking && GetComponentInParent<PlayerStats>().health > 0)
-        {
-            attacking = true;
-            m.animator.SetTrigger("isAttacking");
-            hitCounter++; //finish crit damage
-        }
+        attack2 = GetComponentInChildren<Attack2>();
+        attack2.m = GetComponent<Movement>(); 
+        attack2.rb = GetComponent<Rigidbody>();
+        attack2.animator = GetComponentInChildren<Animator>();
+        attack2.playerTransform = transform;
     }
+
     void Update()
     {
-        if (attacking)
-        {
-            m.rb.AddForce(playerTransform.forward * attackMoveForce);
-            //m.rb.AddForce(Vector3.Cross(playerTransform.forward, Vector3.up) * attackMoveForce);
+        attack2.block = block.ReadValue<float>();
+        attack2.do360 = do360.ReadValue<Vector2>();
+        attack2.frontflipAttack = frontflipAttack.ReadValue<Vector2>();
+        attack2.backflip = backflip.ReadValue<Vector2>();    
 
-            // Обертання об'єкта
-            transform.RotateAround(transform.parent.position, Vector3.up, rotationSpeed * Time.deltaTime);
-            if (transform.localEulerAngles.y > 90 && transform.localEulerAngles.y <= 270)
-            {
-                // Миттєве повернення в початкову позицію
-                transform.localEulerAngles = new Vector3(0, 90, 0);
-                attacking = false;
-                //m.animator.SetBool("isAttacking", false);
-                comboTimeCounter = comboTime;
-            }
-            
-        }
-        else
-        {
-            comboTimeCounter -= Time.deltaTime;
-            m.animator.SetFloat("combo", comboTimeCounter);
-        }
-
+        attack2.defaultSpeed = attack2.m.defaultSpeed;
+        attack2.jumpForce = attack2.m.jumpForce;
+        attack2.onGround = attack2.m.onGround;
     }
 
-    void OnTriggerEnter(Collider col)
+    void Attack(InputAction.CallbackContext context)
     {
-        if(col.CompareTag("Enemy") && attacking)
-        {
-            //playerTransform.LookAt(new Vector3(col.gameObject.transform.position.x, playerTransform.position.y, col.gameObject.transform.position.z));
-            Enemy enemy = col.gameObject.GetComponent<Enemy>();
-            if(enemy != null)
-            {
-                if(enemy.health > 0 && !enemy.timeStopped)
-                {
-                    //enemy.attacked = true;
-                    Vector3 knockbackDir = transform.forward * knockback;
-                    knockbackDir.y = knockbackY;
-                    enemy.rb.AddForce(knockbackDir);
-                    enemy.health -= attackPower;
-                    print("Enemy's health left:" + enemy.health);
-                }
-            }
-            else
-            {
-                EnemyWithGun enemyWithGun = col.gameObject.GetComponent<EnemyWithGun>();
-                if(enemyWithGun.health > 0 && !enemyWithGun.timeStopped)
-                {
-                    //enemyWithGun.attacked = true;
-                    Vector3 knockbackDir = transform.forward * knockback;
-                    knockbackDir.y = knockbackY;
-                    enemyWithGun.rb.AddForce(knockbackDir);
-                    enemyWithGun.health -= attackPower;
-                    print("Enemy's health left:" + enemyWithGun.health);
-                }
-            }
-        }
+        attack2.Attack();
     }
 }
