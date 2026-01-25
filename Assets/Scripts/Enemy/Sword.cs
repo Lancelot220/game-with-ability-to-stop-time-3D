@@ -13,10 +13,19 @@ public class Sword : MonoBehaviour
     {
         if (col.CompareTag("Player") && col.GetComponent<Movement>() && attacking && enemyAttack.player.health > 0 && !enemyAttack.timeStopped)
         {
+            Transform blocker = col.transform;      // той, хто блокує
+            Transform attacker = transform;         // той, хто атакує
+
+            Vector3 toAttacker = (attacker.position - blocker.position).normalized;
+
+            // наскільки атакуючий "попереду"
+            float dot = Vector3.Dot(blocker.forward, toAttacker);
+
             if(col.GetComponentInChildren<Animator>().GetCurrentAnimatorClipInfo(0).Length > 0 &&                                 //check for blocking
             col.GetComponentInChildren<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name == "Block" && 
-            Physics.Raycast(col.transform.position, col.transform.forward, out RaycastHit hit, 3f, 1 << 7) &&                     //check for facing to enemy
-            hit.collider.transform.parent.GetComponentInChildren<Sword>() == this)                                                //check is the enemy the ray hits is this enemy
+            // Physics.Raycast(col.transform.position, col.transform.forward, out RaycastHit hit, 3f, 1 << 7) &&                     //check for facing to enemy
+            // hit.collider.transform.parent.GetComponentInChildren<Sword>() == this)                                                //check is the enemy the ray hits is this enemy
+            dot > 0.5f)
             {
                 StartCoroutine(enemyAttack.AttackCoolDown());
                 Debug.Log("Block hit!");                                                                                          //if the player is blocking, do nothing

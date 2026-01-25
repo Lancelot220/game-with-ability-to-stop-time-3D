@@ -62,6 +62,7 @@ public class Movement : MonoBehaviour
     [HideInInspector] public Animator animator;
     PlayerStats ps;
     CapsuleCollider cc;
+    Footsteps footsteps;
 
     Transform cameraMainTransform;
     
@@ -95,6 +96,7 @@ public class Movement : MonoBehaviour
         ps = GetComponent<PlayerStats>();
         cc = GetComponent<CapsuleCollider>();
         canStopCrouching = true;
+        footsteps = GetComponentInChildren<Footsteps>();
 
         spineDefaultOffset = transform.position - spineBone.position;
         defaultRotationSpeed = rotationSpeed;
@@ -168,6 +170,7 @@ public class Movement : MonoBehaviour
     void Update() 
     {
         animator.SetBool("onGround", onGround);
+        footsteps.onGround = onGround;
 
         if (!animator.GetBool("isCrouching") && animator.GetFloat("combo") <= 0 /*&& onGround*/)
         speed = defaultSpeed;

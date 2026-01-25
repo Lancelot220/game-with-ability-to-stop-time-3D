@@ -14,10 +14,10 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Damageable
 {
-    public int health = 50;
-    private bool deathMessageSent = false;
+    // public int health = 50;
+    protected bool deathMessageSent = false;
     public bool respawnable;
     protected Vector3 startPosition;
     protected int maxHP;
@@ -76,9 +76,9 @@ public class Enemy : MonoBehaviour
     public bool cantHurtPlayer;
     /*[HideInInspector]*/ public Animator animator;
     public float predictionTime = .5f;
-    public float stunned;
+    // public float stunned;
 
-    void Start()
+    protected void Start()
     {
         if(shuffleWaypoints) Shuffle(waypoints);
 
@@ -121,13 +121,15 @@ public class Enemy : MonoBehaviour
         //respawn
         startPosition = transform.position; 
         maxHP = health;
+
+        Start_();
     }
     //shufle waypoints
-    void Shuffle<T>(T[] array)
+    protected void Shuffle<T>(T[] array)
     { Array.Sort(array, (a, b) => UnityEngine.Random.Range(-1, 1)); }
 
-
-    void Update()
+    virtual protected void Start_() {}
+    protected void Update()
     {
         if (ps == null) { ps = GameObject.Find("Player").GetComponent<PlayerStats>(); }
         if(rb == null) { rb = GetComponent<Rigidbody>(); }
@@ -186,9 +188,7 @@ public class Enemy : MonoBehaviour
             }*/
         }
 
-        if(!navMeshAgent.enabled || timeStopped)
-        { animator.SetFloat("timeStopped", 0); }
-        else if (!timeStopped) { animator.SetFloat("timeStopped", 1); }
+        
 
         if(rb.velocity.magnitude < stopThreshold)
         { navMeshAgent.enabled = true; }
@@ -234,6 +234,10 @@ public class Enemy : MonoBehaviour
             animator.SetBool("block", false);
             //Move(speedWalk);
         }
+
+        if(!navMeshAgent.enabled || timeStopped)
+        { animator.SetFloat("timeStopped", 0); }
+        else if (!timeStopped) { animator.SetFloat("timeStopped", 1); }
     }
 /*
     IEnumerator DisableAttacked()
@@ -243,7 +247,7 @@ public class Enemy : MonoBehaviour
     }
 */
 
-    void Chasing()
+    protected void Chasing()
     {
         m_PlayerNear = false;
         playerLastPosition = Vector3.zero;
@@ -278,7 +282,7 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-    void Patroling()
+    protected void Patroling()
     {
         if (m_PlayerNear)
         {
@@ -314,13 +318,13 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-    void Move(float speed)
+    protected void Move(float speed)
     {
         navMeshAgent.isStopped = false;
         navMeshAgent.speed = speed;
         //animator.SetBool("IsMoving", true);
     }
-    void Stop()
+    protected void Stop()
     {
         navMeshAgent.isStopped = true;
         navMeshAgent.speed = 0;
@@ -333,9 +337,9 @@ public class Enemy : MonoBehaviour
         navMeshAgent.SetDestination(waypoints[m_CurrentWayPointIndex].position);
         //animator.SetBool("IsMoving", true);
     }
-    void CaughtPlayer() { _CaughtPlayer = true; }
+    protected void CaughtPlayer() { _CaughtPlayer = true; }
     
-    void LookingPlayer(Vector3 player)
+    protected void LookingPlayer(Vector3 player)
     {
         navMeshAgent.SetDestination(player);
         if(Vector3.Distance(transform.position, player) <= 0.3)
@@ -356,7 +360,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void EnvironmentView()
+    protected void EnvironmentView()
     {
         Collider[] playerInRange = Physics.OverlapSphere(transform.position, viewRadius, playerMask);
 

@@ -10,10 +10,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : Damageable
 {
     [Header("Statistics")]
-    public int health = 100;
+    //public int health = 100;
     /*
     [SerializeField] int defaultLivesCount = 5;
     public int Lives //= 5;

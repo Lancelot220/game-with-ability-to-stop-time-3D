@@ -906,6 +906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  stunned: 0
   orbsCollected: 0
   time: 0
   unlockedSkills: []
@@ -1235,14 +1236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d3cdc892fbde8418c0f5aa6494f989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPower: 10
-  attacking: 0
-  comboTime: 0.5
-  attackMoveForce: 200
-  knockback: 300
-  knockbackY: 300
-  rotationSpeed: -1000
-  targetAngle: -90
 --- !u!1 &7881709259259591873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1799,6 +1792,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -2933139716659438605, guid: 2386fc39103c09b4f9b1477aba974fb9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: ba22834a0f4a8314a94d59f7b204a37e, type: 2}
     - target: {fileID: 919132149155446097, guid: 2386fc39103c09b4f9b1477aba974fb9,
         type: 3}
       propertyPath: m_Name

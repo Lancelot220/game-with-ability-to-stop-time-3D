@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Footsteps : MonoBehaviour
 {
+    public bool onGround;
     AudioClip[] sounds;
     //[SerializeField] AudioSource audioSource;
     [SerializeField] GameObject prefab;
@@ -25,7 +26,7 @@ public class Footsteps : MonoBehaviour
     }
     public void PlaySound()
     {
-        if(GetComponentInParent<Movement>().onGround)
+        if(onGround)
         {
             AudioClip audioClip = sounds[Random.Range(0, sounds.Length)];
             

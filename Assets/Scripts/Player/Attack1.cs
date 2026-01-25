@@ -55,6 +55,14 @@ public class Attack1 : MonoBehaviour
         attack2.rb = GetComponent<Rigidbody>();
         attack2.animator = GetComponentInChildren<Animator>();
         attack2.playerTransform = transform;
+
+        attack2.allow360 = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("360");
+        attack2.allowJumpWith360 = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("JumpWith360");
+        attack2.allowFrontflipattack = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("FrontflipAttack");
+        attack2.allowBackflip = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("Backflip");
+        //if (attacking && onGround) 
+
+        attack2.LateStart();
     }
 
     void Update()

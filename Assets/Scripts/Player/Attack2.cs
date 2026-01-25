@@ -32,14 +32,15 @@ public class Attack2 : MonoBehaviour
     
     [Header("Skills")]
     public float skillsCooldown = 5;
-    public bool allow360 = true;
-    public bool allowJumpWith360 = true;
-    public bool allowFrontflipattack = true;
     public int ffaMultipier = 5; //ffa - FrontFlip Attack
     public float ffaSwordThickness = 0.02f;
     float defaultSwordThickness;
-    public bool allowBackflip = true;
     public float stunTime = 3;
+    
+    public bool allow360 = true;
+    public bool allowJumpWith360 = true;
+    public bool allowFrontflipattack = true;
+    public bool allowBackflip = true;
     //public bool allowRoll = true;
 
     //Others
@@ -48,7 +49,7 @@ public class Attack2 : MonoBehaviour
    bool jumpedWith360;
    bool attackEnded;
    [SerializeField] float skillsCDTimer;
-   Slider skillsCD;
+   public Slider skillsCD;
    [SerializeField] bool skillUsed;
 
     public float block;
@@ -73,23 +74,34 @@ public class Attack2 : MonoBehaviour
     void Start()
     {
         jaPower = defaultPower * jaMultipier;
-        skillsCD = GameObject.Find("TricksCD").GetComponent<Slider>();
-        skillsCD.gameObject.SetActive(false);
+        // skillsCD = GameObject.Find("TricksCD").GetComponent<Slider>();
+        // skillsCD.gameObject.SetActive(false);
         ffaPower = defaultPower * ffaMultipier;
 
-        if(m != null) line = m.GetComponentInChildren<LineRenderer>();
+        defaultSwordThickness = GetComponent<BoxCollider>().size.z;
+    }
+    public void LateStart()
+    {
+        line = m.GetComponentInChildren<LineRenderer>(true);
         line.enabled = false;
         trLocalPos = line.transform.localPosition;
 
-        mainCam = GameObject.Find("FreeLook Camera").GetComponent<CinemachineFreeLook>();
-        aimCam = GameObject.Find("Aim Camera").GetComponent<CinemachineFreeLook>();
+        //skillsCD = GameObject.Find("TricksCD").GetComponent<Slider>();
+        skillsCD.gameObject.SetActive(false);
 
-        defaultSwordThickness = GetComponent<BoxCollider>().size.z;
+        // GameObject mc = GameObject.Find("FreeLook Camera");
+        // print(mc);
+        // mainCam = mc.GetComponent<CinemachineFreeLook>();
+        // print(mainCam);
+        // GameObject ac = GameObject.Find("Aim Camera");
+        // print(ac);
+        // aimCam = ac.GetComponent<CinemachineFreeLook>();
+        // print(aimCam);
     }
     
     public void Attack()
     {
-        if (!attacking && GetComponentInParent<PlayerStats>().health > 0 && Time.timeScale != 0)
+        if (!attacking && GetComponentInParent<Damageable>().health > 0 && Time.timeScale != 0)
         {
             attacking = true;
             animator.SetTrigger("attacked");
@@ -132,7 +144,7 @@ public class Attack2 : MonoBehaviour
                 trail.enabled = true ;
             }
 
-            StartCoroutine(Rumble.RumblePulse(0.25f, 1f, 0.25f));
+            if (m != null) StartCoroutine(Rumble.RumblePulse(0.25f, 1f, 0.25f));
 
             attackEnded = false;
 
@@ -177,11 +189,11 @@ public class Attack2 : MonoBehaviour
     public bool recording;
     void Update()
     {
-        allow360 = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("360");
-        allowJumpWith360 = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("JumpWith360");
-        allowFrontflipattack = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("FrontflipAttack");
-        allowBackflip = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("Backflip");
-        //if (attacking && onGround) 
+        // allow360 = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("360");
+        // allowJumpWith360 = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("JumpWith360");
+        // allowFrontflipattack = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("FrontflipAttack");
+        // allowBackflip = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("Backflip");
+        // //if (attacking && onGround) 
 
         if (!attacking)
         {
@@ -206,8 +218,8 @@ public class Attack2 : MonoBehaviour
         bool ffaPressed = frontflipAttack.x > 0 && frontflipAttack.y > 0 && allowFrontflipattack && skillsCDTimer <= 0;
         animator.SetBool("frontflipAttack", ffaPressed);
         if (ffaPressed && m != null) ShowTrajectory();
-        else line.enabled = false;
-        Aim(ffaPressed);
+        else if (line != null) line.enabled = false;
+        if (m != null) Aim(ffaPressed);
 
         //Backflip
         animator.SetBool("backflip", backflip.x > 0 && backflip.y > 0 && allowBackflip && skillsCDTimer <= 0);
@@ -268,29 +280,46 @@ public class Attack2 : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("Enemy") && attacking)
+        if (/*col.CompareTag("Enemy") && */attacking)
         {
-            Enemy enemy = col.gameObject.GetComponent<Enemy>();
+            Damageable enemy = col.gameObject.GetComponent<Damageable>();
             if (enemy != null)
             {
+                Transform blocker = col.transform;      // той, хто блокує
+                Transform attacker = transform;         // той, хто атакує
+
+                Vector3 toAttacker = (attacker.position - blocker.position).normalized;
+
+                // наскільки атакуючий "попереду"
+                float dot = Vector3.Dot(blocker.forward, toAttacker);
+
                 if (col.GetComponentInChildren<Animator>().GetCurrentAnimatorClipInfo(0).Length > 0 &&                                 //check for blocking
                 col.GetComponentInChildren<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.name == "Block" &&
-                Physics.Raycast(col.transform.position, col.transform.forward, out RaycastHit hit, 3f, 1 << 3) &&                     //check for facing to player
-                hit.collider.transform.parent.GetComponentInChildren<Attack2>() == this)                                                //check is the enemy the ray hits is this player (do i need this?)
+                //Physics.Raycast(col.transform.position, col.transform.forward, out RaycastHit hit, 3f, 1 << 3) &&                     //check for facing to player
+                //hit.collider.transform.parent.GetComponentInChildren<Attack2>() == this)                                                //check is the enemy the ray hits is this player (do i need this?)
+                dot > 0.5f)
                 {
-                    Debug.Log("Enemy block hit!");                                                                                          //if the enemy is blocking, do nothing
+                    Debug.Log(col.gameObject.name + " block hit!");                                                                                          //if the enemy is blocking, do nothing
                     return;
                 }
-                if (enemy.health > 0 && !enemy.timeStopped)
+
+                
+                if (enemy.health > 0)
                 {
+                    // if (enemy.TryGetComponent(out Enemy e) && e.timeStopped)
+                    // return;
+
                     //enemy.attacked = true;
                     Vector3 knockbackDir = playerTransform.forward * knockback;
                     knockbackDir.y = Mathf.Abs(knockbackY);
-                    enemy.gameObject.GetComponent<NavMeshAgent>().enabled = false;
-                    enemy.rb.AddForce(knockbackDir, ForceMode.Impulse);
+                    NavMeshAgent nma = enemy.gameObject.GetComponent<NavMeshAgent>();
+                    if(nma != null) nma.enabled = false;
+
+                    enemy.GetComponent<Rigidbody>().AddForce(knockbackDir, ForceMode.Impulse);
                     //StartCoroutine(EnableNavMesh(enemy.gameObject /*, enemy.rb*/ ));
                     enemy.health -= attackPower;
-                    print("Enemy's health left:" + enemy.health);
+                    enemy.hits++;
+                    print(enemy.gameObject.name + "'s health left:" + enemy.health);
                     if(animator.GetCurrentAnimatorClipInfo(0).Length > 0 && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Backflip")
                     {
                         enemy.stunned = stunTime;
@@ -379,11 +408,14 @@ public class Attack2 : MonoBehaviour
             aimCam.Priority = 10;
 
             playerTransform.rotation = Quaternion.Euler(0, Camera.main.transform.rotation.eulerAngles.y, 0);
+
+            mainCam.m_XAxis.Value = aimCam.m_XAxis.Value;
         }
         else
         {
             mainCam.Priority = 10;
             aimCam.Priority = 0;
+            aimCam.m_XAxis.Value = mainCam.m_XAxis.Value;
         }
     }
 }
