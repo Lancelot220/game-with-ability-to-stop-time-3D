@@ -403,12 +403,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 1900238063}
+      objectReference: {fileID: 1847600874}
     - target: {fileID: 2886414833162072215, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_LookAt
       value: 
-      objectReference: {fileID: 1900238063}
+      objectReference: {fileID: 1847600874}
     - target: {fileID: 2886414833162072215, guid: 60668c10a95dc8648a40e749aeb4964e,
         type: 3}
       propertyPath: m_XAxis.Value
@@ -2346,6 +2346,12 @@ MonoBehaviour:
 --- !u!4 &1847600873 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6967135833977630225, guid: 67ccfa2ad163dfc4ab940a396333cdec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1847600871}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1847600874 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7231149363706056012, guid: 67ccfa2ad163dfc4ab940a396333cdec,
     type: 3}
   m_PrefabInstance: {fileID: 1847600871}
   m_PrefabAsset: {fileID: 0}

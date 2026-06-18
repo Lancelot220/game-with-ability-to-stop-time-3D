@@ -281,6 +281,54 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!1 &1804650281130520064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7231149363706056012}
+  - component: {fileID: 8613831009665056437}
+  m_Layer: 3
+  m_Name: FreeCam Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7231149363706056012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804650281130520064}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4409401331170633045}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8613831009665056437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804650281130520064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0965262b8522e8e4099f7d4f6685e3a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yFollowSpeed: 0.0001
+  yFollowSpeedFaster: 0.1
+  distanceFromSurface: 0.1
+  player: {fileID: 0}
 --- !u!1 &2061849130667950865
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,6 +809,7 @@ GameObject:
   - component: {fileID: 8813685652298020770}
   - component: {fileID: 5166675014266170956}
   - component: {fileID: 6995575062159228627}
+  - component: {fileID: 8906986479886486673}
   - component: {fileID: 8113200159893503451}
   - component: {fileID: 755582451175851380}
   - component: {fileID: 891457335023809557}
@@ -796,6 +845,7 @@ Transform:
   - {fileID: 5911800703146833401}
   - {fileID: 8098029563519855979}
   - {fileID: 6967135833977630225}
+  - {fileID: 7231149363706056012}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &3738069178834576476
@@ -907,6 +957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   stunned: 0
+  hits: 0
   orbsCollected: 0
   time: 0
   unlockedSkills: []
@@ -944,6 +995,18 @@ MonoBehaviour:
   stopTimeSound: {fileID: 8113200159893503451}
   unfreezeTimeSound: {fileID: 755582451175851380}
   effectGO: {fileID: 6431491863693815619}
+--- !u!114 &8906986479886486673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6541527069278340139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d3cdc892fbde8418c0f5aa6494f989, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &8113200159893503451
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1873,6 +1936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c2e05513c481954195860631d4d875b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onGround: 0
   prefab: {fileID: 2925248454619287629, guid: f3c6c426f7a1aba428b7fd60179ea1bb, type: 3}
   currsentSurface: 1
   grass:
