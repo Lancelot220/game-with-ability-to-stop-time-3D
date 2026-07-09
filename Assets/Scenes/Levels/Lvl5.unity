@@ -579,6 +579,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60668c10a95dc8648a40e749aeb4964e, type: 3}
+--- !u!114 &329761430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2886414833162072215, guid: 60668c10a95dc8648a40e749aeb4964e,
+    type: 3}
+  m_PrefabInstance: {fileID: 329761429}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319d2fe34a804e245819465c9505ea59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &385406411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1146,6 +1158,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 869110220}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &869110224 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3528462760960119906, guid: 6ccfd9f92746316449b1529fcca49fca,
+    type: 3}
+  m_PrefabInstance: {fileID: 869110220}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &993049902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,6 +1800,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa611a66b0a1f754da3898fca2b0e874, type: 3}
+--- !u!114 &1505117169 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8707275859940379344, guid: aa611a66b0a1f754da3898fca2b0e874,
+    type: 3}
+  m_PrefabInstance: {fileID: 1505117168}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319d2fe34a804e245819465c9505ea59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1531084233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2221,6 +2257,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3686251054911536255, guid: 67ccfa2ad163dfc4ab940a396333cdec,
+        type: 3}
+      propertyPath: aimCam
+      value: 
+      objectReference: {fileID: 1505117169}
+    - target: {fileID: 3686251054911536255, guid: 67ccfa2ad163dfc4ab940a396333cdec,
+        type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 329761430}
+    - target: {fileID: 3686251054911536255, guid: 67ccfa2ad163dfc4ab940a396333cdec,
+        type: 3}
+      propertyPath: skillsCD
+      value: 
+      objectReference: {fileID: 869110224}
     - target: {fileID: 4409401331170633045, guid: 67ccfa2ad163dfc4ab940a396333cdec,
         type: 3}
       propertyPath: m_LocalPosition.x

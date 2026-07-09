@@ -56,10 +56,6 @@ public class Attack1 : MonoBehaviour
         attack2.animator = GetComponentInChildren<Animator>();
         attack2.playerTransform = transform;
 
-        attack2.allow360 = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("360");
-        attack2.allowJumpWith360 = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("JumpWith360");
-        attack2.allowFrontflipattack = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("FrontflipAttack");
-        attack2.allowBackflip = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("Backflip");
         //if (attacking && onGround) 
 
         attack2.LateStart();
@@ -75,6 +71,11 @@ public class Attack1 : MonoBehaviour
         attack2.defaultSpeed = attack2.m.defaultSpeed;
         attack2.jumpForce = attack2.m.jumpForce;
         attack2.onGround = attack2.m.onGround;
+
+        attack2.allow360 = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("360");
+        attack2.allowJumpWith360 = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("JumpWith360");
+        attack2.allowFrontflipattack = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("FrontflipAttack");
+        attack2.allowBackflip = GetComponentInParent<PlayerStats>().unlockedSkills.Contains("Backflip");
     }
 
     void Attack(InputAction.CallbackContext context)

@@ -237,7 +237,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 87287587068231680
-    m_Localized: Tricks Menu
+    m_Localized: Skills Menu
     m_Metadata:
       m_Items: []
   - m_Id: 87306182066225152
@@ -360,10 +360,18 @@ MonoBehaviour:
     m_Localized: Close
     m_Metadata:
       m_Items: []
+  - m_Id: 240630400777502720
+    m_Localized: Save Data
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 7823976732278652930
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00b06d413b6a370000b06df71c6c370000c080400a39a601
+        m_Entries: 
+        m_SharedEntries:
+        - id: 15597926452408320
+        - id: 15599995385131008
+        - id: 118845156366532608

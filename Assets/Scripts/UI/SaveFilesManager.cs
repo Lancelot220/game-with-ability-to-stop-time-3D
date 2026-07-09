@@ -19,9 +19,11 @@ public class SaveFilesManager : MonoBehaviour
     public TextMeshProUGUI lastSaveText;
     public GameObject fileMananagementButtons;
     public GameObject fileCreationButtons;
+    public bool autoSaveFileMode = true;
 
     void OnEnable()
     {
+        if (!autoSaveFileMode)
         if (PlayerPrefs.GetString("SaveFile" + slotIndex, "") != "" &&
         File.Exists(Path.Combine(Application.persistentDataPath, PlayerPrefs.GetString("SaveFile" + slotIndex) + SaveSystem.fileExtention)))
         {
@@ -62,7 +64,7 @@ public class SaveFilesManager : MonoBehaviour
         PlayerPrefs.SetString("SaveFile" + slotIndex, fileName);
         PlayerPrefs.SetString("SaveFileName", fileName);
         SaveSystem.Save(null, new List<string>(), 0, new List<string>(), null); // Initial save with default values
-        FileExists();
+        if(!autoSaveFileMode)FileExists();
     }
 
     public void EditName(string newName)
@@ -148,4 +150,11 @@ public class SaveFilesManager : MonoBehaviour
         return baseName;
     }
 
+    public void AutoSaveFile()
+    {
+        if(!File.Exists(Path.Combine(Application.persistentDataPath, "savefile" + SaveSystem.fileExtention)))
+        {
+            CreateFile("savefile");
+        }
+    }
 }
