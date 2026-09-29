@@ -48,6 +48,7 @@ public class Menu : MonoBehaviour
             Time.timeScale = 1;
             StartCoroutine(BackToMainMenu());
             //GetComponent<LevelLoad>().LoadLevel(0); 
+            if(!GameObject.Find("Player")) return;
             Movement m = GameObject.Find("Player").GetComponent<Movement>();
             if (m != null) m.enabled = false;
             PlayerStats ps = GameObject.Find("Player").GetComponent<PlayerStats>();

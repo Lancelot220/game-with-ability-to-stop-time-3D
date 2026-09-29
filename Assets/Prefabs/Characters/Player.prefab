@@ -320,7 +320,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804650281130520064}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0965262b8522e8e4099f7d4f6685e3a1, type: 3}
   m_Name: 
@@ -329,6 +329,7 @@ MonoBehaviour:
   yFollowSpeedFaster: 0.1
   distanceFromSurface: 0.1
   player: {fileID: 0}
+  deltaY: 5
 --- !u!1 &2061849130667950865
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,6 +2105,11 @@ PrefabInstance:
         type: 3}
       propertyPath: knockbackTime
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428442631965624430, guid: 5c8c7cde0b08a234180e00152d6aac65,
+        type: 3}
+      propertyPath: skillsCooldown
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5428442631965624430, guid: 5c8c7cde0b08a234180e00152d6aac65,
         type: 3}

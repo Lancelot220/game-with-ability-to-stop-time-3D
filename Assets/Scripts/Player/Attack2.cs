@@ -342,10 +342,10 @@ public class Attack2 : MonoBehaviour
             //         print("Enemy's health left:" + enemyWithGun.health);
             //     }
             // }
-        }
-        else if (col.CompareTag("Breakable") & attacking)
-        {
-            col.gameObject.GetComponent<Breakables>().Break();
+            if (col.CompareTag("Breakable"))
+            {
+                col.gameObject.GetComponent<Breakables>().Break();
+            }
         }
     }
 
